@@ -64,6 +64,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmQuanLySach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLySach.Designer.cs">
+      <DependentUpon>FrmQuanLySach.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSignIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLySach.resx">
+      <DependentUpon>FrmQuanLySach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSignIn.resx">
       <DependentUpon>FrmSignIn.cs</DependentUpon>
