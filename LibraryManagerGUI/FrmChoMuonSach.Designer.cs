@@ -78,7 +78,7 @@
             this.btnXacNhanGiaoSach.ForeColor = System.Drawing.Color.White;
             this.btnXacNhanGiaoSach.Image = ((System.Drawing.Image)(resources.GetObject("btnXacNhanGiaoSach.Image")));
             this.btnXacNhanGiaoSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnXacNhanGiaoSach.Location = new System.Drawing.Point(623, 24);
+            this.btnXacNhanGiaoSach.Location = new System.Drawing.Point(616, 24);
             this.btnXacNhanGiaoSach.Name = "btnXacNhanGiaoSach";
             this.btnXacNhanGiaoSach.Size = new System.Drawing.Size(153, 31);
             this.btnXacNhanGiaoSach.TabIndex = 54;
