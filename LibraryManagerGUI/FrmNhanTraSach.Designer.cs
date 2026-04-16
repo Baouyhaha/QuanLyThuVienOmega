@@ -32,29 +32,29 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNhanTraSach));
             this.lblTieuDeNhanTraSach = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.btnTimKiemSach = new Guna.UI2.WinForms.Guna2Button();
             this.lblNhapMaTheDocGia = new System.Windows.Forms.Label();
             this.txtMaThe = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblHoTwnMaDocGia = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnNhanTra = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHuy = new Guna.UI2.WinForms.Guna2Button();
             this.lblHoTenDocGiaHien = new System.Windows.Forms.Label();
+            this.lblHoTwnMaDocGia = new System.Windows.Forms.Label();
             this.lblDSSachDangMuon = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblTongTIenPhat = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblHienTIenPhat = new System.Windows.Forms.Label();
-            this.btnHuy = new Guna.UI2.WinForms.Guna2Button();
-            this.btnNhanTra = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTieuDeNhanTraSach
@@ -77,6 +77,17 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(723, 111);
             this.guna2CustomGradientPanel1.TabIndex = 1;
+            // 
+            // guna2ControlBox3
+            // 
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(687, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.Size = new System.Drawing.Size(34, 24);
+            this.guna2ControlBox3.TabIndex = 6;
             // 
             // guna2BorderlessForm1
             // 
@@ -136,14 +147,52 @@
             this.panel1.Size = new System.Drawing.Size(723, 520);
             this.panel1.TabIndex = 39;
             // 
-            // lblHoTwnMaDocGia
+            // panel4
             // 
-            this.lblHoTwnMaDocGia.AutoSize = true;
-            this.lblHoTwnMaDocGia.Location = new System.Drawing.Point(24, 74);
-            this.lblHoTwnMaDocGia.Name = "lblHoTwnMaDocGia";
-            this.lblHoTwnMaDocGia.Size = new System.Drawing.Size(84, 13);
-            this.lblHoTwnMaDocGia.TabIndex = 40;
-            this.lblHoTwnMaDocGia.Text = "Họ tên độc giả: ";
+            this.panel4.Controls.Add(this.btnNhanTra);
+            this.panel4.Controls.Add(this.btnHuy);
+            this.panel4.Location = new System.Drawing.Point(0, 422);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(723, 95);
+            this.panel4.TabIndex = 55;
+            // 
+            // btnNhanTra
+            // 
+            this.btnNhanTra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNhanTra.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnNhanTra.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnNhanTra.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnNhanTra.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnNhanTra.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
+            this.btnNhanTra.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnNhanTra.ForeColor = System.Drawing.Color.White;
+            this.btnNhanTra.Image = ((System.Drawing.Image)(resources.GetObject("btnNhanTra.Image")));
+            this.btnNhanTra.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNhanTra.Location = new System.Drawing.Point(613, 24);
+            this.btnNhanTra.Name = "btnNhanTra";
+            this.btnNhanTra.Size = new System.Drawing.Size(107, 31);
+            this.btnNhanTra.TabIndex = 54;
+            this.btnNhanTra.Text = "Nhận trả";
+            this.btnNhanTra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnHuy
+            // 
+            this.btnHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHuy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHuy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHuy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHuy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHuy.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
+            this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnHuy.ForeColor = System.Drawing.Color.White;
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
+            this.btnHuy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnHuy.Location = new System.Drawing.Point(445, 24);
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(107, 31);
+            this.btnHuy.TabIndex = 53;
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblHoTenDocGiaHien
             // 
@@ -153,6 +202,15 @@
             this.lblHoTenDocGiaHien.Size = new System.Drawing.Size(156, 13);
             this.lblHoTenDocGiaHien.TabIndex = 41;
             this.lblHoTenDocGiaHien.Text = "TỰ ĐỘNG HIỆN TÊN TÁC GIẢ";
+            // 
+            // lblHoTwnMaDocGia
+            // 
+            this.lblHoTwnMaDocGia.AutoSize = true;
+            this.lblHoTwnMaDocGia.Location = new System.Drawing.Point(24, 74);
+            this.lblHoTwnMaDocGia.Name = "lblHoTwnMaDocGia";
+            this.lblHoTwnMaDocGia.Size = new System.Drawing.Size(84, 13);
+            this.lblHoTwnMaDocGia.TabIndex = 40;
+            this.lblHoTwnMaDocGia.Text = "Họ tên độc giả: ";
             // 
             // lblDSSachDangMuon
             // 
@@ -209,65 +267,6 @@
             this.lblHienTIenPhat.TabIndex = 44;
             this.lblHienTIenPhat.Text = "Hiện tổng tiền phạt";
             // 
-            // btnHuy
-            // 
-            this.btnHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHuy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnHuy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnHuy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnHuy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHuy.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
-            this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnHuy.ForeColor = System.Drawing.Color.White;
-            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnHuy.Location = new System.Drawing.Point(445, 24);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(107, 31);
-            this.btnHuy.TabIndex = 53;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btnNhanTra
-            // 
-            this.btnNhanTra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNhanTra.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnNhanTra.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnNhanTra.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnNhanTra.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnNhanTra.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
-            this.btnNhanTra.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnNhanTra.ForeColor = System.Drawing.Color.White;
-            this.btnNhanTra.Image = ((System.Drawing.Image)(resources.GetObject("btnNhanTra.Image")));
-            this.btnNhanTra.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnNhanTra.Location = new System.Drawing.Point(613, 24);
-            this.btnNhanTra.Name = "btnNhanTra";
-            this.btnNhanTra.Size = new System.Drawing.Size(107, 31);
-            this.btnNhanTra.TabIndex = 54;
-            this.btnNhanTra.Text = "Nhận trả";
-            this.btnNhanTra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // guna2ControlBox3
-            // 
-            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
-            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(687, 2);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(34, 24);
-            this.guna2ControlBox3.TabIndex = 6;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.btnNhanTra);
-            this.panel4.Controls.Add(this.btnHuy);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 462);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(723, 58);
-            this.panel4.TabIndex = 55;
-            // 
             // FrmNhanTraSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -284,12 +283,12 @@
             this.guna2CustomGradientPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
