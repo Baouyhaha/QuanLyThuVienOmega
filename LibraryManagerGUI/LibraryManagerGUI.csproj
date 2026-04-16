@@ -94,6 +94,12 @@
     <Compile Include="FrmSignIn.Designer.cs">
       <DependentUpon>FrmSignIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSuaSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSuaSach.Designer.cs">
+      <DependentUpon>FrmSuaSach.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmThemSach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSignIn.resx">
       <DependentUpon>FrmSignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSuaSach.resx">
+      <DependentUpon>FrmSuaSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmThemSach.resx">
       <DependentUpon>FrmThemSach.cs</DependentUpon>
