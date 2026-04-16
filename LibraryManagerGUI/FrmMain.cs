@@ -89,7 +89,7 @@ namespace LibraryManagerGUI
 
         private void guna2Button4_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmSignIn());
+            openChildForm(new FrmNhanTraSach());
         }
 
         private void timerSidebar_Tick(object sender, EventArgs e)

@@ -48,11 +48,13 @@
             this.btnHuy = new Guna.UI2.WinForms.Guna2Button();
             this.btnNhanTra = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTieuDeNhanTraSach
@@ -70,9 +72,10 @@
             // 
             this.guna2CustomGradientPanel1.Controls.Add(this.guna2ControlBox3);
             this.guna2CustomGradientPanel1.Controls.Add(this.lblTieuDeNhanTraSach);
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 1);
+            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(720, 111);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(723, 111);
             this.guna2CustomGradientPanel1.TabIndex = 1;
             // 
             // guna2BorderlessForm1
@@ -92,7 +95,7 @@
             this.btnTimKiemSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnTimKiemSach.ForeColor = System.Drawing.Color.White;
             this.btnTimKiemSach.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiemSach.Image")));
-            this.btnTimKiemSach.Location = new System.Drawing.Point(423, 24);
+            this.btnTimKiemSach.Location = new System.Drawing.Point(521, 24);
             this.btnTimKiemSach.Name = "btnTimKiemSach";
             this.btnTimKiemSach.Size = new System.Drawing.Size(96, 20);
             this.btnTimKiemSach.TabIndex = 38;
@@ -116,19 +119,21 @@
             this.txtMaThe.MaximumSize = new System.Drawing.Size(901, 20);
             this.txtMaThe.MinimumSize = new System.Drawing.Size(226, 20);
             this.txtMaThe.Name = "txtMaThe";
-            this.txtMaThe.Size = new System.Drawing.Size(252, 20);
+            this.txtMaThe.Size = new System.Drawing.Size(350, 20);
             this.txtMaThe.TabIndex = 36;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.lblHoTenDocGiaHien);
             this.panel1.Controls.Add(this.lblHoTwnMaDocGia);
             this.panel1.Controls.Add(this.txtMaThe);
             this.panel1.Controls.Add(this.btnTimKiemSach);
             this.panel1.Controls.Add(this.lblNhapMaTheDocGia);
-            this.panel1.Location = new System.Drawing.Point(13, 129);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 111);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(625, 123);
+            this.panel1.Size = new System.Drawing.Size(723, 520);
             this.panel1.TabIndex = 39;
             // 
             // lblHoTwnMaDocGia
@@ -162,9 +167,9 @@
             // 
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.lblDSSachDangMuon);
-            this.panel2.Location = new System.Drawing.Point(13, 282);
+            this.panel2.Location = new System.Drawing.Point(13, 245);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(625, 168);
+            this.panel2.Size = new System.Drawing.Size(710, 205);
             this.panel2.TabIndex = 42;
             // 
             // dataGridView1
@@ -172,7 +177,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(17, 26);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(591, 127);
+            this.dataGridView1.Size = new System.Drawing.Size(681, 163);
             this.dataGridView1.TabIndex = 42;
             // 
             // lblTongTIenPhat
@@ -216,7 +221,7 @@
             this.btnHuy.ForeColor = System.Drawing.Color.White;
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnHuy.Location = new System.Drawing.Point(351, 558);
+            this.btnHuy.Location = new System.Drawing.Point(445, 24);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(107, 31);
             this.btnHuy.TabIndex = 53;
@@ -235,7 +240,7 @@
             this.btnNhanTra.ForeColor = System.Drawing.Color.White;
             this.btnNhanTra.Image = ((System.Drawing.Image)(resources.GetObject("btnNhanTra.Image")));
             this.btnNhanTra.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnNhanTra.Location = new System.Drawing.Point(531, 558);
+            this.btnNhanTra.Location = new System.Drawing.Point(613, 24);
             this.btnNhanTra.Name = "btnNhanTra";
             this.btnNhanTra.Size = new System.Drawing.Size(107, 31);
             this.btnNhanTra.TabIndex = 54;
@@ -247,19 +252,27 @@
             this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(684, 2);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(687, 2);
             this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(34, 24);
             this.guna2ControlBox3.TabIndex = 6;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnNhanTra);
+            this.panel4.Controls.Add(this.btnHuy);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 462);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(723, 58);
+            this.panel4.TabIndex = 55;
             // 
             // FrmNhanTraSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(723, 631);
-            this.Controls.Add(this.btnNhanTra);
-            this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -276,6 +289,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -300,5 +314,6 @@
         private Guna.UI2.WinForms.Guna2Button btnNhanTra;
         private Guna.UI2.WinForms.Guna2Button btnHuy;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
+        private System.Windows.Forms.Panel panel4;
     }
 }
