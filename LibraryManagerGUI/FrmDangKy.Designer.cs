@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagerGUI
 {
-    partial class FrmSignIn
+    partial class FrmDangKy
     {
         /// <summary>
         /// Required designer variable.

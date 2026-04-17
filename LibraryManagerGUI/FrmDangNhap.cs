@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagerGUI
 {
-    public partial class FrmLogin : Form
+    public partial class FrmDangNhap : Form
     {
-        public FrmLogin()
+        public FrmDangNhap()
         {
             InitializeComponent();
             txtMatKhau.UseSystemPasswordChar = true;
@@ -68,7 +68,7 @@ namespace LibraryManagerGUI
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            FrmSignIn formKy = new FrmSignIn();
+            FrmDangKy formKy = new FrmDangKy();
             formKy.Show();
             this.Hide();
         }

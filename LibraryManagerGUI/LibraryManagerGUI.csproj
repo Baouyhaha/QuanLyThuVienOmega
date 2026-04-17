@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCapNhatThongTinThe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCapNhatThongTinThe.Designer.cs">
+      <DependentUpon>FrmCapNhatThongTinThe.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmChoMuonSach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,11 +70,11 @@
     <Compile Include="FrmDangKyMuonSach.Designer.cs">
       <DependentUpon>FrmDangKyMuonSach.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLogin.cs">
+    <Compile Include="FrmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <Compile Include="FrmDangNhap.Designer.cs">
+      <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -100,11 +106,11 @@
     <Compile Include="FrmQuanLySach.Designer.cs">
       <DependentUpon>FrmQuanLySach.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSignIn.cs">
+    <Compile Include="FrmDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSignIn.Designer.cs">
-      <DependentUpon>FrmSignIn.cs</DependentUpon>
+    <Compile Include="FrmDangKy.Designer.cs">
+      <DependentUpon>FrmDangKy.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSuaSach.cs">
       <SubType>Form</SubType>
@@ -120,14 +126,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCapNhatThongTinThe.resx">
+      <DependentUpon>FrmCapNhatThongTinThe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmChoMuonSach.resx">
       <DependentUpon>FrmChoMuonSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDangKyMuonSach.resx">
       <DependentUpon>FrmDangKyMuonSach.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDangNhap.resx">
+      <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -144,8 +153,8 @@
     <EmbeddedResource Include="FrmQuanLySach.resx">
       <DependentUpon>FrmQuanLySach.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSignIn.resx">
-      <DependentUpon>FrmSignIn.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDangKy.resx">
+      <DependentUpon>FrmDangKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSuaSach.resx">
       <DependentUpon>FrmSuaSach.cs</DependentUpon>

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagerGUI
 {
-    public partial class FrmSignIn : Form
+    public partial class FrmCapNhatThongTinThe : Form
     {
-        public FrmSignIn()
+        public FrmCapNhatThongTinThe()
         {
             InitializeComponent();
         }

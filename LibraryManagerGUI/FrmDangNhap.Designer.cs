@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagerGUI
 {
-    partial class FrmLogin
+    partial class FrmDangNhap
     {
         /// <summary>
         /// Required designer variable.
