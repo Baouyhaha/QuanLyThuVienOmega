@@ -29,29 +29,34 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSuaSach));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboNhaPhatHanh = new System.Windows.Forms.ComboBox();
             this.btnHuy = new Guna.UI2.WinForms.Guna2Button();
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtISBN = new System.Windows.Forms.TextBox();
-            this.txtTieuDe = new System.Windows.Forms.TextBox();
+            this.txtIsbn = new System.Windows.Forms.TextBox();
+            this.txtTenSach = new System.Windows.Forms.TextBox();
             this.txtMaSach = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.numSoLuong = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboTacGia = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cboNhaPhatHanh
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(382, 329);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(295, 24);
-            this.comboBox1.TabIndex = 86;
+            this.cboNhaPhatHanh.FormattingEnabled = true;
+            this.cboNhaPhatHanh.Location = new System.Drawing.Point(382, 371);
+            this.cboNhaPhatHanh.Name = "cboNhaPhatHanh";
+            this.cboNhaPhatHanh.Size = new System.Drawing.Size(295, 24);
+            this.cboNhaPhatHanh.TabIndex = 86;
             // 
             // btnHuy
             // 
@@ -67,13 +72,14 @@
             this.btnHuy.ForeColor = System.Drawing.Color.White;
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnHuy.Location = new System.Drawing.Point(578, 421);
+            this.btnHuy.Location = new System.Drawing.Point(578, 491);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(99, 48);
             this.btnHuy.TabIndex = 85;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // btnLuu
             // 
@@ -89,13 +95,14 @@
             this.btnLuu.ForeColor = System.Drawing.Color.White;
             this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
             this.btnLuu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnLuu.Location = new System.Drawing.Point(382, 421);
+            this.btnLuu.Location = new System.Drawing.Point(382, 491);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(99, 48);
             this.btnLuu.TabIndex = 84;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // label1
             // 
@@ -104,11 +111,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(173, 333);
+            this.label1.Location = new System.Drawing.Point(179, 371);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 20);
+            this.label1.Size = new System.Drawing.Size(142, 20);
             this.label1.TabIndex = 83;
-            this.label1.Text = "Nhà Phát Hành :";
+            this.label1.Text = "Nhà Phát Hành:";
             // 
             // label3
             // 
@@ -143,31 +150,31 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(241, 214);
+            this.label2.Location = new System.Drawing.Point(227, 212);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 20);
+            this.label2.Size = new System.Drawing.Size(94, 20);
             this.label2.TabIndex = 80;
-            this.label2.Text = "Tiêu Đề:";
+            this.label2.Text = "Tên Sách:";
             // 
-            // txtISBN
+            // txtIsbn
             // 
-            this.txtISBN.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtIsbn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtISBN.Location = new System.Drawing.Point(382, 273);
-            this.txtISBN.Name = "txtISBN";
-            this.txtISBN.Size = new System.Drawing.Size(302, 22);
-            this.txtISBN.TabIndex = 79;
+            this.txtIsbn.Location = new System.Drawing.Point(382, 273);
+            this.txtIsbn.Name = "txtIsbn";
+            this.txtIsbn.Size = new System.Drawing.Size(295, 22);
+            this.txtIsbn.TabIndex = 79;
             // 
-            // txtTieuDe
+            // txtTenSach
             // 
-            this.txtTieuDe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txtTenSach.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTieuDe.Location = new System.Drawing.Point(382, 212);
-            this.txtTieuDe.Name = "txtTieuDe";
-            this.txtTieuDe.Size = new System.Drawing.Size(302, 22);
-            this.txtTieuDe.TabIndex = 78;
+            this.txtTenSach.Location = new System.Drawing.Point(382, 212);
+            this.txtTenSach.Name = "txtTenSach";
+            this.txtTenSach.Size = new System.Drawing.Size(295, 22);
+            this.txtTenSach.TabIndex = 78;
             // 
             // txtMaSach
             // 
@@ -176,7 +183,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMaSach.Location = new System.Drawing.Point(382, 155);
             this.txtMaSach.Name = "txtMaSach";
-            this.txtMaSach.Size = new System.Drawing.Size(302, 22);
+            this.txtMaSach.Size = new System.Drawing.Size(295, 22);
             this.txtMaSach.TabIndex = 77;
             // 
             // panel1
@@ -218,27 +225,77 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "SỬA SÁCH";
             // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(161, 424);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(160, 20);
+            this.label6.TabIndex = 88;
+            this.label6.Text = "Số lượng bản sao:";
+            // 
+            // numSoLuong
+            // 
+            this.numSoLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numSoLuong.Location = new System.Drawing.Point(382, 424);
+            this.numSoLuong.Name = "numSoLuong";
+            this.numSoLuong.Size = new System.Drawing.Size(295, 22);
+            this.numSoLuong.TabIndex = 87;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(240, 315);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 20);
+            this.label7.TabIndex = 90;
+            this.label7.Text = "Tác Giả:";
+            // 
+            // cboTacGia
+            // 
+            this.cboTacGia.FormattingEnabled = true;
+            this.cboTacGia.Location = new System.Drawing.Point(382, 315);
+            this.cboTacGia.Name = "cboTacGia";
+            this.cboTacGia.Size = new System.Drawing.Size(295, 24);
+            this.cboTacGia.TabIndex = 89;
+            // 
             // FrmSuaSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(977, 586);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cboTacGia);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.numSoLuong);
+            this.Controls.Add(this.cboNhaPhatHanh);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtISBN);
-            this.Controls.Add(this.txtTieuDe);
+            this.Controls.Add(this.txtIsbn);
+            this.Controls.Add(this.txtTenSach);
             this.Controls.Add(this.txtMaSach);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmSuaSach";
             this.Text = "FrmSuaSach";
+            this.Load += new System.EventHandler(this.FrmSuaSach_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,18 +303,22 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboNhaPhatHanh;
         private Guna.UI2.WinForms.Guna2Button btnHuy;
         private Guna.UI2.WinForms.Guna2Button btnLuu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtISBN;
-        private System.Windows.Forms.TextBox txtTieuDe;
+        private System.Windows.Forms.TextBox txtIsbn;
+        private System.Windows.Forms.TextBox txtTenSach;
         private System.Windows.Forms.TextBox txtMaSach;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown numSoLuong;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cboTacGia;
     }
 }

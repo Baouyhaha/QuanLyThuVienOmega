@@ -29,9 +29,37 @@ namespace LibraryManagerDAL
                 return dt;
             }
         }
+        public DataTable getTable(string sql, SqlParameter[] parameters)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlConnection conn = getConnection())
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    // Nếu có tham số (dùng cho tìm kiếm LIKE) thì add vào đây
+                    if (parameters != null)
+                    {
+                        cmd.Parameters.AddRange(parameters);
+                    }
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Bạn có thể dùng MessageBox ở đây để soi lỗi nếu cần
+                //System.Windows.Forms.MessageBox.Show("Lỗi getTable: " + ex.Message);
+            }
+            return dt;
+        }
+
 
         // Hàm thực thi lệnh (Dành cho INSERT, UPDATE, DELETE)
-        public bool executeNonQuery(string sql)
+        public bool executeNonQuery(string sql) // Dùng cho các câu lệnh không có tham số
         {
             try
             {
@@ -48,5 +76,30 @@ namespace LibraryManagerDAL
                 return false;
             }
         }
+        public bool executeNonQuery(string sql, SqlParameter[] parameters)// Dùng cho các câu lệnh có tham số
+        {
+            try
+            {
+                using (SqlConnection conn = getConnection())
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    // Nếu có truyền tham số vào thì add nó vào Command
+                    if (parameters != null)
+                    {
+                        cmd.Parameters.AddRange(parameters);
+                    }
+
+                    int check = cmd.ExecuteNonQuery();
+                    return check > 0;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

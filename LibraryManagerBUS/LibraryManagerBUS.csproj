@@ -48,7 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="NhaPhatHanhBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SachBUS.cs" />
+    <Compile Include="TacGiaBUS.cs" />
     <Compile Include="TaiKhoanBUS.cs" />
   </ItemGroup>
   <ItemGroup>

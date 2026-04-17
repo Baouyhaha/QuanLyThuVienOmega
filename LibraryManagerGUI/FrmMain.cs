@@ -84,7 +84,7 @@ namespace LibraryManagerGUI
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmDangKyMuonSach());
+            openChildForm(new FrmQuanLySach());
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)

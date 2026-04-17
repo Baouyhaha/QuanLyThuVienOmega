@@ -13,7 +13,7 @@ namespace LibraryManagerDTO
         public int maNhaPhatHanh { get; set; }
         public string isbn { get; set; }
         public int soLuongHienCo {  get; set; }
-
+        public int maTacGia { get; set; }
     }
 
 }
