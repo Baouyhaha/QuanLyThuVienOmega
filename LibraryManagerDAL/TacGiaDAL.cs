@@ -15,7 +15,7 @@ namespace LibraryManagerDAL
         public DataTable LayDanhSachTacGia()
         {
             string sql = "SELECT maTacGia, tenTacGia FROM tacgia";
-            return dbHelper.getTable(sql);
+            return DbHelper.getTable(sql);
         }
     }
 }

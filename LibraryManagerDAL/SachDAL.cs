@@ -13,7 +13,7 @@ namespace LibraryManagerDAL
     public class SachDAL
     {
         //1. Khởi tạo đối tượng DbHelper 
-        private DbHelper dbHelper = new DbHelper(); // dung truc tiep, khong can the nay nú
+        //private DbHelper dbHelper = new DbHelper(); // dung truc tiep, khong can the nay nú
 
         public DataTable LayTatCaSach()
         {
@@ -36,7 +36,7 @@ namespace LibraryManagerDAL
                 ) tg ON s.maSach = tg.maSach";
 
             //2. Sử dụng hàm getTable() TỪ DBHELPER 
-            return dbHelper.getTable(query);
+            return DbHelper.getTable(query);
         }
         public bool ThemSach(SachDTO sach)
         {
@@ -54,7 +54,7 @@ namespace LibraryManagerDAL
             };
 
             // Chạy lệnh thêm Sách
-            bool themSachThanhCong = dbHelper.executeNonQuery(sqlSach, prmsSach);
+            bool themSachThanhCong = DbHelper.executeNonQuery(sqlSach, prmsSach);
 
             // 2. NẾU THÊM SÁCH THÀNH CÔNG -> THÊM TIẾP VÀO BẢNG CHI TIẾT TÁC GIẢ
             if (themSachThanhCong)
@@ -69,7 +69,7 @@ namespace LibraryManagerDAL
                 };
 
                 // Chạy lệnh thêm Chi tiết tác giả
-                return dbHelper.executeNonQuery(sqlTacGia, prmsTacGia);
+                return DbHelper.executeNonQuery(sqlTacGia, prmsTacGia);
             }
 
             // Nếu thêm sách thất bại thì trả về false luôn
@@ -91,7 +91,7 @@ namespace LibraryManagerDAL
         new SqlParameter("@soLuong", sach.soLuongHienCo)
     };
 
-            bool capNhatSachThanhCong = dbHelper.executeNonQuery(sqlSach, prmsSach);
+            bool capNhatSachThanhCong = DbHelper.executeNonQuery(sqlSach, prmsSach);
 
             // 2. NẾU CẬP NHẬT SÁCH THÀNH CÔNG -> XỬ LÝ BẢNG `chitiettacgia`
             if (capNhatSachThanhCong)
@@ -99,7 +99,7 @@ namespace LibraryManagerDAL
                 // Thuật toán: Xóa liên kết cũ và Tạo liên kết mới (để tránh lỗi trùng lặp khóa chính)
                 string sqlXoa = "DELETE FROM chitiettacgia WHERE maSach = @maSach";
                 SqlParameter[] prmsXoa = { new SqlParameter("@maSach", sach.maSach) };
-                dbHelper.executeNonQuery(sqlXoa, prmsXoa);
+                DbHelper.executeNonQuery(sqlXoa, prmsXoa);
 
                 // Thêm tác giả mới (từ ComboBox mà người dùng vừa chọn lại)
                 string sqlThemMoi = "INSERT INTO chitiettacgia (maSach, maTacGia) VALUES (@maSach, @maTacGia)";
@@ -108,7 +108,7 @@ namespace LibraryManagerDAL
         new SqlParameter("@maTacGia", sach.maTacGia)
             };
 
-                return dbHelper.executeNonQuery(sqlThemMoi, prmsThem);
+                return DbHelper.executeNonQuery(sqlThemMoi, prmsThem);
             }
 
             return false;
@@ -118,13 +118,13 @@ namespace LibraryManagerDAL
             // 1. Xóa trong bảng trung gian (Chi tiết tác giả) trước để gỡ bỏ ràng buộc khóa ngoại
             string sqlTacGia = "DELETE FROM chitiettacgia WHERE maSach = @ma";
             SqlParameter[] prm = { new SqlParameter("@ma", maSach) };
-            dbHelper.executeNonQuery(sqlTacGia, prm);
+            DbHelper.executeNonQuery(sqlTacGia, prm);
 
             // 2. Sau đó mới xóa cuốn sách trong bảng chính
             string sqlSach = "DELETE FROM sach WHERE maSach = @ma";
             SqlParameter[] prm2 = { new SqlParameter("@ma", maSach) };
 
-            return dbHelper.executeNonQuery(sqlSach, prm2);
+            return DbHelper.executeNonQuery(sqlSach, prm2);
         }
         public DataTable TimKiemSach(string keyword)
         {
@@ -146,7 +146,7 @@ namespace LibraryManagerDAL
         new SqlParameter("@key", "%" + keyword + "%")
     };
 
-            return dbHelper.getTable(sql, prms);
+            return DbHelper.getTable(sql, prms);
         }
     }
 }

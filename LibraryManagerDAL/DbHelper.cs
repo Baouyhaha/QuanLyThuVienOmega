@@ -6,20 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryManagerDAL
+namespace LibraryManagerDAO
 {
     public class DbHelper
     {
-        private string strConn = @"Data Source=.;Initial Catalog=QuanLyThuVien;Integrated Security=True;";
+        public static string strConn = @"Data Source=.;Initial Catalog=QuanLyThuVien;Integrated Security=True;";
 
         // Hàm mở kết nối
-        public SqlConnection getConnection()
+        public static SqlConnection getConnection()
         {
             return new SqlConnection(strConn);
         }
 
         // Hàm lấy dữ liệu (Dành cho câu lệnh SELECT)
-        public DataTable getTable(string sql)
+        public static DataTable getTable(string sql)   
         {
             using (SqlConnection conn = getConnection())
             {
@@ -29,7 +29,7 @@ namespace LibraryManagerDAL
                 return dt;
             }
         }
-        public DataTable getTable(string sql, SqlParameter[] parameters)
+        public static DataTable getTable(string sql, SqlParameter[] parameters)
         {
             DataTable dt = new DataTable();
             try
@@ -59,7 +59,7 @@ namespace LibraryManagerDAL
 
 
         // Hàm thực thi lệnh (Dành cho INSERT, UPDATE, DELETE)
-        public bool executeNonQuery(string sql) // Dùng cho các câu lệnh không có tham số
+        public static bool executeNonQuery(string sql) // Dùng cho các câu lệnh không có tham số
         {
             try
             {
@@ -76,7 +76,7 @@ namespace LibraryManagerDAL
                 return false;
             }
         }
-        public bool executeNonQuery(string sql, SqlParameter[] parameters)// Dùng cho các câu lệnh có tham số
+        public static bool executeNonQuery(string sql, SqlParameter[] parameters)// Dùng cho các câu lệnh có tham số
         {
             try
             {
