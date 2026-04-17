@@ -52,6 +52,9 @@
     <Compile Include="TheMuonBUS.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\LibraryManagerDAL\LibraryManagerDAL.csproj">
       <Project>{a8a271e6-25e8-49ae-a441-e8a42294801c}</Project>
       <Name>LibraryManagerDAL</Name>
@@ -60,9 +63,6 @@
       <Project>{665d756a-4e80-441c-adf8-91d86abe4965}</Project>
       <Name>LibraryManagerDTO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
