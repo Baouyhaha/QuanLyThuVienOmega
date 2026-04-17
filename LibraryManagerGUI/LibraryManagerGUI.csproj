@@ -191,10 +191,6 @@
       <Project>{a3aad16f-401c-4f82-bb0e-57da33a1f0a8}</Project>
       <Name>LibraryManagerBUS</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LibraryManagerDAL\LibraryManagerDAO.csproj">
-      <Project>{a8a271e6-25e8-49ae-a441-e8a42294801c}</Project>
-      <Name>LibraryManagerDAO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LibraryManagerDTO\LibraryManagerDTO.csproj">
       <Project>{665d756a-4e80-441c-adf8-91d86abe4965}</Project>
       <Name>LibraryManagerDTO</Name>

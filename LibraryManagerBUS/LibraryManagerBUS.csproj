@@ -47,14 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaiKhoanBUS.cs" />
+    <Compile Include="TheMuonBUS.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibraryManagerDAL\LibraryManagerDAO.csproj">
+    <ProjectReference Include="..\LibraryManagerDAL\LibraryManagerDAL.csproj">
       <Project>{a8a271e6-25e8-49ae-a441-e8a42294801c}</Project>
-      <Name>LibraryManagerDAO</Name>
+      <Name>LibraryManagerDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibraryManagerDTO\LibraryManagerDTO.csproj">
       <Project>{665d756a-4e80-441c-adf8-91d86abe4965}</Project>
