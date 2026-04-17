@@ -50,7 +50,6 @@
     <Compile Include="BanSaoSachDTO.cs" />
     <Compile Include="ChiTietMuonSachDTO.cs" />
     <Compile Include="ChiTietTacGiaDTO.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="NguoiMuonDTO.cs" />
     <Compile Include="PhieuDocTaiCho.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -59,7 +59,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 64);
             this.panel1.TabIndex = 24;
@@ -71,7 +71,7 @@
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox3.Location = new System.Drawing.Point(764, 10);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(34, 24);
             this.guna2ControlBox3.TabIndex = 45;
@@ -150,7 +150,7 @@
             this.dgvKhoSach.Location = new System.Drawing.Point(0, 0);
             this.dgvKhoSach.Name = "dgvKhoSach";
             this.dgvKhoSach.RowHeadersWidth = 51;
-            this.dgvKhoSach.Size = new System.Drawing.Size(583, 386);
+            this.dgvKhoSach.Size = new System.Drawing.Size(583, 491);
             this.dgvKhoSach.TabIndex = 0;
             this.dgvKhoSach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhoSach_CellContentClick_1);
             // 
@@ -160,7 +160,7 @@
             this.panelKhoSach.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelKhoSach.Location = new System.Drawing.Point(0, 64);
             this.panelKhoSach.Name = "panelKhoSach";
-            this.panelKhoSach.Size = new System.Drawing.Size(583, 386);
+            this.panelKhoSach.Size = new System.Drawing.Size(583, 491);
             this.panelKhoSach.TabIndex = 33;
             this.panelKhoSach.Paint += new System.Windows.Forms.PaintEventHandler(this.panelKhoSach_Paint);
             // 
@@ -239,7 +239,7 @@
             this.panelGioSach.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelGioSach.Location = new System.Drawing.Point(583, 64);
             this.panelGioSach.Name = "panelGioSach";
-            this.panelGioSach.Size = new System.Drawing.Size(217, 386);
+            this.panelGioSach.Size = new System.Drawing.Size(217, 491);
             this.panelGioSach.TabIndex = 32;
             this.panelGioSach.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGioSach_Paint);
             // 
@@ -248,7 +248,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 555);
             this.Controls.Add(this.panelTimKiem);
             this.Controls.Add(this.panelKhoSach);
             this.Controls.Add(this.panelGioSach);
