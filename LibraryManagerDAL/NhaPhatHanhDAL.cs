@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryManagerDAO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace LibraryManagerDAL
             {
                 // Lấy Mã và Tên từ bảng nhaphathanh
                 string sql = "SELECT maNhaPhatHanh, tenNhaPhatHanh FROM nhaphathanh";
-                return dbHelper.getTable(sql);
+            return dbHelper.getTable(sql);
             }
     }
 }

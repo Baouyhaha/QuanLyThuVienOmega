@@ -1,4 +1,5 @@
-﻿using LibraryManagerDTO;
+﻿using LibraryManagerDAO;
+using LibraryManagerDTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,7 +13,7 @@ namespace LibraryManagerDAL
     public class SachDAL
     {
         //1. Khởi tạo đối tượng DbHelper 
-        private DbHelper dbHelper = new DbHelper();
+        private DbHelper dbHelper = new DbHelper(); // dung truc tiep, khong can the nay nú
 
         public DataTable LayTatCaSach()
         {

@@ -170,6 +170,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -186,13 +187,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\close-eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\LibraryManagerBUS\LibraryManagerBUS.csproj">
       <Project>{a3aad16f-401c-4f82-bb0e-57da33a1f0a8}</Project>
       <Name>LibraryManagerBUS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LibraryManagerDAL\LibraryManagerDAL.csproj">
-      <Project>{a8a271e6-25e8-49ae-a441-e8a42294801c}</Project>
-      <Name>LibraryManagerDAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\LibraryManagerDTO\LibraryManagerDTO.csproj">
       <Project>{665d756a-4e80-441c-adf8-91d86abe4965}</Project>
