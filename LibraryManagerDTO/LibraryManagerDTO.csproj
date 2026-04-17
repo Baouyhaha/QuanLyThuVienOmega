@@ -57,6 +57,7 @@
     <Compile Include="SachDTO.cs" />
     <Compile Include="TacGiaDTO.cs" />
     <Compile Include="TaiKhoanDTO.cs" />
+    <Compile Include="TaiKhoanSession.cs" />
     <Compile Include="TheMuonDTO.cs" />
     <Compile Include="ThongTinMuonTraSach.cs" />
     <Compile Include="ThuThuDTO.cs" />
