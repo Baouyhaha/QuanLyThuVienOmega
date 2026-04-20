@@ -69,5 +69,10 @@ namespace LibraryManagerBUS
         {
             return sachDAL.TimKiemSach(keyword);
         }
+        public DataTable GetDanhSachSachFrmTimKiem()
+        {
+            // Gọi hàm GetDanhSachSachtimKiem() từ DAL
+            return sachDAL.GetDanhSachSachtimKiem();
+        }
     }
 }

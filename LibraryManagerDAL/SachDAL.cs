@@ -148,5 +148,45 @@ namespace LibraryManagerDAL
 
             return DbHelper.getTable(sql, prms);
         }
+        public DataTable GetDanhSachSachtimKiem()
+        {
+
+            DataTable dt = new DataTable();
+
+            // Chỉ lấy đúng 4 thông tin: Tên sách, Tên tác giả, Tên NXB, và Giá
+            string query = @"
+    SELECT 
+        s.maSach AS [Mã Sách], 
+        s.tenSach AS [Tên Sách], 
+        tg.tenTacGia AS [Tác Giả], 
+        nxb.tenNhaPhatHanh AS [Nhà Xuất Bản], 
+        MAX(bss.gia) AS [Giá]
+    FROM sach s
+    INNER JOIN nhaphathanh nxb ON s.maNhaPhatHanh = nxb.maNhaPhatHanh
+    INNER JOIN chitiettacgia ct ON s.maSach = ct.maSach
+    INNER JOIN tacgia tg ON ct.maTacGia = tg.maTacGia
+    LEFT JOIN bansaosach bss ON s.maSach = bss.maSach
+    GROUP BY 
+        s.maSach, -- Dòng này được thêm vào để sửa lỗi nè
+        s.tenSach, 
+        tg.tenTacGia, 
+        nxb.tenNhaPhatHanh";
+
+            using (SqlConnection conn = DbHelper.getConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            return dt;
+        }
     }
 }
