@@ -36,6 +36,10 @@
             this.btnChucNang = new Guna.UI2.WinForms.Guna2Button();
             this.btnQuanLySach = new Guna.UI2.WinForms.Guna2Button();
             this.btnQuanLyThe = new Guna.UI2.WinForms.Guna2Button();
+            this.btnQuayMuonTra = new Guna.UI2.WinForms.Guna2Button();
+            this.btnGioSach = new Guna.UI2.WinForms.Guna2Button();
+            this.btnLichSuMuon = new Guna.UI2.WinForms.Guna2Button();
+            this.btnTimKiemSach = new Guna.UI2.WinForms.Guna2Button();
             this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.btnThongTin = new Guna.UI2.WinForms.Guna2Button();
             this.btnCaiDat = new Guna.UI2.WinForms.Guna2Button();
@@ -47,14 +51,11 @@
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.timerSidebar = new System.Windows.Forms.Timer(this.components);
             this.lblXinChao = new System.Windows.Forms.Label();
-            this.btnQuayMuonTra = new Guna.UI2.WinForms.Guna2Button();
+            this.timerSidebar = new System.Windows.Forms.Timer(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.btnGioSach = new Guna.UI2.WinForms.Guna2Button();
-            this.btnLichSuMuon = new Guna.UI2.WinForms.Guna2Button();
-            this.btnTimKiemSach = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDangKyMuonSach = new Guna.UI2.WinForms.Guna2Button();
             this.panelSubMenu_ChucNang.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMenu)).BeginInit();
@@ -81,6 +82,7 @@
             this.panelSubMenu_ChucNang.Controls.Add(this.btnGioSach);
             this.panelSubMenu_ChucNang.Controls.Add(this.btnLichSuMuon);
             this.panelSubMenu_ChucNang.Controls.Add(this.btnTimKiemSach);
+            this.panelSubMenu_ChucNang.Controls.Add(this.btnDangKyMuonSach);
             this.panelSubMenu_ChucNang.Location = new System.Drawing.Point(381, 55);
             this.panelSubMenu_ChucNang.Name = "panelSubMenu_ChucNang";
             this.panelSubMenu_ChucNang.Size = new System.Drawing.Size(232, 504);
@@ -147,6 +149,86 @@
             this.btnQuanLyThe.TabIndex = 5;
             this.btnQuanLyThe.Text = "Quản lý thẻ";
             this.btnQuanLyThe.Click += new System.EventHandler(this.guna2Button4_Click);
+            // 
+            // btnQuayMuonTra
+            // 
+            this.btnQuayMuonTra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnQuayMuonTra.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnQuayMuonTra.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnQuayMuonTra.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnQuayMuonTra.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnQuayMuonTra.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnQuayMuonTra.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnQuayMuonTra.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnQuayMuonTra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.btnQuayMuonTra.Image = ((System.Drawing.Image)(resources.GetObject("btnQuayMuonTra.Image")));
+            this.btnQuayMuonTra.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQuayMuonTra.Location = new System.Drawing.Point(3, 165);
+            this.btnQuayMuonTra.Name = "btnQuayMuonTra";
+            this.btnQuayMuonTra.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnQuayMuonTra.Size = new System.Drawing.Size(201, 39);
+            this.btnQuayMuonTra.TabIndex = 6;
+            this.btnQuayMuonTra.Text = "Quản lý mượn trả";
+            // 
+            // btnGioSach
+            // 
+            this.btnGioSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnGioSach.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnGioSach.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnGioSach.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnGioSach.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnGioSach.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGioSach.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnGioSach.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnGioSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.btnGioSach.Image = ((System.Drawing.Image)(resources.GetObject("btnGioSach.Image")));
+            this.btnGioSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnGioSach.Location = new System.Drawing.Point(3, 210);
+            this.btnGioSach.Name = "btnGioSach";
+            this.btnGioSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnGioSach.Size = new System.Drawing.Size(201, 39);
+            this.btnGioSach.TabIndex = 7;
+            this.btnGioSach.Text = "Giỏ sách";
+            // 
+            // btnLichSuMuon
+            // 
+            this.btnLichSuMuon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnLichSuMuon.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLichSuMuon.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLichSuMuon.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLichSuMuon.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLichSuMuon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLichSuMuon.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnLichSuMuon.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLichSuMuon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.btnLichSuMuon.Image = ((System.Drawing.Image)(resources.GetObject("btnLichSuMuon.Image")));
+            this.btnLichSuMuon.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLichSuMuon.Location = new System.Drawing.Point(3, 255);
+            this.btnLichSuMuon.Name = "btnLichSuMuon";
+            this.btnLichSuMuon.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnLichSuMuon.Size = new System.Drawing.Size(201, 39);
+            this.btnLichSuMuon.TabIndex = 8;
+            this.btnLichSuMuon.Text = "lịch sử mượn";
+            // 
+            // btnTimKiemSach
+            // 
+            this.btnTimKiemSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnTimKiemSach.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTimKiemSach.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTimKiemSach.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTimKiemSach.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTimKiemSach.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTimKiemSach.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnTimKiemSach.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnTimKiemSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.btnTimKiemSach.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiemSach.Image")));
+            this.btnTimKiemSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTimKiemSach.Location = new System.Drawing.Point(3, 300);
+            this.btnTimKiemSach.Name = "btnTimKiemSach";
+            this.btnTimKiemSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnTimKiemSach.Size = new System.Drawing.Size(201, 39);
+            this.btnTimKiemSach.TabIndex = 9;
+            this.btnTimKiemSach.Text = "Tìm kiếm sách";
             // 
             // btnDangXuat
             // 
@@ -291,11 +373,6 @@
             this.panel1.Size = new System.Drawing.Size(1067, 53);
             this.panel1.TabIndex = 0;
             // 
-            // timerSidebar
-            // 
-            this.timerSidebar.Interval = 10;
-            this.timerSidebar.Tick += new System.EventHandler(this.timerSidebar_Tick);
-            // 
             // lblXinChao
             // 
             this.lblXinChao.AutoSize = true;
@@ -306,25 +383,10 @@
             this.lblXinChao.TabIndex = 2;
             this.lblXinChao.Text = "Đây là tittle vai trò";
             // 
-            // btnQuayMuonTra
+            // timerSidebar
             // 
-            this.btnQuayMuonTra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
-            this.btnQuayMuonTra.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnQuayMuonTra.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnQuayMuonTra.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnQuayMuonTra.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnQuayMuonTra.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnQuayMuonTra.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
-            this.btnQuayMuonTra.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnQuayMuonTra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnQuayMuonTra.Image = ((System.Drawing.Image)(resources.GetObject("btnQuayMuonTra.Image")));
-            this.btnQuayMuonTra.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnQuayMuonTra.Location = new System.Drawing.Point(3, 165);
-            this.btnQuayMuonTra.Name = "btnQuayMuonTra";
-            this.btnQuayMuonTra.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnQuayMuonTra.Size = new System.Drawing.Size(201, 39);
-            this.btnQuayMuonTra.TabIndex = 6;
-            this.btnQuayMuonTra.Text = "Quản lý mượn trả";
+            this.timerSidebar.Interval = 10;
+            this.timerSidebar.Tick += new System.EventHandler(this.timerSidebar_Tick);
             // 
             // guna2DragControl1
             // 
@@ -338,65 +400,26 @@
             this.guna2DragControl2.TargetControl = this;
             this.guna2DragControl2.UseTransparentDrag = true;
             // 
-            // btnGioSach
+            // btnDangKyMuonSach
             // 
-            this.btnGioSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
-            this.btnGioSach.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnGioSach.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnGioSach.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnGioSach.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnGioSach.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGioSach.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
-            this.btnGioSach.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnGioSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnGioSach.Image = ((System.Drawing.Image)(resources.GetObject("btnGioSach.Image")));
-            this.btnGioSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnGioSach.Location = new System.Drawing.Point(3, 210);
-            this.btnGioSach.Name = "btnGioSach";
-            this.btnGioSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnGioSach.Size = new System.Drawing.Size(201, 39);
-            this.btnGioSach.TabIndex = 7;
-            this.btnGioSach.Text = "Giỏ sách";
-            // 
-            // btnLichSuMuon
-            // 
-            this.btnLichSuMuon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
-            this.btnLichSuMuon.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLichSuMuon.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnLichSuMuon.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnLichSuMuon.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLichSuMuon.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLichSuMuon.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
-            this.btnLichSuMuon.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnLichSuMuon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnLichSuMuon.Image = ((System.Drawing.Image)(resources.GetObject("btnLichSuMuon.Image")));
-            this.btnLichSuMuon.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnLichSuMuon.Location = new System.Drawing.Point(3, 255);
-            this.btnLichSuMuon.Name = "btnLichSuMuon";
-            this.btnLichSuMuon.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnLichSuMuon.Size = new System.Drawing.Size(201, 39);
-            this.btnLichSuMuon.TabIndex = 8;
-            this.btnLichSuMuon.Text = "lịch sử mượn";
-            // 
-            // btnTimKiemSach
-            // 
-            this.btnTimKiemSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
-            this.btnTimKiemSach.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTimKiemSach.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTimKiemSach.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTimKiemSach.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTimKiemSach.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTimKiemSach.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
-            this.btnTimKiemSach.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnTimKiemSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnTimKiemSach.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiemSach.Image")));
-            this.btnTimKiemSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTimKiemSach.Location = new System.Drawing.Point(3, 300);
-            this.btnTimKiemSach.Name = "btnTimKiemSach";
-            this.btnTimKiemSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnTimKiemSach.Size = new System.Drawing.Size(201, 39);
-            this.btnTimKiemSach.TabIndex = 9;
-            this.btnTimKiemSach.Text = "Tìm kiếm sách";
+            this.btnDangKyMuonSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnDangKyMuonSach.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangKyMuonSach.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangKyMuonSach.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDangKyMuonSach.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDangKyMuonSach.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDangKyMuonSach.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnDangKyMuonSach.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDangKyMuonSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.btnDangKyMuonSach.Image = ((System.Drawing.Image)(resources.GetObject("btnDangKyMuonSach.Image")));
+            this.btnDangKyMuonSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDangKyMuonSach.Location = new System.Drawing.Point(3, 345);
+            this.btnDangKyMuonSach.Name = "btnDangKyMuonSach";
+            this.btnDangKyMuonSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnDangKyMuonSach.Size = new System.Drawing.Size(201, 39);
+            this.btnDangKyMuonSach.TabIndex = 10;
+            this.btnDangKyMuonSach.Text = "Đăng ký mượn sách";
+            this.btnDangKyMuonSach.Click += new System.EventHandler(this.btnDangKyMuonSach_Click);
             // 
             // FrmMain
             // 
@@ -447,5 +470,6 @@
         private Guna.UI2.WinForms.Guna2Button btnGioSach;
         private Guna.UI2.WinForms.Guna2Button btnLichSuMuon;
         private Guna.UI2.WinForms.Guna2Button btnTimKiemSach;
+        private Guna.UI2.WinForms.Guna2Button btnDangKyMuonSach;
     }
 }

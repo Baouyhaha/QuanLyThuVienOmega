@@ -229,5 +229,10 @@ namespace LibraryManagerGUI
 
             //chieuCaoMucTieu += 5; 
         }
+
+        private void btnDangKyMuonSach_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmDangKyMuonSach());
+        }
     }
 }

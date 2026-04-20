@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSuaSach));
             this.cboNhaPhatHanh = new System.Windows.Forms.ComboBox();
             this.btnHuy = new Guna.UI2.WinForms.Guna2Button();
@@ -36,7 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelSuaSach = new System.Windows.Forms.Panel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,17 +47,20 @@
             this.txtMaSach = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTenSach = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtIsbn = new Guna.UI2.WinForms.Guna2TextBox();
-            this.panel1.SuspendLayout();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.panelSuaSach.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
             this.SuspendLayout();
             // 
             // cboNhaPhatHanh
             // 
+            this.cboNhaPhatHanh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboNhaPhatHanh.FormattingEnabled = true;
-            this.cboNhaPhatHanh.Location = new System.Drawing.Point(286, 301);
-            this.cboNhaPhatHanh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboNhaPhatHanh.Location = new System.Drawing.Point(381, 370);
+            this.cboNhaPhatHanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboNhaPhatHanh.Name = "cboNhaPhatHanh";
-            this.cboNhaPhatHanh.Size = new System.Drawing.Size(222, 21);
+            this.cboNhaPhatHanh.Size = new System.Drawing.Size(295, 24);
             this.cboNhaPhatHanh.TabIndex = 86;
             // 
             // btnHuy
@@ -73,9 +77,10 @@
             this.btnHuy.ForeColor = System.Drawing.Color.White;
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnHuy.Location = new System.Drawing.Point(434, 399);
+            this.btnHuy.Location = new System.Drawing.Point(579, 491);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(74, 39);
+            this.btnHuy.Size = new System.Drawing.Size(99, 48);
             this.btnHuy.TabIndex = 85;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -95,9 +100,10 @@
             this.btnLuu.ForeColor = System.Drawing.Color.White;
             this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
             this.btnLuu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnLuu.Location = new System.Drawing.Point(286, 399);
+            this.btnLuu.Location = new System.Drawing.Point(381, 491);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(74, 39);
+            this.btnLuu.Size = new System.Drawing.Size(99, 48);
             this.btnLuu.TabIndex = 84;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -110,10 +116,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(134, 301);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(179, 370);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 17);
+            this.label1.Size = new System.Drawing.Size(142, 20);
             this.label1.TabIndex = 83;
             this.label1.Text = "Nhà Phát Hành:";
             // 
@@ -124,10 +129,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(175, 128);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(233, 158);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 17);
+            this.label3.Size = new System.Drawing.Size(88, 20);
             this.label3.TabIndex = 82;
             this.label3.Text = "Mã Sách:";
             // 
@@ -138,10 +142,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(197, 223);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(263, 274);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 17);
+            this.label5.Size = new System.Drawing.Size(58, 20);
             this.label5.TabIndex = 81;
             this.label5.Text = "ISBN:";
             // 
@@ -152,34 +155,34 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(170, 172);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(227, 212);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 17);
+            this.label2.Size = new System.Drawing.Size(94, 20);
             this.label2.TabIndex = 80;
             this.label2.Text = "Tên Sách:";
             // 
-            // panel1
+            // panelSuaSach
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.panel1.Controls.Add(this.guna2ControlBox3);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(733, 64);
-            this.panel1.TabIndex = 76;
+            this.panelSuaSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.panelSuaSach.Controls.Add(this.guna2ControlBox3);
+            this.panelSuaSach.Controls.Add(this.label4);
+            this.panelSuaSach.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSuaSach.ForeColor = System.Drawing.Color.White;
+            this.panelSuaSach.Location = new System.Drawing.Point(0, 0);
+            this.panelSuaSach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelSuaSach.Name = "panelSuaSach";
+            this.panelSuaSach.Size = new System.Drawing.Size(977, 79);
+            this.panelSuaSach.TabIndex = 76;
             // 
             // guna2ControlBox3
             // 
             this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(699, 0);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(932, 0);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(34, 24);
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 30);
             this.guna2ControlBox3.TabIndex = 76;
             // 
             // label4
@@ -191,10 +194,9 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(94)))), ((int)(((byte)(34)))));
-            this.label4.Location = new System.Drawing.Point(310, 26);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(413, 32);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 18);
+            this.label4.Size = new System.Drawing.Size(113, 24);
             this.label4.TabIndex = 2;
             this.label4.Text = "SỬA SÁCH";
             // 
@@ -205,22 +207,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(121, 344);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(161, 423);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 17);
+            this.label6.Size = new System.Drawing.Size(160, 20);
             this.label6.TabIndex = 88;
             this.label6.Text = "Số lượng bản sao:";
             // 
             // numSoLuong
             // 
-            this.numSoLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.numSoLuong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numSoLuong.Location = new System.Drawing.Point(286, 344);
-            this.numSoLuong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numSoLuong.Location = new System.Drawing.Point(381, 423);
+            this.numSoLuong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numSoLuong.Name = "numSoLuong";
-            this.numSoLuong.Size = new System.Drawing.Size(221, 20);
+            this.numSoLuong.Size = new System.Drawing.Size(295, 22);
             this.numSoLuong.TabIndex = 87;
             // 
             // label7
@@ -230,25 +230,27 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(180, 256);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(240, 315);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 17);
+            this.label7.Size = new System.Drawing.Size(81, 20);
             this.label7.TabIndex = 90;
             this.label7.Text = "Tác Giả:";
             // 
             // cboTacGia
             // 
+            this.cboTacGia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboTacGia.FormattingEnabled = true;
-            this.cboTacGia.Location = new System.Drawing.Point(286, 256);
-            this.cboTacGia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboTacGia.Location = new System.Drawing.Point(381, 315);
+            this.cboTacGia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboTacGia.Name = "cboTacGia";
-            this.cboTacGia.Size = new System.Drawing.Size(222, 21);
+            this.cboTacGia.Size = new System.Drawing.Size(295, 24);
             this.cboTacGia.TabIndex = 89;
             // 
             // txtMaSach
             // 
-            this.txtMaSach.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMaSach.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMaSach.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMaSach.DefaultText = "";
             this.txtMaSach.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -258,17 +260,18 @@
             this.txtMaSach.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMaSach.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaSach.Location = new System.Drawing.Point(286, 128);
-            this.txtMaSach.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtMaSach.Location = new System.Drawing.Point(381, 158);
+            this.txtMaSach.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaSach.Name = "txtMaSach";
             this.txtMaSach.PlaceholderText = "";
             this.txtMaSach.SelectedText = "";
-            this.txtMaSach.Size = new System.Drawing.Size(222, 21);
+            this.txtMaSach.Size = new System.Drawing.Size(296, 26);
             this.txtMaSach.TabIndex = 91;
             // 
             // txtTenSach
             // 
-            this.txtTenSach.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTenSach.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenSach.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenSach.DefaultText = "";
             this.txtTenSach.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -278,17 +281,18 @@
             this.txtTenSach.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTenSach.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenSach.Location = new System.Drawing.Point(286, 172);
-            this.txtTenSach.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtTenSach.Location = new System.Drawing.Point(381, 212);
+            this.txtTenSach.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenSach.Name = "txtTenSach";
             this.txtTenSach.PlaceholderText = "";
             this.txtTenSach.SelectedText = "";
-            this.txtTenSach.Size = new System.Drawing.Size(221, 21);
+            this.txtTenSach.Size = new System.Drawing.Size(295, 26);
             this.txtTenSach.TabIndex = 92;
             // 
             // txtIsbn
             // 
-            this.txtIsbn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtIsbn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIsbn.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtIsbn.DefaultText = "";
             this.txtIsbn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -298,19 +302,25 @@
             this.txtIsbn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtIsbn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtIsbn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIsbn.Location = new System.Drawing.Point(285, 219);
-            this.txtIsbn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtIsbn.Location = new System.Drawing.Point(380, 270);
+            this.txtIsbn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIsbn.Name = "txtIsbn";
             this.txtIsbn.PlaceholderText = "";
             this.txtIsbn.SelectedText = "";
-            this.txtIsbn.Size = new System.Drawing.Size(222, 21);
+            this.txtIsbn.Size = new System.Drawing.Size(296, 26);
             this.txtIsbn.TabIndex = 93;
+            // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this.panelSuaSach;
+            this.guna2DragControl1.UseTransparentDrag = true;
             // 
             // FrmSuaSach
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 476);
+            this.ClientSize = new System.Drawing.Size(977, 586);
             this.Controls.Add(this.txtIsbn);
             this.Controls.Add(this.txtTenSach);
             this.Controls.Add(this.txtMaSach);
@@ -325,14 +335,14 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelSuaSach);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmSuaSach";
             this.Text = "FrmSuaSach";
             this.Load += new System.EventHandler(this.FrmSuaSach_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelSuaSach.ResumeLayout(false);
+            this.panelSuaSach.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -348,7 +358,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelSuaSach;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
@@ -358,5 +368,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtMaSach;
         private Guna.UI2.WinForms.Guna2TextBox txtTenSach;
         private Guna.UI2.WinForms.Guna2TextBox txtIsbn;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }
