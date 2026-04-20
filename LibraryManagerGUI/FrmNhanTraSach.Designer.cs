@@ -36,7 +36,6 @@
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.btnTimKiemSach = new Guna.UI2.WinForms.Guna2Button();
             this.lblNhapMaTheDocGia = new System.Windows.Forms.Label();
-            this.txtMaThe = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnNhanTra = new Guna.UI2.WinForms.Guna2Button();
@@ -49,6 +48,7 @@
             this.lblTongTIenPhat = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblHienTIenPhat = new System.Windows.Forms.Label();
+            this.txtMaThe = new System.Windows.Forms.TextBox();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -120,18 +120,6 @@
             this.lblNhapMaTheDocGia.Size = new System.Drawing.Size(110, 13);
             this.lblNhapMaTheDocGia.TabIndex = 37;
             this.lblNhapMaTheDocGia.Text = "Nhập mã thẻ độc giả:";
-            // 
-            // txtMaThe
-            // 
-            this.txtMaThe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaThe.Location = new System.Drawing.Point(140, 24);
-            this.txtMaThe.MaximumSize = new System.Drawing.Size(901, 20);
-            this.txtMaThe.MinimumSize = new System.Drawing.Size(226, 20);
-            this.txtMaThe.Name = "txtMaThe";
-            this.txtMaThe.Size = new System.Drawing.Size(350, 20);
-            this.txtMaThe.TabIndex = 36;
             // 
             // panel1
             // 
@@ -267,6 +255,18 @@
             this.lblHienTIenPhat.TabIndex = 44;
             this.lblHienTIenPhat.Text = "Hiện tổng tiền phạt";
             // 
+            // txtMaThe
+            // 
+            this.txtMaThe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMaThe.Location = new System.Drawing.Point(140, 24);
+            this.txtMaThe.MaximumSize = new System.Drawing.Size(901, 20);
+            this.txtMaThe.MinimumSize = new System.Drawing.Size(226, 20);
+            this.txtMaThe.Name = "txtMaThe";
+            this.txtMaThe.Size = new System.Drawing.Size(350, 20);
+            this.txtMaThe.TabIndex = 36;
+            // 
             // FrmNhanTraSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,7 +299,6 @@
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtMaThe;
         private Guna.UI2.WinForms.Guna2Button btnTimKiemSach;
         private System.Windows.Forms.Label lblNhapMaTheDocGia;
         private System.Windows.Forms.Label lblHoTwnMaDocGia;
@@ -314,5 +313,6 @@
         private Guna.UI2.WinForms.Guna2Button btnHuy;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox txtMaThe;
     }
 }

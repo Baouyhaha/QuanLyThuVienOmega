@@ -40,15 +40,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblHoTenDocGiaHien = new System.Windows.Forms.Label();
             this.lblHoTwnMaDocGia = new System.Windows.Forms.Label();
-            this.txtMaThe = new System.Windows.Forms.TextBox();
             this.btnQuetThe = new Guna.UI2.WinForms.Guna2Button();
             this.lblNhapMaTheDocGia = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblHienHanThe = new System.Windows.Forms.Label();
+            this.lblHanThe = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblTieuDHChoMuonSach = new System.Windows.Forms.Label();
-            this.lblHienHanThe = new System.Windows.Forms.Label();
-            this.lblHanThe = new System.Windows.Forms.Label();
+            this.txtMaThe = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachSachDaDangKy)).BeginInit();
@@ -177,18 +177,6 @@
             this.lblHoTwnMaDocGia.TabIndex = 40;
             this.lblHoTwnMaDocGia.Text = "Họ tên độc giả: ";
             // 
-            // txtMaThe
-            // 
-            this.txtMaThe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaThe.Location = new System.Drawing.Point(140, 24);
-            this.txtMaThe.MaximumSize = new System.Drawing.Size(901, 20);
-            this.txtMaThe.MinimumSize = new System.Drawing.Size(226, 20);
-            this.txtMaThe.Name = "txtMaThe";
-            this.txtMaThe.Size = new System.Drawing.Size(427, 20);
-            this.txtMaThe.TabIndex = 36;
-            // 
             // btnQuetThe
             // 
             this.btnQuetThe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -217,6 +205,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txtMaThe);
             this.panel1.Controls.Add(this.lblHienHanThe);
             this.panel1.Controls.Add(this.lblHanThe);
             this.panel1.Controls.Add(this.panel3);
@@ -224,7 +213,6 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.lblHoTenDocGiaHien);
             this.panel1.Controls.Add(this.lblHoTwnMaDocGia);
-            this.panel1.Controls.Add(this.txtMaThe);
             this.panel1.Controls.Add(this.btnQuetThe);
             this.panel1.Controls.Add(this.lblNhapMaTheDocGia);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -232,6 +220,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 520);
             this.panel1.TabIndex = 46;
+            // 
+            // lblHienHanThe
+            // 
+            this.lblHienHanThe.AutoSize = true;
+            this.lblHienHanThe.Location = new System.Drawing.Point(451, 74);
+            this.lblHienHanThe.Name = "lblHienHanThe";
+            this.lblHienHanThe.Size = new System.Drawing.Size(137, 13);
+            this.lblHienHanThe.TabIndex = 57;
+            this.lblHienHanThe.Text = "TỰ ĐỘNG HIỆN HẠN THẺ";
+            // 
+            // lblHanThe
+            // 
+            this.lblHanThe.AutoSize = true;
+            this.lblHanThe.Location = new System.Drawing.Point(338, 74);
+            this.lblHanThe.Name = "lblHanThe";
+            this.lblHanThe.Size = new System.Drawing.Size(51, 13);
+            this.lblHanThe.TabIndex = 56;
+            this.lblHanThe.Text = "Hạn thẻ: ";
             // 
             // guna2CustomGradientPanel1
             // 
@@ -265,23 +271,25 @@
             this.lblTieuDHChoMuonSach.TabIndex = 0;
             this.lblTieuDHChoMuonSach.Text = "Cho mượn sách";
             // 
-            // lblHienHanThe
+            // txtMaThe
             // 
-            this.lblHienHanThe.AutoSize = true;
-            this.lblHienHanThe.Location = new System.Drawing.Point(451, 74);
-            this.lblHienHanThe.Name = "lblHienHanThe";
-            this.lblHienHanThe.Size = new System.Drawing.Size(137, 13);
-            this.lblHienHanThe.TabIndex = 57;
-            this.lblHienHanThe.Text = "TỰ ĐỘNG HIỆN HẠN THẺ";
-            // 
-            // lblHanThe
-            // 
-            this.lblHanThe.AutoSize = true;
-            this.lblHanThe.Location = new System.Drawing.Point(338, 74);
-            this.lblHanThe.Name = "lblHanThe";
-            this.lblHanThe.Size = new System.Drawing.Size(51, 13);
-            this.lblHanThe.TabIndex = 56;
-            this.lblHanThe.Text = "Hạn thẻ: ";
+            this.txtMaThe.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtMaThe.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMaThe.DefaultText = "";
+            this.txtMaThe.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMaThe.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMaThe.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaThe.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaThe.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaThe.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtMaThe.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaThe.Location = new System.Drawing.Point(139, 23);
+            this.txtMaThe.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtMaThe.Name = "txtMaThe";
+            this.txtMaThe.PlaceholderText = "";
+            this.txtMaThe.SelectedText = "";
+            this.txtMaThe.Size = new System.Drawing.Size(439, 21);
+            this.txtMaThe.TabIndex = 85;
             // 
             // FrmChoMuonSach
             // 
@@ -320,7 +328,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblHoTenDocGiaHien;
         private System.Windows.Forms.Label lblHoTwnMaDocGia;
-        private System.Windows.Forms.TextBox txtMaThe;
         private Guna.UI2.WinForms.Guna2Button btnQuetThe;
         private System.Windows.Forms.Label lblNhapMaTheDocGia;
         private System.Windows.Forms.Panel panel1;
@@ -329,5 +336,6 @@
         private System.Windows.Forms.Label lblTieuDHChoMuonSach;
         private System.Windows.Forms.Label lblHienHanThe;
         private System.Windows.Forms.Label lblHanThe;
+        private Guna.UI2.WinForms.Guna2TextBox txtMaThe;
     }
 }
