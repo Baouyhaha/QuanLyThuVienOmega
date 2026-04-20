@@ -46,7 +46,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtMaSach = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTenSach = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtisbn = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtIsbn = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
             this.SuspendLayout();
@@ -287,32 +287,32 @@
             this.txtTenSach.Size = new System.Drawing.Size(226, 21);
             this.txtTenSach.TabIndex = 81;
             // 
-            // txtisbn
+            // txtIsbn
             // 
-            this.txtisbn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtisbn.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtisbn.DefaultText = "";
-            this.txtisbn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtisbn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtisbn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtisbn.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtisbn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtisbn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtisbn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtisbn.Location = new System.Drawing.Point(290, 195);
-            this.txtisbn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtisbn.Name = "txtisbn";
-            this.txtisbn.PlaceholderText = "";
-            this.txtisbn.SelectedText = "";
-            this.txtisbn.Size = new System.Drawing.Size(226, 21);
-            this.txtisbn.TabIndex = 82;
+            this.txtIsbn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtIsbn.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIsbn.DefaultText = "";
+            this.txtIsbn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtIsbn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtIsbn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIsbn.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIsbn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIsbn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtIsbn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIsbn.Location = new System.Drawing.Point(290, 195);
+            this.txtIsbn.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtIsbn.Name = "txtIsbn";
+            this.txtIsbn.PlaceholderText = "";
+            this.txtIsbn.SelectedText = "";
+            this.txtIsbn.Size = new System.Drawing.Size(226, 21);
+            this.txtIsbn.TabIndex = 82;
             // 
             // FrmThemSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(753, 437);
-            this.Controls.Add(this.txtisbn);
+            this.Controls.Add(this.txtIsbn);
             this.Controls.Add(this.txtTenSach);
             this.Controls.Add(this.txtMaSach);
             this.Controls.Add(this.label7);
@@ -359,6 +359,6 @@
         private System.Windows.Forms.Label label7;
         private Guna.UI2.WinForms.Guna2TextBox txtMaSach;
         private Guna.UI2.WinForms.Guna2TextBox txtTenSach;
-        private Guna.UI2.WinForms.Guna2TextBox txtisbn;
+        private Guna.UI2.WinForms.Guna2TextBox txtIsbn;
     }
 }
