@@ -87,6 +87,30 @@ namespace LibraryManagerGUI
             FrmGioSachDangKy formGioSachDangKy = new FrmGioSachDangKy();
             formGioSachDangKy.ShowDialog(); 
         }
+
+        private void txtTimSach_TextChanged(object sender, EventArgs e)
+        {
+            string tuKhoa = txtTimSach.Text.Trim(); // Lấy chữ người dùng vừa gõ
+
+            SachBUS sachBus = new SachBUS();
+
+            // Nếu ô tìm kiếm trống thì load lại toàn bộ sách
+            if (string.IsNullOrEmpty(tuKhoa))
+            {
+                dgvTimKiemSach.DataSource = sachBus.GetDanhSachSachFrmTimKiem();
+            }
+            else
+            {
+                // Nếu có chữ thì gọi hàm tìm kiếm thông minh
+                dgvTimKiemSach.DataSource = sachBus.TimKiemSachThongMinh(tuKhoa);
+            }
+
+            // Nhớ gọi lại đoạn code ẩn cột Mã sách đi nhé
+            if (dgvTimKiemSach.Columns.Contains("Mã Sách"))
+            {
+                dgvTimKiemSach.Columns["Mã Sách"].Visible = false;
+            }
+        }
     }
     
 }

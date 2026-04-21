@@ -188,5 +188,49 @@ namespace LibraryManagerDAL
             }
             return dt;
         }
+        public DataTable TimKiemSachThongMinh(string tuKhoa)
+        {
+            DataTable dt = new DataTable();
+
+            // Câu lệnh giữ nguyên cấu trúc JOIN, chỉ thêm phần WHERE
+            string query = @"
+        SELECT 
+            s.maSach AS [Mã Sách], 
+            s.tenSach AS [Tên Sách], 
+            tg.tenTacGia AS [Tác Giả], 
+            nxb.tenNhaPhatHanh AS [Nhà Xuất Bản], 
+            MAX(bss.gia) AS [Giá]
+        FROM sach s
+        INNER JOIN nhaphathanh nxb ON s.maNhaPhatHanh = nxb.maNhaPhatHanh
+        INNER JOIN chitiettacgia ct ON s.maSach = ct.maSach
+        INNER JOIN tacgia tg ON ct.maTacGia = tg.maTacGia
+        LEFT JOIN bansaosach bss ON s.maSach = bss.maSach
+        WHERE 
+            s.tenSach LIKE @tuKhoa OR 
+            tg.tenTacGia LIKE @tuKhoa OR 
+            nxb.tenNhaPhatHanh LIKE @tuKhoa
+        GROUP BY 
+            s.maSach, s.tenSach, tg.tenTacGia, nxb.tenNhaPhatHanh";
+
+            using (SqlConnection conn = DbHelper.getConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+
+                    // Gắn từ khóa vào, thêm ký tự '%' ở hai đầu để tìm kiếm chứa chuỗi (VD: gõ "trình" sẽ ra "Lập trình C#")
+                    cmd.Parameters.AddWithValue("@tuKhoa", "%" + tuKhoa + "%");
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            return dt;
+        }
     }
 }

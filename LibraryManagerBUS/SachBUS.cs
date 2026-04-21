@@ -74,5 +74,10 @@ namespace LibraryManagerBUS
             // Gọi hàm GetDanhSachSachtimKiem() từ DAL
             return sachDAL.GetDanhSachSachtimKiem();
         }
+        public DataTable TimKiemSachThongMinh(string tuKhoa)
+        {
+            // Gọi hàm từ lớp DAL (Giả sử em đã khởi tạo sachDAL ở trên)
+            return sachDAL.TimKiemSachThongMinh(tuKhoa);
+        }
     }
 }

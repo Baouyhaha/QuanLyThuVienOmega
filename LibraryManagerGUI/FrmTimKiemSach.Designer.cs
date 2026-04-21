@@ -163,6 +163,7 @@
             this.txtTimSach.SelectedText = "";
             this.txtTimSach.Size = new System.Drawing.Size(447, 38);
             this.txtTimSach.TabIndex = 64;
+            this.txtTimSach.TextChanged += new System.EventHandler(this.txtTimSach_TextChanged);
             // 
             // label1
             // 
