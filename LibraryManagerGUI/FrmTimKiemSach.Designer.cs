@@ -56,6 +56,7 @@
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1066, 137);
             this.guna2CustomGradientPanel1.TabIndex = 2;
+            this.guna2CustomGradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2CustomGradientPanel1_Paint);
             // 
             // guna2ControlBox3
             // 
@@ -70,6 +71,9 @@
             // 
             // lblTieuDeNhanTraSach
             // 
+            this.lblTieuDeNhanTraSach.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTieuDeNhanTraSach.AutoSize = true;
             this.lblTieuDeNhanTraSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblTieuDeNhanTraSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(94)))), ((int)(((byte)(34)))));
@@ -84,12 +88,13 @@
             // 
             this.dgvTimKiemSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTimKiemSach.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvTimKiemSach.Location = new System.Drawing.Point(0, 323);
+            this.dgvTimKiemSach.Location = new System.Drawing.Point(0, 327);
             this.dgvTimKiemSach.Name = "dgvTimKiemSach";
             this.dgvTimKiemSach.RowHeadersWidth = 51;
             this.dgvTimKiemSach.RowTemplate.Height = 24;
-            this.dgvTimKiemSach.Size = new System.Drawing.Size(1066, 342);
+            this.dgvTimKiemSach.Size = new System.Drawing.Size(1066, 338);
             this.dgvTimKiemSach.TabIndex = 62;
+            this.dgvTimKiemSach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTimKiemSach_CellContentClick);
             this.dgvTimKiemSach.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTimKiemSach_CellDoubleClick);
             // 
             // guna2DragControl1
@@ -108,8 +113,9 @@
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 137);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1066, 186);
+            this.guna2Panel1.Size = new System.Drawing.Size(1066, 190);
             this.guna2Panel1.TabIndex = 63;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // btnMoFrmDangKyMuonSach
             // 
@@ -123,8 +129,9 @@
             this.btnMoFrmDangKyMuonSach.ForeColor = System.Drawing.Color.White;
             this.btnMoFrmDangKyMuonSach.Image = global::LibraryManagerGUI.Properties.Resources.book_signing;
             this.btnMoFrmDangKyMuonSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnMoFrmDangKyMuonSach.Location = new System.Drawing.Point(742, 72);
+            this.btnMoFrmDangKyMuonSach.Location = new System.Drawing.Point(773, 78);
             this.btnMoFrmDangKyMuonSach.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMoFrmDangKyMuonSach.MinimumSize = new System.Drawing.Size(137, 38);
             this.btnMoFrmDangKyMuonSach.Name = "btnMoFrmDangKyMuonSach";
             this.btnMoFrmDangKyMuonSach.Size = new System.Drawing.Size(137, 38);
             this.btnMoFrmDangKyMuonSach.TabIndex = 69;
@@ -135,7 +142,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 42);
+            this.label2.Location = new System.Drawing.Point(42, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(168, 16);
             this.label2.TabIndex = 68;
@@ -154,7 +161,7 @@
             this.txtTimSach.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTimSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTimSach.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimSach.Location = new System.Drawing.Point(205, 26);
+            this.txtTimSach.Location = new System.Drawing.Point(236, 32);
             this.txtTimSach.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTimSach.MaximumSize = new System.Drawing.Size(1500, 38);
             this.txtTimSach.MinimumSize = new System.Drawing.Size(300, 38);
@@ -168,7 +175,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 26);
+            this.label1.Location = new System.Drawing.Point(65, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 16);
             this.label1.TabIndex = 67;
@@ -186,14 +193,14 @@
             this.btnTimSach.ForeColor = System.Drawing.Color.White;
             this.btnTimSach.Image = ((System.Drawing.Image)(resources.GetObject("btnTimSach.Image")));
             this.btnTimSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTimSach.Location = new System.Drawing.Point(742, 26);
+            this.btnTimSach.Location = new System.Drawing.Point(773, 32);
             this.btnTimSach.Margin = new System.Windows.Forms.Padding(4);
             this.btnTimSach.MaximumSize = new System.Drawing.Size(143, 38);
+            this.btnTimSach.MinimumSize = new System.Drawing.Size(137, 38);
             this.btnTimSach.Name = "btnTimSach";
             this.btnTimSach.Size = new System.Drawing.Size(137, 38);
             this.btnTimSach.TabIndex = 65;
             this.btnTimSach.Text = "Tìm Sách";
-            this.btnTimSach.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnTimSach.Click += new System.EventHandler(this.btnTimSach_Click);
             // 
             // FrmTimKiemSach
