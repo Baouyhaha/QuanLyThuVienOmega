@@ -14,11 +14,15 @@ namespace LibraryManagerDAL
         // Hàm lưu yêu cầu đăng ký thẻ mượn vào DB
         public bool GuiYeuCauDangKy(DangKyTheDTO khach)
         {
-            // Chú ý: Cột trangThai = 0 nghĩa là "Đang chờ duyệt cấp thẻ"
-            string sql = @"INSERT INTO NguoiMuon (hoTen, ngaySinh, sdt, email, diaChi, loaiKhach, maDinhDanh, trangThai) 
-                           VALUES (@hoTen, @ngaySinh, @sdt, @email, @diaChi, @loaiKhach, @maDinhDanh, 0)";
+            // 1. TỰ SINH MÃ NGƯỜI MƯỢN (Ví dụ: NM28103015)
+            string maNguoiMuonMoi = "NM" + DateTime.Now.ToString("ddHHmmss");
+
+            // 2. ĐÃ BỔ SUNG CỘT maNguoiMuon VÀO CÂU LỆNH INSERT
+            string sql = @"INSERT INTO NguoiMuon (maNguoiMuon, hoTen, ngaySinh, sdt, email, diaChi, loaiKhach, maDinhDanh, trangThai) 
+                           VALUES (@maNM, @hoTen, @ngaySinh, @sdt, @email, @diaChi, @loaiKhach, @maDinhDanh, 0)";
 
             SqlParameter[] pars = {
+                new SqlParameter("@maNM", maNguoiMuonMoi), // Truyền mã vừa sinh vào đây
                 new SqlParameter("@hoTen", khach.HoTen),
                 new SqlParameter("@ngaySinh", khach.NgaySinh),
                 new SqlParameter("@sdt", khach.Sdt),
