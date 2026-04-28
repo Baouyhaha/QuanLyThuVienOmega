@@ -43,15 +43,15 @@
             this.lblTrangThai = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtQuetMaSach = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblThongTinSach = new System.Windows.Forms.Label();
             this.lblQuetMaSach = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtHoTen = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtCCCD = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblThongTinKhach = new System.Windows.Forms.Label();
             this.lblNhapCCCD = new System.Windows.Forms.Label();
             this.lblHoVaTen = new System.Windows.Forms.Label();
-            this.txtCCCD = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtHoTen = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtQuetMaSach = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -76,7 +76,7 @@
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox3.Location = new System.Drawing.Point(764, 2);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(34, 24);
             this.guna2ControlBox3.TabIndex = 6;
@@ -124,7 +124,7 @@
             this.panel4.Controls.Add(this.btnHuy);
             this.panel4.Location = new System.Drawing.Point(0, 540);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(800, 95);
+            this.panel4.Size = new System.Drawing.Size(800, 84);
             this.panel4.TabIndex = 55;
             // 
             // btnTaoPhieu
@@ -145,6 +145,7 @@
             this.btnTaoPhieu.TabIndex = 54;
             this.btnTaoPhieu.Text = "Tạo phiếu";
             this.btnTaoPhieu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnTaoPhieu.Click += new System.EventHandler(this.btnTaoPhieu_Click);
             // 
             // btnHuy
             // 
@@ -164,6 +165,7 @@
             this.btnHuy.TabIndex = 53;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // panel3
             // 
@@ -206,7 +208,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 111);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 629);
+            this.panel1.Size = new System.Drawing.Size(800, 624);
             this.panel1.TabIndex = 48;
             // 
             // panel5
@@ -218,6 +220,26 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(469, 93);
             this.panel5.TabIndex = 64;
+            // 
+            // txtQuetMaSach
+            // 
+            this.txtQuetMaSach.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtQuetMaSach.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtQuetMaSach.DefaultText = "";
+            this.txtQuetMaSach.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtQuetMaSach.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtQuetMaSach.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtQuetMaSach.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtQuetMaSach.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtQuetMaSach.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtQuetMaSach.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtQuetMaSach.Location = new System.Drawing.Point(116, 37);
+            this.txtQuetMaSach.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtQuetMaSach.Name = "txtQuetMaSach";
+            this.txtQuetMaSach.PlaceholderText = "";
+            this.txtQuetMaSach.SelectedText = "";
+            this.txtQuetMaSach.Size = new System.Drawing.Size(305, 21);
+            this.txtQuetMaSach.TabIndex = 63;
             // 
             // lblThongTinSach
             // 
@@ -249,32 +271,25 @@
             this.panel2.Size = new System.Drawing.Size(469, 146);
             this.panel2.TabIndex = 63;
             // 
-            // lblThongTinKhach
+            // txtHoTen
             // 
-            this.lblThongTinKhach.AutoSize = true;
-            this.lblThongTinKhach.Location = new System.Drawing.Point(15, 16);
-            this.lblThongTinKhach.Name = "lblThongTinKhach";
-            this.lblThongTinKhach.Size = new System.Drawing.Size(159, 13);
-            this.lblThongTinKhach.TabIndex = 62;
-            this.lblThongTinKhach.Text = "THÔNG TIN KHÁCH VÃNG LAI";
-            // 
-            // lblNhapCCCD
-            // 
-            this.lblNhapCCCD.AutoSize = true;
-            this.lblNhapCCCD.Location = new System.Drawing.Point(15, 45);
-            this.lblNhapCCCD.Name = "lblNhapCCCD";
-            this.lblNhapCCCD.Size = new System.Drawing.Size(75, 13);
-            this.lblNhapCCCD.TabIndex = 59;
-            this.lblNhapCCCD.Text = "Nhập số CCD:";
-            // 
-            // lblHoVaTen
-            // 
-            this.lblHoVaTen.AutoSize = true;
-            this.lblHoVaTen.Location = new System.Drawing.Point(15, 97);
-            this.lblHoVaTen.Name = "lblHoVaTen";
-            this.lblHoVaTen.Size = new System.Drawing.Size(60, 13);
-            this.lblHoVaTen.TabIndex = 61;
-            this.lblHoVaTen.Text = "Họ và tên: ";
+            this.txtHoTen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtHoTen.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtHoTen.DefaultText = "";
+            this.txtHoTen.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtHoTen.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtHoTen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtHoTen.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtHoTen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtHoTen.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtHoTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtHoTen.Location = new System.Drawing.Point(116, 97);
+            this.txtHoTen.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.PlaceholderText = "";
+            this.txtHoTen.SelectedText = "";
+            this.txtHoTen.Size = new System.Drawing.Size(305, 21);
+            this.txtHoTen.TabIndex = 64;
             // 
             // txtCCCD
             // 
@@ -296,45 +311,32 @@
             this.txtCCCD.Size = new System.Drawing.Size(305, 21);
             this.txtCCCD.TabIndex = 63;
             // 
-            // txtHoTen
+            // lblThongTinKhach
             // 
-            this.txtHoTen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtHoTen.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtHoTen.DefaultText = "";
-            this.txtHoTen.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtHoTen.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtHoTen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtHoTen.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtHoTen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtHoTen.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtHoTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtHoTen.Location = new System.Drawing.Point(116, 97);
-            this.txtHoTen.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtHoTen.Name = "txtHoTen";
-            this.txtHoTen.PlaceholderText = "";
-            this.txtHoTen.SelectedText = "";
-            this.txtHoTen.Size = new System.Drawing.Size(305, 21);
-            this.txtHoTen.TabIndex = 64;
+            this.lblThongTinKhach.AutoSize = true;
+            this.lblThongTinKhach.Location = new System.Drawing.Point(15, 16);
+            this.lblThongTinKhach.Name = "lblThongTinKhach";
+            this.lblThongTinKhach.Size = new System.Drawing.Size(159, 13);
+            this.lblThongTinKhach.TabIndex = 62;
+            this.lblThongTinKhach.Text = "THÔNG TIN KHÁCH VÃNG LAI";
             // 
-            // txtQuetMaSach
+            // lblNhapCCCD
             // 
-            this.txtQuetMaSach.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtQuetMaSach.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtQuetMaSach.DefaultText = "";
-            this.txtQuetMaSach.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtQuetMaSach.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtQuetMaSach.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtQuetMaSach.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtQuetMaSach.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtQuetMaSach.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtQuetMaSach.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtQuetMaSach.Location = new System.Drawing.Point(116, 37);
-            this.txtQuetMaSach.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtQuetMaSach.Name = "txtQuetMaSach";
-            this.txtQuetMaSach.PlaceholderText = "";
-            this.txtQuetMaSach.SelectedText = "";
-            this.txtQuetMaSach.Size = new System.Drawing.Size(305, 21);
-            this.txtQuetMaSach.TabIndex = 63;
+            this.lblNhapCCCD.AutoSize = true;
+            this.lblNhapCCCD.Location = new System.Drawing.Point(15, 45);
+            this.lblNhapCCCD.Name = "lblNhapCCCD";
+            this.lblNhapCCCD.Size = new System.Drawing.Size(82, 13);
+            this.lblNhapCCCD.TabIndex = 59;
+            this.lblNhapCCCD.Text = "Nhập số CCCD:";
+            // 
+            // lblHoVaTen
+            // 
+            this.lblHoVaTen.AutoSize = true;
+            this.lblHoVaTen.Location = new System.Drawing.Point(15, 97);
+            this.lblHoVaTen.Name = "lblHoVaTen";
+            this.lblHoVaTen.Size = new System.Drawing.Size(60, 13);
+            this.lblHoVaTen.TabIndex = 61;
+            this.lblHoVaTen.Text = "Họ và tên: ";
             // 
             // FrmPhieuDocTaiCho
             // 
@@ -346,6 +348,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPhieuDocTaiCho";
             this.Text = "FrmPhieuDocTaiCho";
+            this.Load += new System.EventHandler(this.FrmPhieuDocTaiCho_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
             this.panel4.ResumeLayout(false);

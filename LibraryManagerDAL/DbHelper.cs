@@ -101,5 +101,30 @@ namespace LibraryManagerDAO
             }
         }
 
+        // Hàm thực thi lệnh và trả về 1 giá trị duy nhất (Dành cho SELECT COUNT, SELECT MAX...)
+        public static object executeScalar(string sql, SqlParameter[] parameters = null)
+        {
+            try
+            {
+                using (SqlConnection conn = getConnection())
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+
+                    // Nếu có truyền tham số vào thì add nó vào Command
+                    if (parameters != null)
+                    {
+                        cmd.Parameters.AddRange(parameters);
+                    }
+
+                    return cmd.ExecuteScalar();
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
     }
 }

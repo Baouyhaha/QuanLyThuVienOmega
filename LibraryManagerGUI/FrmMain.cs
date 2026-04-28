@@ -239,5 +239,10 @@ namespace LibraryManagerGUI
         {
             openChildForm(new FrmTimKiemSach());
         }
+
+        private void btnQuanLyDocTaiCho_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmPhieuDocTaiCho());
+        }
     }
 }
