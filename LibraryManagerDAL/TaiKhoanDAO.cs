@@ -135,7 +135,60 @@ namespace LibraryManagerDAO
                     }
                 }
                 return null;
+            } 
+        }
+        // Lấy thông tin tài khoản để hiển thị lên Form Quản lý
+        public DataTable LayDanhSachTaiKhoan(string tuKhoa = "", int locTrangThai = -1)
+        {
+            // @tuKhoa: Tìm theo Tên, MSSV hoặc Mã người mượn
+            // @locTrangThai: -1 là lấy tất cả, 0, 1, 2 là lọc theo từng loại
+            string query = @"SELECT tk.ten, nm.mssv, tk.soDienThoai, tk.email, 
+                            nm.maNguoiMuon, nm.trangThai, nm.soTienDatCoc
+                     FROM taikhoan tk
+                     LEFT JOIN nguoimuon nm ON tk.tenTaiKhoan = nm.tenTaiKhoan
+                     WHERE (tk.ten LIKE @key OR nm.mssv LIKE @key OR nm.maNguoiMuon LIKE @key) ";
+
+            // Nếu người dùng chọn lọc cụ thể một trạng thái (khác -1)
+            if (locTrangThai != -1)
+            {
+                query += " AND nm.trangThai = " + locTrangThai;
             }
+
+            SqlParameter[] pars = {
+        new SqlParameter("@key", "%" + tuKhoa + "%")
+    };
+            return DbHelper.getTable(query, pars);
+        }
+
+        // 2. Hàm cập nhật thông tin (Chỗ này lúc nãy em bị dấu cách nè)
+        public bool CapNhatThongTin(string username, string ten, string sdt, string email)
+        {
+            string query = @"UPDATE taikhoan 
+                             SET ten = @ten, soDienThoai = @sdt, email = @email 
+                             WHERE tenTaiKhoan = @user";
+
+            SqlParameter[] pars = {
+                new SqlParameter("@ten", ten),
+                new SqlParameter("@sdt", sdt),
+                new SqlParameter("@email", email),
+                new SqlParameter("@user", username)
+            };
+
+            return DbHelper.executeNonQuery(query, pars);
+        }
+
+        // 3. Hàm kích hoạt/hủy thẻ (Để nút Duyệt Thẻ/Hủy Thẻ hoạt động)
+        public bool CapNhatTrangThaiThe(string maNM, int status, int tienCoc)
+        {
+            string query = "UPDATE nguoimuon SET trangThai = @status, soTienDatCoc = @tien WHERE maNguoiMuon = @ma";
+
+            SqlParameter[] pars = {
+                new SqlParameter("@status", status),
+                new SqlParameter("@tien", tienCoc),
+                new SqlParameter("@ma", maNM)
+            };
+
+            return DbHelper.executeNonQuery(query, pars);
         }
     }
 }

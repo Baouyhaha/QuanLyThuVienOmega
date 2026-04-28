@@ -201,7 +201,8 @@
             this.btnGioSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnGioSach.Size = new System.Drawing.Size(201, 39);
             this.btnGioSach.TabIndex = 7;
-            this.btnGioSach.Text = "Giỏ sách";
+            this.btnGioSach.Text = "Quản lý tài khoản";
+            this.btnGioSach.Click += new System.EventHandler(this.btnGioSach_Click);
             // 
             // btnLichSuMuon
             // 
@@ -466,7 +467,7 @@
             this.panel1.Controls.Add(this.pictureBoxMenu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1067, 53);
             this.panel1.TabIndex = 0;
@@ -486,7 +487,7 @@
             this.pictureBoxMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
             this.pictureBoxMenu.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMenu.Image")));
             this.pictureBoxMenu.Location = new System.Drawing.Point(16, 4);
-            this.pictureBoxMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxMenu.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxMenu.Name = "pictureBoxMenu";
             this.pictureBoxMenu.Size = new System.Drawing.Size(39, 42);
             this.pictureBoxMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -520,7 +521,7 @@
             this.Controls.Add(this.panelSidebar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.Text = "FrmMain";
             this.Load += new System.EventHandler(this.FrmMain_Load);

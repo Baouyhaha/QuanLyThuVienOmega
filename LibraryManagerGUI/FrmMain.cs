@@ -254,5 +254,10 @@ namespace LibraryManagerGUI
         {
             openChildForm(new FrmDangKyTheMuon_NguoiDung());
         }
+
+        private void btnGioSach_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmQuanLyTaiKhoan());
+        }
     }
 }

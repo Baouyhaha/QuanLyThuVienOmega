@@ -83,5 +83,13 @@ namespace LibraryManagerBUS
             // Trả session (Quyền + Mã người dùng) về cho FrmDangNhap
             return session;
         }
+        public DataTable LayDanhSach(string tuKhoa = "", int locTrangThai = -1)
+        {
+            return taiKhoanDAO.LayDanhSachTaiKhoan(tuKhoa, locTrangThai);
+        }
+        public bool DuyetHoacHuyThe(string maNM, int trangThai, int tienCoc)
+        {
+            return taiKhoanDAO.CapNhatTrangThaiThe(maNM, trangThai, tienCoc);
+        }
     }
 }
