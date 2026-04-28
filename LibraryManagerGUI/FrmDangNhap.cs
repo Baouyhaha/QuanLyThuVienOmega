@@ -45,6 +45,10 @@ namespace LibraryManagerGUI
                 // 2. Gọi BUS xử lý đăng nhập (Hàm này ta đã viết ở các bài đầu tiên)
                 TaiKhoanSession session = taiKhoanBUS.Login(taiKhoan, matKhau);
 
+                TaiKhoanSession.TaiKhoanHienTai = taiKhoan;
+                // Ý nghĩa: Lấy cái chuỗi 'taiKhoan' mà người ta vừa gõ trên màn hình,
+                // ghi nó vào cái bảng thông báo dùng chung của hệ thống.
+
                 // 3. Khởi tạo Form Main với quyền hạn tương ứng
                 FrmMain mainForm = new FrmMain(session.Role, session.MaNguoiMuon);
 

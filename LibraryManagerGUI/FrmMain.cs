@@ -232,7 +232,7 @@ namespace LibraryManagerGUI
 
         private void btnDangKyMuonSach_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmDangKyMuonSach());
+            openChildForm(new FrmProfileNguoiDung());
         }
 
         private void btnTimKiemSach_Click(object sender, EventArgs e)

@@ -19,5 +19,6 @@ namespace LibraryManagerDTO
             this.Role = role;
             this.MaNguoiMuon = maNguoiMuon;
         }
+        public static string TaiKhoanHienTai;
     }
 }

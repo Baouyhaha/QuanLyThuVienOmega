@@ -52,7 +52,7 @@ namespace LibraryManagerDAO
             catch (Exception ex)
             {
                 // Bạn có thể dùng MessageBox ở đây để soi lỗi nếu cần
-                throw new Exception("Lỗi chi tiết từ SQL: " + ex.Message);
+                throw new Exception("Lỗi chi tiết từ SQL: " + ex.Message);  
             }
             return dt;
         }
