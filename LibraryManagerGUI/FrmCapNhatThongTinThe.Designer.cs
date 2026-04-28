@@ -48,6 +48,7 @@
             this.txtSoDienThoai = new Guna.UI2.WinForms.Guna2TextBox();
             this.dtpNgaySinh = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.dtpHanTheHienTai = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -356,11 +357,31 @@
             this.dtpHanTheHienTai.TabIndex = 73;
             this.dtpHanTheHienTai.Value = new System.DateTime(2026, 4, 20, 8, 8, 38, 955);
             // 
+            // btnLuu
+            // 
+            this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLuu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLuu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLuu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLuu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLuu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
+            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLuu.Location = new System.Drawing.Point(408, 520);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(234, 52);
+            this.btnLuu.TabIndex = 74;
+            this.btnLuu.Text = "Cập nhật thông tin thẻ";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
             // FrmCapNhatThongTinThe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1115, 638);
+            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.dtpHanTheHienTai);
             this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.txtSoDienThoai);
@@ -410,5 +431,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtSoDienThoai;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgaySinh;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpHanTheHienTai;
+        private Guna.UI2.WinForms.Guna2Button btnLuu;
     }
 }
