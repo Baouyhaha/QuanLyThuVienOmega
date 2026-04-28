@@ -53,11 +53,12 @@
             this.btnTimKiemSach = new Guna.UI2.WinForms.Guna2Button();
             this.btnDangKyMuonSach = new Guna.UI2.WinForms.Guna2Button();
             this.btnQuanLyDocTaiCho = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDangKyMuonSachDTC = new Guna.UI2.WinForms.Guna2Button();
             this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.btnThongTin = new Guna.UI2.WinForms.Guna2Button();
             this.btnCaiDat = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBoxMenu = new System.Windows.Forms.PictureBox();
-            this.btnDangKyMuonSachDTC = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDangKyTheMuon_NguoiDung = new Guna.UI2.WinForms.Guna2Button();
             this.panelSubMenu_ChucNang.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -70,9 +71,9 @@
             this.panelSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 43);
-            this.panelSidebar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelSidebar.Margin = new System.Windows.Forms.Padding(2);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(176, 488);
+            this.panelSidebar.Size = new System.Drawing.Size(176, 557);
             this.panelSidebar.TabIndex = 1;
             // 
             // panelSubMenu_ChucNang
@@ -88,10 +89,11 @@
             this.panelSubMenu_ChucNang.Controls.Add(this.btnDangKyMuonSach);
             this.panelSubMenu_ChucNang.Controls.Add(this.btnQuanLyDocTaiCho);
             this.panelSubMenu_ChucNang.Controls.Add(this.btnDangKyMuonSachDTC);
+            this.panelSubMenu_ChucNang.Controls.Add(this.btnDangKyTheMuon_NguoiDung);
             this.panelSubMenu_ChucNang.Location = new System.Drawing.Point(286, 45);
-            this.panelSubMenu_ChucNang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelSubMenu_ChucNang.Margin = new System.Windows.Forms.Padding(2);
             this.panelSubMenu_ChucNang.Name = "panelSubMenu_ChucNang";
-            this.panelSubMenu_ChucNang.Size = new System.Drawing.Size(174, 410);
+            this.panelSubMenu_ChucNang.Size = new System.Drawing.Size(174, 501);
             this.panelSubMenu_ChucNang.TabIndex = 8;
             // 
             // timerMenuChucNang
@@ -107,9 +109,9 @@
             this.panelDesktop.Controls.Add(this.btnCaiDat);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(176, 43);
-            this.panelDesktop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelDesktop.Margin = new System.Windows.Forms.Padding(2);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(624, 488);
+            this.panelDesktop.Size = new System.Drawing.Size(624, 557);
             this.panelDesktop.TabIndex = 9;
             // 
             // label1
@@ -129,7 +131,7 @@
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox3.Location = new System.Drawing.Point(700, 10);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(34, 24);
             this.guna2ControlBox3.TabIndex = 4;
@@ -141,7 +143,7 @@
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox1.Location = new System.Drawing.Point(652, 10);
-            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(34, 24);
             this.guna2ControlBox1.TabIndex = 3;
@@ -153,7 +155,7 @@
             this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
             this.guna2ControlBox2.Location = new System.Drawing.Point(602, 10);
-            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(34, 24);
             this.guna2ControlBox2.TabIndex = 1;
@@ -395,6 +397,28 @@
             this.btnQuanLyDocTaiCho.Text = "Quản lý đọc tại chỗ";
             this.btnQuanLyDocTaiCho.Click += new System.EventHandler(this.btnQuanLyDocTaiCho_Click);
             // 
+            // btnDangKyMuonSachDTC
+            // 
+            this.btnDangKyMuonSachDTC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnDangKyMuonSachDTC.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangKyMuonSachDTC.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangKyMuonSachDTC.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDangKyMuonSachDTC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDangKyMuonSachDTC.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDangKyMuonSachDTC.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnDangKyMuonSachDTC.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDangKyMuonSachDTC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.btnDangKyMuonSachDTC.Image = ((System.Drawing.Image)(resources.GetObject("btnDangKyMuonSachDTC.Image")));
+            this.btnDangKyMuonSachDTC.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDangKyMuonSachDTC.Location = new System.Drawing.Point(2, 348);
+            this.btnDangKyMuonSachDTC.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDangKyMuonSachDTC.Name = "btnDangKyMuonSachDTC";
+            this.btnDangKyMuonSachDTC.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnDangKyMuonSachDTC.Size = new System.Drawing.Size(151, 48);
+            this.btnDangKyMuonSachDTC.TabIndex = 12;
+            this.btnDangKyMuonSachDTC.Text = "Đăng ký mượn sách đọc tại chỗ";
+            this.btnDangKyMuonSachDTC.Click += new System.EventHandler(this.btnDangKyMuonSachDTC_Click);
+            // 
             // btnDangXuat
             // 
             this.btnDangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
@@ -465,33 +489,33 @@
             this.pictureBoxMenu.TabStop = false;
             this.pictureBoxMenu.Click += new System.EventHandler(this.pictureBoxMenu_Click);
             // 
-            // btnDangKyMuonSachDTC
+            // btnDangKyTheMuon_NguoiDung
             // 
-            this.btnDangKyMuonSachDTC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
-            this.btnDangKyMuonSachDTC.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDangKyMuonSachDTC.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnDangKyMuonSachDTC.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnDangKyMuonSachDTC.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnDangKyMuonSachDTC.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnDangKyMuonSachDTC.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
-            this.btnDangKyMuonSachDTC.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnDangKyMuonSachDTC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnDangKyMuonSachDTC.Image = ((System.Drawing.Image)(resources.GetObject("btnDangKyMuonSachDTC.Image")));
-            this.btnDangKyMuonSachDTC.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDangKyMuonSachDTC.Location = new System.Drawing.Point(2, 348);
-            this.btnDangKyMuonSachDTC.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDangKyMuonSachDTC.Name = "btnDangKyMuonSachDTC";
-            this.btnDangKyMuonSachDTC.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.btnDangKyMuonSachDTC.Size = new System.Drawing.Size(151, 48);
-            this.btnDangKyMuonSachDTC.TabIndex = 12;
-            this.btnDangKyMuonSachDTC.Text = "Đăng ký mượn sách đọc tại chỗ";
-            this.btnDangKyMuonSachDTC.Click += new System.EventHandler(this.btnDangKyMuonSachDTC_Click);
+            this.btnDangKyTheMuon_NguoiDung.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnDangKyTheMuon_NguoiDung.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangKyTheMuon_NguoiDung.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangKyTheMuon_NguoiDung.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDangKyTheMuon_NguoiDung.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDangKyTheMuon_NguoiDung.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnDangKyTheMuon_NguoiDung.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnDangKyTheMuon_NguoiDung.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnDangKyTheMuon_NguoiDung.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.btnDangKyTheMuon_NguoiDung.Image = ((System.Drawing.Image)(resources.GetObject("btnDangKyTheMuon_NguoiDung.Image")));
+            this.btnDangKyTheMuon_NguoiDung.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDangKyTheMuon_NguoiDung.Location = new System.Drawing.Point(2, 400);
+            this.btnDangKyTheMuon_NguoiDung.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDangKyTheMuon_NguoiDung.Name = "btnDangKyTheMuon_NguoiDung";
+            this.btnDangKyTheMuon_NguoiDung.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.btnDangKyTheMuon_NguoiDung.Size = new System.Drawing.Size(151, 48);
+            this.btnDangKyTheMuon_NguoiDung.TabIndex = 13;
+            this.btnDangKyTheMuon_NguoiDung.Text = "Đăng ký thẻ mượn- Người dùng";
+            this.btnDangKyTheMuon_NguoiDung.Click += new System.EventHandler(this.btnDangKyTheMuon_NguoiDung_Click);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 531);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelSidebar);
             this.Controls.Add(this.panel1);
@@ -538,5 +562,6 @@
         private Guna.UI2.WinForms.Guna2Button btnDangKyMuonSach;
         private Guna.UI2.WinForms.Guna2Button btnQuanLyDocTaiCho;
         private Guna.UI2.WinForms.Guna2Button btnDangKyMuonSachDTC;
+        private Guna.UI2.WinForms.Guna2Button btnDangKyTheMuon_NguoiDung;
     }
 }

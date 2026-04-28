@@ -95,9 +95,10 @@ namespace LibraryManagerDAO
                     return check > 0;
                 }
             }
-            catch
+            catch 
             {
                 return false;
+
             }
         }
         //danh rieng cho ham them
