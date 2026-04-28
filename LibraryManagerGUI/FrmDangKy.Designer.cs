@@ -59,70 +59,63 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(77, 404);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(58, 328);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(114, 16);
+            this.label7.Size = new System.Drawing.Size(93, 13);
             this.label7.TabIndex = 38;
             this.label7.Text = "Nhập lại mật khẩu";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(77, 269);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(58, 219);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 16);
+            this.label6.Size = new System.Drawing.Size(70, 13);
             this.label6.TabIndex = 36;
             this.label6.Text = "Số điện thoại";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(77, 215);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(58, 175);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 16);
+            this.label5.Size = new System.Drawing.Size(32, 13);
             this.label5.TabIndex = 34;
             this.label5.Text = "Email";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(84, 166);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(63, 135);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 16);
+            this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 30;
             this.label4.Text = "Giới tính";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(77, 122);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(58, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 16);
+            this.label3.Size = new System.Drawing.Size(54, 13);
             this.label3.TabIndex = 29;
             this.label3.Text = "Họ và tên";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 359);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(58, 292);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 16);
+            this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 26;
             this.label2.Text = "Mật khẩu";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(77, 314);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(58, 255);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 16);
+            this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 27;
             this.label1.Text = "tên tài khoản";
             // 
@@ -136,8 +129,9 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(640, 79);
+            this.panel1.Size = new System.Drawing.Size(480, 64);
             this.panel1.TabIndex = 23;
             // 
             // guna2ControlBox3
@@ -145,9 +139,10 @@
             this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(592, 12);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(444, 10);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox3.Size = new System.Drawing.Size(34, 24);
             this.guna2ControlBox3.TabIndex = 45;
             // 
             // guna2ControlBox2
@@ -156,9 +151,10 @@
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.guna2ControlBox2.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(458, 12);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(344, 10);
+            this.guna2ControlBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox2.Size = new System.Drawing.Size(34, 24);
             this.guna2ControlBox2.TabIndex = 43;
             // 
             // lblLogin
@@ -167,10 +163,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLogin.AutoSize = true;
             this.lblLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.lblLogin.Location = new System.Drawing.Point(216, 31);
-            this.lblLogin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLogin.Location = new System.Drawing.Point(162, 25);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(190, 16);
+            this.lblLogin.Size = new System.Drawing.Size(157, 13);
             this.lblLogin.TabIndex = 1;
             this.lblLogin.Text = "QUẢN LÝ THƯ VIỆN - Đăng ký";
             // 
@@ -180,9 +175,10 @@
             this.guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(524, 12);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(393, 10);
+            this.guna2ControlBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox1.Size = new System.Drawing.Size(34, 24);
             this.guna2ControlBox1.TabIndex = 44;
             // 
             // btnKhach
@@ -190,11 +186,10 @@
             this.btnKhach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnKhach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
             this.btnKhach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnKhach.Location = new System.Drawing.Point(371, 459);
-            this.btnKhach.Margin = new System.Windows.Forms.Padding(4);
-            this.btnKhach.MaximumSize = new System.Drawing.Size(100, 84);
+            this.btnKhach.Location = new System.Drawing.Point(278, 373);
+            this.btnKhach.MaximumSize = new System.Drawing.Size(75, 68);
             this.btnKhach.Name = "btnKhach";
-            this.btnKhach.Size = new System.Drawing.Size(100, 84);
+            this.btnKhach.Size = new System.Drawing.Size(75, 68);
             this.btnKhach.TabIndex = 39;
             this.btnKhach.Text = "Đăng nhập tư\r\n cách Khách";
             this.btnKhach.UseVisualStyleBackColor = false;
@@ -205,11 +200,10 @@
             this.btnTroVe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTroVe.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
             this.btnTroVe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnTroVe.Location = new System.Drawing.Point(227, 459);
-            this.btnTroVe.Margin = new System.Windows.Forms.Padding(4);
-            this.btnTroVe.MaximumSize = new System.Drawing.Size(100, 84);
+            this.btnTroVe.Location = new System.Drawing.Point(170, 373);
+            this.btnTroVe.MaximumSize = new System.Drawing.Size(75, 68);
             this.btnTroVe.Name = "btnTroVe";
-            this.btnTroVe.Size = new System.Drawing.Size(100, 84);
+            this.btnTroVe.Size = new System.Drawing.Size(75, 68);
             this.btnTroVe.TabIndex = 40;
             this.btnTroVe.Text = "Trở về trang \r\nđăng nhập";
             this.btnTroVe.UseVisualStyleBackColor = false;
@@ -220,11 +214,10 @@
             this.btnDangKy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDangKy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
             this.btnDangKy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnDangKy.Location = new System.Drawing.Point(80, 459);
-            this.btnDangKy.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDangKy.MaximumSize = new System.Drawing.Size(100, 84);
+            this.btnDangKy.Location = new System.Drawing.Point(60, 373);
+            this.btnDangKy.MaximumSize = new System.Drawing.Size(75, 68);
             this.btnDangKy.Name = "btnDangKy";
-            this.btnDangKy.Size = new System.Drawing.Size(100, 84);
+            this.btnDangKy.Size = new System.Drawing.Size(75, 68);
             this.btnDangKy.TabIndex = 41;
             this.btnDangKy.Text = "Xác nhận \r\nđăng ký";
             this.btnDangKy.UseVisualStyleBackColor = false;
@@ -243,12 +236,12 @@
             this.txtTenTaiKhoan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.txtTenTaiKhoan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenTaiKhoan.Location = new System.Drawing.Point(243, 314);
-            this.txtTenTaiKhoan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTenTaiKhoan.Location = new System.Drawing.Point(182, 255);
+            this.txtTenTaiKhoan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
             this.txtTenTaiKhoan.PlaceholderText = "";
             this.txtTenTaiKhoan.SelectedText = "";
-            this.txtTenTaiKhoan.Size = new System.Drawing.Size(260, 22);
+            this.txtTenTaiKhoan.Size = new System.Drawing.Size(195, 18);
             this.txtTenTaiKhoan.TabIndex = 44;
             this.txtTenTaiKhoan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTenTaiKhoan_KeyPress_1);
             // 
@@ -265,12 +258,12 @@
             this.txtSDT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSDT.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.txtSDT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSDT.Location = new System.Drawing.Point(243, 269);
-            this.txtSDT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtSDT.Location = new System.Drawing.Point(182, 219);
+            this.txtSDT.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.PlaceholderText = "";
             this.txtSDT.SelectedText = "";
-            this.txtSDT.Size = new System.Drawing.Size(260, 22);
+            this.txtSDT.Size = new System.Drawing.Size(195, 18);
             this.txtSDT.TabIndex = 44;
             // 
             // txtEmail
@@ -286,12 +279,12 @@
             this.txtEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.txtEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEmail.Location = new System.Drawing.Point(243, 215);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtEmail.Location = new System.Drawing.Point(182, 175);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PlaceholderText = "";
             this.txtEmail.SelectedText = "";
-            this.txtEmail.Size = new System.Drawing.Size(260, 22);
+            this.txtEmail.Size = new System.Drawing.Size(195, 18);
             this.txtEmail.TabIndex = 44;
             // 
             // txtHoTen
@@ -307,12 +300,12 @@
             this.txtHoTen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtHoTen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.txtHoTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtHoTen.Location = new System.Drawing.Point(243, 122);
-            this.txtHoTen.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtHoTen.Location = new System.Drawing.Point(182, 99);
+            this.txtHoTen.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.PlaceholderText = "";
             this.txtHoTen.SelectedText = "";
-            this.txtHoTen.Size = new System.Drawing.Size(260, 22);
+            this.txtHoTen.Size = new System.Drawing.Size(195, 18);
             this.txtHoTen.TabIndex = 44;
             // 
             // txtMatKhau
@@ -330,13 +323,13 @@
             this.txtMatKhau.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMatKhau.IconRight = global::LibraryManagerGUI.Properties.Resources.close_eye;
             this.txtMatKhau.IconRightCursor = System.Windows.Forms.Cursors.Hand;
-            this.txtMatKhau.Location = new System.Drawing.Point(243, 359);
-            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtMatKhau.Location = new System.Drawing.Point(182, 292);
+            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.PlaceholderText = "";
             this.txtMatKhau.SelectedText = "";
-            this.txtMatKhau.Size = new System.Drawing.Size(260, 22);
+            this.txtMatKhau.Size = new System.Drawing.Size(195, 18);
             this.txtMatKhau.TabIndex = 44;
             this.txtMatKhau.IconRightClick += new System.EventHandler(this.txtMatKhau_IconRightClick);
             // 
@@ -355,13 +348,13 @@
             this.txtXacNhanMatKhau.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtXacNhanMatKhau.IconRight = global::LibraryManagerGUI.Properties.Resources.close_eye;
             this.txtXacNhanMatKhau.IconRightCursor = System.Windows.Forms.Cursors.Hand;
-            this.txtXacNhanMatKhau.Location = new System.Drawing.Point(243, 404);
-            this.txtXacNhanMatKhau.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtXacNhanMatKhau.Location = new System.Drawing.Point(182, 328);
+            this.txtXacNhanMatKhau.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtXacNhanMatKhau.Name = "txtXacNhanMatKhau";
             this.txtXacNhanMatKhau.PasswordChar = '*';
             this.txtXacNhanMatKhau.PlaceholderText = "";
             this.txtXacNhanMatKhau.SelectedText = "";
-            this.txtXacNhanMatKhau.Size = new System.Drawing.Size(260, 22);
+            this.txtXacNhanMatKhau.Size = new System.Drawing.Size(195, 18);
             this.txtXacNhanMatKhau.TabIndex = 44;
             this.txtXacNhanMatKhau.IconRightClick += new System.EventHandler(this.txtXacNhanMatKhau_IconRightClick);
             // 
@@ -390,16 +383,17 @@
             this.cboGioiTinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cboGioiTinh.Location = new System.Drawing.Point(243, 157);
+            this.cboGioiTinh.Location = new System.Drawing.Point(182, 128);
+            this.cboGioiTinh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboGioiTinh.Name = "cboGioiTinh";
-            this.cboGioiTinh.Size = new System.Drawing.Size(260, 36);
+            this.cboGioiTinh.Size = new System.Drawing.Size(196, 36);
             this.cboGioiTinh.TabIndex = 45;
             // 
             // FrmDangKy
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 591);
+            this.ClientSize = new System.Drawing.Size(480, 480);
             this.Controls.Add(this.cboGioiTinh);
             this.Controls.Add(this.txtHoTen);
             this.Controls.Add(this.txtEmail);
@@ -419,6 +413,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmDangKy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSignIn";

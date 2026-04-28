@@ -232,5 +232,16 @@ namespace LibraryManagerDAL
             }
             return dt;
         }
+
+        public int KiemTraTrangThaiSach(string maBanSao)
+        {
+            // Truy vấn lấy trạng thái: 0 là sẵn sàng, 1 là đang mượn
+            // Nếu không tìm thấy sách, hàm sẽ trả về -1
+            string sql = "SELECT trangThai FROM BanSaoSach WHERE banSaoSach = @ma";
+            SqlParameter[] pars = { new SqlParameter("@ma", maBanSao) };
+
+            object result = DbHelper.executeScalar(sql, pars);
+            return result != null ? Convert.ToInt32(result) : -1;
+        }
     }
 }

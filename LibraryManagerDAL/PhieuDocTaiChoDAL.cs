@@ -41,5 +41,26 @@ namespace LibraryManagerDAL
 
             return DbHelper.executeNonQuery(query, parameters);
         }
+
+        
+        public string LayTenKhachTheoCCCD(string cccd)
+        {
+            // Tìm tên người đọc gần đây nhất có cùng số CCCD
+            string sql = "SELECT TOP 1 tenNguoiDoc FROM PhieuDocTaiCho WHERE Cccd = @cccd ORDER BY ngayDoc DESC";
+            SqlParameter[] pars = {
+        new SqlParameter("@cccd", cccd)
+    };
+
+            // Gọi hàm executeScalar đã viết ở DbHelper
+            object result = DbHelper.executeScalar(sql, pars);
+
+            if (result != null)
+            {
+                return result.ToString(); // Trả về tên nếu tìm thấy
+            }
+            return null; // Trả về null nếu là khách hoàn toàn mới
+        }
+
+        
     }
 }

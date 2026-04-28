@@ -25,24 +25,57 @@ namespace LibraryManagerBUS
 
         public string TaoPhieu(PhieuDocTaiCho phieu)
         {
-            // 1. Kiểm tra rỗng
-            if (string.IsNullOrWhiteSpace(phieu.Cccd) ||
-                string.IsNullOrWhiteSpace(phieu.tenNguoiDoc) ||
-                string.IsNullOrWhiteSpace(phieu.maSach))
+            // 1. Kiểm tra rỗng 
+            if (string.IsNullOrWhiteSpace(phieu.Cccd) || string.IsNullOrWhiteSpace(phieu.maSach))
             {
                 return "Vui lòng điền đủ Số CCCD, Họ tên và Quét mã sách!";
             }
 
-            // 2. Gán các thông tin tự động
-            phieu.maPhieu = SinhMaPhieuMoi();
-            phieu.trangThai = 1; // 1: Đang mượn đọc tại chỗ
+            // KHAI BÁO THÊM ĐỐI TƯỢNG SACH DAL Ở ĐÂY ĐỂ TRÁNH LỖI DALSACH
+            SachDAL dalSach = new SachDAL();
 
-            // 3. Đẩy xuống DAL
+            // 2. KIỂM TRA TRẠNG THÁI SÁCH (Sử dụng dalSach vừa khai báo)
+            int tinhTrang = dalSach.KiemTraTrangThaiSach(phieu.maSach);
+
+            if (tinhTrang == -1)
+                return "Lỗi: Mã bản sao sách không tồn tại trong hệ thống!";
+
+            if (tinhTrang == 1)
+                return "Lỗi: Cuốn sách này hiện đang có người mượn, không thể đọc tại chỗ!";
+
+            // 3. NẾU SÁCH SẴN SÀNG (tinhTrang == 0), TIẾN HÀNH TẠO PHIẾU
+            phieu.maPhieu = SinhMaPhieuMoi();
+            phieu.trangThai = 1;
+
+            // Dùng biến 'dal' (đã có sẵn ở đầu class) để thêm phiếu
             if (dal.ThemPhieuMoi(phieu))
             {
+                // Có thể mở comment dòng dưới nếu em đã viết hàm cập nhật trạng thái sách trong SachDAL
+                // dalSach.CapNhatTrangThai(phieu.maSach, 1); 
                 return "SUCCESS";
             }
+
             return "Lỗi CSDL: Không thể tạo phiếu lúc này.";
+        }
+
+
+        public string KiemTraKhachVangLai(string cccd)
+        {
+            // 1. Kiểm tra định dạng (phải đủ 12 số)
+            if (string.IsNullOrWhiteSpace(cccd) || cccd.Length != 12 || !long.TryParse(cccd, out _))
+            {
+                return "ERROR_FORMAT";
+            }
+
+            // 2. Gọi DAL để tìm tên
+            string tenKhach = dal.LayTenKhachTheoCCCD(cccd);
+
+            if (tenKhach != null)
+            {
+                return tenKhach; // Trả về tên khách cũ
+            }
+
+            return "NEW_GUEST"; // Đánh dấu là khách mới
         }
     }
 }
