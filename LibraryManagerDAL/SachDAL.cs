@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.Design.WebControls;
 
 namespace LibraryManagerDAL
 {
@@ -190,47 +191,30 @@ namespace LibraryManagerDAL
         }
         public DataTable TimKiemSachThongMinh(string tuKhoa)
         {
-            DataTable dt = new DataTable();
-
-            // Câu lệnh giữ nguyên cấu trúc JOIN, chỉ thêm phần WHERE
             string query = @"
         SELECT 
             s.maSach AS [Mã Sách], 
             s.tenSach AS [Tên Sách], 
             tg.tenTacGia AS [Tác Giả], 
             nxb.tenNhaPhatHanh AS [Nhà Xuất Bản], 
-            MAX(bss.gia) AS [Giá]
+            (SELECT TOP 1 gia FROM bansaosach WHERE maSach = s.maSach) AS [Giá]
         FROM sach s
-        INNER JOIN nhaphathanh nxb ON s.maNhaPhatHanh = nxb.maNhaPhatHanh
-        INNER JOIN chitiettacgia ct ON s.maSach = ct.maSach
-        INNER JOIN tacgia tg ON ct.maTacGia = tg.maTacGia
-        LEFT JOIN bansaosach bss ON s.maSach = bss.maSach
-        WHERE 
-            s.tenSach LIKE @tuKhoa OR 
-            tg.tenTacGia LIKE @tuKhoa OR 
-            nxb.tenNhaPhatHanh LIKE @tuKhoa
-        GROUP BY 
-            s.maSach, s.tenSach, tg.tenTacGia, nxb.tenNhaPhatHanh";
+        LEFT JOIN nhaphathanh nxb ON s.maNhaPhatHanh = nxb.maNhaPhatHanh
+        LEFT JOIN chitiettacgia cttg ON s.maSach = cttg.maSach
+        LEFT JOIN tacgia tg ON cttg.maTacGia = tg.maTacGia
+        WHERE s.tenSach LIKE @TuKhoa 
+           OR tg.tenTacGia LIKE @TuKhoa 
+           OR nxb.tenNhaPhatHanh LIKE @TuKhoa";
 
-            using (SqlConnection conn = DbHelper.getConnection())
+            // Bọc dấu % để tìm kiếm tương đối (chứa từ khóa ở bất kỳ đâu)
+            string tuKhoaTimKiem = "%" + tuKhoa + "%";
+
+            SqlParameter[] parameters = new SqlParameter[]
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(query, conn);
+        new SqlParameter("@TuKhoa", tuKhoaTimKiem)
+            };
 
-                    // Gắn từ khóa vào, thêm ký tự '%' ở hai đầu để tìm kiếm chứa chuỗi (VD: gõ "trình" sẽ ra "Lập trình C#")
-                    cmd.Parameters.AddWithValue("@tuKhoa", "%" + tuKhoa + "%");
-
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-            }
-            return dt;
+            return DbHelper.getTable(query, parameters);
         }
     }
 }
