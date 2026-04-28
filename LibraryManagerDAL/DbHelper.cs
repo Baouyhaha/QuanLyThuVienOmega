@@ -95,9 +95,10 @@ namespace LibraryManagerDAO
                     return check > 0;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                throw new Exception("Lỗi SQL Server: " + ex.Message);
+
             }
         }
 
