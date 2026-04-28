@@ -33,8 +33,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnCapThe = new Guna.UI2.WinForms.Guna2Button();
-            this.radSinhVien = new System.Windows.Forms.RadioButton();
-            this.radKhach = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,6 +40,8 @@
             this.txtTenTaiKhoan = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMSSV = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTienCoc = new Guna.UI2.WinForms.Guna2TextBox();
+            this.radSinhVien = new System.Windows.Forms.RadioButton();
+            this.radKhach = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,10 +54,9 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(94)))), ((int)(((byte)(34)))));
-            this.label4.Location = new System.Drawing.Point(235, 21);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(313, 26);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 18);
+            this.label4.Size = new System.Drawing.Size(178, 24);
             this.label4.TabIndex = 2;
             this.label4.Text = "PHÁT HÀNH THẺ";
             // 
@@ -69,8 +68,9 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(599, 64);
+            this.panel1.Size = new System.Drawing.Size(799, 79);
             this.panel1.TabIndex = 66;
             // 
             // guna2ControlBox3
@@ -78,10 +78,10 @@
             this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(566, 0);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(755, 0);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(34, 24);
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 30);
             this.guna2ControlBox3.TabIndex = 76;
             // 
             // btnCapThe
@@ -98,71 +98,39 @@
             this.btnCapThe.ForeColor = System.Drawing.Color.White;
             this.btnCapThe.Image = ((System.Drawing.Image)(resources.GetObject("btnCapThe.Image")));
             this.btnCapThe.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCapThe.Location = new System.Drawing.Point(213, 322);
+            this.btnCapThe.Location = new System.Drawing.Point(284, 396);
+            this.btnCapThe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCapThe.Name = "btnCapThe";
-            this.btnCapThe.Size = new System.Drawing.Size(76, 41);
+            this.btnCapThe.Size = new System.Drawing.Size(101, 50);
             this.btnCapThe.TabIndex = 74;
             this.btnCapThe.Text = "   cấp thẻ";
             this.btnCapThe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnCapThe.Click += new System.EventHandler(this.btnCapThe_Click);
             // 
-            // radSinhVien
-            // 
-            this.radSinhVien.AutoSize = true;
-            this.radSinhVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
-            this.radSinhVien.ForeColor = System.Drawing.Color.White;
-            this.radSinhVien.Location = new System.Drawing.Point(213, 155);
-            this.radSinhVien.Margin = new System.Windows.Forms.Padding(2);
-            this.radSinhVien.Name = "radSinhVien";
-            this.radSinhVien.Size = new System.Drawing.Size(70, 17);
-            this.radSinhVien.TabIndex = 75;
-            this.radSinhVien.TabStop = true;
-            this.radSinhVien.Text = "Sinh Viên";
-            this.radSinhVien.UseVisualStyleBackColor = false;
-            this.radSinhVien.CheckedChanged += new System.EventHandler(this.radSinhVien_CheckedChanged);
-            // 
-            // radKhach
-            // 
-            this.radKhach.AutoSize = true;
-            this.radKhach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
-            this.radKhach.ForeColor = System.Drawing.Color.White;
-            this.radKhach.Location = new System.Drawing.Point(319, 155);
-            this.radKhach.Margin = new System.Windows.Forms.Padding(2);
-            this.radKhach.Name = "radKhach";
-            this.radKhach.Size = new System.Drawing.Size(85, 17);
-            this.radKhach.TabIndex = 76;
-            this.radKhach.TabStop = true;
-            this.radKhach.Text = "Khách Hàng";
-            this.radKhach.UseVisualStyleBackColor = false;
-            this.radKhach.CheckedChanged += new System.EventHandler(this.radKhach_CheckedChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 113);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(100, 139);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.Size = new System.Drawing.Size(101, 16);
             this.label1.TabIndex = 78;
             this.label1.Text = "Tên Tài Khoản :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(75, 219);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(100, 270);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.Size = new System.Drawing.Size(105, 16);
             this.label2.TabIndex = 79;
             this.label2.Text = "Mã số sinh viên :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(102, 253);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(136, 311);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.Size = new System.Drawing.Size(65, 16);
             this.label3.TabIndex = 80;
             this.label3.Text = "Tiền cọc :";
             // 
@@ -180,9 +148,10 @@
             this.btnHuy.ForeColor = System.Drawing.Color.White;
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnHuy.Location = new System.Drawing.Point(320, 322);
+            this.btnHuy.Location = new System.Drawing.Point(427, 396);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(74, 41);
+            this.btnHuy.Size = new System.Drawing.Size(99, 50);
             this.btnHuy.TabIndex = 83;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -199,12 +168,12 @@
             this.txtTenTaiKhoan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTenTaiKhoan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTenTaiKhoan.Location = new System.Drawing.Point(208, 105);
-            this.txtTenTaiKhoan.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtTenTaiKhoan.Location = new System.Drawing.Point(277, 129);
+            this.txtTenTaiKhoan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenTaiKhoan.Name = "txtTenTaiKhoan";
             this.txtTenTaiKhoan.PlaceholderText = "";
             this.txtTenTaiKhoan.SelectedText = "";
-            this.txtTenTaiKhoan.Size = new System.Drawing.Size(188, 21);
+            this.txtTenTaiKhoan.Size = new System.Drawing.Size(251, 26);
             this.txtTenTaiKhoan.TabIndex = 84;
             // 
             // txtMSSV
@@ -219,12 +188,12 @@
             this.txtMSSV.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMSSV.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMSSV.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMSSV.Location = new System.Drawing.Point(208, 211);
-            this.txtMSSV.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtMSSV.Location = new System.Drawing.Point(277, 260);
+            this.txtMSSV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMSSV.Name = "txtMSSV";
             this.txtMSSV.PlaceholderText = "";
             this.txtMSSV.SelectedText = "";
-            this.txtMSSV.Size = new System.Drawing.Size(188, 21);
+            this.txtMSSV.Size = new System.Drawing.Size(251, 26);
             this.txtMSSV.TabIndex = 85;
             // 
             // txtTienCoc
@@ -239,19 +208,49 @@
             this.txtTienCoc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTienCoc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTienCoc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTienCoc.Location = new System.Drawing.Point(206, 253);
-            this.txtTienCoc.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtTienCoc.Location = new System.Drawing.Point(275, 311);
+            this.txtTienCoc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTienCoc.Name = "txtTienCoc";
             this.txtTienCoc.PlaceholderText = "";
             this.txtTienCoc.SelectedText = "";
-            this.txtTienCoc.Size = new System.Drawing.Size(188, 21);
+            this.txtTienCoc.Size = new System.Drawing.Size(251, 26);
             this.txtTienCoc.TabIndex = 86;
+            // 
+            // radSinhVien
+            // 
+            this.radSinhVien.AutoSize = true;
+            this.radSinhVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
+            this.radSinhVien.ForeColor = System.Drawing.Color.White;
+            this.radSinhVien.Location = new System.Drawing.Point(284, 191);
+            this.radSinhVien.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radSinhVien.Name = "radSinhVien";
+            this.radSinhVien.Size = new System.Drawing.Size(84, 20);
+            this.radSinhVien.TabIndex = 75;
+            this.radSinhVien.TabStop = true;
+            this.radSinhVien.Text = "Sinh Viên";
+            this.radSinhVien.UseVisualStyleBackColor = false;
+            this.radSinhVien.CheckedChanged += new System.EventHandler(this.radSinhVien_CheckedChanged);
+            // 
+            // radKhach
+            // 
+            this.radKhach.AutoSize = true;
+            this.radKhach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
+            this.radKhach.ForeColor = System.Drawing.Color.White;
+            this.radKhach.Location = new System.Drawing.Point(425, 191);
+            this.radKhach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radKhach.Name = "radKhach";
+            this.radKhach.Size = new System.Drawing.Size(101, 20);
+            this.radKhach.TabIndex = 76;
+            this.radKhach.TabStop = true;
+            this.radKhach.Text = "Khách Hàng";
+            this.radKhach.UseVisualStyleBackColor = false;
+            this.radKhach.CheckedChanged += new System.EventHandler(this.radKhach_CheckedChanged);
             // 
             // FrmPhatHanhThe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 403);
+            this.ClientSize = new System.Drawing.Size(799, 496);
             this.Controls.Add(this.txtTienCoc);
             this.Controls.Add(this.txtMSSV);
             this.Controls.Add(this.txtTenTaiKhoan);
@@ -264,7 +263,7 @@
             this.Controls.Add(this.btnCapThe);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmPhatHanhThe";
             this.Text = "FrmPhatHanhThe";
             this.panel1.ResumeLayout(false);
@@ -280,8 +279,6 @@
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
         private Guna.UI2.WinForms.Guna2Button btnCapThe;
-        private System.Windows.Forms.RadioButton radSinhVien;
-        private System.Windows.Forms.RadioButton radKhach;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -289,5 +286,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtTenTaiKhoan;
         private Guna.UI2.WinForms.Guna2TextBox txtMSSV;
         private Guna.UI2.WinForms.Guna2TextBox txtTienCoc;
+        private System.Windows.Forms.RadioButton radSinhVien;
+        private System.Windows.Forms.RadioButton radKhach;
     }
 }

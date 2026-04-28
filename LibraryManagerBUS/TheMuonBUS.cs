@@ -87,5 +87,40 @@ namespace LibraryManagerBUS
                 return "Lỗi CSDL: " + ex.Message;
             }
         }
+
+        public string CapNhatThongTin(string maThe, string hoTen, string sdt, DateTime ngaySinh)
+        {
+            if (string.IsNullOrWhiteSpace(hoTen)) return "Họ tên không được để trống!";
+
+            try
+            {
+                if (theMuonDAL.CapNhatThongTinChiTiet(maThe, hoTen, sdt, ngaySinh))
+                {
+                    return "SUCCESS";
+                }
+                return "Không tìm thấy dữ liệu phù hợp để cập nhật (Sai mã thẻ).";
+            }
+            catch (Exception ex)
+            {
+                // Trả về lỗi chi tiết của SQL để em dễ sửa
+                return "Lỗi SQL: " + ex.Message;
+            }
+        }
+
+        private TheMuonDAL dal = new TheMuonDAL();
+
+        public DataTable GetAll() => dal.LayTatCaThe();
+
+        public DataTable Search(string keyword) => dal.TimKiemThe(keyword);
+
+        public bool DeleteCard(string maThe) => dal.XoaThe(maThe);
+
+        // Hàm chuyển đổi số trạng thái sang chữ để hiển thị trên Grid
+        public string ConvertTrangThai(int status, DateTime expiry)
+        {
+            if (expiry < DateTime.Now) return "Hết hạn";
+            if (status == 1) return "Đang bị khóa";
+            return "Đang hoạt động";
+        }
     }
 }

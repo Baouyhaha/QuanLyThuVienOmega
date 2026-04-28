@@ -101,6 +101,61 @@ namespace LibraryManagerDAL
                 }
             }
         }
+        public bool CapNhatThongTinChiTiet(string maThe, string hoTen, string sdt, DateTime ngaySinh)
+        {
+            // Chúng ta sẽ cập nhật bảng taikhoan dựa trên mã thẻ mượn
+            // Lưu ý: Nếu DB của em thực sự không có cột ngaySinh, hãy xóa dòng ngaySinh = @ns đi nhé!
+            string sql = @"UPDATE taikhoan 
+                   SET ten = @ht, 
+                       soDienThoai = @sdt
+                       -- , ngaySinh = @ns  <-- Bỏ comment nếu DB có cột này
+                   WHERE tenTaiKhoan = (
+                       SELECT TOP 1 nm.tenTaiKhoan 
+                       FROM nguoimuon nm 
+                       JOIN themuon tm ON nm.maNguoiMuon = tm.maNguoiMuon 
+                       WHERE RTRIM(tm.maTheMuon) = RTRIM(@maThe)
+                   )";
+
+            SqlParameter[] pr = {
+        new SqlParameter("@maThe", maThe),
+        new SqlParameter("@ht", hoTen),
+        new SqlParameter("@sdt", sdt)
+        // , new SqlParameter("@ns", ngaySinh) <-- Bỏ comment nếu dùng ngaySinh
+    };
+
+            return DbHelper.executeNonQuery(sql, pr);
+        }
+
+        // Lấy toàn bộ danh sách thẻ (Join 3 bảng)
+        public DataTable LayTatCaThe()
+        {
+            string sql = @"SELECT tm.maTheMuon, tk.ten as HoTen, tm.ngayHetHan, 
+                              tm.trangThai
+                       FROM themuon tm
+                       JOIN nguoimuon nm ON tm.maNguoiMuon = nm.maNguoiMuon
+                       JOIN taikhoan tk ON nm.tenTaiKhoan = tk.tenTaiKhoan";
+            return DbHelper.getTable(sql);
+        }
+
+        // Tìm kiếm thẻ theo Tên hoặc Mã thẻ
+        public DataTable TimKiemThe(string keyword)
+        {
+            string sql = @"SELECT tm.maTheMuon, tk.ten as HoTen, tm.ngayHetHan, tm.trangThai
+                       FROM themuon tm
+                       JOIN nguoimuon nm ON tm.maNguoiMuon = nm.maNguoiMuon
+                       JOIN taikhoan tk ON nm.tenTaiKhoan = tk.tenTaiKhoan
+                       WHERE tm.maTheMuon LIKE @k OR tk.ten LIKE @k";
+            SqlParameter[] pr = { new SqlParameter("@k", "%" + keyword + "%") };
+            return DbHelper.getTable(sql, pr);
+        }
+
+        // Xóa thẻ (Hoặc cập nhật trạng thái thành 'Đã xóa' tùy nghiệp vụ)
+        public bool XoaThe(string maThe)
+        {
+            string sql = "DELETE FROM themuon WHERE maTheMuon = @ma";
+            SqlParameter[] pr = { new SqlParameter("@ma", maThe) };
+            return DbHelper.executeNonQuery(sql, pr);
+        }
     }
 
 }

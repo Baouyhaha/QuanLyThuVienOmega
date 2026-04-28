@@ -14,6 +14,14 @@ namespace LibraryManagerGUI
     public partial class FrmCapNhatThongTinThe : Form
     {
         private TheMuonBUS theMuonBUS = new TheMuonBUS();
+        public FrmCapNhatThongTinThe(string maTheNhanVe)
+        {
+            InitializeComponent();
+            // Gán giá trị nhận được vào TextBox
+            txtMaThe.Text = maTheNhanVe;
+            // Tự động kích hoạt nút tìm kiếm để đổ dữ liệu lên luôn khi vừa mở Form
+            btnTimKiem_Click(null, null);
+        }
         public FrmCapNhatThongTinThe()
         {
             InitializeComponent();
@@ -102,6 +110,32 @@ namespace LibraryManagerGUI
             else
             {
                 MessageBox.Show(ketQua, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            string maThe = txtMaThe.Text.Trim();
+            if (string.IsNullOrEmpty(maThe)) return;
+
+            // Thu thập dữ liệu từ UI
+            string hoTen = txtHoTen.Text.Trim();
+            string sdt = txtSoDienThoai.Text.Trim();
+            DateTime ngaySinh = dtpNgaySinh.Value;
+
+            if (MessageBox.Show("Xác nhận cập nhật thông tin cá nhân?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                // Chỉ gửi những gì cần sửa ở bảng Tài Khoản
+                string ketQua = theMuonBUS.CapNhatThongTin(maThe, hoTen, sdt, ngaySinh);
+
+                if (ketQua == "SUCCESS")
+                {
+                    MessageBox.Show("Cập nhật thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(ketQua, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
