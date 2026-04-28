@@ -165,5 +165,16 @@ namespace LibraryManagerBUS
         {
             return sachDAL.LayDSBanSaoCuaSach(maSach);
         }
+        // Gọi hàm lấy danh sách từ DAL
+        public DataTable GetDanhSachSachFrmTimKiem()
+        {
+            return sachDAL.GetDanhSachSachFrmTimKiem();
+        }
+
+        // Gọi hàm tìm kiếm từ DAL
+        public DataTable TimKiemSachThongMinh(string tuKhoa)
+        {
+            return sachDAL.TimKiemSachThongMinh(tuKhoa);
+        }
     }
 }

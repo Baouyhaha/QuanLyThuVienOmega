@@ -169,5 +169,39 @@ namespace LibraryManagerDAL
             SqlParameter[] pr = { new SqlParameter("@ma", maSach) };
             return DbHelper.getTable(sql, pr);
         }
+        
+
+        //Chua chac dung
+        public int KiemTraTrangThaiSach(string maBanSao)
+        {
+            // Truy vấn cột trangThai của bản sao cụ thể
+            string sql = "SELECT trangThai FROM bansaosach WHERE banSaoSach = @ma";
+            SqlParameter[] pr = { new SqlParameter("@ma", maBanSao) };
+
+            object res = DbHelper.executeScalar(sql, pr);
+
+            // Nếu tìm thấy thì trả về giá trị (0, 1, 2...), nếu không thấy trả về -1
+            return res != null ? Convert.ToInt32(res) : -1;
+        }
+        // 1. Lấy toàn bộ danh sách sách cho Form Tìm Kiếm
+        public DataTable GetDanhSachSachFrmTimKiem()
+        {
+            // Join với Nhà phát hành để lấy tên cho đẹp
+            string sql = @"SELECT s.maSach, s.tenSach, nph.tenNhaPhatHanh, s.isbn, s.soLuongHienCo 
+                   FROM sach s 
+                   LEFT JOIN nhaphatHanh nph ON s.maNhaPhatHanh = nph.maNhaPhatHanh";
+            return DbHelper.getTable(sql);
+        }
+
+        // 2. Hàm tìm kiếm thông minh (Tìm theo tên hoặc ISBN)
+        public DataTable TimKiemSachThongMinh(string tuKhoa)
+        {
+            string sql = @"SELECT s.maSach, s.tenSach, nph.tenNhaPhatHanh, s.isbn, s.soLuongHienCo 
+                   FROM sach s 
+                   LEFT JOIN nhaphatHanh nph ON s.maNhaPhatHanh = nph.maNhaPhatHanh 
+                   WHERE s.tenSach LIKE @tk OR s.isbn LIKE @tk OR s.maSach LIKE @tk";
+            SqlParameter[] pr = { new SqlParameter("@tk", "%" + tuKhoa + "%") };
+            return DbHelper.getTable(sql, pr);
+        }
     }
 }

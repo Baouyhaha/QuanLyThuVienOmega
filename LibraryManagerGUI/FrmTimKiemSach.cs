@@ -13,6 +13,7 @@ namespace LibraryManagerGUI
 {
     public partial class FrmTimKiemSach : Form
     {
+
         public static DataTable GioHang = new DataTable();
         SachBUS sachBus = new SachBUS();
         //public FrmTimKiemSach()
@@ -149,6 +150,22 @@ namespace LibraryManagerGUI
             //{
             //    dgvTimKiemSach.Columns["Mã Sách"].Visible = false;
             //}
+        }
+        // Dán đoạn này vào để Designer tìm thấy "hồn" của sự kiện
+        private void dgvTimKiemSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Cứ để trống ở đây, chủ yếu để Designer không báo lỗi nữa
+        }
+        // Thêm hàm này để xử lý lỗi của guna2CustomGradientPanel1
+        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            // Để trống cũng được, chủ yếu để Designer không báo lỗi
+        }
+
+        // Thêm hàm này để xử lý lỗi của guna2Panel1
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+            // Để trống
         }
     }
     
