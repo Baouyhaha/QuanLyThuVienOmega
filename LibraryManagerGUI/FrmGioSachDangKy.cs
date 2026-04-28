@@ -50,5 +50,10 @@ namespace LibraryManagerGUI
                 MessageBox.Show("Vui lòng chọn một cuốn sách trong danh sách để xóa!", "Thông báo");
             }
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

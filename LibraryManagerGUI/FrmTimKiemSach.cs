@@ -27,20 +27,47 @@ namespace LibraryManagerGUI
 
         private void FrmTimKiemSach_Load(object sender, EventArgs e)
         {
-            //SachBUS sachBus = new SachBUS();
+            SachBUS sachBus = new SachBUS();
+            DataTable dtSach = sachBus.GetDanhSachSachFrmTimKiem();
+            dgvTimKiemSach.DataSource = dtSach;
 
-            //// Lấy dữ liệu (chỉ gồm 4 cột đã lọc sẵn từ SQL)
-            //dgvTimKiemSach.DataSource = sachBus.GetDanhSachSachFrmTimKiem();
+            AutoCompleteStringCollection danhSachGoiY = new AutoCompleteStringCollection();
 
-            //// Định dạng lại cột Giá cho dễ nhìn
-            //if (dgvTimKiemSach.Columns["Giá"] != null)
-            //{
-            //    dgvTimKiemSach.Columns["Giá"].DefaultCellStyle.Format = "N0";
-            //    dgvTimKiemSach.Columns["Giá"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            //}
+            // Duyệt qua từng dòng trong DataTable
+            foreach (DataRow row in dtSach.Rows)
+            {
+                // 1. Nạp Tên Sách (Thử cả 2 trường hợp có dấu và không dấu để chắc chắn)
+                AddGoiY(row, "Tên Sách", danhSachGoiY);
+                AddGoiY(row, "TenSach", danhSachGoiY);
 
-            //// Tự động giãn đều các cột
-            //dgvTimKiemSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                // 2. Nạp Tác Giả
+                AddGoiY(row, "Tác Giả", danhSachGoiY);
+                AddGoiY(row, "TacGia", danhSachGoiY);
+
+                // 3. Nạp Nhà Xuất Bản
+                AddGoiY(row, "Nhà Xuất Bản", danhSachGoiY);
+                AddGoiY(row, "NhaXuatBan", danhSachGoiY);
+                AddGoiY(row, "NXB", danhSachGoiY); // Thử thêm cột NXB nếu có
+            }
+
+            txtTimSach.AutoCompleteCustomSource = danhSachGoiY;
+            txtTimSach.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtTimSach.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            dgvTimKiemSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        // Hàm phụ trợ để tránh viết lặp code và kiểm tra cột tồn tại
+        private void AddGoiY(DataRow row, string colName, AutoCompleteStringCollection collection)
+        {
+            // Kiểm tra xem DataTable có cột này không
+            if (row.Table.Columns.Contains(colName))
+            {
+                string value = row[colName].ToString();
+                if (!string.IsNullOrWhiteSpace(value) && !collection.Contains(value))
+                {
+                    collection.Add(value);
+                }
+            }
         }
 
         private void dgvTimKiemSach_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -79,7 +106,19 @@ namespace LibraryManagerGUI
 
         private void btnTimSach_Click(object sender, EventArgs e)
         {
+            string tuKhoa = txtTimSach.Text.Trim(); // Lấy từ khóa khách nhập
+            SachBUS sachBus = new SachBUS();
 
+            // Nếu để trống thì load lại toàn bộ
+            if (string.IsNullOrEmpty(tuKhoa))
+            {
+                dgvTimKiemSach.DataSource = sachBus.GetDanhSachSachFrmTimKiem();
+            }
+            else
+            {
+                // Nếu có chữ thì gọi hàm tìm kiếm đa tiêu chí
+                dgvTimKiemSach.DataSource = sachBus.TimKiemSachThongMinh(tuKhoa);
+            }
         }
 
         private void btnMoFrmDangKyMuonSach_Click(object sender, EventArgs e)
