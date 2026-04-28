@@ -51,6 +51,7 @@
     <Compile Include="ChiTietMuonSachDTO.cs" />
     <Compile Include="ChiTietTacGiaDTO.cs" />
     <Compile Include="NguoiMuonDTO.cs" />
+    <Compile Include="NhaPhatHanhDTO.cs" />
     <Compile Include="PhieuDocTaiCho.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SachDTO.cs" />

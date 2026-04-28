@@ -100,6 +100,20 @@ namespace LibraryManagerDAO
                 return false;
             }
         }
-
+        //danh rieng cho ham them
+        public static object executeScalar(string sql, SqlParameter[] parameters = null)
+        {
+            try
+            {
+                using (SqlConnection conn = getConnection())
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    if (parameters != null) cmd.Parameters.AddRange(parameters);
+                    return cmd.ExecuteScalar();
+                }
+            }
+            catch { return null; }
+        }
     }
 }

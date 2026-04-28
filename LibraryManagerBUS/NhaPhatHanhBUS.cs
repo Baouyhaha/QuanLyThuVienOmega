@@ -8,13 +8,20 @@ using System.Threading.Tasks;
 
 namespace LibraryManagerBUS
 {
-    public class NhaPhatHanhBUS
+public class NhaPhatHanhBUS
     {
-        private NhaPhatHanhDAL nxbDAL = new NhaPhatHanhDAL();
+        NhaPhatHanhDAL nphDAL = new NhaPhatHanhDAL();
 
-        public DataTable LayDanhSachNXB()
+        public DataTable LayDanhSachNXB() => nphDAL.GetAll();
+
+        public int LayHoacTaoMaNXB(string tenNXB)
         {
-            return nxbDAL.LayDanhSachNXB();
+            object id = nphDAL.GetIdByName(tenNXB);
+            if (id != null) 
+            {
+                return System.Convert.ToInt32(id); // Đã có thì trả về mã
+            }
+            return nphDAL.InsertAndGetId(tenNXB); // Chưa có thì tạo mới và trả về mã vừa tạo
         }
     }
 }

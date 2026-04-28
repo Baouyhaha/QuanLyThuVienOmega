@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BanSaoSachDAL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DbHelper.cs" />
     <Compile Include="NhaPhatHanhDAL.cs" />

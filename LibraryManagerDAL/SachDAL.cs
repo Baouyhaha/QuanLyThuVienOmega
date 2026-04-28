@@ -12,225 +12,162 @@ namespace LibraryManagerDAL
 {
     public class SachDAL
     {
-        //1. Khởi tạo đối tượng DbHelper 
-        //private DbHelper dbHelper = new DbHelper(); // dung truc tiep, khong can the nay nú
 
-        public DataTable LayTatCaSach()
+        // Lấy mã sách lớn nhất hiện có (Ví dụ: "S001")
+        public string GetMaxMaSach()
         {
-            string query = @"
-                SELECT 
-                    s.maSach AS [Mã Sách], 
-                    s.tenSach AS [Tên Sách], 
-                    ISNULL(tg.DanhSachTacGia, N'Chưa có') AS [Tác Giả], 
-                    s.isbn AS [Mã ISBN],
-                    nph.tenNhaPhatHanh AS [Nhà Xuất Bản], 
-                    s.soLuongHienCo AS [Số Lượng Có Sẵn]
-                FROM sach s
-                LEFT JOIN nhaphathanh nph ON s.maNhaPhatHanh = nph.maNhaPhatHanh
-                LEFT JOIN (
-                    SELECT cttg.maSach, 
-                           STRING_AGG(t.tenTacGia, ', ') AS DanhSachTacGia
-                    FROM chitiettacgia cttg
-                    JOIN tacgia t ON cttg.maTacGia = t.maTacGia
-                    GROUP BY cttg.maSach
-                ) tg ON s.maSach = tg.maSach";
-
-            //2. Sử dụng hàm getTable() TỪ DBHELPER 
-            return DbHelper.getTable(query);
+            string sql = "SELECT MAX(maSach) FROM sach";
+            object result = DbHelper.executeScalar(sql);
+            return result?.ToString();
         }
-        public bool ThemSach(SachDTO sach)
+
+        // Lấy số thứ tự lớn nhất của bản sao thuộc một mã sách
+        public object GetMaxSoThuTu(string maSach)
         {
-            // 1. THÊM VÀO BẢNG SÁCH TRƯỚC
-            string sqlSach = @"INSERT INTO sach (maSach, tenSach, maNhaPhatHanh, isbn, soLuongHienCo) 
-                       VALUES (@maSach, @tenSach, @maNhaPhatHanh, @isbn, @soLuong)";
-
-            SqlParameter[] prmsSach = new SqlParameter[]
-            {
-        new SqlParameter("@maSach", sach.maSach),
-        new SqlParameter("@tenSach", sach.tenSach),
-        new SqlParameter("@maNhaPhatHanh", sach.maNhaPhatHanh),
-        new SqlParameter("@isbn", sach.isbn),
-        new SqlParameter("@soLuong", sach.soLuongHienCo)
-            };
-
-            // Chạy lệnh thêm Sách
-            bool themSachThanhCong = DbHelper.executeNonQuery(sqlSach, prmsSach);
-
-            // 2. NẾU THÊM SÁCH THÀNH CÔNG -> THÊM TIẾP VÀO BẢNG CHI TIẾT TÁC GIẢ
-            if (themSachThanhCong)
-            {
-                string sqlTacGia = @"INSERT INTO chitiettacgia (maSach, maTacGia) 
-                             VALUES (@maSach, @maTacGia)";
-
-                SqlParameter[] prmsTacGia = new SqlParameter[]
-                {
-            new SqlParameter("@maSach", sach.maSach),
-            new SqlParameter("@maTacGia", sach.maTacGia) // Lấy từ DTO vừa thêm
-                };
-
-                // Chạy lệnh thêm Chi tiết tác giả
-                return DbHelper.executeNonQuery(sqlTacGia, prmsTacGia);
-            }
-
-            // Nếu thêm sách thất bại thì trả về false luôn
-            return false;
+            string sql = "SELECT MAX(soThuTu) FROM bansaosach WHERE maSach = '" + maSach + "'";
+            return DbHelper.executeScalar(sql);
         }
-        public bool SuaSach(SachDTO sach)
+
+        public DataTable GetAllSachFullInfo()
         {
-            // 1. CẬP NHẬT BẢNG `sach`
-            string sqlSach = @"UPDATE sach 
-                       SET tenSach = @tenSach, maNhaPhatHanh = @maNhaPhatHanh, 
-                           isbn = @isbn, soLuongHienCo = @soLuong 
-                       WHERE maSach = @maSach";
-
-            SqlParameter[] prmsSach = {
-        new SqlParameter("@maSach", sach.maSach),
-        new SqlParameter("@tenSach", sach.tenSach),
-        new SqlParameter("@maNhaPhatHanh", sach.maNhaPhatHanh),
-        new SqlParameter("@isbn", sach.isbn),
-        new SqlParameter("@soLuong", sach.soLuongHienCo)
-    };
-
-            bool capNhatSachThanhCong = DbHelper.executeNonQuery(sqlSach, prmsSach);
-
-            // 2. NẾU CẬP NHẬT SÁCH THÀNH CÔNG -> XỬ LÝ BẢNG `chitiettacgia`
-            if (capNhatSachThanhCong)
-            {
-                // Thuật toán: Xóa liên kết cũ và Tạo liên kết mới (để tránh lỗi trùng lặp khóa chính)
-                string sqlXoa = "DELETE FROM chitiettacgia WHERE maSach = @maSach";
-                SqlParameter[] prmsXoa = { new SqlParameter("@maSach", sach.maSach) };
-                DbHelper.executeNonQuery(sqlXoa, prmsXoa);
-
-                // Thêm tác giả mới (từ ComboBox mà người dùng vừa chọn lại)
-                string sqlThemMoi = "INSERT INTO chitiettacgia (maSach, maTacGia) VALUES (@maSach, @maTacGia)";
-                SqlParameter[] prmsThem = {
-        new SqlParameter("@maSach", sach.maSach),
-        new SqlParameter("@maTacGia", sach.maTacGia)
-            };
-
-                return DbHelper.executeNonQuery(sqlThemMoi, prmsThem);
-            }
-
-            return false;
+            // Lấy thông tin sách và tên nhà xuất bản bằng INNER JOIN
+            string sql = @"SELECT s.maSach, s.tenSach, n.tenNhaPhatHanh, s.isbn, s.soLuongHienCo 
+                   FROM sach s 
+                   INNER JOIN nhaphathanh n ON s.maNhaPhatHanh = n.maNhaPhatHanh";
+            return DbHelper.getTable(sql);
         }
+
+        public DataTable SearchSach(string keyword)
+        {
+            // Tìm kiếm theo tên sách hoặc mã sách
+            string sql = @"SELECT s.maSach, s.tenSach, n.tenNhaPhatHanh, s.isbn, s.soLuongHienCo 
+                   FROM sach s 
+                   INNER JOIN nhaphathanh n ON s.maNhaPhatHanh = n.maNhaPhatHanh
+                   WHERE s.tenSach LIKE @key OR s.maSach LIKE @key";
+            SqlParameter[] pr = { new SqlParameter("@key", "%" + keyword + "%") };
+            return DbHelper.getTable(sql, pr);
+        }
+
+        // Kiểm tra xem đầu sách có cuốn nào đang được mượn không
+        public bool KiemTraSachDangMuon(string maSach)
+        {
+            // trangThai = 1 là đang mượn
+            string sql = "SELECT COUNT(*) FROM bansaosach WHERE maSach = @ma AND trangThai = 1";
+            SqlParameter[] pr = { new SqlParameter("@ma", maSach) };
+            return Convert.ToInt32(DbHelper.executeScalar(sql, pr)) > 0;
+        }
+
+        // Hàm xóa tổng thể dùng Transaction
         public bool XoaSach(string maSach)
         {
-            // 1. Xóa trong bảng trung gian (Chi tiết tác giả) trước để gỡ bỏ ràng buộc khóa ngoại
-            string sqlTacGia = "DELETE FROM chitiettacgia WHERE maSach = @ma";
-            SqlParameter[] prm = { new SqlParameter("@ma", maSach) };
-            DbHelper.executeNonQuery(sqlTacGia, prm);
-
-            // 2. Sau đó mới xóa cuốn sách trong bảng chính
-            string sqlSach = "DELETE FROM sach WHERE maSach = @ma";
-            SqlParameter[] prm2 = { new SqlParameter("@ma", maSach) };
-
-            return DbHelper.executeNonQuery(sqlSach, prm2);
-        }
-        public DataTable TimKiemSach(string keyword)
-        {
-            // Dùng LIKE và dấu % để tìm kiếm tương đối (chỉ cần chứa cụm từ đó là ra)
-            string sql = @"SELECT 
-                    sach.maSach AS [Mã Sách], 
-                    sach.tenSach AS [Tên Sách], 
-                    sach.isbn AS [Mã ISBN],
-                    nhaphathanh.tenNhaPhatHanh AS [Nhà Xuất Bản], 
-                    tacgia.tenTacGia AS [Tác Giả], 
-                    sach.soLuongHienCo AS [Số Lượng Có Sẵn]
-                   FROM sach
-                   JOIN nhaphathanh ON sach.maNhaPhatHanh = nhaphathanh.maNhaPhatHanh
-                   JOIN chitiettacgia ON sach.maSach = chitiettacgia.maSach
-                   JOIN tacgia ON chitiettacgia.maTacGia = tacgia.maTacGia
-                   WHERE sach.maSach LIKE @key OR sach.tenSach LIKE @key";
-
-            SqlParameter[] prms = {
-        new SqlParameter("@key", "%" + keyword + "%")
-    };
-
-            return DbHelper.getTable(sql, prms);
-        }
-        public DataTable GetDanhSachSachtimKiem()
-        {
-
-            DataTable dt = new DataTable();
-
-            // Chỉ lấy đúng 4 thông tin: Tên sách, Tên tác giả, Tên NXB, và Giá
-            string query = @"
-    SELECT 
-        s.maSach AS [Mã Sách], 
-        s.tenSach AS [Tên Sách], 
-        tg.tenTacGia AS [Tác Giả], 
-        nxb.tenNhaPhatHanh AS [Nhà Xuất Bản], 
-        MAX(bss.gia) AS [Giá]
-    FROM sach s
-    INNER JOIN nhaphathanh nxb ON s.maNhaPhatHanh = nxb.maNhaPhatHanh
-    INNER JOIN chitiettacgia ct ON s.maSach = ct.maSach
-    INNER JOIN tacgia tg ON ct.maTacGia = tg.maTacGia
-    LEFT JOIN bansaosach bss ON s.maSach = bss.maSach
-    GROUP BY 
-        s.maSach, -- Dòng này được thêm vào để sửa lỗi nè
-        s.tenSach, 
-        tg.tenTacGia, 
-        nxb.tenNhaPhatHanh";
-
             using (SqlConnection conn = DbHelper.getConnection())
             {
+                conn.Open();
+                SqlTransaction trans = conn.BeginTransaction();
                 try
                 {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    // 1. Xóa bản sao sách trước
+                    string sqlBS = "DELETE FROM bansaosach WHERE maSach = @ma";
+                    SqlCommand cmdBS = new SqlCommand(sqlBS, conn, trans);
+                    cmdBS.Parameters.AddWithValue("@ma", maSach);
+                    cmdBS.ExecuteNonQuery();
+
+                    // 2. Xóa chi tiết tác giả
+                    string sqlTG = "DELETE FROM chitiettacgia WHERE maSach = @ma";
+                    SqlCommand cmdTG = new SqlCommand(sqlTG, conn, trans);
+                    cmdTG.Parameters.AddWithValue("@ma", maSach);
+                    cmdTG.ExecuteNonQuery();
+
+                    // 3. Cuối cùng mới xóa Sách
+                    string sqlS = "DELETE FROM sach WHERE maSach = @ma";
+                    SqlCommand cmdS = new SqlCommand(sqlS, conn, trans);
+                    cmdS.Parameters.AddWithValue("@ma", maSach);
+                    cmdS.ExecuteNonQuery();
+
+                    trans.Commit();
+                    return true;
                 }
-                catch (Exception ex)
+                catch
                 {
-                    throw ex;
+                    trans.Rollback();
+                    return false;
                 }
             }
-            return dt;
         }
-        public DataTable TimKiemSachThongMinh(string tuKhoa)
+        public bool CapNhatToanBoSach(SachDTO sach, List<int> dsMaTG, List<BanSaoSachDTO> dsBS)
         {
-            DataTable dt = new DataTable();
-
-            // Câu lệnh giữ nguyên cấu trúc JOIN, chỉ thêm phần WHERE
-            string query = @"
-        SELECT 
-            s.maSach AS [Mã Sách], 
-            s.tenSach AS [Tên Sách], 
-            tg.tenTacGia AS [Tác Giả], 
-            nxb.tenNhaPhatHanh AS [Nhà Xuất Bản], 
-            MAX(bss.gia) AS [Giá]
-        FROM sach s
-        INNER JOIN nhaphathanh nxb ON s.maNhaPhatHanh = nxb.maNhaPhatHanh
-        INNER JOIN chitiettacgia ct ON s.maSach = ct.maSach
-        INNER JOIN tacgia tg ON ct.maTacGia = tg.maTacGia
-        LEFT JOIN bansaosach bss ON s.maSach = bss.maSach
-        WHERE 
-            s.tenSach LIKE @tuKhoa OR 
-            tg.tenTacGia LIKE @tuKhoa OR 
-            nxb.tenNhaPhatHanh LIKE @tuKhoa
-        GROUP BY 
-            s.maSach, s.tenSach, tg.tenTacGia, nxb.tenNhaPhatHanh";
-
             using (SqlConnection conn = DbHelper.getConnection())
             {
+                conn.Open();
+                SqlTransaction trans = conn.BeginTransaction();
                 try
                 {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(query, conn);
+                    // 1. Cập nhật thông tin Sách
+                    string sqlS = "UPDATE sach SET tenSach=@t, maNhaPhatHanh=@n, isbn=@i, soLuongHienCo=@sl WHERE maSach=@m";
+                    SqlCommand cmdS = new SqlCommand(sqlS, conn, trans);
+                    cmdS.Parameters.AddWithValue("@m", sach.maSach);
+                    cmdS.Parameters.AddWithValue("@t", sach.tenSach);
+                    cmdS.Parameters.AddWithValue("@n", sach.maNhaPhatHanh);
+                    cmdS.Parameters.AddWithValue("@i", sach.isbn);
+                    cmdS.Parameters.AddWithValue("@sl", sach.soLuongHienCo);
+                    cmdS.ExecuteNonQuery();
 
-                    // Gắn từ khóa vào, thêm ký tự '%' ở hai đầu để tìm kiếm chứa chuỗi (VD: gõ "trình" sẽ ra "Lập trình C#")
-                    cmd.Parameters.AddWithValue("@tuKhoa", "%" + tuKhoa + "%");
+                    // 2. Cập nhật Tác giả (Xóa hết cũ của sách này - Thêm lại danh sách mới)
+                    new SqlCommand($"DELETE FROM chitiettacgia WHERE maSach='{sach.maSach}'", conn, trans).ExecuteNonQuery();
+                    foreach (int maTG in dsMaTG)
+                    {
+                        SqlCommand cmdTG = new SqlCommand("INSERT INTO chitiettacgia VALUES(@ms, @mtg)", conn, trans);
+                        cmdTG.Parameters.AddWithValue("@ms", sach.maSach);
+                        cmdTG.Parameters.AddWithValue("@mtg", maTG);
+                        cmdTG.ExecuteNonQuery();
+                    }
 
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    // 3. Cập nhật Bản sao (UPSERT: Nếu tồn tại thì Update giá/loại, nếu chưa có thì Insert)
+                    foreach (var bs in dsBS)
+                    {
+                        string sqlBS = @"IF EXISTS (SELECT 1 FROM bansaosach WHERE banSaoSach = @mabs)
+                                 UPDATE bansaosach SET loaiBanSao=@l, gia=@g WHERE banSaoSach=@mabs
+                                 ELSE
+                                 INSERT INTO bansaosach VALUES(@mabs, @ms, @st, @l, @g, 0, 0)";
+                        SqlCommand cmdBS = new SqlCommand(sqlBS, conn, trans);
+                        cmdBS.Parameters.AddWithValue("@mabs", bs.banSaoSach);
+                        cmdBS.Parameters.AddWithValue("@ms", sach.maSach);
+                        cmdBS.Parameters.AddWithValue("@st", bs.soThuTu);
+                        cmdBS.Parameters.AddWithValue("@l", bs.loaiBanSao);
+                        cmdBS.Parameters.AddWithValue("@g", bs.gia);
+                        cmdBS.ExecuteNonQuery();
+                    }
+
+                    trans.Commit(); return true;
                 }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+                catch { trans.Rollback(); return false; }
             }
-            return dt;
+        }
+        // 1. Lấy thông tin cơ bản của 1 cuốn sách
+        public DataTable LayThongTinChiTiet(string maSach)
+        {
+            string sql = "SELECT * FROM sach WHERE maSach = @ma";
+            SqlParameter[] pr = { new SqlParameter("@ma", maSach) };
+            return DbHelper.getTable(sql, pr);
+        }
+
+        // 2. Lấy danh sách tác giả của cuốn sách đó (Dùng JOIN)
+        public DataTable LayDSTacGiaCuaSach(string maSach)
+        {
+            string sql = @"SELECT tg.maTacGia, tg.tenTacGia 
+                   FROM tacgia tg 
+                   JOIN chitiettacgia ct ON tg.maTacGia = ct.maTacGia 
+                   WHERE ct.maSach = @ma";
+            SqlParameter[] pr = { new SqlParameter("@ma", maSach) };
+            return DbHelper.getTable(sql, pr);
+        }
+
+        // 3. Lấy danh sách các bản sao của cuốn sách đó
+        public DataTable LayDSBanSaoCuaSach(string maSach)
+        {
+            string sql = "SELECT * FROM bansaosach WHERE maSach = @ma";
+            SqlParameter[] pr = { new SqlParameter("@ma", maSach) };
+            return DbHelper.getTable(sql, pr);
         }
     }
 }

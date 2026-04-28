@@ -10,12 +10,11 @@ namespace LibraryManagerDAL
 {
     public class TacGiaDAL
     {
-        private DbHelper dbHelper = new DbHelper();
-
-        public DataTable LayDanhSachTacGia()
+        public DataTable GetAll()
         {
-            string sql = "SELECT maTacGia, tenTacGia FROM tacgia";
+            string sql = "SELECT * FROM tacgia";
             return DbHelper.getTable(sql);
         }
+
     }
 }
