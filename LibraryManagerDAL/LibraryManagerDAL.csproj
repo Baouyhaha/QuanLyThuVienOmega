@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BanSaoSachDAL.cs" />
+    <Compile Include="BienLaiDAL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DangKyTheDAL.cs" />
     <Compile Include="DbHelper.cs" />

@@ -71,6 +71,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DsBienLai.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsBienLai.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DsThongKe.cs">
       <DependentUpon>DsThongKe.xsd</DependentUpon>
     </Compile>
@@ -114,6 +119,12 @@
     </Compile>
     <Compile Include="FrmGioSachDangKy.Designer.cs">
       <DependentUpon>FrmGioSachDangKy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInBienLai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInBienLai.Designer.cs">
+      <DependentUpon>FrmInBienLai.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmKhachMuonSachDocTaiCho.cs">
       <SubType>Form</SubType>
@@ -220,6 +231,9 @@
     <EmbeddedResource Include="FrmGioSachDangKy.resx">
       <DependentUpon>FrmGioSachDangKy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmInBienLai.resx">
+      <DependentUpon>FrmInBienLai.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmKhachMuonSachDocTaiCho.resx">
       <DependentUpon>FrmKhachMuonSachDocTaiCho.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,9 +286,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RptBienLai.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="RptTopSach.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <None Include="DsBienLai.xsc">
+      <DependentUpon>DsBienLai.xsd</DependentUpon>
+    </None>
+    <None Include="DsBienLai.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsBienLai.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsBienLai.xss">
+      <DependentUpon>DsBienLai.xsd</DependentUpon>
+    </None>
     <None Include="DsThongKe.xsc">
       <DependentUpon>DsThongKe.xsd</DependentUpon>
     </None>
