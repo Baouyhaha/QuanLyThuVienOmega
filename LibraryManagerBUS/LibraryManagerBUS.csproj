@@ -56,6 +56,7 @@
     <Compile Include="TacGiaBUS.cs" />
     <Compile Include="TaiKhoanBUS.cs" />
     <Compile Include="TheMuonBUS.cs" />
+    <Compile Include="ThongKeBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryManagerDAL\LibraryManagerDAL.csproj">

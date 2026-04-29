@@ -59,6 +59,7 @@
     <Compile Include="TacGiaDAL.cs" />
     <Compile Include="TaiKhoanDAO.cs" />
     <Compile Include="TheMuonDAL.cs" />
+    <Compile Include="ThongKeDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LibraryManagerDTO\LibraryManagerDTO.csproj">
