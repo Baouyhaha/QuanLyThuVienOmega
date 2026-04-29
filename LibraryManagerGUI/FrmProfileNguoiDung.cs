@@ -34,13 +34,12 @@ namespace LibraryManagerGUI
             {
                 DataRow row = dt.Rows[0];
 
-                // Gán dữ liệu (Lưu ý: dùng đúng tên bí danh thầy đặt trong câu SQL)
+
                 lblHoVaTen.Text = row["hoTen"].ToString();
-                lblMSSV.Text = row["mssv"].ToString();
-                lblSDT.Text = row["soDienThoai"].ToString();
-                lblEmail.Text = row["email"].ToString();
+                lblMaDinhDanh.Text = row["maDinhDanh"].ToString();
+                lblSDTHienThi.Text = row["sdt"].ToString();
+                lblEmailHienThi.Text = row["email"].ToString();
                 lblMaThe.Text = row["maNguoiMuon"].ToString();
-                lblHocKy.Text = row["giaiDoanHoc"].ToString();
                 lblTienCoc.Text = string.Format("{0:N0} VNĐ", row["soTienDatCoc"]);
 
                 // Trạng thái (Giữ nguyên logic cũ)

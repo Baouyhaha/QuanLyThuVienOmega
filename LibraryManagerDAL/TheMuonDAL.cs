@@ -14,7 +14,7 @@ namespace LibraryManagerDAL
         // Khởi tạo đối tượng DbHelper của em
         //private DbHelper dbHelper = new DbHelper();
 
-        public bool PhatHanhTheMoi(string tenTaiKhoan, string mssv, int tienCoc, string maNguoiMuon, string maTheMuon, DateTime ngayHetHan)
+        public bool PhatHanhTheMoi(string tenTaiKhoan, string maDinhDanh, int tienCoc, string maNguoiMuon, string maTheMuon, DateTime ngayHetHan)
         {
             // Sử dụng hàm getConnection() từ DbHelper của em thay vì dùng chuỗi kết nối
             using (SqlConnection conn = DbHelper.getConnection())
@@ -26,13 +26,13 @@ namespace LibraryManagerDAL
                 try
                 {
                     // 1. Thêm vào bảng NguoiMuon
-                    string sqlNguoiMuon = @"INSERT INTO NguoiMuon (maNguoiMuon, tenTaiKhoan, mssv, soTienDatCoc, trangThai) 
-                                            VALUES (@maNguoiMuon, @tenTaiKhoan, @mssv, @tienCoc, 1)";
+                    string sqlNguoiMuon = @"INSERT INTO NguoiMuon (maNguoiMuon, tenTaiKhoan, maDinhDanh, soTienDatCoc, trangThai) 
+                                            VALUES (@maNguoiMuon, @tenTaiKhoan, @maDinhDanh, @tienCoc, 1)";
                     using (SqlCommand cmd1 = new SqlCommand(sqlNguoiMuon, conn, transaction))
                     {
                         cmd1.Parameters.AddWithValue("@maNguoiMuon", maNguoiMuon);
                         cmd1.Parameters.AddWithValue("@tenTaiKhoan", tenTaiKhoan);
-                        cmd1.Parameters.AddWithValue("@mssv", string.IsNullOrEmpty(mssv) ? (object)DBNull.Value : mssv);
+                        cmd1.Parameters.AddWithValue("@maDinhDanh", string.IsNullOrEmpty(maDinhDanh) ? (object)DBNull.Value : maDinhDanh);
                         cmd1.Parameters.AddWithValue("@tienCoc", tienCoc);
                         cmd1.ExecuteNonQuery();
                     }

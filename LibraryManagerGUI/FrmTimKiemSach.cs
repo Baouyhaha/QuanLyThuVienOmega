@@ -16,16 +16,16 @@ namespace LibraryManagerGUI
 
         public static DataTable GioHang = new DataTable();
         SachBUS sachBus = new SachBUS();
-        //public FrmTimKiemSach()
-        //{
-        //    InitializeComponent();
-        //    if (GioHang.Columns.Count == 0)
-        //    {
-        //        GioHang.Columns.Add("Mã Sách");
-        //        GioHang.Columns.Add("Tên Sách");
-        //    }
-        //}
-
+        public FrmTimKiemSach()
+        {
+            InitializeComponent();
+            if (GioHang.Columns.Count == 0)
+            {
+                GioHang.Columns.Add("Mã Sách");
+                GioHang.Columns.Add("Tên Sách");
+            }
+        }
+       
         private void FrmTimKiemSach_Load(object sender, EventArgs e)
         {
             SachBUS sachBus = new SachBUS();
@@ -73,37 +73,46 @@ namespace LibraryManagerGUI
 
         private void dgvTimKiemSach_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //// 2. Sự kiện Double Click vào DataGridView
-            //// Đảm bảo không click nhầm vào dòng tiêu đề (RowIndex = -1)
-            //if (e.RowIndex >= 0)
-            //{
-            //    // Lấy dữ liệu từ dòng vừa click
-            //    string maSach = dgvTimKiemSach.Rows[e.RowIndex].Cells["Mã Sách"].Value.ToString();
-            //    string tenSach = dgvTimKiemSach.Rows[e.RowIndex].Cells["Tên Sách"].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvTimKiemSach.Rows[e.RowIndex];
 
-            //    // Kiểm tra xem sách này đã có trong giỏ chưa (tránh add trùng 1 cuốn 2 lần)
-            //    bool daTonTai = false;
-            //    foreach (DataRow row in GioHang.Rows)
-            //    {
-            //        if (row["Mã Sách"].ToString() == maSach)
-            //        {
-            //            daTonTai = true;
-            //            break;
-            //        }
-            //    }
+                // Dùng Columns.Contains để kiểm tra tên cột chính xác nhất
+                string ma = "";
+                if (dgvTimKiemSach.Columns.Contains("maSach"))
+                    ma = row.Cells["maSach"].Value.ToString();
+                else
+                    ma = row.Cells["Mã Sách"].Value.ToString();
 
-            //    if (!daTonTai)
-            //    {
-            //        // Thêm vào giỏ hàng tạm
-            //        GioHang.Rows.Add(maSach, tenSach);
-            //        MessageBox.Show($"Đã thêm '{tenSach}' vào giỏ đăng ký mượn!", "Thành công");
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Sách này đã có trong giỏ của bạn rồi!", "Thông báo");
-            //    }
-            //}
+                string ten = "";
+                if (dgvTimKiemSach.Columns.Contains("tenSach"))
+                    ten = row.Cells["tenSach"].Value.ToString();
+                else
+                    ten = row.Cells["Tên Sách"].Value.ToString();
+
+                // Kiểm tra trùng trong giỏ hàng
+                bool daCo = false;
+                foreach (DataRow dr in GioHang.Rows)
+                {
+                    if (dr["Mã Sách"].ToString() == ma)
+                    {
+                        daCo = true;
+                        break;
+                    }
+                }
+
+                if (!daCo)
+                {
+                    GioHang.Rows.Add(ma, ten);
+                    MessageBox.Show($"Đã thêm '{ten}' vào giỏ!");
+                }
+                else
+                {
+                    MessageBox.Show("Sách này đã có trong danh sách rồi.");
+                }
+            }
         }
+        
 
         private void btnTimSach_Click(object sender, EventArgs e)
         {
@@ -124,49 +133,10 @@ namespace LibraryManagerGUI
 
         private void btnMoFrmDangKyMuonSach_Click(object sender, EventArgs e)
         {
-            //FrmGioSachDangKy formGioSachDangKy = new FrmGioSachDangKy();
-            //formGioSachDangKy.ShowDialog(); 
+            FrmDangKyMuonSach formDangKyMuonSach = new FrmDangKyMuonSach();
+            formDangKyMuonSach.ShowDialog(); 
         }
-
-        private void txtTimSach_TextChanged(object sender, EventArgs e)
-        {
-            //string tuKhoa = txtTimSach.Text.Trim(); // Lấy chữ người dùng vừa gõ
-
-            //SachBUS sachBus = new SachBUS();
-
-            //// Nếu ô tìm kiếm trống thì load lại toàn bộ sách
-            //if (string.IsNullOrEmpty(tuKhoa))
-            //{
-            //    dgvTimKiemSach.DataSource = sachBus.GetDanhSachSachFrmTimKiem();
-            //}
-            //else
-            //{
-            //    // Nếu có chữ thì gọi hàm tìm kiếm thông minh
-            //    dgvTimKiemSach.DataSource = sachBus.TimKiemSachThongMinh(tuKhoa);
-            //}
-
-            //// Nhớ gọi lại đoạn code ẩn cột Mã sách đi nhé
-            //if (dgvTimKiemSach.Columns.Contains("Mã Sách"))
-            //{
-            //    dgvTimKiemSach.Columns["Mã Sách"].Visible = false;
-            //}
-        }
-        // Dán đoạn này vào để Designer tìm thấy "hồn" của sự kiện
-        private void dgvTimKiemSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // Cứ để trống ở đây, chủ yếu để Designer không báo lỗi nữa
-        }
-        // Thêm hàm này để xử lý lỗi của guna2CustomGradientPanel1
-        private void guna2CustomGradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-            // Để trống cũng được, chủ yếu để Designer không báo lỗi
-        }
-
-        // Thêm hàm này để xử lý lỗi của guna2Panel1
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-            // Để trống
-        }
+       
     }
     
 }

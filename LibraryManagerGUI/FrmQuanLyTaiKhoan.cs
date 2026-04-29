@@ -53,14 +53,14 @@ namespace LibraryManagerGUI
                 DataGridViewRow row = dgvDanhSach.Rows[e.RowIndex];
 
                 // Gán lên các Label em đã thiết kế trên ảnh
-                lblTenHienThi.Text = row.Cells["ten"].Value.ToString();
-                lblMSSVHienThi.Text = row.Cells["mssv"].Value.ToString();
+                lblTenHienThi.Text = row.Cells["hoTen"].Value.ToString();
+                lblMaDinhDanhHienThi.Text = row.Cells["maDinhDanh"].Value.ToString();
                 txtSoTienThu.Text = row.Cells["soTienDatCoc"].Value.ToString();
 
                 // Lưu lại mã người mượn vào một biến tạm hoặc Tag của Form để dùng khi bấm nút
                 this.Tag = row.Cells["maNguoiMuon"].Value.ToString();
                 lblTenHienThi.Visible = true;
-                lblMSSVHienThi.Visible = true;
+                lblMaDinhDanhHienThi.Visible = true;
             }
         }
 

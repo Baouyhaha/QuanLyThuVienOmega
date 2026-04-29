@@ -13,20 +13,13 @@ namespace LibraryManagerDAL
     {
         public DataTable LayThongTinHoSo(string tenTaiKhoan)
         {
-            // CÂU LỆNH SQL ĐÃ FIX THEO ẢNH THỰC TẾ CỦA EM
-            string query = @"SELECT tk.ten as hoTen, nm.mssv, tk.soDienThoai, tk.email, 
-                            nm.maNguoiMuon, nm.soTienDatCoc, nm.giaiDoanHoc, nm.trangThai 
-                     FROM nguoimuon nm 
-                     INNER JOIN taikhoan tk ON nm.tenTaiKhoan = tk.tenTaiKhoan 
-                     WHERE tk.tenTaiKhoan = @TenTaiKhoan";
+            string query = @"SELECT nm.hoTen, nm.maDinhDanh, nm.sdt, nm.email, 
+                            nm.maNguoiMuon, nm.soTienDatCoc, nm.trangThai 
+                     FROM nguoimuon nm
+                     WHERE nm.tenTaiKhoan = @user";
 
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-        new SqlParameter("@TenTaiKhoan", tenTaiKhoan)
-            };
-
+            SqlParameter[] parameters = { new SqlParameter("@user", tenTaiKhoan) };
             return DbHelper.getTable(query, parameters);
-
         }
 
         // 2. Hàm gửi yêu cầu kích hoạt

@@ -53,6 +53,7 @@ namespace LibraryManagerDAO
                         cmd1.ExecuteNonQuery();
                     }
 
+
                     // LỆNH 2: Tự động sinh mã người mượn mới (NM0001, NM0002...)
                     string sqlGetMaxId = "SELECT MAX(maNguoiMuon) FROM nguoimuon";
                     string newMaNM = "NM0001"; // Mặc định nếu chưa có ai
@@ -69,15 +70,17 @@ namespace LibraryManagerDAO
                     }
 
                     // LỆNH 3: Insert vào bảng nguoimuon với trạng thái 0 (Chưa Active)
-                    string sqlNguoiMuon = "INSERT INTO nguoimuon (maNguoiMuon, tenTaiKhoan, trangThai) " +
-                                          "VALUES (@maNM, @tenTK, 0)";
+                    string sqlNguoiMuon = "INSERT INTO nguoimuon (maNguoiMuon, tenTaiKhoan, hoTen, email, sdt, trangThai) " +
+                       "VALUES (@maNM, @tenTK, @hoTen, @email, @sdt, 0)";
                     using (SqlCommand cmd2 = new SqlCommand(sqlNguoiMuon, conn, trans))
                     {
                         cmd2.Parameters.AddWithValue("@maNM", newMaNM);
                         cmd2.Parameters.AddWithValue("@tenTK", tk.TenTaiKhoan);
+                        cmd2.Parameters.AddWithValue("@hoTen", tk.Ten);        // Thêm dòng này
+                        cmd2.Parameters.AddWithValue("@email", tk.Email);      // Thêm dòng này
+                        cmd2.Parameters.AddWithValue("@sdt", tk.SoDienThoai);  // Thêm dòng này
                         cmd2.ExecuteNonQuery();
                     }
-
                     trans.Commit(); // Hoàn tất thành công cả 2 bảng
                     return true;
                 }
@@ -140,23 +143,18 @@ namespace LibraryManagerDAO
         // Lấy thông tin tài khoản để hiển thị lên Form Quản lý
         public DataTable LayDanhSachTaiKhoan(string tuKhoa = "", int locTrangThai = -1)
         {
-            // @tuKhoa: Tìm theo Tên, MSSV hoặc Mã người mượn
-            // @locTrangThai: -1 là lấy tất cả, 0, 1, 2 là lọc theo từng loại
-            string query = @"SELECT tk.ten, nm.mssv, tk.soDienThoai, tk.email, 
-                            nm.maNguoiMuon, nm.trangThai, nm.soTienDatCoc
-                     FROM taikhoan tk
-                     LEFT JOIN nguoimuon nm ON tk.tenTaiKhoan = nm.tenTaiKhoan
-                     WHERE (tk.ten LIKE @key OR nm.mssv LIKE @key OR nm.maNguoiMuon LIKE @key) ";
+            string query = @"SELECT nm.maNguoiMuon, nm.hoTen, nm.maDinhDanh, nm.sdt, 
+                            nm.email, nm.trangThai, nm.soTienDatCoc
+                     FROM nguoimuon nm
+                     LEFT JOIN taikhoan tk ON nm.tenTaiKhoan = tk.tenTaiKhoan
+                     WHERE (nm.hoTen LIKE @key OR nm.maDinhDanh LIKE @key OR nm.maNguoiMuon LIKE @key) ";
 
-            // Nếu người dùng chọn lọc cụ thể một trạng thái (khác -1)
             if (locTrangThai != -1)
             {
                 query += " AND nm.trangThai = " + locTrangThai;
             }
 
-            SqlParameter[] pars = {
-        new SqlParameter("@key", "%" + tuKhoa + "%")
-    };
+            SqlParameter[] pars = { new SqlParameter("@key", "%" + tuKhoa + "%") };
             return DbHelper.getTable(query, pars);
         }
 
