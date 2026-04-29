@@ -203,5 +203,38 @@ namespace LibraryManagerDAL
             SqlParameter[] pr = { new SqlParameter("@tk", "%" + tuKhoa + "%") };
             return DbHelper.getTable(sql, pr);
         }
+        public int KiemTraSoLuongCoTheMuon(string maSach)
+        {
+            // Đếm số lượng bản sao thỏa mãn 3 điều kiện vàng
+            string query = @"SELECT COUNT(*) 
+                     FROM bansaosach 
+                     WHERE maSach = @maSach 
+                       AND loaiBanSao = 2 
+                       AND trangThai = 0 
+                       AND xoa = 0";
+
+            SqlParameter[] pars = { new SqlParameter("@maSach", maSach) };
+
+            // ExecuteScalar dùng để lấy một giá trị duy nhất (ở đây là kết quả của COUNT)
+            object result = DbHelper.executeScalar(query, pars);
+
+            return result != null ? Convert.ToInt32(result) : 0;
+        }
+        public int LaySoLuongKhaDung(string maSach)
+        {
+            // Chỉ đếm những bản sao: Đúng mã sách, Cho mượn về (2), Sẵn có (0) và Chưa thanh lý (0)
+            string query = @"SELECT COUNT(*) 
+                     FROM bansaosach 
+                     WHERE maSach = @ma 
+                       AND loaiBanSao = 2 
+                       AND trangThai = 0 
+                       AND xoa = 0";
+
+            SqlParameter[] pars = { new SqlParameter("@ma", maSach) };
+
+            // Trả về số lượng kiểu số nguyên
+            object result = DbHelper.executeScalar(query, pars);
+            return result != null ? Convert.ToInt32(result) : 0;
+        }
     }
 }

@@ -76,39 +76,31 @@ namespace LibraryManagerGUI
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvTimKiemSach.Rows[e.RowIndex];
+                string ma = dgvTimKiemSach.Columns.Contains("maSach") ? row.Cells["maSach"].Value.ToString() : row.Cells["Mã Sách"].Value.ToString();
+                string ten = dgvTimKiemSach.Columns.Contains("tenSach") ? row.Cells["tenSach"].Value.ToString() : row.Cells["Tên Sách"].Value.ToString();
 
-                // Dùng Columns.Contains để kiểm tra tên cột chính xác nhất
-                string ma = "";
-                if (dgvTimKiemSach.Columns.Contains("maSach"))
-                    ma = row.Cells["maSach"].Value.ToString();
-                else
-                    ma = row.Cells["Mã Sách"].Value.ToString();
+                // --- KHÚC NÀY LÀ QUAN TRỌNG NHẤT ---
+                int soLuongDuocMuon = sachBus.KiemTraKhaNangMuon(ma);
 
-                string ten = "";
-                if (dgvTimKiemSach.Columns.Contains("tenSach"))
-                    ten = row.Cells["tenSach"].Value.ToString();
-                else
-                    ten = row.Cells["Tên Sách"].Value.ToString();
+                if (soLuongDuocMuon <= 0)
+                {
+                    MessageBox.Show($"Xin lỗi, cuốn '{ten}' hiện không còn bản sao nào có sẵn để mượn về nhà. " +
+                                    "\n(Có thể sách đang bị mượn hết hoặc chỉ còn bản đọc tại chỗ)",
+                                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Chặn lại, không cho add vào giỏ hàng
+                }
 
-                // Kiểm tra trùng trong giỏ hàng
+                // Nếu còn sách thì tiến hành kiểm tra trùng và thêm vào GioHang như cũ
                 bool daCo = false;
                 foreach (DataRow dr in GioHang.Rows)
                 {
-                    if (dr["Mã Sách"].ToString() == ma)
-                    {
-                        daCo = true;
-                        break;
-                    }
+                    if (dr["Mã Sách"].ToString() == ma) { daCo = true; break; }
                 }
 
                 if (!daCo)
                 {
                     GioHang.Rows.Add(ma, ten);
-                    MessageBox.Show($"Đã thêm '{ten}' vào giỏ!");
-                }
-                else
-                {
-                    MessageBox.Show("Sách này đã có trong danh sách rồi.");
+                    MessageBox.Show($"Đã thêm '{ten}' vào giỏ đăng ký mượn!", "Thành công");
                 }
             }
         }

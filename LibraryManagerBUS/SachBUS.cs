@@ -176,5 +176,13 @@ namespace LibraryManagerBUS
         {
             return sachDAL.TimKiemSachThongMinh(tuKhoa);
         }
+        public int KiemTraSoLuongCoTheMuon(string maSach)
+        {
+            return sachDAL.KiemTraSoLuongCoTheMuon(maSach);
+        }
+        public int KiemTraKhaNangMuon(string maSach)
+        {
+            return sachDAL.LaySoLuongKhaDung(maSach);
+        }
     }
 }

@@ -52,8 +52,9 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.lblTieuDeNhanTraSach);
             this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(800, 111);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1067, 137);
             this.guna2CustomGradientPanel1.TabIndex = 2;
             // 
             // guna2ControlBox3
@@ -61,10 +62,10 @@
             this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
             this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(764, 2);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1019, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(34, 24);
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 30);
             this.guna2ControlBox3.TabIndex = 6;
             // 
             // lblTieuDeNhanTraSach
@@ -75,22 +76,26 @@
             this.lblTieuDeNhanTraSach.AutoSize = true;
             this.lblTieuDeNhanTraSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblTieuDeNhanTraSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(94)))), ((int)(((byte)(34)))));
-            this.lblTieuDeNhanTraSach.Location = new System.Drawing.Point(288, 41);
+            this.lblTieuDeNhanTraSach.Location = new System.Drawing.Point(384, 50);
+            this.lblTieuDeNhanTraSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTieuDeNhanTraSach.Name = "lblTieuDeNhanTraSach";
-            this.lblTieuDeNhanTraSach.Size = new System.Drawing.Size(173, 29);
+            this.lblTieuDeNhanTraSach.Size = new System.Drawing.Size(208, 36);
             this.lblTieuDeNhanTraSach.TabIndex = 0;
             this.lblTieuDeNhanTraSach.Text = "Tìm kiếm Sách";
             // 
             // dgvTimKiemSach
             // 
+            this.dgvTimKiemSach.AllowUserToAddRows = false;
+            this.dgvTimKiemSach.AllowUserToDeleteRows = false;
             this.dgvTimKiemSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTimKiemSach.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvTimKiemSach.Location = new System.Drawing.Point(0, 265);
-            this.dgvTimKiemSach.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvTimKiemSach.Location = new System.Drawing.Point(0, 327);
+            this.dgvTimKiemSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvTimKiemSach.Name = "dgvTimKiemSach";
+            this.dgvTimKiemSach.ReadOnly = true;
             this.dgvTimKiemSach.RowHeadersWidth = 51;
             this.dgvTimKiemSach.RowTemplate.Height = 24;
-            this.dgvTimKiemSach.Size = new System.Drawing.Size(800, 275);
+            this.dgvTimKiemSach.Size = new System.Drawing.Size(1067, 338);
             this.dgvTimKiemSach.TabIndex = 62;
             this.dgvTimKiemSach.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTimKiemSach_CellDoubleClick);
             // 
@@ -108,10 +113,10 @@
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.btnTimSach);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 111);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 137);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(800, 154);
+            this.guna2Panel1.Size = new System.Drawing.Size(1067, 190);
             this.guna2Panel1.TabIndex = 63;
             // 
             // btnMoFrmDangKyMuonSach
@@ -126,10 +131,11 @@
             this.btnMoFrmDangKyMuonSach.ForeColor = System.Drawing.Color.White;
             this.btnMoFrmDangKyMuonSach.Image = global::LibraryManagerGUI.Properties.Resources.book_signing;
             this.btnMoFrmDangKyMuonSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnMoFrmDangKyMuonSach.Location = new System.Drawing.Point(580, 63);
-            this.btnMoFrmDangKyMuonSach.MinimumSize = new System.Drawing.Size(103, 31);
+            this.btnMoFrmDangKyMuonSach.Location = new System.Drawing.Point(773, 78);
+            this.btnMoFrmDangKyMuonSach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMoFrmDangKyMuonSach.MinimumSize = new System.Drawing.Size(137, 38);
             this.btnMoFrmDangKyMuonSach.Name = "btnMoFrmDangKyMuonSach";
-            this.btnMoFrmDangKyMuonSach.Size = new System.Drawing.Size(103, 31);
+            this.btnMoFrmDangKyMuonSach.Size = new System.Drawing.Size(137, 38);
             this.btnMoFrmDangKyMuonSach.TabIndex = 69;
             this.btnMoFrmDangKyMuonSach.Text = "Đăng ký sách";
             this.btnMoFrmDangKyMuonSach.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -138,10 +144,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 39);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(43, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 13);
+            this.label2.Size = new System.Drawing.Size(168, 16);
             this.label2.TabIndex = 68;
             this.label2.Text = "Tên Sách/tác giả/ tên bảng";
             // 
@@ -158,23 +163,22 @@
             this.txtTimSach.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTimSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTimSach.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimSach.Location = new System.Drawing.Point(177, 26);
-            this.txtTimSach.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.txtTimSach.MaximumSize = new System.Drawing.Size(1125, 31);
-            this.txtTimSach.MinimumSize = new System.Drawing.Size(225, 31);
+            this.txtTimSach.Location = new System.Drawing.Point(236, 32);
+            this.txtTimSach.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTimSach.MaximumSize = new System.Drawing.Size(1500, 38);
+            this.txtTimSach.MinimumSize = new System.Drawing.Size(300, 38);
             this.txtTimSach.Name = "txtTimSach";
             this.txtTimSach.PlaceholderText = "";
             this.txtTimSach.SelectedText = "";
-            this.txtTimSach.Size = new System.Drawing.Size(335, 31);
+            this.txtTimSach.Size = new System.Drawing.Size(447, 38);
             this.txtTimSach.TabIndex = 64;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 26);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(65, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.Size = new System.Drawing.Size(99, 16);
             this.label1.TabIndex = 67;
             this.label1.Text = "Tìm kiếm bằng ";
             // 
@@ -190,25 +194,26 @@
             this.btnTimSach.ForeColor = System.Drawing.Color.White;
             this.btnTimSach.Image = ((System.Drawing.Image)(resources.GetObject("btnTimSach.Image")));
             this.btnTimSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTimSach.Location = new System.Drawing.Point(580, 26);
-            this.btnTimSach.MaximumSize = new System.Drawing.Size(107, 31);
-            this.btnTimSach.MinimumSize = new System.Drawing.Size(103, 31);
+            this.btnTimSach.Location = new System.Drawing.Point(773, 32);
+            this.btnTimSach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTimSach.MaximumSize = new System.Drawing.Size(143, 38);
+            this.btnTimSach.MinimumSize = new System.Drawing.Size(137, 38);
             this.btnTimSach.Name = "btnTimSach";
-            this.btnTimSach.Size = new System.Drawing.Size(103, 31);
+            this.btnTimSach.Size = new System.Drawing.Size(137, 38);
             this.btnTimSach.TabIndex = 65;
             this.btnTimSach.Text = "Tìm Sách";
             this.btnTimSach.Click += new System.EventHandler(this.btnTimSach_Click);
             // 
             // FrmTimKiemSach
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 540);
+            this.ClientSize = new System.Drawing.Size(1067, 665);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.dgvTimKiemSach);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmTimKiemSach";
             this.Text = "FrmTimSach";
             this.Load += new System.EventHandler(this.FrmTimKiemSach_Load);
