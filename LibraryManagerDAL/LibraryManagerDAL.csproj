@@ -52,6 +52,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="DangKyTheDAL.cs" />
     <Compile Include="DbHelper.cs" />
+    <Compile Include="MuonTraDAL.cs" />
     <Compile Include="NguoiMuonDAL.cs" />
     <Compile Include="NhaPhatHanhDAL.cs" />
     <Compile Include="PhieuDocTaiChoDAL.cs" />

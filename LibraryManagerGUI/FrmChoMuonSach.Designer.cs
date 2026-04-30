@@ -43,12 +43,12 @@
             this.btnQuetThe = new Guna.UI2.WinForms.Guna2Button();
             this.lblNhapMaTheDocGia = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtMaThe = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblHienHanThe = new System.Windows.Forms.Label();
             this.lblHanThe = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblTieuDHChoMuonSach = new System.Windows.Forms.Label();
-            this.txtMaThe = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachSachDaDangKy)).BeginInit();
@@ -61,9 +61,10 @@
             // 
             this.panel4.Controls.Add(this.btnXacNhanGiaoSach);
             this.panel4.Controls.Add(this.btnHuy);
-            this.panel4.Location = new System.Drawing.Point(0, 422);
+            this.panel4.Location = new System.Drawing.Point(0, 519);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(800, 95);
+            this.panel4.Size = new System.Drawing.Size(1067, 117);
             this.panel4.TabIndex = 55;
             // 
             // btnXacNhanGiaoSach
@@ -78,12 +79,14 @@
             this.btnXacNhanGiaoSach.ForeColor = System.Drawing.Color.White;
             this.btnXacNhanGiaoSach.Image = ((System.Drawing.Image)(resources.GetObject("btnXacNhanGiaoSach.Image")));
             this.btnXacNhanGiaoSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnXacNhanGiaoSach.Location = new System.Drawing.Point(616, 24);
+            this.btnXacNhanGiaoSach.Location = new System.Drawing.Point(821, 30);
+            this.btnXacNhanGiaoSach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnXacNhanGiaoSach.Name = "btnXacNhanGiaoSach";
-            this.btnXacNhanGiaoSach.Size = new System.Drawing.Size(153, 31);
+            this.btnXacNhanGiaoSach.Size = new System.Drawing.Size(204, 38);
             this.btnXacNhanGiaoSach.TabIndex = 54;
             this.btnXacNhanGiaoSach.Text = "Xác nhận giao sách";
             this.btnXacNhanGiaoSach.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnXacNhanGiaoSach.Click += new System.EventHandler(this.btnXacNhanGiaoSach_Click);
             // 
             // btnHuy
             // 
@@ -97,9 +100,10 @@
             this.btnHuy.ForeColor = System.Drawing.Color.White;
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnHuy.Location = new System.Drawing.Point(472, 24);
+            this.btnHuy.Location = new System.Drawing.Point(629, 30);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(107, 31);
+            this.btnHuy.Size = new System.Drawing.Size(143, 38);
             this.btnHuy.TabIndex = 53;
             this.btnHuy.Text = "Hủy";
             this.btnHuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -108,18 +112,20 @@
             // 
             this.panel3.Controls.Add(this.lblHienSoLuongGiaoSach);
             this.panel3.Controls.Add(this.lblSoLuongSachThucGiao);
-            this.panel3.Location = new System.Drawing.Point(13, 359);
+            this.panel3.Location = new System.Drawing.Point(17, 442);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(483, 43);
+            this.panel3.Size = new System.Drawing.Size(644, 53);
             this.panel3.TabIndex = 48;
             // 
             // lblHienSoLuongGiaoSach
             // 
             this.lblHienSoLuongGiaoSach.AutoSize = true;
             this.lblHienSoLuongGiaoSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblHienSoLuongGiaoSach.Location = new System.Drawing.Point(264, 10);
+            this.lblHienSoLuongGiaoSach.Location = new System.Drawing.Point(352, 12);
+            this.lblHienSoLuongGiaoSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHienSoLuongGiaoSach.Name = "lblHienSoLuongGiaoSach";
-            this.lblHienSoLuongGiaoSach.Size = new System.Drawing.Size(181, 20);
+            this.lblHienSoLuongGiaoSach.Size = new System.Drawing.Size(224, 25);
             this.lblHienSoLuongGiaoSach.TabIndex = 44;
             this.lblHienSoLuongGiaoSach.Text = "Hiện Số lượng giao sách";
             // 
@@ -127,26 +133,30 @@
             // 
             this.lblSoLuongSachThucGiao.AutoSize = true;
             this.lblSoLuongSachThucGiao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblSoLuongSachThucGiao.Location = new System.Drawing.Point(3, 10);
+            this.lblSoLuongSachThucGiao.Location = new System.Drawing.Point(4, 12);
+            this.lblSoLuongSachThucGiao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSoLuongSachThucGiao.Name = "lblSoLuongSachThucGiao";
-            this.lblSoLuongSachThucGiao.Size = new System.Drawing.Size(235, 20);
+            this.lblSoLuongSachThucGiao.Size = new System.Drawing.Size(295, 25);
             this.lblSoLuongSachThucGiao.TabIndex = 43;
             this.lblSoLuongSachThucGiao.Text = "SỐ LƯỢNG SÁCH THỰC GIAO";
             // 
             // dgvDanhSachSachDaDangKy
             // 
             this.dgvDanhSachSachDaDangKy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDanhSachSachDaDangKy.Location = new System.Drawing.Point(17, 26);
+            this.dgvDanhSachSachDaDangKy.Location = new System.Drawing.Point(23, 32);
+            this.dgvDanhSachSachDaDangKy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvDanhSachSachDaDangKy.Name = "dgvDanhSachSachDaDangKy";
-            this.dgvDanhSachSachDaDangKy.Size = new System.Drawing.Size(681, 163);
+            this.dgvDanhSachSachDaDangKy.RowHeadersWidth = 51;
+            this.dgvDanhSachSachDaDangKy.Size = new System.Drawing.Size(908, 201);
             this.dgvDanhSachSachDaDangKy.TabIndex = 42;
             // 
             // lblDSSachDangMuon
             // 
             this.lblDSSachDangMuon.AutoSize = true;
-            this.lblDSSachDangMuon.Location = new System.Drawing.Point(24, 9);
+            this.lblDSSachDangMuon.Location = new System.Drawing.Point(32, 11);
+            this.lblDSSachDangMuon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDSSachDangMuon.Name = "lblDSSachDangMuon";
-            this.lblDSSachDangMuon.Size = new System.Drawing.Size(244, 13);
+            this.lblDSSachDangMuon.Size = new System.Drawing.Size(299, 16);
             this.lblDSSachDangMuon.TabIndex = 41;
             this.lblDSSachDangMuon.Text = "DANH SÁCH SÁCH ĐÃ ĐĂNG KÝ TRỰC TUYẾN";
             // 
@@ -154,26 +164,29 @@
             // 
             this.panel2.Controls.Add(this.dgvDanhSachSachDaDangKy);
             this.panel2.Controls.Add(this.lblDSSachDangMuon);
-            this.panel2.Location = new System.Drawing.Point(13, 127);
+            this.panel2.Location = new System.Drawing.Point(17, 156);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(710, 205);
+            this.panel2.Size = new System.Drawing.Size(947, 252);
             this.panel2.TabIndex = 47;
             // 
             // lblHoTenDocGiaHien
             // 
             this.lblHoTenDocGiaHien.AutoSize = true;
-            this.lblHoTenDocGiaHien.Location = new System.Drawing.Point(137, 74);
+            this.lblHoTenDocGiaHien.Location = new System.Drawing.Point(183, 91);
+            this.lblHoTenDocGiaHien.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHoTenDocGiaHien.Name = "lblHoTenDocGiaHien";
-            this.lblHoTenDocGiaHien.Size = new System.Drawing.Size(156, 13);
+            this.lblHoTenDocGiaHien.Size = new System.Drawing.Size(189, 16);
             this.lblHoTenDocGiaHien.TabIndex = 41;
             this.lblHoTenDocGiaHien.Text = "TỰ ĐỘNG HIỆN TÊN TÁC GIẢ";
             // 
             // lblHoTwnMaDocGia
             // 
             this.lblHoTwnMaDocGia.AutoSize = true;
-            this.lblHoTwnMaDocGia.Location = new System.Drawing.Point(24, 74);
+            this.lblHoTwnMaDocGia.Location = new System.Drawing.Point(32, 91);
+            this.lblHoTwnMaDocGia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHoTwnMaDocGia.Name = "lblHoTwnMaDocGia";
-            this.lblHoTwnMaDocGia.Size = new System.Drawing.Size(84, 13);
+            this.lblHoTwnMaDocGia.Size = new System.Drawing.Size(100, 16);
             this.lblHoTwnMaDocGia.TabIndex = 40;
             this.lblHoTwnMaDocGia.Text = "Họ tên độc giả: ";
             // 
@@ -188,18 +201,21 @@
             this.btnQuetThe.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnQuetThe.ForeColor = System.Drawing.Color.White;
             this.btnQuetThe.Image = ((System.Drawing.Image)(resources.GetObject("btnQuetThe.Image")));
-            this.btnQuetThe.Location = new System.Drawing.Point(598, 24);
+            this.btnQuetThe.Location = new System.Drawing.Point(797, 30);
+            this.btnQuetThe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnQuetThe.Name = "btnQuetThe";
-            this.btnQuetThe.Size = new System.Drawing.Size(96, 20);
+            this.btnQuetThe.Size = new System.Drawing.Size(128, 25);
             this.btnQuetThe.TabIndex = 38;
             this.btnQuetThe.Text = "Quét thẻ:";
+            this.btnQuetThe.Click += new System.EventHandler(this.btnQuetThe_Click);
             // 
             // lblNhapMaTheDocGia
             // 
             this.lblNhapMaTheDocGia.AutoSize = true;
-            this.lblNhapMaTheDocGia.Location = new System.Drawing.Point(24, 27);
+            this.lblNhapMaTheDocGia.Location = new System.Drawing.Point(32, 33);
+            this.lblNhapMaTheDocGia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNhapMaTheDocGia.Name = "lblNhapMaTheDocGia";
-            this.lblNhapMaTheDocGia.Size = new System.Drawing.Size(110, 13);
+            this.lblNhapMaTheDocGia.Size = new System.Drawing.Size(134, 16);
             this.lblNhapMaTheDocGia.TabIndex = 37;
             this.lblNhapMaTheDocGia.Text = "Nhập mã thẻ độc giả:";
             // 
@@ -216,60 +232,11 @@
             this.panel1.Controls.Add(this.btnQuetThe);
             this.panel1.Controls.Add(this.lblNhapMaTheDocGia);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 111);
+            this.panel1.Location = new System.Drawing.Point(0, 137);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 520);
+            this.panel1.Size = new System.Drawing.Size(1067, 640);
             this.panel1.TabIndex = 46;
-            // 
-            // lblHienHanThe
-            // 
-            this.lblHienHanThe.AutoSize = true;
-            this.lblHienHanThe.Location = new System.Drawing.Point(451, 74);
-            this.lblHienHanThe.Name = "lblHienHanThe";
-            this.lblHienHanThe.Size = new System.Drawing.Size(137, 13);
-            this.lblHienHanThe.TabIndex = 57;
-            this.lblHienHanThe.Text = "TỰ ĐỘNG HIỆN HẠN THẺ";
-            // 
-            // lblHanThe
-            // 
-            this.lblHanThe.AutoSize = true;
-            this.lblHanThe.Location = new System.Drawing.Point(338, 74);
-            this.lblHanThe.Name = "lblHanThe";
-            this.lblHanThe.Size = new System.Drawing.Size(51, 13);
-            this.lblHanThe.TabIndex = 56;
-            this.lblHanThe.Text = "Hạn thẻ: ";
-            // 
-            // guna2CustomGradientPanel1
-            // 
-            this.guna2CustomGradientPanel1.Controls.Add(this.guna2ControlBox3);
-            this.guna2CustomGradientPanel1.Controls.Add(this.lblTieuDHChoMuonSach);
-            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(800, 111);
-            this.guna2CustomGradientPanel1.TabIndex = 45;
-            // 
-            // guna2ControlBox3
-            // 
-            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
-            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(764, 2);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(34, 24);
-            this.guna2ControlBox3.TabIndex = 6;
-            // 
-            // lblTieuDHChoMuonSach
-            // 
-            this.lblTieuDHChoMuonSach.AutoSize = true;
-            this.lblTieuDHChoMuonSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblTieuDHChoMuonSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(94)))), ((int)(((byte)(34)))));
-            this.lblTieuDHChoMuonSach.Location = new System.Drawing.Point(264, 46);
-            this.lblTieuDHChoMuonSach.Name = "lblTieuDHChoMuonSach";
-            this.lblTieuDHChoMuonSach.Size = new System.Drawing.Size(192, 29);
-            this.lblTieuDHChoMuonSach.TabIndex = 0;
-            this.lblTieuDHChoMuonSach.Text = "Cho mượn sách";
             // 
             // txtMaThe
             // 
@@ -283,22 +250,77 @@
             this.txtMaThe.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaThe.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMaThe.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaThe.Location = new System.Drawing.Point(139, 23);
-            this.txtMaThe.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.txtMaThe.Location = new System.Drawing.Point(185, 28);
+            this.txtMaThe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaThe.Name = "txtMaThe";
             this.txtMaThe.PlaceholderText = "";
             this.txtMaThe.SelectedText = "";
-            this.txtMaThe.Size = new System.Drawing.Size(439, 21);
+            this.txtMaThe.Size = new System.Drawing.Size(585, 26);
             this.txtMaThe.TabIndex = 85;
+            // 
+            // lblHienHanThe
+            // 
+            this.lblHienHanThe.AutoSize = true;
+            this.lblHienHanThe.Location = new System.Drawing.Point(601, 91);
+            this.lblHienHanThe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHienHanThe.Name = "lblHienHanThe";
+            this.lblHienHanThe.Size = new System.Drawing.Size(166, 16);
+            this.lblHienHanThe.TabIndex = 57;
+            this.lblHienHanThe.Text = "TỰ ĐỘNG HIỆN HẠN THẺ";
+            // 
+            // lblHanThe
+            // 
+            this.lblHanThe.AutoSize = true;
+            this.lblHanThe.Location = new System.Drawing.Point(451, 91);
+            this.lblHanThe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHanThe.Name = "lblHanThe";
+            this.lblHanThe.Size = new System.Drawing.Size(59, 16);
+            this.lblHanThe.TabIndex = 56;
+            this.lblHanThe.Text = "Hạn thẻ: ";
+            // 
+            // guna2CustomGradientPanel1
+            // 
+            this.guna2CustomGradientPanel1.Controls.Add(this.guna2ControlBox3);
+            this.guna2CustomGradientPanel1.Controls.Add(this.lblTieuDHChoMuonSach);
+            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1067, 137);
+            this.guna2CustomGradientPanel1.TabIndex = 45;
+            // 
+            // guna2ControlBox3
+            // 
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1019, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 30);
+            this.guna2ControlBox3.TabIndex = 6;
+            // 
+            // lblTieuDHChoMuonSach
+            // 
+            this.lblTieuDHChoMuonSach.AutoSize = true;
+            this.lblTieuDHChoMuonSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblTieuDHChoMuonSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(94)))), ((int)(((byte)(34)))));
+            this.lblTieuDHChoMuonSach.Location = new System.Drawing.Point(352, 57);
+            this.lblTieuDHChoMuonSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTieuDHChoMuonSach.Name = "lblTieuDHChoMuonSach";
+            this.lblTieuDHChoMuonSach.Size = new System.Drawing.Size(236, 36);
+            this.lblTieuDHChoMuonSach.TabIndex = 0;
+            this.lblTieuDHChoMuonSach.Text = "Cho mượn sách";
             // 
             // FrmChoMuonSach
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 737);
+            this.ClientSize = new System.Drawing.Size(1067, 907);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmChoMuonSach";
             this.Text = "FrmChoMuonSach";
             this.panel4.ResumeLayout(false);

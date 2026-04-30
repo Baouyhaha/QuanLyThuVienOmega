@@ -66,9 +66,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BanSaoSachDTO.cs" />
+    <Compile Include="ChiTietMuonDTO.cs" />
     <Compile Include="ChiTietMuonSachDTO.cs" />
     <Compile Include="ChiTietTacGiaDTO.cs" />
     <Compile Include="DangKyTheDTO.cs" />
+    <Compile Include="MuonTraDTO.cs" />
     <Compile Include="NguoiMuonDTO.cs" />
     <Compile Include="NhaPhatHanhDTO.cs" />
     <Compile Include="PhieuDocTaiCho.cs" />

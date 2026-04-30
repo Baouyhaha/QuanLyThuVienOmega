@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="BienLaiBUS.cs" />
     <Compile Include="DangKyTheBUS.cs" />
+    <Compile Include="MuonTraBUS.cs" />
     <Compile Include="NguoiMuonBUS.cs" />
     <Compile Include="NhaPhatHanhBUS.cs" />
     <Compile Include="PhieuDocTaiChoBUS.cs" />
