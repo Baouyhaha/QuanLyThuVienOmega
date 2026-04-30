@@ -37,21 +37,26 @@ namespace LibraryManagerGUI
         {
             if (FrmTimKiemSach.GioHang == null || FrmTimKiemSach.GioHang.Rows.Count == 0)
             {
-                MessageBox.Show("Giỏ hàng đang trống. Vui lòng chọn sách!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Giỏ hàng đang trống!", "Cảnh báo");
                 return;
             }
 
-            // Tính tiền cọc thực tế để gửi xuống Database
-            int tongGiaTri = 0;
+            // Tính tiền cọc an toàn
+            long tongGiaTri = 0;
             foreach (DataRow row in FrmTimKiemSach.GioHang.Rows)
             {
-                if (row["Giá Tiền"] != DBNull.Value) tongGiaTri += Convert.ToInt32(row["Giá Tiền"]);
+                if (row["Giá Tiền"] != DBNull.Value)
+                {
+                    // Dùng TryParse cho chắc ăn 100%
+                    long.TryParse(row["Giá Tiền"].ToString(), out long gia);
+                    tongGiaTri += gia;
+                }
             }
             int tienCoc = (int)(tongGiaTri * 0.2);
 
             try
             {
-                // Gọi BUS thực thi Transaction lưu xuống SQL
+                // Gọi BUS (giữ nguyên đoạn này của em)
                 bool ketQua = thongTinMuonTraBUS.ChotDonMuonSach(
                     TaiKhoanSession.MaNguoiMuonHienTai,
                     dtpHanTra.Value,
@@ -61,16 +66,12 @@ namespace LibraryManagerGUI
 
                 if (ketQua)
                 {
-                    MessageBox.Show("Đăng ký mượn sách THÀNH CÔNG!\n\nVui lòng đến quầy thủ thư đóng tiền cọc để nhận sách.", "Hoàn tất", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FrmTimKiemSach.GioHang.Clear(); // Xóa giỏ hàng
-                    this.Close(); // Đóng form
+                    MessageBox.Show("Đăng ký thành công!", "Thông báo");
+                    FrmTimKiemSach.GioHang.Clear();
+                    this.Close();
                 }
             }
-            catch (Exception ex)
-            {
-                // Bắt lỗi nếu có người khác mượn mất sách hoặc lỗi kết nối
-                MessageBox.Show(ex.Message, "Lỗi đăng ký", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
         
 
@@ -142,7 +143,7 @@ namespace LibraryManagerGUI
             // 3. Bây giờ mới "siết" MinDate và MaxDate lại đúng giới hạn
             dtpHanTra.MinDate = ngayHienTai.AddDays(1).Date;
             dtpHanTra.MaxDate = ngayHienTai.AddDays(14).Date;
-
+            TinhTienCoc();
 
         }
         private void TinhTienCoc()
