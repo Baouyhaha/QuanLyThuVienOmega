@@ -45,10 +45,12 @@ namespace LibraryManagerGUI
                 // 2. Gọi BUS xử lý đăng nhập (Hàm này ta đã viết ở các bài đầu tiên)
                 TaiKhoanSession session = taiKhoanBUS.Login(taiKhoan, matKhau);
 
+
                 TaiKhoanSession.TaiKhoanHienTai = taiKhoan;
                 // Ý nghĩa: Lấy cái chuỗi 'taiKhoan' mà người ta vừa gõ trên màn hình,
                 // ghi nó vào cái bảng thông báo dùng chung của hệ thống.
 
+                TaiKhoanSession.MaNguoiMuonHienTai = session.MaNguoiMuon;
                 // 3. Khởi tạo Form Main với quyền hạn tương ứng
                 FrmMain mainForm = new FrmMain(session.Role, session.MaNguoiMuon);
 
@@ -57,6 +59,7 @@ namespace LibraryManagerGUI
 
                 // 5. Mở Form Main lên và BẮT BUỘC CHỜ ở đây cho đến khi Form Main bị đóng
                 mainForm.ShowDialog();
+
 
                 // 6. Khi Form Main bị đóng (người dùng tắt app hoặc Đăng xuất), code sẽ chạy tiếp xuống đây:
                 // Ta xóa trắng các ô nhập liệu và hiện lại Form Đăng nhập
