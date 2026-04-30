@@ -15,15 +15,19 @@ namespace LibraryManagerGUI
     {
 
         public static DataTable GioHang = new DataTable();
+
         SachBUS sachBus = new SachBUS();
         public FrmTimKiemSach()
         {
             InitializeComponent();
-            if (GioHang.Columns.Count == 0)
+            if (GioHang == null)
             {
-                GioHang.Columns.Add("Mã Sách");
-                GioHang.Columns.Add("Tên Sách");
+                GioHang = new DataTable();
             }
+            GioHang.Columns.Clear(); // Xóa sạch cột cũ nếu có
+            GioHang.Columns.Add("Mã Sách");
+            GioHang.Columns.Add("Tên Sách");
+            GioHang.Columns.Add("Giá Tiền", typeof(int));
         }
        
         private void FrmTimKiemSach_Load(object sender, EventArgs e)
@@ -55,6 +59,7 @@ namespace LibraryManagerGUI
             txtTimSach.AutoCompleteMode = AutoCompleteMode.Suggest;
             txtTimSach.AutoCompleteSource = AutoCompleteSource.CustomSource;
             dgvTimKiemSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
 
         // Hàm phụ trợ để tránh viết lặp code và kiểm tra cột tồn tại
@@ -73,37 +78,60 @@ namespace LibraryManagerGUI
 
         private void dgvTimKiemSach_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvTimKiemSach.Rows[e.RowIndex];
-                string ma = dgvTimKiemSach.Columns.Contains("maSach") ? row.Cells["maSach"].Value.ToString() : row.Cells["Mã Sách"].Value.ToString();
-                string ten = dgvTimKiemSach.Columns.Contains("tenSach") ? row.Cells["tenSach"].Value.ToString() : row.Cells["Tên Sách"].Value.ToString();
 
-                // --- KHÚC NÀY LÀ QUAN TRỌNG NHẤT ---
-                int soLuongDuocMuon = sachBus.KiemTraKhaNangMuon(ma);
-
-                if (soLuongDuocMuon <= 0)
+                // 1. KIỂM TRA CHẾ ĐỘ (Ngăn sinh viên click khi chưa tìm kiếm)
+                // Vì lúc mới Load form không có giá tiền, nên bắt buộc phải tìm kiếm mới cho mượn
+                if (!dgvTimKiemSach.Columns.Contains("loaiBanSao") || !dgvTimKiemSach.Columns.Contains("gia"))
                 {
-                    MessageBox.Show($"Xin lỗi, cuốn '{ten}' hiện không còn bản sao nào có sẵn để mượn về nhà. " +
-                                    "\n(Có thể sách đang bị mượn hết hoặc chỉ còn bản đọc tại chỗ)",
-                                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; // Chặn lại, không cho add vào giỏ hàng
+                    MessageBox.Show("Vui lòng gõ tên sách và nhấn nút 'TÌM KIẾM' trước khi chọn để hệ thống tính giá tiền cọc!", "Hướng dẫn", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return; // Dừng lại, không chạy code bên dưới nữa
                 }
 
-                // Nếu còn sách thì tiến hành kiểm tra trùng và thêm vào GioHang như cũ
-                bool daCo = false;
-                foreach (DataRow dr in GioHang.Rows)
+                // 2. LẤY DỮ LIỆU AN TOÀN BẰNG TÊN CỘT (Thay vì dùng số 3, 4)
+                int.TryParse(row.Cells["loaiBanSao"].Value?.ToString(), out int loaiBS);
+                int.TryParse(row.Cells["trangThai"].Value?.ToString(), out int tThai);
+
+                // 3. HÀNG RÀO CHẶN SÁCH
+                if (loaiBS != 2)
                 {
-                    if (dr["Mã Sách"].ToString() == ma) { daCo = true; break; }
+                    MessageBox.Show("Sách này chỉ được đọc tại chỗ, không cho mượn về!", "Thông báo");
+                    return;
                 }
 
-                if (!daCo)
+                if (tThai != 0)
                 {
-                    GioHang.Rows.Add(ma, ten);
-                    MessageBox.Show($"Đã thêm '{ten}' vào giỏ đăng ký mượn!", "Thành công");
+                    MessageBox.Show("Sách này hiện đã có người mượn hoặc chưa sẵn sàng!", "Thông báo");
+                    return;
                 }
+
+                // 4. LẤY GIÁ VÀ MÃ (An toàn không văng lỗi)
+                string giaGoc = row.Cells["gia"].Value?.ToString() ?? "0";
+                string cleanGia = System.Text.RegularExpressions.Regex.Replace(giaGoc, @"[^\d]", "");
+                int.TryParse(cleanGia, out int giaTriTien);
+
+                string maChon = row.Cells["maSach"].Value?.ToString() ?? "";
+                string tenChon = row.Cells["tenSach"].Value?.ToString() ?? "";
+
+                // 5. KIỂM TRA TRÙNG VÀ NẠP VÀO GIỎ HÀNG
+                foreach (DataRow r in GioHang.Rows)
+                {
+                    if (r["Mã Sách"].ToString() == maChon)
+                    {
+                        MessageBox.Show("Sách này đã có trong giỏ hàng rồi nhé!");
+                        return;
+                    }
+                }
+
+                // Thêm chuẩn 3 cột: Mã, Tên, Giá (int)
+                GioHang.Rows.Add(maChon, tenChon, giaTriTien);
+                MessageBox.Show($"Đã thêm '{tenChon}' vào giỏ hàng thành công!");
             }
         }
+    
         
 
         private void btnTimSach_Click(object sender, EventArgs e)

@@ -6,7 +6,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace LibraryManagerDAL
 {
@@ -196,10 +198,11 @@ namespace LibraryManagerDAL
         // 2. Hàm tìm kiếm thông minh (Tìm theo tên hoặc ISBN)
         public DataTable TimKiemSachThongMinh(string tuKhoa)
         {
-            string sql = @"SELECT s.maSach, s.tenSach, nph.tenNhaPhatHanh, s.isbn, s.soLuongHienCo 
+            string sql = @"SELECT s.maSach, s.tenSach, b.gia, b.loaiBanSao, b.trangThai 
                    FROM sach s 
-                   LEFT JOIN nhaphatHanh nph ON s.maNhaPhatHanh = nph.maNhaPhatHanh 
-                   WHERE s.tenSach LIKE @tk OR s.isbn LIKE @tk OR s.maSach LIKE @tk";
+                   JOIN bansaosach b ON s.maSach = b.maSach 
+                   WHERE (s.maSach LIKE @tk OR s.tenSach LIKE @tk) 
+                   AND b.xoa = 0";
             SqlParameter[] pr = { new SqlParameter("@tk", "%" + tuKhoa + "%") };
             return DbHelper.getTable(sql, pr);
         }

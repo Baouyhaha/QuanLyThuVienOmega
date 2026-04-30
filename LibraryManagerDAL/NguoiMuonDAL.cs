@@ -34,5 +34,19 @@ namespace LibraryManagerDAL
             return DbHelper.executeNonQuery(query, parameters);
 
         }
+        public DataTable LayThongTinThe(string maNguoiMuon)
+        {
+            // Sử dụng JOIN để lấy hoTen từ bảng nguoimuon dựa vào mã người mượn
+            string query = @"SELECT t.maTheMuon, t.ngayHetHan, t.trangThai, n.hoTen 
+                     FROM themuon t
+                     INNER JOIN nguoimuon n ON t.maNguoiMuon = n.maNguoiMuon
+                     WHERE t.maNguoiMuon = @ma";
+
+            SqlParameter[] pars = new SqlParameter[1];
+            pars[0] = new SqlParameter("@ma", SqlDbType.VarChar);
+            pars[0].Value = maNguoiMuon;
+
+            return DbHelper.getTable(query, pars);
+        }
     }
 }

@@ -18,6 +18,12 @@ namespace LibraryManagerBUS
             return dal.LayThongTinHoSo(tenTaiKhoan);
         }
 
+        // Hàm cầu nối lấy thông tin thẻ
+        public DataTable LayThongTinThe(string maNguoiMuon)
+        {
+            // Chuyền bóng từ DAL lên GUI
+            return dal.LayThongTinThe(maNguoiMuon);
+        }
         public bool GuiYeuCauKichHoat(string tenTaiKhoan)
         {
             return dal.GuiYeuCauKichHoat(tenTaiKhoan);

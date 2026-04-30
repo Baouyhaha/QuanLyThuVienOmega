@@ -20,5 +20,6 @@ namespace LibraryManagerDTO
             this.MaNguoiMuon = maNguoiMuon;
         }
         public static string TaiKhoanHienTai;
+        public static string MaNguoiMuonHienTai;
     }
 }
