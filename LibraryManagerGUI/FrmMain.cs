@@ -147,50 +147,64 @@ namespace LibraryManagerGUI
                     lblXinChao.Text = "Tài khoản: THỦ THƯ";
                     MessageBox.Show("Chào mừng Thủ thư đã quay lại hệ thống!", "Đăng nhập thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // 2. Ẩn/Hiện Menu
-                    btnQuanLySach.Visible = true;
-                    btnQuanLyThe.Visible = true;
-                    btnQuayMuonTra.Visible = true;
-
-                    //btnGioSach.Visible = false; // Thủ thư không xài giỏ sách cá nhân
-                    //btnLichSuMuon.Visible = false;
+                    btnXemThongTinSach.Visible = false;
+                    btnDangKyDocTaiCho.Visible = false;
+                    btnDKMuonSach.Visible = false;
+                    btnDKTheMuon.Visible = false;
                     break;
 
                 case 1: // ================== QUYỀN ĐỘC GIẢ (ĐÃ KÍCH HOẠT) ==================
                     lblXinChao.Text = "Tài khoản: ĐỘC GIẢ (Active)";
                     MessageBox.Show("Đăng nhập thành công! Bạn có thể đặt mượn sách ngay bây giờ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnXemThongTinSach.Visible = true;
+                    btnDangKyDocTaiCho.Visible = true;
+                    btnDKMuonSach.Visible = true;
+                    btnDKTheMuon.Visible = true;
 
-                    // Ẩn menu quản lý của thủ thư
-                    btnQuanLySach.Visible = false;
-                    btnQuanLyThe.Visible = false;
-                    btnQuayMuonTra.Visible = false;
-
-                    //// Hiện chức năng cá nhân
-                    btnGioSach.Visible = true;
-                    btnLichSuMuon.Visible = true;
+                    btnTTChoMuonSach.Visible = false;
+                    btnTTNhanTraSach.Visible = false;
+                    btnTTQuanLySach.Visible = false;
+                    btnQuanLyTheMuon.Visible = false;
+                    btnTTQuanLyTaiKhoan.Visible = false;
+                    btnTTQuanLyTacGIa.Visible = false;
+                    btnTTQuanLyBanSaoSach.Visible = false;
+                    btnTTQuanLyPhieuDocTaiCho.Visible = false;
                     break;
 
                 case -1: // ================== QUYỀN ĐỘC GIẢ (CHƯA KÍCH HOẠT) ==================
                     lblXinChao.Text = "Tài khoản: ĐỘC GIẢ (Chưa kích hoạt)";
                     MessageBox.Show("Tài khoản của bạn chưa được kích hoạt. Bạn chỉ có thể tra cứu sách nhưng chưa thể mượn. Vui lòng gặp thủ thư để đóng cọc/kích hoạt!", "Lưu ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnXemThongTinSach.Visible = true;
+                    btnDangKyDocTaiCho.Visible = true;
+                    btnDKMuonSach.Visible = false;
+                    btnDKTheMuon.Visible = false;
 
-                    btnQuanLySach.Visible = false;
-                    btnQuanLyThe.Visible = false;
-                    btnQuayMuonTra.Visible = false;
-
-                    btnGioSach.Visible = false; // Chưa kích hoạt thì không cho mượn
-                    btnLichSuMuon.Visible = false;
+                    btnTTChoMuonSach.Visible = false;
+                    btnTTNhanTraSach.Visible = false;
+                    btnTTQuanLySach.Visible = false;
+                    btnQuanLyTheMuon.Visible = false;
+                    btnTTQuanLyTaiKhoan.Visible = false;
+                    btnTTQuanLyTacGIa.Visible = false;
+                    btnTTQuanLyBanSaoSach.Visible = false;
+                    btnTTQuanLyPhieuDocTaiCho.Visible = false;
                     break;
 
                 case 0: // ================== QUYỀN KHÁCH VÃNG LAI ==================
                     lblXinChao.Text = "Tài khoản: KHÁCH";
 
-                    // Khách thì ẩn gần hết, chỉ chừa lại nút Tìm Kiếm Sách
-                    btnQuanLySach.Visible = false;
-                    btnQuanLyThe.Visible = false;
-                    btnQuayMuonTra.Visible = false;
-                    btnGioSach.Visible = false;
-                    btnLichSuMuon.Visible = false;
+                    btnXemThongTinSach.Visible = true;
+                    btnDangKyDocTaiCho.Visible = true;
+                    btnDKMuonSach.Visible = false;
+                    btnDKTheMuon.Visible = false;
+
+                    btnTTChoMuonSach.Visible=false;
+                    btnTTNhanTraSach.Visible = false;
+                    btnTTQuanLySach.Visible = false;
+                    btnQuanLyTheMuon.Visible=false;
+                    btnTTQuanLyTaiKhoan.Visible = false;
+                    btnTTQuanLyTacGIa.Visible = false;
+                    btnTTQuanLyBanSaoSach.Visible = false;
+                    btnTTQuanLyPhieuDocTaiCho.Visible=false;
                     break;
             }
         }
@@ -230,39 +244,64 @@ namespace LibraryManagerGUI
             //chieuCaoMucTieu += 5; 
         }
 
-        private void btnDangKyMuonSach_Click(object sender, EventArgs e)
-        {
-            openChildForm(new FrmProfileNguoiDung());
-        }
-
-        private void btnTimKiemSach_Click(object sender, EventArgs e)
+        private void btnXemThongTinSach_Click(object sender, EventArgs e)
         {
             openChildForm(new FrmTimKiemSach());
         }
 
-        private void btnQuanLyDocTaiCho_Click(object sender, EventArgs e)
-        {
-            openChildForm(new FrmPhieuDocTaiCho());
-        }
-
-        private void btnDangKyMuonSachDTC_Click(object sender, EventArgs e)
+        private void btnDangKyDocTaiCho_Click(object sender, EventArgs e)
         {
             openChildForm(new FrmKhachMuonSachDocTaiCho());
         }
 
-        private void btnDangKyTheMuon_NguoiDung_Click(object sender, EventArgs e)
+        private void btnDKMuonSach_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmDangKyMuonSach());
+        }
+
+        private void btnDangKyTheMuon_Click(object sender, EventArgs e)
         {
             openChildForm(new FrmDangKyTheMuon_NguoiDung());
         }
 
-        private void btnGioSach_Click(object sender, EventArgs e)
+        private void btnTTChoMuonSach_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmChoMuonSach());
+        }
+
+        private void btnTTNhanTraSach_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmNhanTraSach());
+        }
+
+        private void btnTTQuanLySach_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmQuanLySach());
+        }
+
+        private void btnQuanLyTheMuon_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmQuanLyTheMuon());
+        }
+
+        private void btnTTQuanLyTaiKhoan_Click(object sender, EventArgs e)
         {
             openChildForm(new FrmQuanLyTaiKhoan());
         }
 
-        private void btnBaoCaoTop10SanPham_Click(object sender, EventArgs e)
+        private void btnTTQuanLyTacGIa_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmThongKeTopSach());
+            
+        }
+
+        private void btnTTQuanLyBanSaoSach_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTTQuanLyPhieuDocTaiCho_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmPhieuDocTaiCho());
         }
     }
 }

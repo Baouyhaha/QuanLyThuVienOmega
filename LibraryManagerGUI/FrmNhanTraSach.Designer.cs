@@ -63,12 +63,12 @@
             this.lblTieuDeNhanTraSach.AutoSize = true;
             this.lblTieuDeNhanTraSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lblTieuDeNhanTraSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(94)))), ((int)(((byte)(34)))));
-            this.lblTieuDeNhanTraSach.Location = new System.Drawing.Point(352, 57);
+            this.lblTieuDeNhanTraSach.Location = new System.Drawing.Point(300, 52);
             this.lblTieuDeNhanTraSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTieuDeNhanTraSach.Name = "lblTieuDeNhanTraSach";
-            this.lblTieuDeNhanTraSach.Size = new System.Drawing.Size(213, 36);
+            this.lblTieuDeNhanTraSach.Size = new System.Drawing.Size(381, 36);
             this.lblTieuDeNhanTraSach.TabIndex = 0;
-            this.lblTieuDeNhanTraSach.Text = "Nhận trả sách";
+            this.lblTieuDeNhanTraSach.Text = "Chức Năng Nhận trả sách";
             // 
             // guna2CustomGradientPanel1
             // 

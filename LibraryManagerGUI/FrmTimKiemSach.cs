@@ -35,7 +35,6 @@ namespace LibraryManagerGUI
             SachBUS sachBus = new SachBUS();
             DataTable dtSach = sachBus.GetDanhSachSachFrmTimKiem    (); // Gọi hàm đã cập nhật ở DAL
             dgvTimKiemSach.DataSource = dtSach;
-
             AutoCompleteStringCollection danhSachGoiY = new AutoCompleteStringCollection();
 
             foreach (DataRow row in dtSach.Rows)
