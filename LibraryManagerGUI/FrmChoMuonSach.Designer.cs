@@ -62,7 +62,7 @@
             this.panel4.Controls.Add(this.btnXacNhanGiaoSach);
             this.panel4.Controls.Add(this.btnHuy);
             this.panel4.Location = new System.Drawing.Point(0, 519);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1067, 117);
             this.panel4.TabIndex = 55;
@@ -80,7 +80,7 @@
             this.btnXacNhanGiaoSach.Image = ((System.Drawing.Image)(resources.GetObject("btnXacNhanGiaoSach.Image")));
             this.btnXacNhanGiaoSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXacNhanGiaoSach.Location = new System.Drawing.Point(821, 30);
-            this.btnXacNhanGiaoSach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXacNhanGiaoSach.Margin = new System.Windows.Forms.Padding(4);
             this.btnXacNhanGiaoSach.Name = "btnXacNhanGiaoSach";
             this.btnXacNhanGiaoSach.Size = new System.Drawing.Size(204, 38);
             this.btnXacNhanGiaoSach.TabIndex = 54;
@@ -101,7 +101,7 @@
             this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnHuy.Location = new System.Drawing.Point(629, 30);
-            this.btnHuy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(143, 38);
             this.btnHuy.TabIndex = 53;
@@ -113,7 +113,7 @@
             this.panel3.Controls.Add(this.lblHienSoLuongGiaoSach);
             this.panel3.Controls.Add(this.lblSoLuongSachThucGiao);
             this.panel3.Location = new System.Drawing.Point(17, 442);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(644, 53);
             this.panel3.TabIndex = 48;
@@ -144,7 +144,7 @@
             // 
             this.dgvDanhSachSachDaDangKy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDanhSachSachDaDangKy.Location = new System.Drawing.Point(23, 32);
-            this.dgvDanhSachSachDaDangKy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDanhSachSachDaDangKy.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDanhSachSachDaDangKy.Name = "dgvDanhSachSachDaDangKy";
             this.dgvDanhSachSachDaDangKy.RowHeadersWidth = 51;
             this.dgvDanhSachSachDaDangKy.Size = new System.Drawing.Size(908, 201);
@@ -165,7 +165,7 @@
             this.panel2.Controls.Add(this.dgvDanhSachSachDaDangKy);
             this.panel2.Controls.Add(this.lblDSSachDangMuon);
             this.panel2.Location = new System.Drawing.Point(17, 156);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(947, 252);
             this.panel2.TabIndex = 47;
@@ -202,7 +202,7 @@
             this.btnQuetThe.ForeColor = System.Drawing.Color.White;
             this.btnQuetThe.Image = ((System.Drawing.Image)(resources.GetObject("btnQuetThe.Image")));
             this.btnQuetThe.Location = new System.Drawing.Point(797, 30);
-            this.btnQuetThe.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQuetThe.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuetThe.Name = "btnQuetThe";
             this.btnQuetThe.Size = new System.Drawing.Size(128, 25);
             this.btnQuetThe.TabIndex = 38;
@@ -233,7 +233,7 @@
             this.panel1.Controls.Add(this.lblNhapMaTheDocGia);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 137);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1067, 640);
             this.panel1.TabIndex = 46;
@@ -284,7 +284,7 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.lblTieuDHChoMuonSach);
             this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1067, 137);
             this.guna2CustomGradientPanel1.TabIndex = 45;
@@ -308,9 +308,9 @@
             this.lblTieuDHChoMuonSach.Location = new System.Drawing.Point(352, 57);
             this.lblTieuDHChoMuonSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTieuDHChoMuonSach.Name = "lblTieuDHChoMuonSach";
-            this.lblTieuDHChoMuonSach.Size = new System.Drawing.Size(236, 36);
+            this.lblTieuDHChoMuonSach.Size = new System.Drawing.Size(404, 36);
             this.lblTieuDHChoMuonSach.TabIndex = 0;
-            this.lblTieuDHChoMuonSach.Text = "Cho mượn sách";
+            this.lblTieuDHChoMuonSach.Text = "Chức Năng Cho mượn sách";
             // 
             // FrmChoMuonSach
             // 
@@ -320,7 +320,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmChoMuonSach";
             this.Text = "FrmChoMuonSach";
             this.panel4.ResumeLayout(false);

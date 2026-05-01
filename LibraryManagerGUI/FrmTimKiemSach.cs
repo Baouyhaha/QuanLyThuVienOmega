@@ -35,7 +35,6 @@ namespace LibraryManagerGUI
             SachBUS sachBus = new SachBUS();
             DataTable dtSach = sachBus.GetDanhSachSachFrmTimKiem();
             dgvTimKiemSach.DataSource = dtSach;
-
             AutoCompleteStringCollection danhSachGoiY = new AutoCompleteStringCollection();
 
             // Duyệt qua từng dòng trong DataTable
