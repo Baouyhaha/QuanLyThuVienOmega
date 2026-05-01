@@ -61,6 +61,7 @@
             this.timerSidebar = new System.Windows.Forms.Timer(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.btnThongKeTopSach = new Guna.UI2.WinForms.Guna2Button();
             this.panelSidebar.SuspendLayout();
             this.panelSubMenu_ChucNang.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -98,10 +99,11 @@
             this.panelSubMenu_ChucNang.Controls.Add(this.btnTTQuanLyBanSaoSach);
             this.panelSubMenu_ChucNang.Controls.Add(this.btnTTNhanTraSach);
             this.panelSubMenu_ChucNang.Controls.Add(this.btnTTQuanLyPhieuDocTaiCho);
+            this.panelSubMenu_ChucNang.Controls.Add(this.btnThongKeTopSach);
             this.panelSubMenu_ChucNang.Location = new System.Drawing.Point(3, 2);
             this.panelSubMenu_ChucNang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSubMenu_ChucNang.Name = "panelSubMenu_ChucNang";
-            this.panelSubMenu_ChucNang.Size = new System.Drawing.Size(232, 71);
+            this.panelSubMenu_ChucNang.Size = new System.Drawing.Size(232, 73);
             this.panelSubMenu_ChucNang.TabIndex = 8;
             // 
             // btnChucNang
@@ -377,7 +379,7 @@
             this.btnDangXuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnDangXuat.Image = ((System.Drawing.Image)(resources.GetObject("btnDangXuat.Image")));
             this.btnDangXuat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDangXuat.Location = new System.Drawing.Point(3, 77);
+            this.btnDangXuat.Location = new System.Drawing.Point(3, 79);
             this.btnDangXuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Size = new System.Drawing.Size(232, 66);
@@ -397,7 +399,7 @@
             this.btnCaiDat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnCaiDat.Image = ((System.Drawing.Image)(resources.GetObject("btnCaiDat.Image")));
             this.btnCaiDat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCaiDat.Location = new System.Drawing.Point(3, 147);
+            this.btnCaiDat.Location = new System.Drawing.Point(3, 149);
             this.btnCaiDat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCaiDat.Name = "btnCaiDat";
             this.btnCaiDat.Size = new System.Drawing.Size(232, 66);
@@ -416,7 +418,7 @@
             this.btnThongTin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnThongTin.Image = ((System.Drawing.Image)(resources.GetObject("btnThongTin.Image")));
             this.btnThongTin.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnThongTin.Location = new System.Drawing.Point(3, 217);
+            this.btnThongTin.Location = new System.Drawing.Point(3, 219);
             this.btnThongTin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThongTin.Name = "btnThongTin";
             this.btnThongTin.Size = new System.Drawing.Size(232, 66);
@@ -538,6 +540,26 @@
             this.guna2DragControl2.TargetControl = this;
             this.guna2DragControl2.UseTransparentDrag = true;
             // 
+            // btnThongKeTopSach
+            // 
+            this.btnThongKeTopSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnThongKeTopSach.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThongKeTopSach.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThongKeTopSach.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThongKeTopSach.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThongKeTopSach.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnThongKeTopSach.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnThongKeTopSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.btnThongKeTopSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnThongKeTopSach.Location = new System.Drawing.Point(3, 660);
+            this.btnThongKeTopSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThongKeTopSach.Name = "btnThongKeTopSach";
+            this.btnThongKeTopSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnThongKeTopSach.Size = new System.Drawing.Size(201, 45);
+            this.btnThongKeTopSach.TabIndex = 35;
+            this.btnThongKeTopSach.Text = "thống kê sách mượn nhiều nhất";
+            this.btnThongKeTopSach.Click += new System.EventHandler(this.btnThongKeTopSach_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -593,5 +615,6 @@
         private Guna.UI2.WinForms.Guna2Button btnTTQuanLySach;
         private Guna.UI2.WinForms.Guna2Button btnTTNhanTraSach;
         private Guna.UI2.WinForms.Guna2Button btnTTChoMuonSach;
+        private Guna.UI2.WinForms.Guna2Button btnThongKeTopSach;
     }
 }

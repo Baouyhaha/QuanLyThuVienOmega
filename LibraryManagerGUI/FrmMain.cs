@@ -160,6 +160,7 @@ namespace LibraryManagerGUI
                     btnTTQuanLyTacGIa.Visible = true;
                     btnTTQuanLyBanSaoSach.Visible = true;
                     btnTTQuanLyPhieuDocTaiCho.Visible = true;
+                    btnThongKeTopSach.Visible = true;
                     break;
 
                 case 1: // ================== QUYỀN ĐỘC GIẢ (ĐÃ KÍCH HOẠT) ==================
@@ -178,6 +179,7 @@ namespace LibraryManagerGUI
                     btnTTQuanLyTacGIa.Visible = false;
                     btnTTQuanLyBanSaoSach.Visible = false;
                     btnTTQuanLyPhieuDocTaiCho.Visible = false;
+                    btnThongKeTopSach.Visible = false;
                     break;
 
                 case -1: // ================== QUYỀN ĐỘC GIẢ (CHƯA KÍCH HOẠT) ==================
@@ -196,6 +198,7 @@ namespace LibraryManagerGUI
                     btnTTQuanLyTacGIa.Visible = false;
                     btnTTQuanLyBanSaoSach.Visible = false;
                     btnTTQuanLyPhieuDocTaiCho.Visible = false;
+                    btnThongKeTopSach.Visible = false;
                     break;
 
                 case 0: // ================== QUYỀN KHÁCH VÃNG LAI ==================
@@ -214,6 +217,7 @@ namespace LibraryManagerGUI
                     btnTTQuanLyTacGIa.Visible = false;
                     btnTTQuanLyBanSaoSach.Visible = false;
                     btnTTQuanLyPhieuDocTaiCho.Visible=false;
+                    btnThongKeTopSach.Visible = false;
                     break;
             }
         }
@@ -311,6 +315,11 @@ namespace LibraryManagerGUI
         private void btnTTQuanLyPhieuDocTaiCho_Click(object sender, EventArgs e)
         {
             openChildForm(new FrmPhieuDocTaiCho());
+        }
+
+        private void btnThongKeTopSach_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmThongKeTopSach());
         }
     }
 }

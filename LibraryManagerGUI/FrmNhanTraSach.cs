@@ -60,5 +60,33 @@ namespace LibraryManagerGUI
                 btnTimKiemSach.PerformClick(); // Load lại Grid
             }
         }
+
+        private void btnInBienLai_Click(object sender, EventArgs e)
+        {
+            // 1. Kiểm tra xem thủ thư có đang chọn dòng nào không
+            if (dgvNhanTraSach.CurrentRow == null)
+            {
+                MessageBox.Show("Vui lòng chọn một cuốn sách để in biên lai!", "Nhắc nhở", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Lấy tiền phạt để kiểm tra (chỉ in biên lai nếu có phạt)
+            string hanTra = dgvNhanTraSach.CurrentRow.Cells["hanTra"].Value.ToString();
+            int tienPhat = bus.TinhTienPhat(hanTra);
+
+            if (tienPhat <= 0)
+            {
+                MessageBox.Show("Cuốn sách này trả đúng hạn, không có tiền phạt nên không cần in biên lai.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // 3. Lấy mã để truyền sang Form in
+            string maP = dgvNhanTraSach.CurrentRow.Cells["maThongTinhMuonTraSach"].Value.ToString();
+            string maBS = dgvNhanTraSach.CurrentRow.Cells["maBanSao"].Value.ToString();
+
+            // 4. Mở Form In
+            FrmInBienLai frmBienLai = new FrmInBienLai(maP, maBS);
+            frmBienLai.ShowDialog();
+        }
     }
 }

@@ -50,6 +50,7 @@
             this.lblTongTIenPhat = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblHienTienPhat = new System.Windows.Forms.Label();
+            this.btnInBienLai = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -187,6 +188,7 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnInBienLai);
             this.panel4.Controls.Add(this.btnNhanTra);
             this.panel4.Controls.Add(this.btnHuy);
             this.panel4.Location = new System.Drawing.Point(0, 519);
@@ -205,15 +207,13 @@
             this.btnNhanTra.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
             this.btnNhanTra.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnNhanTra.ForeColor = System.Drawing.Color.White;
-            this.btnNhanTra.Image = ((System.Drawing.Image)(resources.GetObject("btnNhanTra.Image")));
             this.btnNhanTra.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnNhanTra.Location = new System.Drawing.Point(817, 30);
+            this.btnNhanTra.Location = new System.Drawing.Point(530, 29);
             this.btnNhanTra.Margin = new System.Windows.Forms.Padding(4);
             this.btnNhanTra.Name = "btnNhanTra";
             this.btnNhanTra.Size = new System.Drawing.Size(143, 38);
             this.btnNhanTra.TabIndex = 54;
             this.btnNhanTra.Text = "Nhận trả";
-            this.btnNhanTra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnNhanTra.Click += new System.EventHandler(this.btnNhanTra_Click);
             // 
             // btnHuy
@@ -226,15 +226,13 @@
             this.btnHuy.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
             this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnHuy.ForeColor = System.Drawing.Color.White;
-            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
             this.btnHuy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnHuy.Location = new System.Drawing.Point(593, 30);
+            this.btnHuy.Location = new System.Drawing.Point(306, 29);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(4);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(143, 38);
             this.btnHuy.TabIndex = 53;
             this.btnHuy.Text = "Hủy";
-            this.btnHuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblHoTenDocGiaHien
             // 
@@ -320,6 +318,25 @@
             this.lblHienTienPhat.TabIndex = 44;
             this.lblHienTienPhat.Text = "Hiện tổng tiền phạt";
             // 
+            // btnInBienLai
+            // 
+            this.btnInBienLai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnInBienLai.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnInBienLai.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnInBienLai.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnInBienLai.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnInBienLai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
+            this.btnInBienLai.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnInBienLai.ForeColor = System.Drawing.Color.White;
+            this.btnInBienLai.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnInBienLai.Location = new System.Drawing.Point(743, 29);
+            this.btnInBienLai.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInBienLai.Name = "btnInBienLai";
+            this.btnInBienLai.Size = new System.Drawing.Size(169, 38);
+            this.btnInBienLai.TabIndex = 55;
+            this.btnInBienLai.Text = "In biên lai tiền phạt";
+            this.btnInBienLai.Click += new System.EventHandler(this.btnInBienLai_Click);
+            // 
             // FrmNhanTraSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -369,5 +386,6 @@
         private System.Windows.Forms.Panel panel4;
         private Guna.UI2.WinForms.Guna2TextBox txtMaThe;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2Button btnInBienLai;
     }
 }
