@@ -77,56 +77,43 @@ namespace LibraryManagerGUI
         private void dgvTimKiemSach_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.RowIndex >= 0)
+            // Tránh click vào tiêu đề cột
+            if (e.RowIndex < 0) return;
+
+            // 1. Lấy thông tin đầu sách từ dòng được chọn
+            // Lưu ý: Tên cột "maSach" và "tenSach" phải khớp với hàm GetDanhSachSachFrmTimKiem ở DAL
+            string maSach = dgvTimKiemSach.Rows[e.RowIndex].Cells["maSach"].Value.ToString();
+            string tenSach = dgvTimKiemSach.Rows[e.RowIndex].Cells["tenSach"].Value.ToString();
+
+            // 2. Gọi BUS để hệ thống tự động tìm bản sao "ngon" nhất
+            string maBanSaoTimDuoc = sachBus.TimBanSaoDeMuon(maSach);
+
+            if (!string.IsNullOrEmpty(maBanSaoTimDuoc))
             {
-                DataGridViewRow row = dgvTimKiemSach.Rows[e.RowIndex];
+                // THÀNH CÔNG: Tìm thấy sách có thể mượn
+                DialogResult dr = MessageBox.Show(
+                    $"Đầu sách: {tenSach}\n" +
+                    $"Hệ thống đã chọn bản sao: {maBanSaoTimDuoc}\n\n" +
+                    $"Bạn có muốn thêm cuốn này vào danh sách đăng ký mượn không?",
+                    "Xác nhận chọn sách",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
 
-                // 1. KIỂM TRA CHẾ ĐỘ (Ngăn sinh viên click khi chưa tìm kiếm)
-                // Vì lúc mới Load form không có giá tiền, nên bắt buộc phải tìm kiếm mới cho mượn
-                if (!dgvTimKiemSach.Columns.Contains("loaiBanSao") || !dgvTimKiemSach.Columns.Contains("gia"))
+                if (dr == DialogResult.Yes)
                 {
-                    MessageBox.Show("Vui lòng gõ tên sách và nhấn nút 'TÌM KIẾM' trước khi chọn để hệ thống tính giá tiền cọc!", "Hướng dẫn", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return; // Dừng lại, không chạy code bên dưới nữa
+                    // Tại đây Danh gọi hàm để đẩy maBanSaoTimDuoc vào Giỏ hàng/Danh sách mượn
+                    // Ví dụ: ThemVaoDanhSachDangKy(maBanSaoTimDuoc, tenSach);
                 }
-
-                // 2. LẤY DỮ LIỆU AN TOÀN BẰNG TÊN CỘT (Thay vì dùng số 3, 4)
-                int.TryParse(row.Cells["loaiBanSao"].Value?.ToString(), out int loaiBS);
-                int.TryParse(row.Cells["trangThai"].Value?.ToString(), out int tThai);
-
-                // 3. HÀNG RÀO CHẶN SÁCH
-                if (loaiBS != 2)
-                {
-                    MessageBox.Show("Sách này chỉ được đọc tại chỗ, không cho mượn về!", "Thông báo");
-                    return;
-                }
-
-                if (tThai != 0)
-                {
-                    MessageBox.Show("Sách này hiện đã có người mượn hoặc chưa sẵn sàng!", "Thông báo");
-                    return;
-                }
-
-                // 4. LẤY GIÁ VÀ MÃ (An toàn không văng lỗi)
-                string giaGoc = row.Cells["gia"].Value?.ToString() ?? "0";
-                string cleanGia = System.Text.RegularExpressions.Regex.Replace(giaGoc, @"[^\d]", "");
-                int.TryParse(cleanGia, out int giaTriTien);
-
-                string maChon = row.Cells["maSach"].Value?.ToString() ?? "";
-                string tenChon = row.Cells["tenSach"].Value?.ToString() ?? "";
-
-                // 5. KIỂM TRA TRÙNG VÀ NẠP VÀO GIỎ HÀNG
-                foreach (DataRow r in GioHang.Rows)
-                {
-                    if (r["Mã Sách"].ToString() == maChon)
-                    {
-                        MessageBox.Show("Sách này đã có trong giỏ hàng rồi nhé!");
-                        return;
-                    }
-                }
-
-                // Thêm chuẩn 3 cột: Mã, Tên, Giá (int)
-                GioHang.Rows.Add(maChon, tenChon, giaTriTien);
-                MessageBox.Show($"Đã thêm '{tenChon}' vào giỏ hàng thành công!");
+            }
+            else
+            {
+                // THẤT BẠI: Không có bản sao nào thỏa mãn (trangThai=0 và loai=2)
+                MessageBox.Show(
+                    $"Rất tiếc! Đầu sách '{tenSach}' hiện tại không còn bản sao nào có sẵn để mượn về.\n\n" +
+                    "Lưu ý: Có thể sách đã bị mượn hết hoặc chỉ còn bản sao đọc tại chỗ.",
+                    "Thông báo hết sách",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
         }
 

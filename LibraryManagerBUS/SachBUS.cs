@@ -189,5 +189,10 @@ namespace LibraryManagerBUS
             // BUS gọi DAL để lấy dữ liệu
             return sachDAL.GetDanhSachSachFrmTimKiem();
         }
+        public string TimBanSaoDeMuon(string maSach)
+        {
+            // Gọi xuống DAL đã viết ở trên
+            return sachDAL.LayMaBanSaoKhaDung(maSach);
+        }
     }
 }

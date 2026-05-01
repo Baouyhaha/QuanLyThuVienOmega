@@ -249,5 +249,21 @@ namespace LibraryManagerDAL
             object result = DbHelper.executeScalar(query, pars);
             return result != null ? Convert.ToInt32(result) : 0;
         }
+        public string LayMaBanSaoKhaDung(string maSach)
+        {
+            // Tìm 1 bản sao: Đúng mã sách, Cho mượn (2), Sẵn có (0), Chưa xóa (0)
+            // Theo đúng cấu trúc bảng bansaosach của Danh
+            string sql = @"SELECT TOP 1 banSaoSach 
+                   FROM bansaosach 
+                   WHERE maSach = @ma 
+                     AND loaiBanSao = 2 
+                     AND trangThai = 0 
+                     AND xoa = 0";
+
+            SqlParameter[] pr = { new SqlParameter("@ma", maSach) };
+            object res = DbHelper.executeScalar(sql, pr);
+
+            return res != null ? res.ToString() : null;
+        }
     }
 }
