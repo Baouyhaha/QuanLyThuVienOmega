@@ -52,7 +52,7 @@
             this.guna2CustomGradientPanel1.Controls.Add(this.lblTieuDeNhanTraSach);
             this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
             this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1067, 137);
             this.guna2CustomGradientPanel1.TabIndex = 2;
@@ -98,6 +98,7 @@
             this.dgvTimKiemSach.Size = new System.Drawing.Size(1067, 338);
             this.dgvTimKiemSach.TabIndex = 62;
             this.dgvTimKiemSach.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTimKiemSach_CellDoubleClick);
+            this.dgvTimKiemSach.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTimKiemSach_CellFormatting);
             // 
             // guna2DragControl1
             // 
@@ -132,7 +133,7 @@
             this.btnMoFrmDangKyMuonSach.Image = global::LibraryManagerGUI.Properties.Resources.book_signing;
             this.btnMoFrmDangKyMuonSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnMoFrmDangKyMuonSach.Location = new System.Drawing.Point(773, 78);
-            this.btnMoFrmDangKyMuonSach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMoFrmDangKyMuonSach.Margin = new System.Windows.Forms.Padding(4);
             this.btnMoFrmDangKyMuonSach.MinimumSize = new System.Drawing.Size(137, 38);
             this.btnMoFrmDangKyMuonSach.Name = "btnMoFrmDangKyMuonSach";
             this.btnMoFrmDangKyMuonSach.Size = new System.Drawing.Size(137, 38);
@@ -172,6 +173,7 @@
             this.txtTimSach.SelectedText = "";
             this.txtTimSach.Size = new System.Drawing.Size(447, 38);
             this.txtTimSach.TabIndex = 64;
+            this.txtTimSach.TextChanged += new System.EventHandler(this.txtTimSach_TextChanged);
             // 
             // label1
             // 
@@ -195,7 +197,7 @@
             this.btnTimSach.Image = ((System.Drawing.Image)(resources.GetObject("btnTimSach.Image")));
             this.btnTimSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnTimSach.Location = new System.Drawing.Point(773, 32);
-            this.btnTimSach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTimSach.Margin = new System.Windows.Forms.Padding(4);
             this.btnTimSach.MaximumSize = new System.Drawing.Size(143, 38);
             this.btnTimSach.MinimumSize = new System.Drawing.Size(137, 38);
             this.btnTimSach.Name = "btnTimSach";

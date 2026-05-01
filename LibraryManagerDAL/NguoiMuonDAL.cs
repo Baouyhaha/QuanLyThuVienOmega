@@ -36,16 +36,21 @@ namespace LibraryManagerDAL
         }
         public DataTable LayThongTinThe(string maNguoiMuon)
         {
-            // Sử dụng JOIN để lấy hoTen từ bảng nguoimuon dựa vào mã người mượn
+            // 1. Câu query chuẩn: Liên kết bảng Thẻ và bảng Người mượn qua Mã người mượn
             string query = @"SELECT t.maTheMuon, t.ngayHetHan, t.trangThai, n.hoTen 
-                     FROM themuon t
-                     INNER JOIN nguoimuon n ON t.maNguoiMuon = n.maNguoiMuon
-                     WHERE t.maNguoiMuon = @ma";
+                 FROM themuon t 
+                 INNER JOIN nguoimuon n ON t.maNguoiMuon = n.maNguoiMuon 
+                 WHERE t.maNguoiMuon = @ma";
 
-            SqlParameter[] pars = new SqlParameter[1];
-            pars[0] = new SqlParameter("@ma", SqlDbType.VarChar);
-            pars[0].Value = maNguoiMuon;
+            // 2. Logic chốt chặn của em (Giữ nguyên vì rất tốt)
+            string giaTriTruyenVao = string.IsNullOrEmpty(maNguoiMuon) ? "KHONG_CO_MA" : maNguoiMuon;
 
+            // 3. Khai báo Parameter (Khớp với @ma ở trên)
+            SqlParameter[] pars = {
+    new SqlParameter("@ma", giaTriTruyenVao)
+};
+
+            // 4. Trả về kết quả
             return DbHelper.getTable(query, pars);
         }
     }

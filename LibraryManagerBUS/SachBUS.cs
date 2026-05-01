@@ -184,5 +184,10 @@ namespace LibraryManagerBUS
         {
             return sachDAL.LaySoLuongKhaDung(maSach);
         }
+        public DataTable LayTatCaSach()
+        {
+            // BUS gọi DAL để lấy dữ liệu
+            return sachDAL.GetDanhSachSachFrmTimKiem();
+        }
     }
 }

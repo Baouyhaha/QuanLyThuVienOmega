@@ -33,31 +33,30 @@ namespace LibraryManagerGUI
         private void FrmTimKiemSach_Load(object sender, EventArgs e)
         {
             SachBUS sachBus = new SachBUS();
-            DataTable dtSach = sachBus.GetDanhSachSachFrmTimKiem();
+            DataTable dtSach = sachBus.GetDanhSachSachFrmTimKiem    (); // Gọi hàm đã cập nhật ở DAL
             dgvTimKiemSach.DataSource = dtSach;
 
             AutoCompleteStringCollection danhSachGoiY = new AutoCompleteStringCollection();
 
-            // Duyệt qua từng dòng trong DataTable
             foreach (DataRow row in dtSach.Rows)
             {
-                // 1. Nạp Tên Sách (Thử cả 2 trường hợp có dấu và không dấu để chắc chắn)
-                AddGoiY(row, "Tên Sách", danhSachGoiY);
-                AddGoiY(row, "TenSach", danhSachGoiY);
+                // 0. Nạp Mã Sách (Để thủ thư gõ mã là ra luôn)
+                AddGoiY(row, "maSach", danhSachGoiY);
 
-                // 2. Nạp Tác Giả
-                AddGoiY(row, "Tác Giả", danhSachGoiY);
+                // 1. Nạp Tên Sách
+                AddGoiY(row, "tenSach", danhSachGoiY);
+
+                // 2. Nạp Tác Giả (Phải khớp với tên AS "TacGia" trong SQL trên)
                 AddGoiY(row, "TacGia", danhSachGoiY);
 
                 // 3. Nạp Nhà Xuất Bản
-                AddGoiY(row, "Nhà Xuất Bản", danhSachGoiY);
-                AddGoiY(row, "NhaXuatBan", danhSachGoiY);
-                AddGoiY(row, "NXB", danhSachGoiY); // Thử thêm cột NXB nếu có
+                AddGoiY(row, "tenNhaPhatHanh", danhSachGoiY);
             }
 
             txtTimSach.AutoCompleteCustomSource = danhSachGoiY;
-            txtTimSach.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtTimSach.AutoCompleteMode = AutoCompleteMode.SuggestAppend; // Dùng SuggestAppend nhìn sẽ xịn hơn
             txtTimSach.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
             dgvTimKiemSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
@@ -65,10 +64,10 @@ namespace LibraryManagerGUI
         // Hàm phụ trợ để tránh viết lặp code và kiểm tra cột tồn tại
         private void AddGoiY(DataRow row, string colName, AutoCompleteStringCollection collection)
         {
-            // Kiểm tra xem DataTable có cột này không
             if (row.Table.Columns.Contains(colName))
             {
                 string value = row[colName].ToString();
+                // Kiểm tra không rỗng và chưa tồn tại trong danh sách thì mới thêm
                 if (!string.IsNullOrWhiteSpace(value) && !collection.Contains(value))
                 {
                     collection.Add(value);
@@ -131,9 +130,19 @@ namespace LibraryManagerGUI
                 MessageBox.Show($"Đã thêm '{tenChon}' vào giỏ hàng thành công!");
             }
         }
-    
-        
 
+
+        public void LoadDuLieuTimKiem()
+        {
+            // 1. GUI gọi BUS để lấy DataTable
+            DataTable dt = sachBus.LayTatCaSach();
+
+            // 2. GUI thực hiện đổi Số -> Chữ (như thầy chỉ ở trên)
+            foreach (DataRow row in dt.Rows) { /* code đổi 0, 1 thành chữ */ }
+
+            // 3. GUI đổ vào Grid hiển thị
+            dgvTimKiemSach.DataSource = dt;
+        }
         private void btnTimSach_Click(object sender, EventArgs e)
         {
             string tuKhoa = txtTimSach.Text.Trim(); // Lấy từ khóa khách nhập
@@ -156,7 +165,36 @@ namespace LibraryManagerGUI
             FrmDangKyMuonSach formDangKyMuonSach = new FrmDangKyMuonSach();
             formDangKyMuonSach.ShowDialog(); 
         }
-       
+
+        private void dgvTimKiemSach_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Kiểm tra để tránh lỗi khi Grid rỗng
+            if (e.RowIndex < 0 || e.Value == null) return;
+
+            // 1. Format cột Loại Bản Sao (Giả sử cột này tên là "loaiBanSao")
+            if (dgvTimKiemSach.Columns[e.ColumnIndex].Name == "loaiBanSao")
+            {
+                if (e.Value.ToString() == "1") e.Value = "Đọc tại chỗ";
+                else if (e.Value.ToString() == "2") e.Value = "Mượn về nhà";
+
+                e.FormattingApplied = true; // Báo cho Grid biết "tôi đã format xong rồi"
+            }
+
+            // 2. Format cột Trạng Thái (Giả sử cột này tên là "trangThai")
+            if (dgvTimKiemSach.Columns[e.ColumnIndex].Name == "trangThai")
+            {
+                if (e.Value.ToString() == "0") e.Value = "Sẵn sàng";
+                else if (e.Value.ToString() == "1") e.Value = "Đang mượn";
+                else if (e.Value.ToString() == "2") e.Value = "Đã đăng ký";
+
+                e.FormattingApplied = true;
+            }
+        }
+
+        private void txtTimSach_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

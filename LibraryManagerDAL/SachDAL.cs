@@ -188,21 +188,31 @@ namespace LibraryManagerDAL
         // 1. Lấy toàn bộ danh sách sách cho Form Tìm Kiếm
         public DataTable GetDanhSachSachFrmTimKiem()
         {
-            // Join với Nhà phát hành để lấy tên cho đẹp
-            string sql = @"SELECT s.maSach, s.tenSach, nph.tenNhaPhatHanh, s.isbn, s.soLuongHienCo 
+            // Thầy thêm JOIN với bảng tác giả và đặt bí danh (Alias) cho cột để em dễ gọi trong C#
+            string sql = @"SELECT s.maSach, s.tenSach, 
+                          nph.tenNhaPhatHanh AS NhaXuatBan, 
+                          tg.tenTacGia AS TacGia, 
+                          s.isbn 
                    FROM sach s 
-                   LEFT JOIN nhaphatHanh nph ON s.maNhaPhatHanh = nph.maNhaPhatHanh";
+                   LEFT JOIN nhaphatHanh nph ON s.maNhaPhatHanh = nph.maNhaPhatHanh
+                   LEFT JOIN chitiettacgia cttg ON s.maSach = cttg.maSach
+                   LEFT JOIN tacgia tg ON cttg.maTacGia = tg.maTacGia";
             return DbHelper.getTable(sql);
         }
 
         // 2. Hàm tìm kiếm thông minh (Tìm theo tên hoặc ISBN)
         public DataTable TimKiemSachThongMinh(string tuKhoa)
         {
-            string sql = @"SELECT s.maSach, s.tenSach, b.gia, b.loaiBanSao, b.trangThai 
+            // Thầy thêm JOIN nhaphathanh để lấy được cột tenNhaPhatHanh
+            string sql = @"SELECT s.maSach, s.tenSach, nph.tenNhaPhatHanh, b.gia, b.loaiBanSao, b.trangThai 
                    FROM sach s 
                    JOIN bansaosach b ON s.maSach = b.maSach 
-                   WHERE (s.maSach LIKE @tk OR s.tenSach LIKE @tk) 
+                   JOIN nhaphathanh nph ON s.maNhaPhatHanh = nph.maNhaPhatHanh
+                   WHERE (s.maSach LIKE @tk 
+                          OR s.tenSach LIKE @tk 
+                          OR nph.tenNhaPhatHanh LIKE @tk) 
                    AND b.xoa = 0";
+
             SqlParameter[] pr = { new SqlParameter("@tk", "%" + tuKhoa + "%") };
             return DbHelper.getTable(sql, pr);
         }

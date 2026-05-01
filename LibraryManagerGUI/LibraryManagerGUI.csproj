@@ -162,6 +162,12 @@
     <Compile Include="FrmProfileNguoiDung.Designer.cs">
       <DependentUpon>FrmProfileNguoiDung.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmQuanLyDangKySach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyDangKySach.Designer.cs">
+      <DependentUpon>FrmQuanLyDangKySach.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmQuanLySach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProfileNguoiDung.resx">
       <DependentUpon>FrmProfileNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyDangKySach.resx">
+      <DependentUpon>FrmQuanLyDangKySach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQuanLySach.resx">
       <DependentUpon>FrmQuanLySach.cs</DependentUpon>
