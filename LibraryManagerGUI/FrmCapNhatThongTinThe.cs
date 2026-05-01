@@ -14,6 +14,7 @@ namespace LibraryManagerGUI
     public partial class FrmCapNhatThongTinThe : Form
     {
         private TheMuonBUS theMuonBUS = new TheMuonBUS();
+        private int trangThaiHienTai = 0;
         public FrmCapNhatThongTinThe(string maTheNhanVe)
         {
             InitializeComponent();
@@ -30,37 +31,44 @@ namespace LibraryManagerGUI
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             string maThe = txtMaThe.Text.Trim();
-            if (string.IsNullOrEmpty(maThe))
-            {
-                MessageBox.Show("Vui lòng nhập Mã Thẻ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             DataTable dt = theMuonBUS.TimKiemThongTinThe(maThe);
 
             if (dt != null && dt.Rows.Count > 0)
             {
-                // Đổ dữ liệu từ DataTable lên các TextBox
                 DataRow row = dt.Rows[0];
+
+                // Đổ dữ liệu lên các TextBox
                 txtTenTaiKhoan.Text = row["tenTaiKhoan"].ToString();
                 txtHoTen.Text = row["ten"].ToString();
                 txtSoDienThoai.Text = row["soDienThoai"].ToString();
+                txtNgayHetHan.Text = row["ngayHetHan"].ToString();
 
-                string ngayHetHanStr = row["ngayHetHan"].ToString();
-                txtNgayHetHan.Text = ngayHetHanStr; // Ô TextBox "ngày hết hạn thẻ" (cũ)
+                // XỬ LÝ TRẠNG THÁI (Code dọn dẹp):
+                // Thử tìm cột trangThai, nếu có thì mới cập nhật giao diện, không có thì bỏ qua (không hiện MessageBox lỗi nữa)
+                if (dt.Columns.Contains("trangThai"))
+                {
+                    trangThaiHienTai = Convert.ToInt32(row["trangThai"]);
+                    CapNhatGiaoDienTrangThai(trangThaiHienTai); // Gọi hàm đổi màu nút/nhãn đã viết
+                }
+            }
 
-                // Kiểm tra hạn thẻ (Màu đỏ nếu hết hạn)
-                KiemTraMauSacHanThe(ngayHetHanStr);
-
-                // Gợi ý ngày gia hạn mới (+ 6 tháng vào dtpHanTheHienTai)
-                dtpHanTheHienTai.Value = DateTime.Now.AddMonths(6);
+        }
+        private void HienThiTrangThai(int trangThai)
+        {
+            if (trangThai == 0)
+            {
+                lblTrangThaiThe.Text = "TRẠNG THÁI: ĐANG HOẠT ĐỘNG";
+                lblTrangThaiThe.ForeColor = Color.Green;
+                btnKhoaMoThe.Text = "Khóa thẻ";
+                btnKhoaMoThe.FillColor = Color.Red; // Nếu dùng Guna2Button
             }
             else
             {
-                MessageBox.Show("Không tìm thấy thông tin cho Mã Thẻ này!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // Có thể viết thêm hàm XoaTrangDuLieu() ở đây
+                lblTrangThaiThe.Text = "TRẠNG THÁI: ĐANG BỊ KHÓA";
+                lblTrangThaiThe.ForeColor = Color.Red;
+                btnKhoaMoThe.Text = "Mở khóa thẻ";
+                btnKhoaMoThe.FillColor = Color.Green;
             }
-
         }
         // --- HÀM KIỂM TRA MÀU SẮC NGÀY HẾT HẠN ---
         private void KiemTraMauSacHanThe(string ngayHetHanStr)
@@ -135,6 +143,79 @@ namespace LibraryManagerGUI
                 else
                 {
                     MessageBox.Show(ketQua, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnKhoaMoThe_Click(object sender, EventArgs e)
+        {
+            string maThe = txtMaThe.Text.Trim();
+            if (string.IsNullOrEmpty(maThe)) return;
+
+            // Đảo ngược trạng thái: Nếu 0 (đang mở) -> 1 (khóa), nếu 1 (đang khóa) -> 0 (mở)
+            int trangThaiMoi = (trangThaiHienTai == 0) ? 1 : 0;
+            string hanhDong = (trangThaiMoi == 1) ? "KHÓA" : "MỞ KHÓA";
+
+            if (MessageBox.Show($"Bạn có chắc chắn muốn {hanhDong} thẻ này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // Gọi BUS xử lý (Nhớ khai báo hàm ThayDoiTrangThaiThe trong BUS như thầy hướng dẫn ở bước trước)
+                string ketQua = theMuonBUS.ThayDoiTrangThaiThe(maThe, trangThaiMoi);
+
+                if (ketQua == "SUCCESS")
+                {
+                    MessageBox.Show($"{hanhDong} thẻ thành công!", "Thông báo");
+                    trangThaiHienTai = trangThaiMoi; // Cập nhật lại biến nhớ
+                    CapNhatGiaoDienTrangThai(trangThaiHienTai); // Cập nhật màu sắc nút bấm/nhãn
+                }
+                else
+                {
+                    MessageBox.Show(ketQua, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        // Hàm giúp giao diện thay đổi trực quan
+        private void CapNhatGiaoDienTrangThai(int status)
+        {
+            {
+                if (status == 0) // Trạng thái 0: Đang hoạt động
+                {
+                    lblTrangThaiThe.Text = "TRẠNG THÁI: ĐANG HOẠT ĐỘNG";
+                    lblTrangThaiThe.ForeColor = Color.Green; // Chữ màu xanh
+                    btnKhoaMoThe.Text = "Khóa thẻ";
+                    btnKhoaMoThe.FillColor = Color.Red; // Nút chuyển sang màu đỏ để người dùng biết bấm vào sẽ Khóa
+                }
+                else // Trạng thái 1: Đang bị khóa
+                {
+                    lblTrangThaiThe.Text = "TRẠNG THÁI: ĐANG BỊ KHÓA";
+                    lblTrangThaiThe.ForeColor = Color.Red; // Chữ màu đỏ
+                    btnKhoaMoThe.Text = "Mở khóa thẻ";
+                    btnKhoaMoThe.FillColor = Color.Green; // Nút chuyển sang màu xanh để bấm vào sẽ Mở
+                }
+            }
+        }
+
+        private void FrmCapNhatThongTinThe_Load(object sender, EventArgs e)
+        {
+            LoadChiTietThe();
+        }
+        private void LoadChiTietThe()
+        {
+            string maThe = txtMaThe.Text.Trim();
+            DataTable dt = theMuonBUS.TimKiemThongTinThe(maThe);
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                // Đổ dữ liệu lên các ô nhập liệu
+                txtTenTaiKhoan.Text = row["tenTaiKhoan"].ToString();
+                txtHoTen.Text = row["ten"].ToString();
+                txtNgayHetHan.Text = row["ngayHetHan"].ToString();
+
+                // Xử lý trạng thái và thay đổi màu chữ ngay khi load form
+                if (dt.Columns.Contains("trangThai"))
+                {
+                    trangThaiHienTai = Convert.ToInt32(row["trangThai"]);
+                    CapNhatGiaoDienTrangThai(trangThaiHienTai); // Gọi hàm đổi màu nhãn
                 }
             }
         }

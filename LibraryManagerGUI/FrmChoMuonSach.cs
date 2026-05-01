@@ -21,27 +21,61 @@ namespace LibraryManagerGUI
 
         private void btnQuetThe_Click(object sender, EventArgs e)
         {
-            string maThe = txtMaThe.Text.Trim();
-            DataTable dtHeader = bus.GetRegistrationHeader(maThe);
+            //string maThe = txtMaThe.Text.Trim();
+            //DataTable dtHeader = bus.GetRegistrationHeader(maThe);
 
-            if (dtHeader.Rows.Count > 0)
+            //if (dtHeader.Rows.Count > 0)
+            //{
+            //    DataRow r = dtHeader.Rows[0];
+            //    maGiaoDichHienTai = r["maThongTinhMuonTraSach"].ToString();
+
+            //    // Hiển thị thông tin lên giao diện
+            //    lblHoTwnMaDocGia.Text = r["ten"].ToString(); // Nhãn em nên đặt tên cho dễ nhớ
+            //    lblHanThe.Text = r["hanTra"].ToString();
+
+            //    // Load danh sách sách đã đăng ký lên Grid
+            //    //
+            //    dgvDanhSachSachDaDangKy.DataSource = bus.GetRegistrationDetails(maGiaoDichHienTai);
+
+            //    // Hiện số lượng
+            //    lblSoLuongSachThucGiao.Text = dgvDanhSachSachDaDangKy.Rows.Count.ToString();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Thẻ này không có đơn đăng ký mượn nào đang chờ xử lý!", "Thông báo");
+            //}
+            try
             {
-                DataRow r = dtHeader.Rows[0];
-                maGiaoDichHienTai = r["maThongTinhMuonTraSach"].ToString();
+                string maThe = txtMaThe.Text.Trim();
+                DataTable dtHeader = bus.GetRegistrationHeader(maThe);
 
-                // Hiển thị thông tin lên giao diện
-                lblHoTwnMaDocGia.Text = r["ten"].ToString(); // Nhãn em nên đặt tên cho dễ nhớ
-                lblHanThe.Text = r["hanTra"].ToString();
+                if (dtHeader != null && dtHeader.Rows.Count > 0)
+                {
+                    DataRow r = dtHeader.Rows[0];
+                    // Lưu mã phiếu vào biến toàn cục
+                    maGiaoDichHienTai = r["maThongTinhMuonTraSach"].ToString();
 
-                // Load danh sách sách đã đăng ký lên Grid
-                dgvDanhSachSachDaDangKy.DataSource = bus.GetRegistrationDetails(maGiaoDichHienTai);
+                    lblHoTwnMaDocGia.Text = r["ten"].ToString();
+                    lblHanThe.Text = r["hanTra"].ToString();
 
-                // Hiện số lượng
-                lblSoLuongSachThucGiao.Text = dgvDanhSachSachDaDangKy.Rows.Count.ToString();
+                    // DÒNG BỊ LỖI: Ta bọc thêm kiểm tra dữ liệu
+                    DataTable dtDetails = bus.GetRegistrationDetails(maGiaoDichHienTai);
+
+                    if (dtDetails != null)
+                    {
+                        dgvDanhSachSachDaDangKy.DataSource = dtDetails;
+                        lblSoLuongSachThucGiao.Text = dtDetails.Rows.Count.ToString();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Thẻ này không có đơn đăng ký mượn chờ xử lý!", "Thông báo");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Thẻ này không có đơn đăng ký mượn nào đang chờ xử lý!", "Thông báo");
+                // HIỂN THỊ LỖI TẠI ĐÂY - Không để nó văng ra Form Đăng nhập
+                MessageBox.Show("Lỗi thực thi dữ liệu: " + ex.Message, "Lỗi Nghiệp Vụ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

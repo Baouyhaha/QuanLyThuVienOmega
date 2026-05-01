@@ -122,5 +122,11 @@ namespace LibraryManagerBUS
             if (status == 1) return "Đang bị khóa";
             return "Đang hoạt động";
         }
+        public string ThayDoiTrangThaiThe(string maThe, int trangThaiMoi)
+        {
+            if (dal.UpdateCardStatus(maThe, trangThaiMoi))
+                return "SUCCESS";
+            return "Lỗi khi cập nhật trạng thái thẻ!";
+        }
     }
 }

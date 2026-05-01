@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCapNhatThongTinThe));
-            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.lblTieuDHChoMuonSach = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnTimKiem = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,42 +46,13 @@
             this.dtpNgaySinh = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.dtpHanTheHienTai = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
+            this.btnKhoaMoThe = new Guna.UI2.WinForms.Guna2Button();
+            this.lblTrangThaiThe = new System.Windows.Forms.Label();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.lblTieuDHChoMuonSach = new System.Windows.Forms.Label();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // guna2CustomGradientPanel1
-            // 
-            this.guna2CustomGradientPanel1.Controls.Add(this.guna2ControlBox3);
-            this.guna2CustomGradientPanel1.Controls.Add(this.lblTieuDHChoMuonSach);
-            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1115, 137);
-            this.guna2CustomGradientPanel1.TabIndex = 48;
-            // 
-            // guna2ControlBox3
-            // 
-            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
-            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(1067, 2);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 30);
-            this.guna2ControlBox3.TabIndex = 6;
-            // 
-            // lblTieuDHChoMuonSach
-            // 
-            this.lblTieuDHChoMuonSach.AutoSize = true;
-            this.lblTieuDHChoMuonSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lblTieuDHChoMuonSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(94)))), ((int)(((byte)(34)))));
-            this.lblTieuDHChoMuonSach.Location = new System.Drawing.Point(352, 57);
-            this.lblTieuDHChoMuonSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTieuDHChoMuonSach.Name = "lblTieuDHChoMuonSach";
-            this.lblTieuDHChoMuonSach.Size = new System.Drawing.Size(365, 36);
-            this.lblTieuDHChoMuonSach.TabIndex = 0;
-            this.lblTieuDHChoMuonSach.Text = "Cập Nhật Thông Tin Thẻ";
             // 
             // label2
             // 
@@ -187,7 +155,7 @@
             this.btnGiaHan.ForeColor = System.Drawing.Color.White;
             this.btnGiaHan.Image = ((System.Drawing.Image)(resources.GetObject("btnGiaHan.Image")));
             this.btnGiaHan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnGiaHan.Location = new System.Drawing.Point(744, 430);
+            this.btnGiaHan.Location = new System.Drawing.Point(939, 310);
             this.btnGiaHan.Margin = new System.Windows.Forms.Padding(4);
             this.btnGiaHan.Name = "btnGiaHan";
             this.btnGiaHan.Size = new System.Drawing.Size(137, 52);
@@ -376,11 +344,82 @@
             this.btnLuu.Text = "Cập nhật thông tin thẻ";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
+            // btnKhoaMoThe
+            // 
+            this.btnKhoaMoThe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnKhoaMoThe.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnKhoaMoThe.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnKhoaMoThe.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnKhoaMoThe.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnKhoaMoThe.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
+            this.btnKhoaMoThe.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnKhoaMoThe.ForeColor = System.Drawing.Color.White;
+            this.btnKhoaMoThe.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnKhoaMoThe.Location = new System.Drawing.Point(939, 455);
+            this.btnKhoaMoThe.Margin = new System.Windows.Forms.Padding(4);
+            this.btnKhoaMoThe.Name = "btnKhoaMoThe";
+            this.btnKhoaMoThe.Size = new System.Drawing.Size(137, 52);
+            this.btnKhoaMoThe.TabIndex = 75;
+            this.btnKhoaMoThe.Text = "Mở khóa/Khóa thẻ";
+            this.btnKhoaMoThe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnKhoaMoThe.Click += new System.EventHandler(this.btnKhoaMoThe_Click);
+            // 
+            // lblTrangThaiThe
+            // 
+            this.lblTrangThaiThe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTrangThaiThe.AutoSize = true;
+            this.lblTrangThaiThe.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrangThaiThe.Location = new System.Drawing.Point(573, 455);
+            this.lblTrangThaiThe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTrangThaiThe.Name = "lblTrangThaiThe";
+            this.lblTrangThaiThe.Size = new System.Drawing.Size(102, 24);
+            this.lblTrangThaiThe.TabIndex = 76;
+            this.lblTrangThaiThe.Text = "Trạng Thái";
+            // 
+            // guna2CustomGradientPanel1
+            // 
+            this.guna2CustomGradientPanel1.Controls.Add(this.guna2ControlBox3);
+            this.guna2CustomGradientPanel1.Controls.Add(this.lblTieuDHChoMuonSach);
+            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(1115, 137);
+            this.guna2CustomGradientPanel1.TabIndex = 77;
+            // 
+            // guna2ControlBox3
+            // 
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1067, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 30);
+            this.guna2ControlBox3.TabIndex = 6;
+            // 
+            // lblTieuDHChoMuonSach
+            // 
+            this.lblTieuDHChoMuonSach.AutoSize = true;
+            this.lblTieuDHChoMuonSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lblTieuDHChoMuonSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(94)))), ((int)(((byte)(34)))));
+            this.lblTieuDHChoMuonSach.Location = new System.Drawing.Point(352, 57);
+            this.lblTieuDHChoMuonSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTieuDHChoMuonSach.Name = "lblTieuDHChoMuonSach";
+            this.lblTieuDHChoMuonSach.Size = new System.Drawing.Size(365, 36);
+            this.lblTieuDHChoMuonSach.TabIndex = 0;
+            this.lblTieuDHChoMuonSach.Text = "Cập Nhật Thông Tin Thẻ";
+            // 
             // FrmCapNhatThongTinThe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1115, 638);
+            this.Controls.Add(this.guna2CustomGradientPanel1);
+            this.Controls.Add(this.lblTrangThaiThe);
+            this.Controls.Add(this.btnKhoaMoThe);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.dtpHanTheHienTai);
             this.Controls.Add(this.dtpNgaySinh);
@@ -398,11 +437,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.guna2CustomGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmCapNhatThongTinThe";
             this.Text = "FrmCapNhatThongTinThe";
+            this.Load += new System.EventHandler(this.FrmCapNhatThongTinThe_Load);
             this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.guna2CustomGradientPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -411,10 +450,6 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
-        private System.Windows.Forms.Label lblTieuDHChoMuonSach;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Button btnTimKiem;
         private System.Windows.Forms.Label label1;
@@ -432,5 +467,10 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgaySinh;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpHanTheHienTai;
         private Guna.UI2.WinForms.Guna2Button btnLuu;
+        private Guna.UI2.WinForms.Guna2Button btnKhoaMoThe;
+        private System.Windows.Forms.Label lblTrangThaiThe;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
+        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
+        private System.Windows.Forms.Label lblTieuDHChoMuonSach;
     }
 }

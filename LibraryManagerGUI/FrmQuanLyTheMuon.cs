@@ -41,13 +41,19 @@ namespace LibraryManagerGUI
 
         private void btnMoFrmSuaThe_Click(object sender, EventArgs e)
         {
-            if (dgvTheMuon.SelectedRows.Count > 0)
+            try
             {
-                string maSelected = dgvTheMuon.SelectedRows[0].Cells["maTheMuon"].Value.ToString();
-                // Truyền mã thẻ sang Form cập nhật
-                FrmCapNhatThongTinThe frm = new FrmCapNhatThongTinThe(maSelected);
-                frm.ShowDialog();
-                LoadData();
+                if (dgvTheMuon.SelectedRows.Count > 0)
+                {
+                    string maSelected = dgvTheMuon.SelectedRows[0].Cells["maTheMuon"].Value.ToString();
+                    FrmCapNhatThongTinThe frm = new FrmCapNhatThongTinThe(maSelected);
+                    frm.ShowDialog();
+                    LoadData();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi mở form sửa: " + ex.Message, "Lỗi Hệ Thống");
             }
         }
 

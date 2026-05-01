@@ -26,7 +26,7 @@ namespace LibraryManagerDAL
         public string SinhMaPhieuMuonTra()
         {
             string prefix = "MT" + DateTime.Now.ToString("yyyyMMdd");
-            string sql = "SELECT TOP 1 maThongTinhMuonTraSach FROM thongtinmuontrasach WHERE maThongTinhMuonTraSach LIKE @pre ORDER BY maThongTinhMuonTraSach DESC";
+            string sql = "SELECT TOP 1 thongtinmuontrasach FROM thongtinmuontrasach WHERE maThongTinhMuonTraSach LIKE @pre ORDER BY maThongTinhMuonTraSach DESC";
             SqlParameter[] pr = { new SqlParameter("@pre", prefix + "%") };
 
             object result = DbHelper.executeScalar(sql, pr);
@@ -52,17 +52,20 @@ namespace LibraryManagerDAL
 
                     foreach (var item in dsChiTiet)
                     {
-                        // Lưu Detail - Đổi maBanSao thành banSaoSach[cite: 1]
-                        string sqlD = "INSERT INTO chitietmuonsach (maThongTinhMuonTraSach, banSaoSach, trangThai, ngayMuon, tienPhat) " +
+                        // 1. Lưu Detail: bảng chitietmuonsach dùng maBanSao làm khóa ngoại
+                        string sqlD = "INSERT INTO chitietmuonsach (maThongTinhMuonTraSach, maBanSao, trangThai, ngayMuon, tienPhat) " +
                                       "VALUES (@maP, @maBS, 1, @ghiChu, 0)";
                         SqlCommand cmdD = new SqlCommand(sqlD, conn, trans);
                         cmdD.Parameters.AddWithValue("@maP", phieu.MaPhieu);
-                        cmdD.Parameters.AddWithValue("@maBS", item.BanSaoSach); // Biến trong DTO vẫn giữ tên cũ cũng được, miễn value đúng
+                        cmdD.Parameters.AddWithValue("@maBS", item.BanSaoSach);
                         cmdD.Parameters.AddWithValue("@ghiChu", item.TinhTrangSach);
                         cmdD.ExecuteNonQuery();
 
-                        // Cập nhật trạng thái sách[cite: 1]
-                        new SqlCommand($"UPDATE bansaosach SET trangThai = 1 WHERE maBanSao = '{item.BanSaoSach}'", conn, trans).ExecuteNonQuery();
+                        // 2. Cập nhật bansaosach: Tên cột PK đúng là banSaoSach
+                        string sqlUpBS = "UPDATE bansaosach SET trangThai = 1 WHERE banSaoSach = @maBS";
+                        SqlCommand cmdUpBS = new SqlCommand(sqlUpBS, conn, trans);
+                        cmdUpBS.Parameters.AddWithValue("@maBS", item.BanSaoSach);
+                        cmdUpBS.ExecuteNonQuery();
                     }
                     trans.Commit(); return true;
                 }
@@ -102,10 +105,10 @@ namespace LibraryManagerDAL
         public DataTable LayChiTietDon(string maGD)
         {
             string sql = @"SELECT ct.maBanSao, s.tenSach, s.maSach
-                       FROM chitietmuonsach ct
-                       JOIN bansaosach bs ON ct.maBanSao = bs.maBanSao
-                       JOIN sach s ON bs.maSach = s.maSach
-                       WHERE ct.maThongTinhMuonTraSach = @ma";
+               FROM chitietmuonsach ct
+               JOIN bansaosach bs ON ct.maBanSao = bs.banSaoSach
+               JOIN sach s ON bs.maSach = s.maSach
+               WHERE ct.maThongTinhMuonTraSach = @ma";
             SqlParameter[] pr = { new SqlParameter("@ma", maGD) };
             return DbHelper.getTable(sql, pr);
         }
@@ -131,8 +134,8 @@ namespace LibraryManagerDAL
                         cmdD.Parameters.AddWithValue("@bs", maBS);
                         cmdD.ExecuteNonQuery();
 
-                        // Cập nhật trạng thái Bản sao sách thành 1 (Đang mượn)[cite: 1]
-                        SqlCommand cmdS = new SqlCommand("UPDATE bansaosach SET trangThai = 1 WHERE maBanSao = @bs", conn, trans);
+                        // Cập nhật trạng thái Bản sao sách thành 1
+                        SqlCommand cmdS = new SqlCommand("UPDATE bansaosach SET trangThai = 1 WHERE banSaoSach = @bs", conn, trans);
                         cmdS.Parameters.AddWithValue("@bs", maBS);
                         cmdS.ExecuteNonQuery();
                     }
@@ -145,14 +148,13 @@ namespace LibraryManagerDAL
         }
         public DataTable LayDanhSachSachDangMuon(string maThe)
         {
-            // Lấy những cuốn sách có trangThai = 1 (Đang mượn) của mã thẻ tương ứng
-            string sql = @"SELECT ct.maThongTinhMuonTraSach, ct.maBanSao, s.tenSach, 
-                          h.ngayDangKi, h.hanTra, ct.ngayMuon as TinhTrangLucMuon
+            string sql = @"SELECT ct.maThongTinhMuonTraSach, ct.maBanSao, s.tenSach,  
+                          h.ngayMuon, h.hanTra, ct.ngayMuon as TinhTrangLucMuon
                    FROM chitietmuonsach ct
                    JOIN thongtinmuontrasach h ON ct.maThongTinhMuonTraSach = h.maThongTinhMuonTraSach
                    JOIN nguoimuon n ON h.maNguoiMuon = n.maNguoiMuon
                    JOIN themuon t ON n.maNguoiMuon = t.maNguoiMuon
-                   JOIN bansaosach bs ON ct.maBanSao = bs.maBanSao
+                   JOIN bansaosach bs ON ct.maBanSao = bs.banSaoSach
                    JOIN sach s ON bs.maSach = s.maSach
                    WHERE RTRIM(t.maTheMuon) = RTRIM(@ma) AND ct.trangThai = 1";
 

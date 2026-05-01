@@ -12,7 +12,7 @@ namespace LibraryManagerDAL
     public class TheMuonDAL
     {
         // Khởi tạo đối tượng DbHelper của em
-        //private DbHelper dbHelper = new DbHelper();
+        private DbHelper dbHelper = new DbHelper();
 
         public bool PhatHanhTheMoi(string tenTaiKhoan, string maDinhDanh, int tienCoc, string maNguoiMuon, string maTheMuon, DateTime ngayHetHan)
         {
@@ -155,6 +155,31 @@ namespace LibraryManagerDAL
             string sql = "DELETE FROM themuon WHERE maTheMuon = @ma";
             SqlParameter[] pr = { new SqlParameter("@ma", maThe) };
             return DbHelper.executeNonQuery(sql, pr);
+        }
+
+        // Hàm cập nhật trạng thái thẻ mượn
+        public bool UpdateCardStatus(string maThe, int trangThai)
+        {
+            string sql = "UPDATE themuon SET trangThai = @tt WHERE maTheMuon = @ma";
+            SqlParameter[] pr = {
+        new SqlParameter("@tt", trangThai),
+        new SqlParameter("@ma", maThe)
+    };
+
+            // Sử dụng Convert.ToInt32 thay vì (int) để tránh lỗi CS0030
+            return Convert.ToInt32(DbHelper.executeNonQuery(sql, pr)) > 0;
+        }
+        public DataTable TimKiemThongTinThe(string maThe)
+        {
+            // Đảm bảo có t.trangThai trong danh sách SELECT
+            string sql = @"SELECT t.maTheMuon, t.ngayHetHan, t.trangThai, n.tenTaiKhoan, tk.ten, tk.soDienThoai
+                   FROM themuon t
+                   INNER JOIN nguoimuon n ON t.maNguoiMuon = n.maNguoiMuon
+                   INNER JOIN taikhoan tk ON n.tenTaiKhoan = tk.tenTaiKhoan
+                   WHERE RTRIM(t.maTheMuon) = RTRIM(@ma)";
+
+            SqlParameter[] pr = { new SqlParameter("@ma", maThe) };
+            return DbHelper.getTable(sql, pr); // Trả về bảng chứa đầy đủ các cột bao gồm trangThai
         }
     }
 
