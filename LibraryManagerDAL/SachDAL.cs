@@ -190,13 +190,13 @@ namespace LibraryManagerDAL
         {
             // Thầy thêm JOIN với bảng tác giả và đặt bí danh (Alias) cho cột để em dễ gọi trong C#
             string sql = @"SELECT s.maSach, s.tenSach, 
-                          nph.tenNhaPhatHanh AS NhaXuatBan, 
-                          tg.tenTacGia AS TacGia, 
-                          s.isbn 
-                   FROM sach s 
-                   LEFT JOIN nhaphatHanh nph ON s.maNhaPhatHanh = nph.maNhaPhatHanh
-                   LEFT JOIN chitiettacgia cttg ON s.maSach = cttg.maSach
-                   LEFT JOIN tacgia tg ON cttg.maTacGia = tg.maTacGia";
+               nph.tenNhaPhatHanh AS NhaXuatBan, 
+               tg.tenTacGia AS TacGia, 
+               s.isbn
+        FROM sach s 
+        LEFT JOIN nhaphatHanh nph ON s.maNhaPhatHanh = nph.maNhaPhatHanh
+        LEFT JOIN chitiettacgia cttg ON s.maSach = cttg.maSach
+        LEFT JOIN tacgia tg ON cttg.maTacGia = tg.maTacGia"; 
             return DbHelper.getTable(sql);
         }
 

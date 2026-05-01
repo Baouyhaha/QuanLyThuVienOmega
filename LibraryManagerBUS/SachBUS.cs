@@ -194,5 +194,19 @@ namespace LibraryManagerBUS
             // Gọi xuống DAL đã viết ở trên
             return sachDAL.LayMaBanSaoKhaDung(maSach);
         }
+        public long LayGiaTienCuaBanSao(string maBanSao)
+        {
+            long gia = 0;
+            string sql = "SELECT gia FROM bansaosach WHERE banSaoSach = '" + maBanSao + "'";
+
+            // Ở tầng BUS thì em gọi DbHelper thoải mái
+            DataTable dt = LibraryManagerDAO.DbHelper.getTable(sql);
+
+            if (dt.Rows.Count > 0 && dt.Rows[0]["gia"] != DBNull.Value)
+            {
+                gia = Convert.ToInt64(dt.Rows[0]["gia"]);
+            }
+            return gia;
+        }
     }
 }

@@ -77,7 +77,7 @@ namespace LibraryManagerBUS
             // Nếu session bằng null nghĩa là sai pass hoặc không có tài khoản
             if (session == null)
             {
-                throw new Exception("Tài khoản hoặc mật khẩu không đúng!");
+                throw new Exception("Tài khoản hoặc mật khẩu không đúng!"); 
             }
 
             // Trả session (Quyền + Mã người dùng) về cho FrmDangNhap

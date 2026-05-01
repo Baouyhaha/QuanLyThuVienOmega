@@ -16,18 +16,21 @@ namespace LibraryManagerGUI
 
         public static DataTable GioHang = new DataTable();
 
+        // 2. MỚI: TẠO STATIC CONSTRUCTOR (Hàm khởi tạo tĩnh - Không có chữ public)
+        // Hàm này sẽ tự động chạy 1 lần duy nhất ngay khi phần mềm vừa nhắc đến FrmTimKiemSach
+        static FrmTimKiemSach()
+        {
+            GioHang.Columns.Add("Mã Sách", typeof(string));
+            GioHang.Columns.Add("Tên Sách", typeof(string));
+            GioHang.Columns.Add("Giá Tiền", typeof(long)); 
+        }
+
         SachBUS sachBus = new SachBUS();
+
         public FrmTimKiemSach()
         {
             InitializeComponent();
-            if (GioHang == null)
-            {
-                GioHang = new DataTable();
-            }
-            GioHang.Columns.Clear(); // Xóa sạch cột cũ nếu có
-            GioHang.Columns.Add("Mã Sách");
-            GioHang.Columns.Add("Tên Sách");
-            GioHang.Columns.Add("Giá Tiền", typeof(int));
+           
         }
        
         private void FrmTimKiemSach_Load(object sender, EventArgs e)
@@ -101,21 +104,63 @@ namespace LibraryManagerGUI
 
                 if (dr == DialogResult.Yes)
                 {
-                    // Tại đây Danh gọi hàm để đẩy maBanSaoTimDuoc vào Giỏ hàng/Danh sách mượn
-                    // Ví dụ: ThemVaoDanhSachDangKy(maBanSaoTimDuoc, tenSach);
+                    try
+                    {
+                        // ==========================================
+                        // 1. KIỂM TRA TRÙNG LẶP SÁCH TRONG GIỎ
+                        // ==========================================
+                        foreach (DataRow row in GioHang.Rows)
+                        {
+                            // Duyệt từng dòng xem mã bản sao này đã tồn tại trong giỏ chưa
+                            if (row["Mã Sách"].ToString() == maBanSaoTimDuoc)
+                            {
+                                MessageBox.Show($"Bản sao {maBanSaoTimDuoc} này đã có trong giỏ hàng rồi!\nVui lòng chọn cuốn khác.",
+                                                "Cảnh báo trùng lặp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return; // Dừng code ngay lập tức, không cho chạy xuống lệnh Add
+                            }
+                        }
+
+                        // ==========================================
+                        // 2. LẤY GIÁ TIỀN TRỰC TIẾP TỪ DATABASE (CHUẨN XÁC 100%)
+                        // ==========================================
+ 
+
+                        // Truy vấn thẳng vào bảng bansaosach để lấy cột 'gia' của đúng cuốn sách vật lý này
+                        string sqlGia = "SELECT gia FROM bansaosach WHERE banSaoSach = '" + maBanSaoTimDuoc + "'";
+
+                     
+                        long gia = sachBus.LayGiaTienCuaBanSao(maBanSaoTimDuoc);
+
+             
+
+                        // ==========================================
+                        // 3. NHÉT SÁCH VÀO GIỎ HÀNG
+                        // ==========================================
+                        // Thêm Mã Bản Sao, Tên Sách và Giá Tiền thực tế vào giỏ
+                        GioHang.Rows.Add(maBanSaoTimDuoc, tenSach, gia);
+
+                        // ==========================================
+                        // 4. THÔNG BÁO THÀNH CÔNG VÀ ĐẾM SỐ LƯỢNG
+                        // ==========================================
+                        MessageBox.Show($"Đã thêm cuốn {maBanSaoTimDuoc} (Giá: {gia:N0}đ) vào giỏ!\nHiện trong giỏ đang có {GioHang.Rows.Count} cuốn.",
+                                        "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        // BẮT LỖI NẾU CÓ (Để không bị chết ngầm)
+                        MessageBox.Show("Lỗi khi thêm sách vào giỏ: " + ex.Message, "Lỗi hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    // ==========================================
+                    // 5. XỬ LÝ KHI NGƯỜI DÙNG CHỌN "NO" (GIỮ NGUYÊN)
+                    // ==========================================
+                    // (Thực ra nếu chọn No thì không cần làm gì, form chỉ đóng hộp thoại thôi)
                 }
             }
-            else
-            {
-                // THẤT BẠI: Không có bản sao nào thỏa mãn (trangThai=0 và loai=2)
-                MessageBox.Show(
-                    $"Rất tiếc! Đầu sách '{tenSach}' hiện tại không còn bản sao nào có sẵn để mượn về.\n\n" +
-                    "Lưu ý: Có thể sách đã bị mượn hết hoặc chỉ còn bản sao đọc tại chỗ.",
-                    "Thông báo hết sách",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-            }
         }
+    
 
 
         public void LoadDuLieuTimKiem()

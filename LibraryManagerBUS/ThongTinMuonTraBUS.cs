@@ -24,5 +24,31 @@ namespace LibraryManagerBUS
             // 3. Gọi DAL thực thi Transaction
             return dal.TaoPhieuMuonTransaction(maPhieuTuSinh, maNguoiMuon, chuoiNgayDangKi, chuoiHanTra, tienDatCoc, gioHang);
         }
+        public bool PheDuyetGiaoSach(string maPhieu)
+        {
+            // Gọi xuống hàm DAL em vừa thêm ở trên
+            return dal.PheDuyetGiaoSach(maPhieu);
+        }
+        public DataTable GetDsPhieuChoDuyet()
+        {
+            return dal.GetDsPhieuChoDuyet();
+        }
+        public DataTable GetChiTietSachTrongPhieu(string maPhieu)
+        {
+            // Gọi xuống hàm DAL vừa viết ở trên
+            return dal.GetChiTietSachTrongPhieu(maPhieu);
+        }
+        public bool HuyPhieuMuon(string maPhieu)
+        {
+            return dal.HuyPhieuMuon(maPhieu);
+        }
+        public DataTable LocPhieuMuon(string tuKhoa, int trangThai)
+        {
+            return dal.LocPhieuMuon(tuKhoa, trangThai);
+        }
+        public DataTable TimKiemNhanhChoThuThu(string tuKhoa)
+        {
+            return dal.TimKiemNhanhChoThuThu(tuKhoa);
+        }
     }
 }

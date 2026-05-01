@@ -296,7 +296,7 @@ namespace LibraryManagerGUI
 
         private void btnTTQuanLyBanSaoSach_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new FrmQuanLyDangKySach());
         }
 
         private void btnTTQuanLyPhieuDocTaiCho_Click(object sender, EventArgs e)
