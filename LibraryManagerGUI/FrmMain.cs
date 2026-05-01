@@ -151,6 +151,15 @@ namespace LibraryManagerGUI
                     btnDangKyDocTaiCho.Visible = false;
                     btnDKMuonSach.Visible = false;
                     btnDKTheMuon.Visible = false;
+
+                    btnTTChoMuonSach.Visible = true;
+                    btnTTNhanTraSach.Visible = true;
+                    btnTTQuanLySach.Visible = true;
+                    btnQuanLyTheMuon.Visible = true;
+                    btnTTQuanLyTaiKhoan.Visible = true;
+                    btnTTQuanLyTacGIa.Visible = true;
+                    btnTTQuanLyBanSaoSach.Visible = true;
+                    btnTTQuanLyPhieuDocTaiCho.Visible = true;
                     break;
 
                 case 1: // ================== QUYỀN ĐỘC GIẢ (ĐÃ KÍCH HOẠT) ==================

@@ -70,13 +70,21 @@ namespace LibraryManagerGUI
 
         private void dgvTheMuon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvTheMuon.Columns[e.ColumnIndex].Name == "ngayHetHan")
+            // Kiểm tra đúng cột Ngày hết hạn và giá trị không được null
+            if (dgvTheMuon.Columns[e.ColumnIndex].Name == "ngayHetHan" && e.Value != null && e.Value != DBNull.Value)
             {
-                DateTime date = Convert.ToDateTime(e.Value);
-                if (date < DateTime.Now)
+                DateTime date;
+                string dateString = e.Value.ToString();
+
+                // Sử dụng TryParseExact để ép kiểu theo đúng định dạng dd/MM/yyyy đã thiết kế
+                if (DateTime.TryParseExact(dateString, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out date))
                 {
-                    e.CellStyle.ForeColor = Color.Red;
-                    e.CellStyle.Font = new Font(dgvTheMuon.Font, FontStyle.Bold);
+                    // Nếu ngày hết hạn nhỏ hơn ngày hiện tại (đã hết hạn)
+                    if (date < DateTime.Now)
+                    {
+                        e.CellStyle.ForeColor = Color.Red; // Đổi màu chữ sang đỏ để cảnh báo
+                        e.CellStyle.Font = new Font(dgvTheMuon.Font, FontStyle.Bold); // In đậm
+                    }
                 }
             }
         }
