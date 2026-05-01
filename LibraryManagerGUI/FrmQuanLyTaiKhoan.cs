@@ -64,21 +64,17 @@ namespace LibraryManagerGUI
             }
         }
 
-        private void btnDuyetThe_Click(object sender, EventArgs e)
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-            string maNM = this.Tag?.ToString();
-            if (string.IsNullOrEmpty(maNM)) return;
-
-            int tien = int.Parse(txtSoTienThu.Text);
-
-            if (bus.DuyetHoacHuyThe(maNM, 1, tien)) // 1 là Đã kích hoạt
-            {
-                MessageBox.Show("Đã duyệt và kích hoạt thẻ thành công!");
-                LoadData();
-            }
+            LoadData();
         }
 
-        private void btnHuyThe_Click(object sender, EventArgs e)
+        private void cboLocTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void btnHuyKichHoat_Click(object sender, EventArgs e)
         {
             string maNM = this.Tag?.ToString();
             if (string.IsNullOrEmpty(maNM)) return;
@@ -94,14 +90,18 @@ namespace LibraryManagerGUI
             }
         }
 
-        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        private void btnDuyetVaKichHoat_Click(object sender, EventArgs e)
         {
-            LoadData();
-        }
+            string maNM = this.Tag?.ToString();
+            if (string.IsNullOrEmpty(maNM)) return;
 
-        private void cboLocTrangThai_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadData();
+            int tien = int.Parse(txtSoTienThu.Text);
+
+            if (bus.DuyetHoacHuyThe(maNM, 1, tien)) // 1 là Đã kích hoạt
+            {
+                MessageBox.Show("Đã duyệt và kích hoạt thẻ thành công!");
+                LoadData();
+            }
         }
     }
 }

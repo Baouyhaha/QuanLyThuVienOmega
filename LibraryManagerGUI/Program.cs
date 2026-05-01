@@ -16,7 +16,7 @@ namespace LibraryManagerGUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmDangKyMuonSach());
+            Application.Run(new FrmDangNhap());
         }
     }
 }
