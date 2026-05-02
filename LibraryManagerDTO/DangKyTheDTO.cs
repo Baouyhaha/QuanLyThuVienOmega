@@ -8,6 +8,7 @@ namespace LibraryManagerDTO
 {
     public class DangKyTheDTO
     {
+        public string TenTaiKhoan { get; set; }
         public string HoTen { get; set; }
         public DateTime NgaySinh { get; set; }
         public string Sdt { get; set; }

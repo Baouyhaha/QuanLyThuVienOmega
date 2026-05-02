@@ -82,6 +82,7 @@
     <Compile Include="TheMuonDTO.cs" />
     <Compile Include="ThongTinMuonTraSach.cs" />
     <Compile Include="ThuThuDTO.cs" />
+    <Compile Include="UserSession.cs" />
     <Compile Include="UserSessionDTO.cs" />
   </ItemGroup>
   <ItemGroup>

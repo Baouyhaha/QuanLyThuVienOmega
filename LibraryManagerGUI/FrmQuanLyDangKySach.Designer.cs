@@ -36,12 +36,11 @@
             this.txtTimPhieu = new Guna.UI2.WinForms.Guna2TextBox();
             this.cboTrangThai = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnLocTrangThai = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvPhieuCho = new System.Windows.Forms.DataGridView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dgvPhieuCho = new System.Windows.Forms.DataGridView();
             this.dgvChiTietSach = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.lblSoLuongSach = new System.Windows.Forms.Label();
@@ -53,12 +52,12 @@
             this.btnHuyPhieu = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuCho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuCho)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietSach)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,15 +152,6 @@
             this.label2.TabIndex = 59;
             this.label2.Text = "Trạng thái";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 60;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // btnLocTrangThai
             // 
             this.btnLocTrangThai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -196,6 +186,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "[DANH SÁCH PHIẾU ĐANG CHỜ]";
             // 
+            // dgvPhieuCho
+            // 
+            this.dgvPhieuCho.AllowUserToAddRows = false;
+            this.dgvPhieuCho.AllowUserToDeleteRows = false;
+            this.dgvPhieuCho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPhieuCho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPhieuCho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPhieuCho.Location = new System.Drawing.Point(3, 23);
+            this.dgvPhieuCho.Name = "dgvPhieuCho";
+            this.dgvPhieuCho.RowHeadersWidth = 51;
+            this.dgvPhieuCho.RowTemplate.Height = 24;
+            this.dgvPhieuCho.Size = new System.Drawing.Size(491, 250);
+            this.dgvPhieuCho.TabIndex = 0;
+            this.dgvPhieuCho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuCho_CellClick);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -224,21 +229,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "[CHI TIẾT SÁCH ĐÃ CHỌN]";
-            // 
-            // dgvPhieuCho
-            // 
-            this.dgvPhieuCho.AllowUserToAddRows = false;
-            this.dgvPhieuCho.AllowUserToDeleteRows = false;
-            this.dgvPhieuCho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPhieuCho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPhieuCho.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPhieuCho.Location = new System.Drawing.Point(3, 23);
-            this.dgvPhieuCho.Name = "dgvPhieuCho";
-            this.dgvPhieuCho.RowHeadersWidth = 51;
-            this.dgvPhieuCho.RowTemplate.Height = 24;
-            this.dgvPhieuCho.Size = new System.Drawing.Size(491, 250);
-            this.dgvPhieuCho.TabIndex = 0;
-            this.dgvPhieuCho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuCho_CellClick);
             // 
             // dgvChiTietSach
             // 
@@ -381,7 +371,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.btnLocTrangThai);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cboTrangThai);
             this.Controls.Add(this.txtTimPhieu);
@@ -394,12 +383,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuCho)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuCho)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietSach)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -415,7 +404,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtTimPhieu;
         private System.Windows.Forms.ComboBox cboTrangThai;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
         private Guna.UI2.WinForms.Guna2Button btnLocTrangThai;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.SplitContainer splitContainer1;

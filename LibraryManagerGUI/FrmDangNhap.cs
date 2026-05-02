@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManagerBUS;
 using LibraryManagerDTO;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 
 namespace LibraryManagerGUI
 {

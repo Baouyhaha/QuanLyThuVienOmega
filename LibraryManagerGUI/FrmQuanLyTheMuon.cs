@@ -14,9 +14,11 @@ namespace LibraryManagerGUI
     public partial class FrmQuanLyTheMuon : Form
     {
         TheMuonBUS bus = new TheMuonBUS();
+        bool isViewingPending = false;
         public FrmQuanLyTheMuon()
         {
             InitializeComponent();
+
         }
 
         private void FrmQuanLyTheMuon_Load(object sender, EventArgs e)
@@ -25,11 +27,21 @@ namespace LibraryManagerGUI
         }
         public void LoadData()
         {
-            dgvTheMuon.DataSource = bus.GetAll();
-            // Tùy chỉnh tiêu đề cột cho đẹp
-            dgvTheMuon.Columns["maTheMuon"].HeaderText = "Mã Thẻ";
-            dgvTheMuon.Columns["HoTen"].HeaderText = "Họ Tên Độc Giả";
-            dgvTheMuon.Columns["ngayHetHan"].HeaderText = "Ngày Hết Hạn";
+
+            if (isViewingPending)
+            {
+                dgvTheMuon.DataSource = bus.GetDanhSachChoDuyet();
+                // Thay đổi Header nếu cần
+                //dgvTheMuon.DataSource = bus.GetAll();
+                // Tùy chỉnh tiêu đề cột cho đẹp
+                //dgvTheMuon.Columns["maTheMuon"].HeaderText = "Mã Thẻ";
+                //dgvTheMuon.Columns["HoTen"].HeaderText = "Họ Tên Độc Giả";
+                //dgvTheMuon.Columns["ngayHetHan"].HeaderText = "Ngày Hết Hạn";
+            }
+            else
+            {
+                dgvTheMuon.DataSource = bus.GetAll();
+            }
         }
 
         private void btnMoFrmThemThe_Click(object sender, EventArgs e)
@@ -56,7 +68,7 @@ namespace LibraryManagerGUI
                 MessageBox.Show("Lỗi khi mở form sửa: " + ex.Message, "Lỗi Hệ Thống");
             }
         }
-
+        
         private void btnXoaThe_Click(object sender, EventArgs e)
         {
             if (dgvTheMuon.SelectedRows.Count > 0)
@@ -99,6 +111,43 @@ namespace LibraryManagerGUI
         {
             txtTimKiem.Clear();
             LoadData();
+        }
+
+        private void cmbLocTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbLocTrangThai.SelectedIndex == 1) // Chờ kích hoạt
+            {
+                dgvTheMuon.DataSource = bus.GetDanhSachChoDuyet(); // Hàm lấy nguoimuon có trangThai = 0
+            }
+            else
+            {
+                LoadData(); // Load danh sách thẻ mượn bình thường
+            }
+        }
+
+        private void btnLocChoDuyet_Click(object sender, EventArgs e)
+        {
+            isViewingPending = !isViewingPending;
+            btnLocChoDuyet.Text = isViewingPending ? "Xem tất cả thẻ" : "Xem yêu cầu chờ duyệt";
+            LoadData();
+        }
+
+        private void dgvTheMuon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (isViewingPending && e.RowIndex >= 0)
+            {
+                string maNM = dgvTheMuon.Rows[e.RowIndex].Cells["maNguoiMuon"].Value.ToString();
+                string ten = dgvTheMuon.Rows[e.RowIndex].Cells["hoTen"].Value.ToString();
+
+                if (MessageBox.Show($"Duyệt cấp thẻ cho: {ten}?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (bus.DuyetCapThe(maNM))
+                    {
+                        MessageBox.Show("Cấp thẻ thành công!");
+                        LoadData();
+                    }
+                }
+            }
         }
     }
 }

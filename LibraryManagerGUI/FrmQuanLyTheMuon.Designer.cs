@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvTheMuon = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.tet = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnMoFrmThemThe = new Guna.UI2.WinForms.Guna2Button();
             this.btnTimThe = new Guna.UI2.WinForms.Guna2Button();
             this.btnLamMoi = new Guna.UI2.WinForms.Guna2Button();
@@ -44,6 +44,8 @@
             this.txtTimKiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cmbLocTrangThai = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnLocChoDuyet = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTheMuon)).BeginInit();
             this.panel1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -52,14 +54,14 @@
             // dgvTheMuon
             // 
             this.dgvTheMuon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTheMuon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTheMuon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTheMuon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTheMuon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTheMuon.Location = new System.Drawing.Point(0, 226);
@@ -70,6 +72,7 @@
             this.dgvTheMuon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTheMuon.Size = new System.Drawing.Size(1111, 423);
             this.dgvTheMuon.TabIndex = 52;
+            this.dgvTheMuon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTheMuon_CellClick);
             this.dgvTheMuon.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTheMuon_CellFormatting);
             // 
             // button1
@@ -128,6 +131,17 @@
             this.panel1.Size = new System.Drawing.Size(1111, 79);
             this.panel1.TabIndex = 50;
             // 
+            // guna2ControlBox3
+            // 
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1063, 2);
+            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 30);
+            this.guna2ControlBox3.TabIndex = 5;
+            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -140,17 +154,6 @@
             this.label4.Size = new System.Drawing.Size(343, 24);
             this.label4.TabIndex = 2;
             this.label4.Text = "CHỨC NĂNG QUẢN LÝ THẺ MƯỢN";
-            // 
-            // guna2ControlBox3
-            // 
-            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(34)))));
-            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(1063, 2);
-            this.guna2ControlBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 30);
-            this.guna2ControlBox3.TabIndex = 5;
             // 
             // btnMoFrmThemThe
             // 
@@ -169,7 +172,6 @@
             this.btnMoFrmThemThe.Size = new System.Drawing.Size(143, 38);
             this.btnMoFrmThemThe.TabIndex = 52;
             this.btnMoFrmThemThe.Text = "Thêm thẻ";
-            this.btnMoFrmThemThe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnMoFrmThemThe.Click += new System.EventHandler(this.btnMoFrmThemThe_Click);
             // 
             // btnTimThe
@@ -189,7 +191,6 @@
             this.btnTimThe.Size = new System.Drawing.Size(137, 38);
             this.btnTimThe.TabIndex = 53;
             this.btnTimThe.Text = "Tìm Thẻ mượn";
-            this.btnTimThe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnLamMoi
             // 
@@ -208,7 +209,6 @@
             this.btnLamMoi.Size = new System.Drawing.Size(132, 38);
             this.btnLamMoi.TabIndex = 54;
             this.btnLamMoi.Text = "Làm Mới";
-            this.btnLamMoi.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnMoFrmSuaThe
@@ -228,7 +228,6 @@
             this.btnMoFrmSuaThe.Size = new System.Drawing.Size(143, 38);
             this.btnMoFrmSuaThe.TabIndex = 54;
             this.btnMoFrmSuaThe.Text = "Sửa thẻ";
-            this.btnMoFrmSuaThe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnMoFrmSuaThe.Click += new System.EventHandler(this.btnMoFrmSuaThe_Click);
             // 
             // btnXoaThe
@@ -248,7 +247,6 @@
             this.btnXoaThe.Size = new System.Drawing.Size(132, 38);
             this.btnXoaThe.TabIndex = 55;
             this.btnXoaThe.Text = "Xóa Thẻ";
-            this.btnXoaThe.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnXoaThe.Click += new System.EventHandler(this.btnXoaThe_Click);
             // 
             // txtTimKiem
@@ -291,11 +289,13 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.cmbLocTrangThai);
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.txtTimKiem);
             this.guna2Panel1.Controls.Add(this.btnXoaThe);
             this.guna2Panel1.Controls.Add(this.btnMoFrmSuaThe);
             this.guna2Panel1.Controls.Add(this.btnLamMoi);
+            this.guna2Panel1.Controls.Add(this.btnLocChoDuyet);
             this.guna2Panel1.Controls.Add(this.btnTimThe);
             this.guna2Panel1.Controls.Add(this.btnMoFrmThemThe);
             this.guna2Panel1.Controls.Add(this.panel1);
@@ -308,6 +308,42 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1111, 226);
             this.guna2Panel1.TabIndex = 51;
+            // 
+            // cmbLocTrangThai
+            // 
+            this.cmbLocTrangThai.BackColor = System.Drawing.Color.Transparent;
+            this.cmbLocTrangThai.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbLocTrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbLocTrangThai.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbLocTrangThai.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cmbLocTrangThai.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cmbLocTrangThai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cmbLocTrangThai.ItemHeight = 30;
+            this.cmbLocTrangThai.Location = new System.Drawing.Point(381, 141);
+            this.cmbLocTrangThai.Name = "cmbLocTrangThai";
+            this.cmbLocTrangThai.Size = new System.Drawing.Size(140, 36);
+            this.cmbLocTrangThai.TabIndex = 58;
+            this.cmbLocTrangThai.SelectedIndexChanged += new System.EventHandler(this.cmbLocTrangThai_SelectedIndexChanged);
+            // 
+            // btnLocChoDuyet
+            // 
+            this.btnLocChoDuyet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLocChoDuyet.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLocChoDuyet.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLocChoDuyet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLocChoDuyet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLocChoDuyet.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
+            this.btnLocChoDuyet.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnLocChoDuyet.ForeColor = System.Drawing.Color.White;
+            this.btnLocChoDuyet.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnLocChoDuyet.Location = new System.Drawing.Point(564, 139);
+            this.btnLocChoDuyet.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLocChoDuyet.MaximumSize = new System.Drawing.Size(143, 38);
+            this.btnLocChoDuyet.Name = "btnLocChoDuyet";
+            this.btnLocChoDuyet.Size = new System.Drawing.Size(137, 38);
+            this.btnLocChoDuyet.TabIndex = 53;
+            this.btnLocChoDuyet.Text = "Xem yêu cầu";
+            this.btnLocChoDuyet.Click += new System.EventHandler(this.btnLocChoDuyet_Click);
             // 
             // FrmQuanLyTheMuon
             // 
@@ -346,5 +382,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtTimKiem;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2ComboBox cmbLocTrangThai;
+        private Guna.UI2.WinForms.Guna2Button btnLocChoDuyet;
     }
 }

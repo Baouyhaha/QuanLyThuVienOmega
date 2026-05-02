@@ -155,7 +155,7 @@ namespace LibraryManagerGUI
                     btnTTChoMuonSach.Visible = true;
                     btnTTNhanTraSach.Visible = true;
                     btnTTQuanLySach.Visible = true;
-                    btnQuanLyTheMuon.Visible = true;
+                    btnQuanLyDKSach.Visible = true;
                     btnTTQuanLyTaiKhoan.Visible = true;
                     btnTTQuanLyTacGIa.Visible = true;
                     btnTTQuanLyBanSaoSach.Visible = true;
@@ -174,7 +174,7 @@ namespace LibraryManagerGUI
                     btnTTChoMuonSach.Visible = false;
                     btnTTNhanTraSach.Visible = false;
                     btnTTQuanLySach.Visible = false;
-                    btnQuanLyTheMuon.Visible = false;
+                    btnQuanLyDKSach.Visible = false;
                     btnTTQuanLyTaiKhoan.Visible = false;
                     btnTTQuanLyTacGIa.Visible = false;
                     btnTTQuanLyBanSaoSach.Visible = false;
@@ -193,7 +193,7 @@ namespace LibraryManagerGUI
                     btnTTChoMuonSach.Visible = false;
                     btnTTNhanTraSach.Visible = false;
                     btnTTQuanLySach.Visible = false;
-                    btnQuanLyTheMuon.Visible = false;
+                    btnQuanLyDKSach.Visible = false;
                     btnTTQuanLyTaiKhoan.Visible = false;
                     btnTTQuanLyTacGIa.Visible = false;
                     btnTTQuanLyBanSaoSach.Visible = false;
@@ -212,7 +212,7 @@ namespace LibraryManagerGUI
                     btnTTChoMuonSach.Visible=false;
                     btnTTNhanTraSach.Visible = false;
                     btnTTQuanLySach.Visible = false;
-                    btnQuanLyTheMuon.Visible=false;
+                    btnQuanLyDKSach.Visible=false;
                     btnTTQuanLyTaiKhoan.Visible = false;
                     btnTTQuanLyTacGIa.Visible = false;
                     btnTTQuanLyBanSaoSach.Visible = false;
@@ -309,7 +309,7 @@ namespace LibraryManagerGUI
 
         private void btnTTQuanLyBanSaoSach_Click(object sender, EventArgs e)
         {
-            openChildForm(new FrmQuanLyDangKySach());
+            //openChildForm(new FrmQuanLyDangKySach());
         }
 
         private void btnTTQuanLyPhieuDocTaiCho_Click(object sender, EventArgs e)
@@ -320,6 +320,11 @@ namespace LibraryManagerGUI
         private void btnThongKeTopSach_Click(object sender, EventArgs e)
         {
             openChildForm(new FrmThongKeTopSach());
+        }
+
+        private void btnQuanLyDKSach_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmQuanLyDangKySach());
         }
     }
 }

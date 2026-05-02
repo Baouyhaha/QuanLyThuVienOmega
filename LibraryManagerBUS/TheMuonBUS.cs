@@ -1,10 +1,11 @@
-﻿using LibraryManagerDAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibraryManagerDAL;
+using LibraryManagerDAO;
 
 namespace LibraryManagerBUS
 {
@@ -109,7 +110,7 @@ namespace LibraryManagerBUS
 
         private TheMuonDAL dal = new TheMuonDAL();
 
-        public DataTable GetAll() => dal.LayTatCaThe();
+        //public DataTable GetAll() => dal.LayTatCaThe();
 
         public DataTable Search(string keyword) => dal.TimKiemThe(keyword);
 
@@ -146,6 +147,65 @@ namespace LibraryManagerBUS
 
             return "Tên tài khoản hoặc Mã kích hoạt không chính xác!";
         }
+        // 1. Lấy tất cả thẻ mượn kèm tên người mượn (Dùng JOIN)
+        public DataTable GetAll()
+        {
+            string sql = @"SELECT t.maTheMuon, n.hoTen, t.ngayHetHan, 
+                           CASE WHEN t.trangThai = 0 THEN N'Còn hạn' ELSE N'Hết hạn' END AS TinhTrang
+                           FROM themuon t 
+                           JOIN nguoimuon n ON t.maNguoiMuon = n.maNguoiMuon";
+            return DbHelper.getTable(sql);
+        }
 
+        // 2. Lấy danh sách người mượn ĐANG CHỜ DUYỆT (trangThai = 0)
+        public DataTable GetDanhSachChoDuyet()
+        {
+            string sql = "SELECT maNguoiMuon, hoTen, sdt, loaiKhach, maDinhDanh FROM nguoimuon WHERE trangThai = 0";
+            return DbHelper.getTable(sql);
+        }
+
+        // 3. Duyệt cấp thẻ cho người đã đăng ký online
+        public bool DuyetCapThe(string maNM)
+        {
+            string maThe = "THE" + DateTime.Now.ToString("ssmm"); // Tự sinh mã thẻ đơn giản
+            string ngayHetHan = DateTime.Now.AddYears(1).ToString("dd/MM/yyyy");
+
+            string sql = $@"
+                BEGIN TRANSACTION;
+                BEGIN TRY
+                    UPDATE nguoimuon SET trangThai = 1 WHERE maNguoiMuon = '{maNM}';
+                    INSERT INTO themuon (maTheMuon, ngayHetHan, trangThai, maKichHoat, maNguoiMuon)
+                    VALUES ('{maThe}', '{ngayHetHan}', 0, 'ACT1', '{maNM}');
+                    COMMIT TRANSACTION;
+                END TRY
+                BEGIN CATCH
+                    ROLLBACK TRANSACTION;
+                    THROW;
+                END CATCH";
+            return DbHelper.executeNonQuery(sql);
+        }
+
+        // 4. Thêm mới hoàn toàn (Đăng ký trực tiếp tại quầy)
+        public bool ThemTaiQuay(string hoTen, string sdt, string email, string diaChi, string loai, string cccd)
+        {
+            string maNM = "NM" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            string maThe = "T" + DateTime.Now.ToString("HHmmss");
+            string ngayHetHan = DateTime.Now.AddYears(1).ToString("dd/MM/yyyy");
+
+            string sql = $@"
+                BEGIN TRANSACTION;
+                BEGIN TRY
+                    INSERT INTO nguoimuon (maNguoiMuon, hoTen, sdt, email, diaChi, loaiKhach, maDinhDanh, trangThai)
+                    VALUES ('{maNM}', N'{hoTen}', '{sdt}', '{email}', N'{diaChi}', N'{loai}', '{cccd}', 1);
+                    INSERT INTO themuon (maTheMuon, ngayHetHan, trangThai, maKichHoat, maNguoiMuon)
+                    VALUES ('{maThe}', '{ngayHetHan}', 0, 'ACT2', '{maNM}');
+                    COMMIT TRANSACTION;
+                END TRY
+                BEGIN CATCH
+                    ROLLBACK TRANSACTION;
+                    THROW;
+                END CATCH";
+            return DbHelper.executeNonQuery(sql);
+        }
     }
 }
