@@ -71,6 +71,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DsBienLai.cs">
+      <DependentUpon>DsBienLai.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DsBienLai.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -131,6 +134,12 @@
     </Compile>
     <Compile Include="FrmKhachMuonSachDocTaiCho.Designer.cs">
       <DependentUpon>FrmKhachMuonSachDocTaiCho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKichHoatTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKichHoatTaiKhoan.Designer.cs">
+      <DependentUpon>FrmKichHoatTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -241,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmKhachMuonSachDocTaiCho.resx">
       <DependentUpon>FrmKhachMuonSachDocTaiCho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKichHoatTaiKhoan.resx">
+      <DependentUpon>FrmKichHoatTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

@@ -1,13 +1,7 @@
 ﻿using LibraryManagerBUS;
 using LibraryManagerDTO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagerGUI
@@ -15,6 +9,7 @@ namespace LibraryManagerGUI
     public partial class FrmPhieuDocTaiCho : Form
     {
         private PhieuDocTaiChoBUS bus = new PhieuDocTaiChoBUS();
+
         public FrmPhieuDocTaiCho()
         {
             InitializeComponent();
@@ -22,8 +17,7 @@ namespace LibraryManagerGUI
 
         private void FrmPhieuDocTaiCho_Load(object sender, EventArgs e)
         {
-            HienThiMaPhieuMoi();
-            txtCCCD.Focus();
+            ResetForm();
 
             // Tính năng thông minh: Gõ xong nhấn Enter sẽ gọi thẳng nút Tạo phiếu
             this.AcceptButton = btnTaoPhieu;
@@ -32,20 +26,54 @@ namespace LibraryManagerGUI
         private void HienThiMaPhieuMoi()
         {
             // Hiển thị mã phiếu sắp được tạo lên Label 
-            // Giả sử tên Label của em ở chỗ "TỰ ĐỘNG hiện ra" là lblPhieuMoi
             lblPhieuMoi.Text = bus.SinhMaPhieuMoi();
+        }
+
+        // TÍNH NĂNG THÔNG MINH CHO THỦ THƯ: Quét/Nhập CCCD xong nhấn Enter tự động điền tên
+        private void txtCCCD_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Tắt tiếng "Bíp"
+
+                string cccd = txtCCCD.Text.Trim();
+                string result = bus.KiemTraKhachVangLai(cccd);
+
+                if (result == "ERROR_FORMAT")
+                {
+                    lblTrangThai.Text = "Lỗi: Số CCCD phải gồm đúng 12 chữ số!";
+                    lblTrangThai.ForeColor = Color.Red;
+                    return;
+                }
+
+                if (result == "NEW_GUEST")
+                {
+                    lblTrangThai.Text = "Khách mới! Vui lòng nhập họ tên.";
+                    lblTrangThai.ForeColor = Color.Blue;
+                    txtHoTen.Focus();
+                }
+                else
+                {
+                    lblTrangThai.Text = "Đã tìm thấy thông tin khách cũ!";
+                    lblTrangThai.ForeColor = Color.Green;
+                    txtHoTen.Text = result; // Tự động điền tên cũ
+                    txtQuetMaSach.Focus();  // Nhảy thẳng xuống ô mã sách
+                }
+            }
         }
 
         private void btnTaoPhieu_Click(object sender, EventArgs e)
         {
             lblTrangThai.Text = "Đang xử lý...";
+            lblTrangThai.ForeColor = Color.Black;
 
-            // Lấy dữ liệu từ giao diện đưa vào DTO em đã tạo
+            // Lấy dữ liệu từ giao diện đưa vào DTO 
             PhieuDocTaiCho phieu = new PhieuDocTaiCho()
             {
                 Cccd = txtCCCD.Text.Trim(),
                 tenNguoiDoc = txtHoTen.Text.Trim(),
-                maSach = txtQuetMaSach.Text.Trim()
+                // ĐÃ SỬA LỖI Ở ĐÂY: Gán vào maBanSao thay vì maSach
+                maBanSao = txtQuetMaSach.Text.Trim()
             };
 
             // Gọi BUS xử lý
@@ -53,14 +81,14 @@ namespace LibraryManagerGUI
 
             if (ketQua == "SUCCESS")
             {
-                MessageBox.Show("Tạo phiếu thành công!\nMã phiếu: " + phieu.maPhieu,
+                MessageBox.Show("Tạo phiếu thành công!\nMã phiếu: " + bus.SinhMaPhieuMoi(), // Lấy mã mới để báo (vì mã cũ vừa bị tiêu thụ)
                                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Trạng thái thành công
+                ResetForm();
+
+                // Trạng thái thành công báo sau khi Reset
                 lblTrangThai.Text = "Tạo phiếu thành công!";
                 lblTrangThai.ForeColor = Color.Green;
-
-                ResetForm();
             }
             else
             {

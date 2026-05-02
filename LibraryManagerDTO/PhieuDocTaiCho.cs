@@ -13,5 +13,7 @@ namespace LibraryManagerDTO
         public int trangThai { get; set; }
         public string tenNguoiDoc { get; set; }
         public string Cccd { get; set; }
-        }
+
+        public string maBanSao { get; set; } // Thay cho maSach cũ
+    }
     }

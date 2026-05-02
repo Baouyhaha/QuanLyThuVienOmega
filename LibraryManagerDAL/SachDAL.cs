@@ -265,5 +265,15 @@ namespace LibraryManagerDAL
 
             return res != null ? res.ToString() : null;
         }
+        public DataTable TimKiemSachThongMinh2(string tuKhoa)
+        {
+            // Chỉ giữ lại đoạn này
+            string sql = "EXEC sp_TimKiemSachNangCao @TuKhoa";
+            SqlParameter[] pars = {
+        new SqlParameter("@TuKhoa", string.IsNullOrWhiteSpace(tuKhoa) ? (object)DBNull.Value : tuKhoa.Trim())
+    };
+            return DbHelper.getTable(sql, pars);
+        }
+
     }
 }

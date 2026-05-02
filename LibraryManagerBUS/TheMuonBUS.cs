@@ -128,5 +128,24 @@ namespace LibraryManagerBUS
                 return "SUCCESS";
             return "Lỗi khi cập nhật trạng thái thẻ!";
         }
+        public string KichHoatTaiKhoan(string tenTaiKhoan, string maKichHoat)
+        {
+            // Kiểm tra rỗng
+            if (string.IsNullOrWhiteSpace(tenTaiKhoan) || string.IsNullOrWhiteSpace(maKichHoat))
+            {
+                return "Vui lòng nhập đầy đủ Tên tài khoản và Mã kích hoạt!";
+            }
+
+            TheMuonDAL dal = new TheMuonDAL();
+
+            // Gọi DAL xử lý
+            if (dal.KichHoatThe(tenTaiKhoan, maKichHoat))
+            {
+                return "SUCCESS";
+            }
+
+            return "Tên tài khoản hoặc Mã kích hoạt không chính xác!";
+        }
+
     }
 }

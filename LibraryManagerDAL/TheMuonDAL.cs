@@ -181,6 +181,36 @@ namespace LibraryManagerDAL
             SqlParameter[] pr = { new SqlParameter("@ma", maThe) };
             return DbHelper.getTable(sql, pr); // Trả về bảng chứa đầy đủ các cột bao gồm trangThai
         }
+
+        // Hàm kiểm tra mã kích hoạt và cập nhật trạng thái
+        public bool KichHoatThe(string tenTaiKhoan, string maKichHoat)
+        {
+            // 1. Kiểm tra mã kích hoạt có khớp với tên tài khoản không
+            string queryCheck = @"SELECT nm.maNguoiMuon 
+                                  FROM themuon tm 
+                                  INNER JOIN nguoimuon nm ON tm.maNguoiMuon = nm.maNguoiMuon 
+                                  WHERE nm.tenTaiKhoan = @tk AND tm.maKichHoat = @mkh";
+            SqlParameter[] parsCheck = {
+                new SqlParameter("@tk", tenTaiKhoan),
+                new SqlParameter("@mkh", maKichHoat)
+            };
+
+            object result = DbHelper.executeScalar(queryCheck, parsCheck);
+
+            if (result != null)
+            {
+                // Nếu tìm thấy, lấy mã người mượn và Update trạng thái
+                string maNguoiMuon = result.ToString();
+                string queryUpdate = "UPDATE nguoimuon SET trangThai = 1 WHERE maNguoiMuon = @ma";
+                SqlParameter[] parsUpdate = { new SqlParameter("@ma", maNguoiMuon) };
+
+                return DbHelper.executeNonQuery(queryUpdate, parsUpdate);
+            }
+
+            // Trả về false nếu sai mã kích hoạt hoặc sai tên tài khoản
+            return false;
+        }
     }
+
 
 }

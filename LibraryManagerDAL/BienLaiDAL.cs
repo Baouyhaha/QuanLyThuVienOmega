@@ -15,6 +15,8 @@ namespace LibraryManagerDAL
         {
             try
             {
+                // Sử dụng hàm ISNULL của SQL Server để bẫy các giá trị rỗng (NULL)
+                // Đảm bảo ReportViewer luôn nhận được số 0 thay vì khoảng trắng vô hình
                 string sql = @"
                     SELECT 
                         nm.hoTen AS TenDocGia,
@@ -22,8 +24,8 @@ namespace LibraryManagerDAL
                         s.tenSach AS TenSach,
                         tt.hanTra AS HanTra,
                         ct.ngayTra AS NgayTra,
-                        ct.tienPhat AS TienPhat,
-                        ct.lyDoPhat AS LyDoPhat
+                        ISNULL(ct.tienPhat, 0) AS TienPhat,
+                        ISNULL(ct.lyDoPhat, '') AS LyDoPhat
                     FROM chitietmuonsach ct
                     JOIN thongtinmuontrasach tt ON ct.maThongTinhMuonTraSach = tt.maThongTinhMuonTraSach
                     JOIN nguoimuon nm ON tt.maNguoiMuon = nm.maNguoiMuon

@@ -15,6 +15,7 @@ namespace LibraryManagerGUI
     public partial class FrmKhachMuonSachDocTaiCho : Form
     {
         private PhieuDocTaiChoBUS bus = new PhieuDocTaiChoBUS();
+
         public FrmKhachMuonSachDocTaiCho()
         {
             InitializeComponent();
@@ -82,10 +83,12 @@ namespace LibraryManagerGUI
             {
                 Cccd = txtCCCD.Text.Trim(),
                 tenNguoiDoc = txtHoTen.Text.Trim(),
-                maSach = txtMaSach.Text.Trim()
+
+                // ĐÃ SỬA Ở ĐÂY: Gán vào maBanSao thay vì maSach để khớp với DB mới
+                maBanSao = txtMaSach.Text.Trim()
             };
 
-            // Gọi hàm TaoPhieu đã viết từ bài trước
+            // Gọi hàm TaoPhieu đã được tối ưu hóa ở BUS
             string ketQua = bus.TaoPhieu(phieuMoi);
 
             if (ketQua == "SUCCESS")
@@ -93,11 +96,11 @@ namespace LibraryManagerGUI
                 MessageBox.Show("Đã ghi nhận phiếu đọc sách!\nMã phiếu: " + phieuMoi.maPhieu,
                                 "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Trở lại trạng thái ban đầu đón người tiếp theo
                 ResetGiaiDoan1();
             }
             else
             {
+                // Báo lỗi từ tầng BUS (ví dụ: Bản sao không tồn tại, đang bị mượn...)
                 MessageBox.Show(ketQua, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

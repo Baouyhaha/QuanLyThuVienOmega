@@ -36,5 +36,12 @@ namespace LibraryManagerDAL
                 throw new Exception("Lỗi khi truy xuất dữ liệu thống kê: " + ex.Message);
             }
         }
+
+        public DataTable ThongKeSachHot()
+        {
+            // Cực kỳ ngắn gọn và bảo mật
+            string sql = "EXEC sp_ThongKeTopSach";
+            return DbHelper.getTable(sql);
+        }
     }
 }

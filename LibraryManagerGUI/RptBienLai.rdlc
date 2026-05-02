@@ -483,7 +483,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!TienPhat.Value, "DataSet1")</Value>
+                <Value>=First(Fields!TienPhat.Value, "DataSet1")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
