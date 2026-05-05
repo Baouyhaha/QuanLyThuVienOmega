@@ -58,5 +58,29 @@ namespace LibraryManagerDAL
             string sql = "EXEC sp_LayDanhSachDocTaiCho";
             return DbHelper.getTable(sql);
         }
+
+        public int LayTrangThaiBanSaoSach(string maBanSao)
+        {
+            try
+            {
+                string sql = "SELECT trangThai FROM BanSaoSach WHERE maBanSao = @maBanSao";
+                SqlParameter[] pars = {
+            new SqlParameter("@maBanSao", maBanSao)
+        };
+
+                // Giả sử DbHelper.executeScalar trả về object chứa giá trị của cột đầu tiên
+                object result = DbHelper.executeScalar(sql, pars);
+
+                if (result != null)
+                {
+                    return Convert.ToInt32(result); // Trả về 0, 1 hoặc 2
+                }
+                return -1; // Báo hiệu mã sách này nhập sai, không tồn tại
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi kiểm tra trạng thái sách: " + ex.Message);
+            }
+        }
     }
 }

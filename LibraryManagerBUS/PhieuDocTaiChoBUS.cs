@@ -33,7 +33,7 @@ namespace LibraryManagerBUS
 
         public string TaoPhieu(PhieuDocTaiCho phieu)
         {
-            // ĐÃ SỬA CHỖ 1: Kiểm tra rỗng trên thuộc tính maBanSao thay vì maSach
+            // 1. Kiểm tra rỗng đầu vào
             if (string.IsNullOrWhiteSpace(phieu.Cccd) || string.IsNullOrWhiteSpace(phieu.maBanSao) || string.IsNullOrWhiteSpace(phieu.tenNguoiDoc))
             {
                 return "Vui lòng điền đủ Số CCCD, Họ tên và Quét mã sách!";
@@ -41,22 +41,29 @@ namespace LibraryManagerBUS
 
             SachDAL dalSach = new SachDAL();
 
-            // ĐÃ SỬA CHỖ 2: Truyền maBanSao vào hàm kiểm tra trạng thái
+            // 2. Kiểm tra trạng thái sách từ DAL
             int tinhTrang = dalSach.KiemTraTrangThaiSach(phieu.maBanSao);
 
             if (tinhTrang == -1)
                 return "Lỗi: Mã bản sao sách không tồn tại trong hệ thống!";
 
+            // ĐÃ FIX: Chặn cả trạng thái 1 (Đang mượn) và 2 (Đã đăng ký)[cite: 1]
             if (tinhTrang == 1)
                 return "Lỗi: Cuốn sách này hiện đang có người mượn, không thể đọc tại chỗ!";
 
+            if (tinhTrang == 2)
+                return "Lỗi: Cuốn sách này đã được độc giả khác đăng ký giữ chỗ!";
+
+            // 3. Khởi tạo dữ liệu phiếu
             phieu.maPhieu = SinhMaPhieuMoi();
             phieu.trangThai = 1;
 
+            // 4. Lưu xuống CSDL
             if (dal.ThemPhieuMoi(phieu))
             {
-                // Có thể mở comment dòng dưới nếu em đã viết hàm cập nhật trạng thái sách trong SachDAL
-                // dalSach.CapNhatTrangThai(phieu.maBanSao, 1); 
+                // ĐÃ MỞ COMMENT: Bắt buộc phải cập nhật trạng thái sách thành 1 (Đang mượn)[cite: 1]
+                // để hệ thống biết cuốn này đang được khách đọc tại chỗ, không cho người khác mượn nữa.
+                dalSach.CapNhatTrangThai(phieu.maBanSao, 1);
                 return "SUCCESS";
             }
 

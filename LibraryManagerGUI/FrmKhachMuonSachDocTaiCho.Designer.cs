@@ -130,9 +130,9 @@
             this.lblMaSach.AutoSize = true;
             this.lblMaSach.Location = new System.Drawing.Point(23, 92);
             this.lblMaSach.Name = "lblMaSach";
-            this.lblMaSach.Size = new System.Drawing.Size(48, 13);
+            this.lblMaSach.Size = new System.Drawing.Size(89, 13);
             this.lblMaSach.TabIndex = 52;
-            this.lblMaSach.Text = "Mã sách";
+            this.lblMaSach.Text = "Mã bản sao sách";
             // 
             // lblHoTen
             // 

@@ -274,6 +274,25 @@ namespace LibraryManagerDAL
     };
             return DbHelper.getTable(sql, pars);
         }
+        public bool CapNhatTrangThai(string maBanSao, int trangThaiMoi)
+        {
+            try
+            {
+                // Chú ý: Cột khóa chính trong DB của em là banSaoSach
+                string sql = "UPDATE bansaosach SET trangThai = @trangThai WHERE banSaoSach = @maBanSao";
 
+                SqlParameter[] pars = {
+                    new SqlParameter("@trangThai", trangThaiMoi),
+                    new SqlParameter("@maBanSao", maBanSao)
+                };
+
+                // FIX LỖI TẠI ĐÂY: Trả về trực tiếp kết quả bool từ DbHelper
+                return DbHelper.executeNonQuery(sql, pars);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi DAL khi cập nhật trạng thái sách: " + ex.Message);
+            }
+        }
     }
 }
