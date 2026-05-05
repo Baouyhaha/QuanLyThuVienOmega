@@ -132,7 +132,7 @@
             this.btnDangKyMuonSach.Image = ((System.Drawing.Image)(resources.GetObject("btnDangKyMuonSach.Image")));
             this.btnDangKyMuonSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDangKyMuonSach.Location = new System.Drawing.Point(684, 315);
-            this.btnDangKyMuonSach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDangKyMuonSach.Margin = new System.Windows.Forms.Padding(4);
             this.btnDangKyMuonSach.Name = "btnDangKyMuonSach";
             this.btnDangKyMuonSach.Size = new System.Drawing.Size(195, 38);
             this.btnDangKyMuonSach.TabIndex = 8;
@@ -152,7 +152,7 @@
             this.panelGioSach.Controls.Add(this.lblThongTinGioSachDaChon);
             this.panelGioSach.Controls.Add(this.label1);
             this.panelGioSach.Location = new System.Drawing.Point(0, 318);
-            this.panelGioSach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelGioSach.Margin = new System.Windows.Forms.Padding(4);
             this.panelGioSach.Name = "panelGioSach";
             this.panelGioSach.Size = new System.Drawing.Size(907, 432);
             this.panelGioSach.TabIndex = 32;
@@ -195,7 +195,7 @@
             this.btnXoaToanBo.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaToanBo.Image")));
             this.btnXoaToanBo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXoaToanBo.Location = new System.Drawing.Point(36, 315);
-            this.btnXoaToanBo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoaToanBo.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaToanBo.Name = "btnXoaToanBo";
             this.btnXoaToanBo.Size = new System.Drawing.Size(195, 38);
             this.btnXoaToanBo.TabIndex = 59;
@@ -225,7 +225,7 @@
             this.btnXoaSach.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaSach.Image")));
             this.btnXoaSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnXoaSach.Location = new System.Drawing.Point(411, 315);
-            this.btnXoaSach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoaSach.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaSach.Name = "btnXoaSach";
             this.btnXoaSach.Size = new System.Drawing.Size(132, 38);
             this.btnXoaSach.TabIndex = 58;
@@ -361,7 +361,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblTieuDe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmDangKyMuonSach";
             this.Text = "FrmDangKyMuonSach";
             this.Load += new System.EventHandler(this.FrmDangKyMuonSach_Load);

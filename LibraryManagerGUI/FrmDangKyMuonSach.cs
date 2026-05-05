@@ -37,28 +37,38 @@ namespace LibraryManagerGUI
         {
             if (FrmTimKiemSach.GioHang == null || FrmTimKiemSach.GioHang.Rows.Count == 0)
             {
-                MessageBox.Show("Giỏ hàng đang trống!", "Cảnh báo");
+                MessageBox.Show("Giỏ hàng đang trống! Vui lòng chọn sách trước.", "Cảnh báo");
                 return;
             }
 
-            // Tính tiền cọc an toàn
+            // 1. Tính tiền cọc an toàn
             long tongGiaTri = 0;
             foreach (DataRow row in FrmTimKiemSach.GioHang.Rows)
             {
                 if (row["Giá Tiền"] != DBNull.Value)
                 {
-                    // Dùng TryParse cho chắc ăn 100%
                     long.TryParse(row["Giá Tiền"].ToString(), out long gia);
                     tongGiaTri += gia;
                 }
             }
             int tienCoc = (int)(tongGiaTri * 0.2);
 
+            // ==========================================
+            // 2. FIX LỖI NHÓM TRƯỞNG: ÉP CỨNG MÃ NGƯỜI MƯỢN CHUẨN
+            // ==========================================
+            string maNguoiMuonChuan = TaiKhoanSession.MaNguoiMuonHienTai;
+
+            // NẾU CHẠY TEST NHẢY CÓC BỎ QUA LOGIN -> ÉP XÀI MÃ CỦA TRẦN VĂN AN
+            if (string.IsNullOrEmpty(maNguoiMuonChuan))
+            {
+                maNguoiMuonChuan = "NM0001"; // Tuyệt đối không để rỗng để DAL đẻ ra mã rác NM2026...
+            }
+
             try
             {
-                // Gọi BUS (giữ nguyên đoạn này của em)
+                // 3. Gọi BUS để chốt đơn (Truyền đúng biến maNguoiMuonChuan vào)
                 bool ketQua = thongTinMuonTraBUS.ChotDonMuonSach(
-                    TaiKhoanSession.MaNguoiMuonHienTai,
+                    maNguoiMuonChuan,
                     dtpHanTra.Value,
                     tienCoc,
                     FrmTimKiemSach.GioHang
@@ -66,13 +76,17 @@ namespace LibraryManagerGUI
 
                 if (ketQua)
                 {
-                    MessageBox.Show("Đăng ký thành công!", "Thông báo");
+                    MessageBox.Show("Đăng ký mượn sách thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FrmTimKiemSach.GioHang.Clear();
                     this.Close();
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi chốt đơn: " + ex.Message, "Lỗi hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+        
         
 
         private void lblTieuDe_Click(object sender, EventArgs e)

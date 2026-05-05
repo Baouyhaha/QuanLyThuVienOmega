@@ -28,5 +28,9 @@ namespace LibraryManagerBUS
         {
             return dal.GuiYeuCauKichHoat(tenTaiKhoan);
         }
+        public int KiemTraTinhTrangThe(string maNguoiMuon)
+        {
+            return dal.KiemTraTinhTrangThe(maNguoiMuon);
+        }
     }
 }

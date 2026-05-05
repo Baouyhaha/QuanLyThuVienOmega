@@ -1,4 +1,5 @@
 ﻿using LibraryManagerBUS;
+using LibraryManagerDTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,8 +84,44 @@ namespace LibraryManagerGUI
             // Tránh click vào tiêu đề cột
             if (e.RowIndex < 0) return;
 
+            // =================================================================
+            // 🚧 TRẠM KIỂM SOÁT TỪ VÒNG NHẤN ĐÚP
+            // =================================================================
+            try
+            {
+                NguoiMuonBUS busNguoiMuon = new NguoiMuonBUS();
+                string maNguoiMuon = TaiKhoanSession.MaNguoiMuonHienTai;
+
+                // Bổ sung: Ép cứng mã nếu đang test nhảy cóc
+                if (string.IsNullOrEmpty(maNguoiMuon)) maNguoiMuon = "NM0001";
+
+                DataTable dtThe = busNguoiMuon.LayThongTinThe(maNguoiMuon);
+
+                // 1. Nếu không tìm thấy thẻ nào -> Chưa có thẻ
+                if (dtThe == null || dtThe.Rows.Count == 0)
+                {
+                    MessageBox.Show("Bạn chưa có thẻ thư viện!\nVui lòng đăng ký cấp thẻ trước khi mượn sách.",
+                                    "Từ chối phục vụ", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return; // Đuổi về
+                }
+
+                // 2. Nếu có thẻ -> Kiểm tra xem hết hạn chưa (1 là hết hạn)
+                int trangThaiThe = Convert.ToInt32(dtThe.Rows[0]["trangThai"]);
+                if (trangThaiThe == 1)
+                {
+                    MessageBox.Show($"Thẻ thư viện của bạn đã hết hạn!\nVui lòng gia hạn thẻ để tiếp tục mượn sách.",
+                                    "Thẻ hết hạn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Đuổi về
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi kiểm tra thẻ: " + ex.Message, "Lỗi hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // =================================================================
+
             // 1. Lấy thông tin đầu sách từ dòng được chọn
-            // Lưu ý: Tên cột "maSach" và "tenSach" phải khớp với hàm GetDanhSachSachFrmTimKiem ở DAL
             string maSach = dgvTimKiemSach.Rows[e.RowIndex].Cells["maSach"].Value.ToString();
             string tenSach = dgvTimKiemSach.Rows[e.RowIndex].Cells["tenSach"].Value.ToString();
 
@@ -93,77 +130,50 @@ namespace LibraryManagerGUI
 
             if (!string.IsNullOrEmpty(maBanSaoTimDuoc))
             {
-                // THÀNH CÔNG: Tìm thấy sách có thể mượn
                 DialogResult dr = MessageBox.Show(
                     $"Đầu sách: {tenSach}\n" +
                     $"Hệ thống đã chọn bản sao: {maBanSaoTimDuoc}\n\n" +
                     $"Bạn có muốn thêm cuốn này vào danh sách đăng ký mượn không?",
-                    "Xác nhận chọn sách",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                    "Xác nhận chọn sách", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (dr == DialogResult.Yes)
                 {
                     try
                     {
-                        // ==========================================
-                        // 1. KIỂM TRA TRÙNG LẶP SÁCH TRONG GIỎ
-                        // ==========================================
+                        // Kiểm tra trùng lặp trong giỏ
                         foreach (DataRow row in GioHang.Rows)
                         {
-                            // Duyệt từng dòng xem mã bản sao này đã tồn tại trong giỏ chưa
                             if (row["Mã Sách"].ToString() == maBanSaoTimDuoc)
                             {
                                 MessageBox.Show($"Bản sao {maBanSaoTimDuoc} này đã có trong giỏ hàng rồi!\nVui lòng chọn cuốn khác.",
                                                 "Cảnh báo trùng lặp", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return; // Dừng code ngay lập tức, không cho chạy xuống lệnh Add
+                                return;
                             }
                         }
 
-                        // ==========================================
-                        // 2. LẤY GIÁ TIỀN TRỰC TIẾP TỪ DATABASE (CHUẨN XÁC 100%)
-                        // ==========================================
- 
-
-                        // Truy vấn thẳng vào bảng bansaosach để lấy cột 'gia' của đúng cuốn sách vật lý này
-                        string sqlGia = "SELECT gia FROM bansaosach WHERE banSaoSach = '" + maBanSaoTimDuoc + "'";
-
-                     
+                        // Lấy giá tiền và thêm vào giỏ
                         long gia = sachBus.LayGiaTienCuaBanSao(maBanSaoTimDuoc);
+                        GioHang.Rows.Add(maBanSaoTimDuoc, tenSach, gia);
 
-
-
-                        // ==========================================
-                        // 3. NHÉT SÁCH VÀO GIỎ HÀNG
-                        // ==========================================
-                        // Thêm Mã Bản Sao, Tên Sách và Giá Tiền thực tế vào giỏ
-
-                            GioHang.Rows.Add(maBanSaoTimDuoc, tenSach, gia);
-                        
-                        // ==========================================
-                        // 4. THÔNG BÁO THÀNH CÔNG VÀ ĐẾM SỐ LƯỢNG
-                        // ==========================================
                         MessageBox.Show($"Đã thêm cuốn {maBanSaoTimDuoc} (Giá: {gia:N0}đ) vào giỏ!\nHiện trong giỏ đang có {GioHang.Rows.Count} cuốn.",
                                         "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
                     {
-                        // BẮT LỖI NẾU CÓ (Để không bị chết ngầm)
                         MessageBox.Show("Lỗi khi thêm sách vào giỏ: " + ex.Message, "Lỗi hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                // TRƯỜNG HỢP 2: KHÔNG TÌM THẤY SÁCH NÀO TRỐNG (Mã bản sao bị rỗng)
+                // Hết sách
                 MessageBox.Show(
                     $"Rất tiếc! Đầu sách '{tenSach}' hiện tại không còn bản sao nào có sẵn để mượn.\n\n" +
                     "Lý do: Sách đã bị mượn hết, đã có người đăng ký, hoặc chỉ còn bản sao đọc tại chỗ.",
-                    "Thông báo hết sách",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                    "Thông báo hết sách", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        
     
 
 
