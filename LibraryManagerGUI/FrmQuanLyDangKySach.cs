@@ -102,11 +102,24 @@ namespace LibraryManagerGUI
         private void FrmQuanLyDangKySach_Load(object sender, EventArgs e)
         {
 
+            // 1. Tạo một danh sách các trạng thái (Key là chữ hiển thị, Value là số lưu database)
+            Dictionary<string, int> listTrangThai = new Dictionary<string, int>();
+            listTrangThai.Add("Tất cả", -2);          // Quy ước ở hàm LocPhieuMuon của em
+            listTrangThai.Add("Đang chờ duyệt", 0);   // Trạng thái khi sinh viên mới đăng ký
+            listTrangThai.Add("Đã giao sách", 1);     // Trạng thái đang mượn
+            listTrangThai.Add("Đã trả", 2);           // Trạng thái đã trả xong
+            listTrangThai.Add("Đã hủy", -1);          // Trạng thái phiếu bị hủy
+
+            // 2. Ép danh sách này vào ComboBox
+            cboTrangThai.DataSource = new BindingSource(listTrangThai, null);
+            cboTrangThai.DisplayMember = "Key";   // Cột hiện ra cho người dùng xem
+            cboTrangThai.ValueMember = "Value";   // Cột giá trị ẩn đi để code dùng
             // Load dữ liệu lên Grid bên trái ngay khi mở Form
             RefreshData();
             lblSoLuongSach.Visible = false;
             lblTongTienCoc.Visible = false;
             lblTrangThaiThe.Visible = false;
+
         }
 
         private void btnHuyPhieu_Click(object sender, EventArgs e)

@@ -64,7 +64,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 519);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1067, 117);
+            this.panel4.Size = new System.Drawing.Size(1067, 84);
             this.panel4.TabIndex = 55;
             // 
             // btnXacNhanGiaoSach
@@ -192,7 +192,6 @@
             // 
             // btnQuetThe
             // 
-            this.btnQuetThe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQuetThe.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnQuetThe.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnQuetThe.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -201,7 +200,7 @@
             this.btnQuetThe.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnQuetThe.ForeColor = System.Drawing.Color.White;
             this.btnQuetThe.Image = ((System.Drawing.Image)(resources.GetObject("btnQuetThe.Image")));
-            this.btnQuetThe.Location = new System.Drawing.Point(797, 30);
+            this.btnQuetThe.Location = new System.Drawing.Point(693, 29);
             this.btnQuetThe.Margin = new System.Windows.Forms.Padding(4);
             this.btnQuetThe.Name = "btnQuetThe";
             this.btnQuetThe.Size = new System.Drawing.Size(128, 25);
@@ -240,7 +239,6 @@
             // 
             // txtMaThe
             // 
-            this.txtMaThe.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMaThe.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMaThe.DefaultText = "";
             this.txtMaThe.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -255,7 +253,7 @@
             this.txtMaThe.Name = "txtMaThe";
             this.txtMaThe.PlaceholderText = "";
             this.txtMaThe.SelectedText = "";
-            this.txtMaThe.Size = new System.Drawing.Size(585, 26);
+            this.txtMaThe.Size = new System.Drawing.Size(490, 26);
             this.txtMaThe.TabIndex = 85;
             // 
             // lblHienHanThe
@@ -316,7 +314,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 907);
+            this.ClientSize = new System.Drawing.Size(1067, 780);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
