@@ -1,6 +1,7 @@
 ﻿using LibraryManagerDAL;
 using LibraryManagerDTO;
 using System;
+using System.Data;
 
 namespace LibraryManagerBUS
 {
@@ -77,6 +78,11 @@ namespace LibraryManagerBUS
             }
 
             return "NEW_GUEST";
+        }
+        public DataTable LayDanhSachHienTai()
+        {
+            // BUS chỉ đóng vai trò gọi DAL và trả dữ liệu về cho GUI
+            return dal.LayDanhSachHienTai();
         }
     }
 }

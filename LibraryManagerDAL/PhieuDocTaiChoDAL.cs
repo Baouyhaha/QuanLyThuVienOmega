@@ -1,6 +1,7 @@
 ﻿using LibraryManagerDAO;
 using LibraryManagerDTO;
 using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace LibraryManagerDAL
@@ -50,6 +51,12 @@ namespace LibraryManagerDAL
                 return result.ToString();
             }
             return null;
+        }
+
+        public DataTable LayDanhSachHienTai()
+        {
+            string sql = "EXEC sp_LayDanhSachDocTaiCho";
+            return DbHelper.getTable(sql);
         }
     }
 }

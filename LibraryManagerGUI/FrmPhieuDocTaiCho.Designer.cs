@@ -52,12 +52,14 @@
             this.lblThongTinKhach = new System.Windows.Forms.Label();
             this.lblNhapCCCD = new System.Windows.Forms.Label();
             this.lblHoVaTen = new System.Windows.Forms.Label();
+            this.dgvDanhSachDoc = new System.Windows.Forms.DataGridView();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachDoc)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2CustomGradientPanel1
@@ -171,7 +173,7 @@
             // 
             this.panel3.Controls.Add(this.lblThongBaoTrangThai);
             this.panel3.Controls.Add(this.lblTrangThai);
-            this.panel3.Location = new System.Drawing.Point(12, 466);
+            this.panel3.Location = new System.Drawing.Point(27, 318);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(483, 43);
             this.panel3.TabIndex = 48;
@@ -198,6 +200,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.dgvDanhSachDoc);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel3);
@@ -216,7 +219,7 @@
             this.panel5.Controls.Add(this.txtQuetMaSach);
             this.panel5.Controls.Add(this.lblThongTinSach);
             this.panel5.Controls.Add(this.lblQuetMaSach);
-            this.panel5.Location = new System.Drawing.Point(27, 299);
+            this.panel5.Location = new System.Drawing.Point(27, 219);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(469, 93);
             this.panel5.TabIndex = 64;
@@ -233,7 +236,7 @@
             this.txtQuetMaSach.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtQuetMaSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtQuetMaSach.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtQuetMaSach.Location = new System.Drawing.Point(116, 37);
+            this.txtQuetMaSach.Location = new System.Drawing.Point(142, 37);
             this.txtQuetMaSach.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtQuetMaSach.Name = "txtQuetMaSach";
             this.txtQuetMaSach.PlaceholderText = "";
@@ -255,9 +258,9 @@
             this.lblQuetMaSach.AutoSize = true;
             this.lblQuetMaSach.Location = new System.Drawing.Point(15, 45);
             this.lblQuetMaSach.Name = "lblQuetMaSach";
-            this.lblQuetMaSach.Size = new System.Drawing.Size(73, 13);
+            this.lblQuetMaSach.Size = new System.Drawing.Size(114, 13);
             this.lblQuetMaSach.TabIndex = 59;
-            this.lblQuetMaSach.Text = "Quét mã sách";
+            this.lblQuetMaSach.Text = "Quét mã bản sao sách";
             // 
             // panel2
             // 
@@ -266,7 +269,7 @@
             this.panel2.Controls.Add(this.lblThongTinKhach);
             this.panel2.Controls.Add(this.lblNhapCCCD);
             this.panel2.Controls.Add(this.lblHoVaTen);
-            this.panel2.Location = new System.Drawing.Point(27, 114);
+            this.panel2.Location = new System.Drawing.Point(27, 67);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(469, 146);
             this.panel2.TabIndex = 63;
@@ -283,7 +286,7 @@
             this.txtHoTen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtHoTen.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtHoTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtHoTen.Location = new System.Drawing.Point(116, 97);
+            this.txtHoTen.Location = new System.Drawing.Point(142, 97);
             this.txtHoTen.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.PlaceholderText = "";
@@ -303,7 +306,7 @@
             this.txtCCCD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCCCD.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtCCCD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCCCD.Location = new System.Drawing.Point(116, 45);
+            this.txtCCCD.Location = new System.Drawing.Point(142, 45);
             this.txtCCCD.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtCCCD.Name = "txtCCCD";
             this.txtCCCD.PlaceholderText = "";
@@ -338,6 +341,15 @@
             this.lblHoVaTen.TabIndex = 61;
             this.lblHoVaTen.Text = "Họ và tên: ";
             // 
+            // dgvDanhSachDoc
+            // 
+            this.dgvDanhSachDoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDanhSachDoc.Location = new System.Drawing.Point(27, 378);
+            this.dgvDanhSachDoc.Name = "dgvDanhSachDoc";
+            this.dgvDanhSachDoc.ReadOnly = true;
+            this.dgvDanhSachDoc.Size = new System.Drawing.Size(742, 156);
+            this.dgvDanhSachDoc.TabIndex = 65;
+            // 
             // FrmPhieuDocTaiCho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -360,6 +372,7 @@
             this.panel5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachDoc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -388,5 +401,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtQuetMaSach;
         private Guna.UI2.WinForms.Guna2TextBox txtHoTen;
         private Guna.UI2.WinForms.Guna2TextBox txtCCCD;
+        private System.Windows.Forms.DataGridView dgvDanhSachDoc;
     }
 }

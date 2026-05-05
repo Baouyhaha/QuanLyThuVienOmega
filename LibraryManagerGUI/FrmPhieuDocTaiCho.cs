@@ -21,6 +21,7 @@ namespace LibraryManagerGUI
 
             // Tính năng thông minh: Gõ xong nhấn Enter sẽ gọi thẳng nút Tạo phiếu
             this.AcceptButton = btnTaoPhieu;
+            LoadDanhSachDoc();
         }
 
         private void HienThiMaPhieuMoi()
@@ -85,6 +86,7 @@ namespace LibraryManagerGUI
                                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 ResetForm();
+                LoadDanhSachDoc();
 
                 // Trạng thái thành công báo sau khi Reset
                 lblTrangThai.Text = "Tạo phiếu thành công!";
@@ -113,6 +115,15 @@ namespace LibraryManagerGUI
         private void btnHuy_Click(object sender, EventArgs e)
         {
             ResetForm();
+        }
+
+        private void LoadDanhSachDoc()
+        {
+            // Gọi BUS để lấy dữ liệu
+            dgvDanhSachDoc.DataSource = bus.LayDanhSachHienTai();
+
+            // Tối ưu hiển thị: Cho bảng tự giãn đều các cột
+            dgvDanhSachDoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }
