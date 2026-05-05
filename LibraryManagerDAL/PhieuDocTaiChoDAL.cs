@@ -82,5 +82,38 @@ namespace LibraryManagerDAL
                 throw new Exception("Lỗi khi kiểm tra trạng thái sách: " + ex.Message);
             }
         }
+        public bool HoanTatNhanTraSach(string maPhieu, string maBanSao)
+        {
+            using (SqlConnection conn = DbHelper.getConnection())
+            {
+                conn.Open();
+                SqlTransaction trans = conn.BeginTransaction();
+                try
+                {
+                    // 1. Cập nhật phiếu đọc tại chỗ (Chuyển trạng thái từ Đang đọc -> Đã trả/Hoàn tất)
+                    // Giả sử 0 là trạng thái hoàn tất
+                    string sqlPhieu = "UPDATE PhieuDocTaiCho SET trangThai = 0 WHERE maPhieu = @maPhieu";
+                    SqlCommand cmdPhieu = new SqlCommand(sqlPhieu, conn, trans);
+                    cmdPhieu.Parameters.AddWithValue("@maPhieu", maPhieu);
+                    cmdPhieu.ExecuteNonQuery();
+
+                    // 2. Cập nhật trạng thái bản sao sách về 0 (Sẵn sàng mượn)
+                    string sqlSach = "UPDATE BanSaoSach SET trangThai = 0 WHERE banSaoSach = @maBanSao";
+                    SqlCommand cmdSach = new SqlCommand(sqlSach, conn, trans);
+                    cmdSach.Parameters.AddWithValue("@maBanSao", maBanSao);
+                    cmdSach.ExecuteNonQuery();
+
+                    // Nếu cả 2 lệnh trên đều chạy lọt, ta Commit (Lưu vĩnh viễn vào DB)
+                    trans.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    // Nếu có bất kỳ lỗi nào, Rollback (Hoàn tác lại như chưa có chuyện gì xảy ra)
+                    trans.Rollback();
+                    throw new Exception("Lỗi khi nhận trả sách: " + ex.Message);
+                }
+            }
+        }
     }
 }

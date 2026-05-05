@@ -91,5 +91,28 @@ namespace LibraryManagerBUS
             // BUS chỉ đóng vai trò gọi DAL và trả dữ liệu về cho GUI
             return dal.LayDanhSachHienTai();
         }
+
+        public string NhanTraSachKhachVangLai(string maPhieu, string maBanSao)
+        {
+            // Kiểm tra dữ liệu đầu vào
+            if (string.IsNullOrWhiteSpace(maPhieu) || string.IsNullOrWhiteSpace(maBanSao))
+            {
+                return "Lỗi: Không xác định được mã phiếu hoặc mã sách!";
+            }
+
+            try
+            {
+                // Gọi DAL
+                if (dal.HoanTatNhanTraSach(maPhieu, maBanSao))
+                {
+                    return "SUCCESS";
+                }
+                return "Lỗi CSDL: Không thể cập nhật trạng thái trả sách.";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }

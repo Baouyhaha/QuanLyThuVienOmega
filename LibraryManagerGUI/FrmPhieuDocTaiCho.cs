@@ -1,6 +1,7 @@
 ﻿using LibraryManagerBUS;
 using LibraryManagerDTO;
 using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -114,7 +115,50 @@ namespace LibraryManagerGUI
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            ResetForm();
+            // 1. Kiểm tra xem thủ thư đã click chọn dòng nào trên DataGridView chưa
+            if (dgvDanhSachDoc.CurrentRow == null || dgvDanhSachDoc.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("Vui lòng chọn một phiếu đang đọc trên lưới để nhận trả sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                // 2. Lấy Mã phiếu và Mã bản sao sách một cách an toàn nhất (Lấy từ DataBoundItem)
+                DataRowView row = (DataRowView)dgvDanhSachDoc.CurrentRow.DataBoundItem;
+
+                // CHÚ Ý: Đảm bảo trong câu lệnh SELECT ở hàm LayDanhSachHienTai() (Tầng DAL)
+                // em phải lấy cả cột "maPhieu" và "maBanSao" lên nhé.
+                string maPhieu = row["maPhieu"].ToString();
+                string maBanSao = row["maBanSao"].ToString();
+
+                // 3. Hỏi lại cho chắc chắn
+                DialogResult dr = MessageBox.Show($"Xác nhận khách đã trả lại cuốn sách có mã '{maBanSao}' của phiếu '{maPhieu}'?",
+                                                  "Xác nhận trả sách", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    // 4. Gọi BUS xử lý (Hàm này sẽ gọi xuống DAL để chạy Transaction UPDATE cả 2 bảng)
+                    string ketQua = bus.NhanTraSachKhachVangLai(maPhieu, maBanSao);
+
+                    if (ketQua == "SUCCESS")
+                    {
+                        MessageBox.Show("Khách đã trả sách thành công!\nTrạng thái sách đã chuyển về: Sẵn sàng mượn.",
+                                        "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        
+                        LoadDanhSachDoc();
+                    }
+                    else
+                    {
+                        MessageBox.Show(ketQua, "Lỗi khi trả sách", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi lấy dữ liệu từ lưới. Vui lòng kiểm tra lại câu truy vấn SELECT!\nChi tiết: " + ex.Message,
+                                "Lỗi hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LoadDanhSachDoc()

@@ -37,7 +37,7 @@
             this.lblPhieuMoi = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnTaoPhieu = new Guna.UI2.WinForms.Guna2Button();
-            this.btnHuy = new Guna.UI2.WinForms.Guna2Button();
+            this.btnNhanTraSach = new Guna.UI2.WinForms.Guna2Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblThongBaoTrangThai = new System.Windows.Forms.Label();
             this.lblTrangThai = new System.Windows.Forms.Label();
@@ -123,7 +123,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.btnTaoPhieu);
-            this.panel4.Controls.Add(this.btnHuy);
+            this.panel4.Controls.Add(this.btnNhanTraSach);
             this.panel4.Location = new System.Drawing.Point(0, 540);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(800, 84);
@@ -149,25 +149,25 @@
             this.btnTaoPhieu.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnTaoPhieu.Click += new System.EventHandler(this.btnTaoPhieu_Click);
             // 
-            // btnHuy
+            // btnNhanTraSach
             // 
-            this.btnHuy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHuy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnHuy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnHuy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnHuy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHuy.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
-            this.btnHuy.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnHuy.ForeColor = System.Drawing.Color.White;
-            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
-            this.btnHuy.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnHuy.Location = new System.Drawing.Point(472, 24);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(107, 31);
-            this.btnHuy.TabIndex = 53;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            this.btnNhanTraSach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNhanTraSach.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnNhanTraSach.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnNhanTraSach.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnNhanTraSach.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnNhanTraSach.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(146)))), ((int)(((byte)(38)))));
+            this.btnNhanTraSach.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnNhanTraSach.ForeColor = System.Drawing.Color.White;
+            this.btnNhanTraSach.Image = ((System.Drawing.Image)(resources.GetObject("btnNhanTraSach.Image")));
+            this.btnNhanTraSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNhanTraSach.Location = new System.Drawing.Point(449, 24);
+            this.btnNhanTraSach.Name = "btnNhanTraSach";
+            this.btnNhanTraSach.Size = new System.Drawing.Size(130, 31);
+            this.btnNhanTraSach.TabIndex = 53;
+            this.btnNhanTraSach.Text = "Nhận trả sách";
+            this.btnNhanTraSach.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnNhanTraSach.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // panel3
             // 
@@ -386,7 +386,7 @@
         private System.Windows.Forms.Label lblPhieuMoi;
         private System.Windows.Forms.Panel panel4;
         private Guna.UI2.WinForms.Guna2Button btnTaoPhieu;
-        private Guna.UI2.WinForms.Guna2Button btnHuy;
+        private Guna.UI2.WinForms.Guna2Button btnNhanTraSach;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblThongBaoTrangThai;
         private System.Windows.Forms.Label lblTrangThai;
