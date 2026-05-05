@@ -131,14 +131,15 @@ namespace LibraryManagerGUI
                      
                         long gia = sachBus.LayGiaTienCuaBanSao(maBanSaoTimDuoc);
 
-             
+
 
                         // ==========================================
                         // 3. NHÉT SÁCH VÀO GIỎ HÀNG
                         // ==========================================
                         // Thêm Mã Bản Sao, Tên Sách và Giá Tiền thực tế vào giỏ
-                        GioHang.Rows.Add(maBanSaoTimDuoc, tenSach, gia);
 
+                            GioHang.Rows.Add(maBanSaoTimDuoc, tenSach, gia);
+                        
                         // ==========================================
                         // 4. THÔNG BÁO THÀNH CÔNG VÀ ĐẾM SỐ LƯỢNG
                         // ==========================================
@@ -151,13 +152,16 @@ namespace LibraryManagerGUI
                         MessageBox.Show("Lỗi khi thêm sách vào giỏ: " + ex.Message, "Lỗi hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                else
-                {
-                    // ==========================================
-                    // 5. XỬ LÝ KHI NGƯỜI DÙNG CHỌN "NO" (GIỮ NGUYÊN)
-                    // ==========================================
-                    // (Thực ra nếu chọn No thì không cần làm gì, form chỉ đóng hộp thoại thôi)
-                }
+            }
+            else
+            {
+                // TRƯỜNG HỢP 2: KHÔNG TÌM THẤY SÁCH NÀO TRỐNG (Mã bản sao bị rỗng)
+                MessageBox.Show(
+                    $"Rất tiếc! Đầu sách '{tenSach}' hiện tại không còn bản sao nào có sẵn để mượn.\n\n" +
+                    "Lý do: Sách đã bị mượn hết, đã có người đăng ký, hoặc chỉ còn bản sao đọc tại chỗ.",
+                    "Thông báo hết sách",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
         }
     
