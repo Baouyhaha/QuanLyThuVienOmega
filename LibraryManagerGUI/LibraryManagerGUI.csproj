@@ -79,14 +79,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsBienLai.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DsThongKe.cs">
-      <DependentUpon>DsThongKe.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DsThongKe.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DsThongKe.xsd</DependentUpon>
-    </Compile>
     <Compile Include="FrmCapNhatThongTinThe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +219,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThongKeDataSet.cs">
+      <DependentUpon>ThongKeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ThongKeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ThongKeDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmCapNhatThongTinThe.resx">
       <DependentUpon>FrmCapNhatThongTinThe.cs</DependentUpon>
     </EmbeddedResource>
@@ -309,9 +309,7 @@
     <EmbeddedResource Include="RptBienLai.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="RptTopSach.rdlc">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="rptTop10Sach.rdlc" />
     <None Include="DsBienLai.xsc">
       <DependentUpon>DsBienLai.xsd</DependentUpon>
     </None>
@@ -323,17 +321,6 @@
     <None Include="DsBienLai.xss">
       <DependentUpon>DsBienLai.xsd</DependentUpon>
     </None>
-    <None Include="DsThongKe.xsc">
-      <DependentUpon>DsThongKe.xsd</DependentUpon>
-    </None>
-    <None Include="DsThongKe.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsThongKe.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DsThongKe.xss">
-      <DependentUpon>DsThongKe.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -344,6 +331,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ThongKeDataSet.xsc">
+      <DependentUpon>ThongKeDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ThongKeDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ThongKeDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ThongKeDataSet.xss">
+      <DependentUpon>ThongKeDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -20,17 +20,17 @@ namespace LibraryManagerGUI {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DsThongKe")]
+    [global::System.Xml.Serialization.XmlRootAttribute("ThongKeDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DsThongKe : global::System.Data.DataSet {
+    public partial class ThongKeDataSet : global::System.Data.DataSet {
         
-        private TopSach_DTDataTable tableTopSach_DT;
+        private dtTopSachDataTable tabledtTopSach;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public DsThongKe() {
+        public ThongKeDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace LibraryManagerGUI {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected DsThongKe(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected ThongKeDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace LibraryManagerGUI {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["TopSach_DT"] != null)) {
-                    base.Tables.Add(new TopSach_DTDataTable(ds.Tables["TopSach_DT"]));
+                if ((ds.Tables["dtTopSach"] != null)) {
+                    base.Tables.Add(new dtTopSachDataTable(ds.Tables["dtTopSach"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace LibraryManagerGUI {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public TopSach_DTDataTable TopSach_DT {
+        public dtTopSachDataTable dtTopSach {
             get {
-                return this.tableTopSach_DT;
+                return this.tabledtTopSach;
             }
         }
         
@@ -127,7 +127,7 @@ namespace LibraryManagerGUI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DsThongKe cln = ((DsThongKe)(base.Clone()));
+            ThongKeDataSet cln = ((ThongKeDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace LibraryManagerGUI {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["TopSach_DT"] != null)) {
-                    base.Tables.Add(new TopSach_DTDataTable(ds.Tables["TopSach_DT"]));
+                if ((ds.Tables["dtTopSach"] != null)) {
+                    base.Tables.Add(new dtTopSachDataTable(ds.Tables["dtTopSach"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace LibraryManagerGUI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableTopSach_DT = ((TopSach_DTDataTable)(base.Tables["TopSach_DT"]));
+            this.tabledtTopSach = ((dtTopSachDataTable)(base.Tables["dtTopSach"]));
             if ((initTable == true)) {
-                if ((this.tableTopSach_DT != null)) {
-                    this.tableTopSach_DT.InitVars();
+                if ((this.tabledtTopSach != null)) {
+                    this.tabledtTopSach.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace LibraryManagerGUI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DsThongKe";
+            this.DataSetName = "ThongKeDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DsThongKe.xsd";
+            this.Namespace = "http://tempuri.org/ThongKeDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableTopSach_DT = new TopSach_DTDataTable();
-            base.Tables.Add(this.tableTopSach_DT);
+            this.tabledtTopSach = new dtTopSachDataTable();
+            base.Tables.Add(this.tabledtTopSach);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeTopSach_DT() {
+        private bool ShouldSerializedtTopSach() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace LibraryManagerGUI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DsThongKe ds = new DsThongKe();
+            ThongKeDataSet ds = new ThongKeDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,23 +270,27 @@ namespace LibraryManagerGUI {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void TopSach_DTRowChangeEventHandler(object sender, TopSach_DTRowChangeEvent e);
+        public delegate void dtTopSachRowChangeEventHandler(object sender, dtTopSachRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class TopSach_DTDataTable : global::System.Data.TypedTableBase<TopSach_DTRow> {
+        public partial class dtTopSachDataTable : global::System.Data.TypedTableBase<dtTopSachRow> {
+            
+            private global::System.Data.DataColumn columnmaSach;
             
             private global::System.Data.DataColumn columntenSach;
             
-            private global::System.Data.DataColumn columnSoLuotMuon;
+            private global::System.Data.DataColumn columnmaNhaPhatHanh;
+            
+            private global::System.Data.DataColumn columntongLuotMuon;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TopSach_DTDataTable() {
-                this.TableName = "TopSach_DT";
+            public dtTopSachDataTable() {
+                this.TableName = "dtTopSach";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -294,7 +298,7 @@ namespace LibraryManagerGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal TopSach_DTDataTable(global::System.Data.DataTable table) {
+            internal dtTopSachDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -311,9 +315,17 @@ namespace LibraryManagerGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected TopSach_DTDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected dtTopSachDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn maSachColumn {
+                get {
+                    return this.columnmaSach;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -326,9 +338,17 @@ namespace LibraryManagerGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn SoLuotMuonColumn {
+            public global::System.Data.DataColumn maNhaPhatHanhColumn {
                 get {
-                    return this.columnSoLuotMuon;
+                    return this.columnmaNhaPhatHanh;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn tongLuotMuonColumn {
+                get {
+                    return this.columntongLuotMuon;
                 }
             }
             
@@ -343,46 +363,48 @@ namespace LibraryManagerGUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TopSach_DTRow this[int index] {
+            public dtTopSachRow this[int index] {
                 get {
-                    return ((TopSach_DTRow)(this.Rows[index]));
+                    return ((dtTopSachRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TopSach_DTRowChangeEventHandler TopSach_DTRowChanging;
+            public event dtTopSachRowChangeEventHandler dtTopSachRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TopSach_DTRowChangeEventHandler TopSach_DTRowChanged;
+            public event dtTopSachRowChangeEventHandler dtTopSachRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TopSach_DTRowChangeEventHandler TopSach_DTRowDeleting;
+            public event dtTopSachRowChangeEventHandler dtTopSachRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event TopSach_DTRowChangeEventHandler TopSach_DTRowDeleted;
+            public event dtTopSachRowChangeEventHandler dtTopSachRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddTopSach_DTRow(TopSach_DTRow row) {
+            public void AdddtTopSachRow(dtTopSachRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TopSach_DTRow AddTopSach_DTRow(string tenSach, int SoLuotMuon) {
-                TopSach_DTRow rowTopSach_DTRow = ((TopSach_DTRow)(this.NewRow()));
+            public dtTopSachRow AdddtTopSachRow(string maSach, string tenSach, string maNhaPhatHanh, int tongLuotMuon) {
+                dtTopSachRow rowdtTopSachRow = ((dtTopSachRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        maSach,
                         tenSach,
-                        SoLuotMuon};
-                rowTopSach_DTRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTopSach_DTRow);
-                return rowTopSach_DTRow;
+                        maNhaPhatHanh,
+                        tongLuotMuon};
+                rowdtTopSachRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdtTopSachRow);
+                return rowdtTopSachRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                TopSach_DTDataTable cln = ((TopSach_DTDataTable)(base.Clone()));
+                dtTopSachDataTable cln = ((dtTopSachDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -390,49 +412,55 @@ namespace LibraryManagerGUI {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new TopSach_DTDataTable();
+                return new dtTopSachDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
+                this.columnmaSach = base.Columns["maSach"];
                 this.columntenSach = base.Columns["tenSach"];
-                this.columnSoLuotMuon = base.Columns["SoLuotMuon"];
+                this.columnmaNhaPhatHanh = base.Columns["maNhaPhatHanh"];
+                this.columntongLuotMuon = base.Columns["tongLuotMuon"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
+                this.columnmaSach = new global::System.Data.DataColumn("maSach", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmaSach);
                 this.columntenSach = new global::System.Data.DataColumn("tenSach", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntenSach);
-                this.columnSoLuotMuon = new global::System.Data.DataColumn("SoLuotMuon", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSoLuotMuon);
+                this.columnmaNhaPhatHanh = new global::System.Data.DataColumn("maNhaPhatHanh", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmaNhaPhatHanh);
+                this.columntongLuotMuon = new global::System.Data.DataColumn("tongLuotMuon", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntongLuotMuon);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TopSach_DTRow NewTopSach_DTRow() {
-                return ((TopSach_DTRow)(this.NewRow()));
+            public dtTopSachRow NewdtTopSachRow() {
+                return ((dtTopSachRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new TopSach_DTRow(builder);
+                return new dtTopSachRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(TopSach_DTRow);
+                return typeof(dtTopSachRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.TopSach_DTRowChanged != null)) {
-                    this.TopSach_DTRowChanged(this, new TopSach_DTRowChangeEvent(((TopSach_DTRow)(e.Row)), e.Action));
+                if ((this.dtTopSachRowChanged != null)) {
+                    this.dtTopSachRowChanged(this, new dtTopSachRowChangeEvent(((dtTopSachRow)(e.Row)), e.Action));
                 }
             }
             
@@ -440,8 +468,8 @@ namespace LibraryManagerGUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.TopSach_DTRowChanging != null)) {
-                    this.TopSach_DTRowChanging(this, new TopSach_DTRowChangeEvent(((TopSach_DTRow)(e.Row)), e.Action));
+                if ((this.dtTopSachRowChanging != null)) {
+                    this.dtTopSachRowChanging(this, new dtTopSachRowChangeEvent(((dtTopSachRow)(e.Row)), e.Action));
                 }
             }
             
@@ -449,8 +477,8 @@ namespace LibraryManagerGUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.TopSach_DTRowDeleted != null)) {
-                    this.TopSach_DTRowDeleted(this, new TopSach_DTRowChangeEvent(((TopSach_DTRow)(e.Row)), e.Action));
+                if ((this.dtTopSachRowDeleted != null)) {
+                    this.dtTopSachRowDeleted(this, new dtTopSachRowChangeEvent(((dtTopSachRow)(e.Row)), e.Action));
                 }
             }
             
@@ -458,14 +486,14 @@ namespace LibraryManagerGUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.TopSach_DTRowDeleting != null)) {
-                    this.TopSach_DTRowDeleting(this, new TopSach_DTRowChangeEvent(((TopSach_DTRow)(e.Row)), e.Action));
+                if ((this.dtTopSachRowDeleting != null)) {
+                    this.dtTopSachRowDeleting(this, new dtTopSachRowChangeEvent(((dtTopSachRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveTopSach_DTRow(TopSach_DTRow row) {
+            public void RemovedtTopSachRow(dtTopSachRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -474,7 +502,7 @@ namespace LibraryManagerGUI {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DsThongKe ds = new DsThongKe();
+                ThongKeDataSet ds = new ThongKeDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -492,7 +520,7 @@ namespace LibraryManagerGUI {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "TopSach_DTDataTable";
+                attribute2.FixedValue = "dtTopSachDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -536,15 +564,31 @@ namespace LibraryManagerGUI {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class TopSach_DTRow : global::System.Data.DataRow {
+        public partial class dtTopSachRow : global::System.Data.DataRow {
             
-            private TopSach_DTDataTable tableTopSach_DT;
+            private dtTopSachDataTable tabledtTopSach;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal TopSach_DTRow(global::System.Data.DataRowBuilder rb) : 
+            internal dtTopSachRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableTopSach_DT = ((TopSach_DTDataTable)(this.Table));
+                this.tabledtTopSach = ((dtTopSachDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string maSach {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtTopSach.maSachColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'maSach\' in table \'dtTopSach\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtTopSach.maSachColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -552,55 +596,95 @@ namespace LibraryManagerGUI {
             public string tenSach {
                 get {
                     try {
-                        return ((string)(this[this.tableTopSach_DT.tenSachColumn]));
+                        return ((string)(this[this.tabledtTopSach.tenSachColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'tenSach\' in table \'TopSach_DT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'tenSach\' in table \'dtTopSach\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTopSach_DT.tenSachColumn] = value;
+                    this[this.tabledtTopSach.tenSachColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int SoLuotMuon {
+            public string maNhaPhatHanh {
                 get {
                     try {
-                        return ((int)(this[this.tableTopSach_DT.SoLuotMuonColumn]));
+                        return ((string)(this[this.tabledtTopSach.maNhaPhatHanhColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SoLuotMuon\' in table \'TopSach_DT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'maNhaPhatHanh\' in table \'dtTopSach\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTopSach_DT.SoLuotMuonColumn] = value;
+                    this[this.tabledtTopSach.maNhaPhatHanhColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int tongLuotMuon {
+                get {
+                    try {
+                        return ((int)(this[this.tabledtTopSach.tongLuotMuonColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tongLuotMuon\' in table \'dtTopSach\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtTopSach.tongLuotMuonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsmaSachNull() {
+                return this.IsNull(this.tabledtTopSach.maSachColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetmaSachNull() {
+                this[this.tabledtTopSach.maSachColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IstenSachNull() {
-                return this.IsNull(this.tableTopSach_DT.tenSachColumn);
+                return this.IsNull(this.tabledtTopSach.tenSachColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SettenSachNull() {
-                this[this.tableTopSach_DT.tenSachColumn] = global::System.Convert.DBNull;
+                this[this.tabledtTopSach.tenSachColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsSoLuotMuonNull() {
-                return this.IsNull(this.tableTopSach_DT.SoLuotMuonColumn);
+            public bool IsmaNhaPhatHanhNull() {
+                return this.IsNull(this.tabledtTopSach.maNhaPhatHanhColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetSoLuotMuonNull() {
-                this[this.tableTopSach_DT.SoLuotMuonColumn] = global::System.Convert.DBNull;
+            public void SetmaNhaPhatHanhNull() {
+                this[this.tabledtTopSach.maNhaPhatHanhColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IstongLuotMuonNull() {
+                return this.IsNull(this.tabledtTopSach.tongLuotMuonColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SettongLuotMuonNull() {
+                this[this.tabledtTopSach.tongLuotMuonColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -608,22 +692,22 @@ namespace LibraryManagerGUI {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class TopSach_DTRowChangeEvent : global::System.EventArgs {
+        public class dtTopSachRowChangeEvent : global::System.EventArgs {
             
-            private TopSach_DTRow eventRow;
+            private dtTopSachRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TopSach_DTRowChangeEvent(TopSach_DTRow row, global::System.Data.DataRowAction action) {
+            public dtTopSachRowChangeEvent(dtTopSachRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TopSach_DTRow Row {
+            public dtTopSachRow Row {
                 get {
                     return this.eventRow;
                 }

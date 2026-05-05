@@ -20,46 +20,44 @@ namespace LibraryManagerGUI
             InitializeComponent();
         }
 
-        private void FrmThongKeTopSach_Load(object sender, EventArgs e)
-        {
-
-            LoadBaoCao();
-        }
         private void LoadBaoCao()
         {
             try
             {
-                // 1. Gọi BUS lấy dữ liệu (Mặc định lấy Top 10)
-                DataTable dt = bus.GetTopSachHot(10);
+                // 1. Gọi BUS lấy DataTable từ SQL Server
+                DataTable dtThongKe = bus.ThongKeTop10Sach();
 
-                if (dt != null && dt.Rows.Count > 0)
+                // 2. LUÔN LUÔN làm sạch DataSource cũ
+                reportViewer1.LocalReport.DataSources.Clear();
+
+                // 3. Đóng gói dữ liệu (KỂ CẢ KHI dtThongKe RỖNG, VẪN PHẢI BƠM VÀO)
+                if (dtThongKe != null)
                 {
-                    // 2. Clear cấu hình cũ của ReportViewer
-                    rpTop10SP.LocalReport.DataSources.Clear();
+                    // Tên "DataSet1" phải khớp y hệt file RDLC
+                    ReportDataSource rds = new ReportDataSource("DataSet1", dtThongKe);
 
-                    // 3. Tạo DataSource mới. 
-                    // LƯU Ý: Chữ "DataSet1" dưới đây phải KHỚP 100% với tên Dataset trong file .rdlc của em
-                    ReportDataSource rds = new ReportDataSource("DataSet1", dt);
-
-                    // 4. Trỏ đường dẫn tới file thiết kế rdlc
-                    // Nhớ copy tên file rdlc của em vào đây
-                    rpTop10SP.LocalReport.ReportPath = @"RptTopSach.rdlc";
-
-                    rpTop10SP.LocalReport.DataSources.Add(rds);
+                    // 4. Cung cấp DataSource cho ReportViewer
+                    reportViewer1.LocalReport.DataSources.Add(rds);
 
                     // 5. Làm mới và hiển thị
-                    rpTop10SP.RefreshReport();
-                }
-                else
-                {
-                    MessageBox.Show("Không có dữ liệu mượn sách nào để thống kê!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    reportViewer1.RefreshReport();
+
+                    // Xử lý thông báo UX cho người dùng nếu không có số liệu
+                    if (dtThongKe.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Hiện tại hệ thống chưa có dữ liệu sách mượn để thống kê!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                // Tầng GUI bắt lỗi cuối cùng và hiển thị an toàn cho người dùng
-                MessageBox.Show("Lỗi hiển thị báo cáo: \n" + ex.Message, "Lỗi Hệ Thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi tải báo cáo: " + ex.Message, "Lỗi hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FrmThongKeTopSach_Load(object sender, EventArgs e)
+        {
+            LoadBaoCao();
         }
     }
 }

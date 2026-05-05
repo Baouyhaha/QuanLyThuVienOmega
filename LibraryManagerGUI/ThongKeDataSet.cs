@@ -2,7 +2,7 @@
 {
 
 
-    partial class DsThongKe
+    partial class ThongKeDataSet
     {
     }
 }

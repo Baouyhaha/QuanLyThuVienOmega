@@ -12,20 +12,11 @@ namespace LibraryManagerBUS
     {
         private ThongKeDAL dal = new ThongKeDAL();
 
-        public DataTable GetTopSachHot(int soLuongTop = 10)
-        {
-            try
-            {
-                if (soLuongTop <= 0)
-                    throw new Exception("Số lượng thống kê phải lớn hơn 0.");
+        
 
-                return dal.LayTopSachMuonNhieuNhat(soLuongTop);
-            }
-            catch (Exception ex)
-            {
-                // Bắt lỗi từ DAL hoặc lỗi logic và ném lên GUI
-                throw new Exception("Lỗi nghiệp vụ thống kê: " + ex.Message);
-            }
+        public DataTable ThongKeTop10Sach()
+        {
+            return dal.ThongKeTop10Sach();
         }
     }
 }

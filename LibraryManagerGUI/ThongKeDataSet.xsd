@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ThongKeDataSet" targetNamespace="http://tempuri.org/ThongKeDataSet.xsd" xmlns:mstns="http://tempuri.org/ThongKeDataSet.xsd" xmlns="http://tempuri.org/ThongKeDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ThongKeDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="ThongKeDataSet" msprop:Generator_DataSetName="ThongKeDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtTopSach" msprop:Generator_RowEvHandlerName="dtTopSachRowChangeEventHandler" msprop:Generator_RowDeletedName="dtTopSachRowDeleted" msprop:Generator_RowDeletingName="dtTopSachRowDeleting" msprop:Generator_RowEvArgName="dtTopSachRowChangeEvent" msprop:Generator_TablePropName="dtTopSach" msprop:Generator_RowChangedName="dtTopSachRowChanged" msprop:Generator_RowChangingName="dtTopSachRowChanging" msprop:Generator_TableClassName="dtTopSachDataTable" msprop:Generator_RowClassName="dtTopSachRow" msprop:Generator_TableVarName="tabledtTopSach" msprop:Generator_UserTableName="dtTopSach">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="maSach" msprop:Generator_ColumnPropNameInRow="maSach" msprop:Generator_ColumnPropNameInTable="maSachColumn" msprop:Generator_ColumnVarNameInTable="columnmaSach" msprop:Generator_UserColumnName="maSach" type="xs:string" minOccurs="0" />
+              <xs:element name="tenSach" msprop:Generator_ColumnPropNameInRow="tenSach" msprop:Generator_ColumnPropNameInTable="tenSachColumn" msprop:Generator_ColumnVarNameInTable="columntenSach" msprop:Generator_UserColumnName="tenSach" type="xs:string" minOccurs="0" />
+              <xs:element name="maNhaPhatHanh" msprop:Generator_ColumnPropNameInRow="maNhaPhatHanh" msprop:Generator_ColumnPropNameInTable="maNhaPhatHanhColumn" msprop:Generator_ColumnVarNameInTable="columnmaNhaPhatHanh" msprop:Generator_UserColumnName="maNhaPhatHanh" type="xs:string" minOccurs="0" />
+              <xs:element name="tongLuotMuon" msprop:Generator_ColumnPropNameInRow="tongLuotMuon" msprop:Generator_ColumnPropNameInTable="tongLuotMuonColumn" msprop:Generator_ColumnVarNameInTable="columntongLuotMuon" msprop:Generator_UserColumnName="tongLuotMuon" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

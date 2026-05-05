@@ -11,36 +11,10 @@ namespace LibraryManagerDAL
 {
     public class ThongKeDAL
     {
-        public DataTable LayTopSachMuonNhieuNhat(int soLuongTop)
+        public DataTable ThongKeTop10Sach()
         {
-            try
-            {
-                // Truy vấn đếm số lần mượn của từng cuốn sách, sắp xếp giảm dần
-                string sql = @"
-                    SELECT TOP (@Top) s.tenSach, COUNT(ct.maBanSao) AS SoLuotMuon
-                    FROM chitietmuonsach ct
-                    JOIN bansaosach bs ON ct.maBanSao = bs.banSaoSach
-                    JOIN sach s ON bs.maSach = s.maSach
-                    GROUP BY s.tenSach
-                    ORDER BY SoLuotMuon DESC";
-
-                SqlParameter[] pars = {
-                    new SqlParameter("@Top", soLuongTop)
-                };
-
-                return DbHelper.getTable(sql, pars);
-            }
-            catch (Exception ex)
-            {
-                // Ném lỗi lên tầng BUS xử lý
-                throw new Exception("Lỗi khi truy xuất dữ liệu thống kê: " + ex.Message);
-            }
-        }
-
-        public DataTable ThongKeSachHot()
-        {
-            // Cực kỳ ngắn gọn và bảo mật
-            string sql = "EXEC sp_ThongKeTopSach";
+            // Chỉ cần gọi tên Stored Procedure, cực kỳ an toàn và bảo mật
+            string sql = "EXEC sp_ThongKeTop10SachMuon";
             return DbHelper.getTable(sql);
         }
     }
