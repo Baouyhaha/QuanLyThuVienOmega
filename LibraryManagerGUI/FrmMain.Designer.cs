@@ -62,6 +62,7 @@
             this.timerSidebar = new System.Windows.Forms.Timer(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.btnThongTinNguoiDung = new Guna.UI2.WinForms.Guna2Button();
             this.panelSidebar.SuspendLayout();
             this.panelSubMenu_ChucNang.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -87,6 +88,7 @@
             // 
             this.panelSubMenu_ChucNang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
             this.panelSubMenu_ChucNang.Controls.Add(this.btnChucNang);
+            this.panelSubMenu_ChucNang.Controls.Add(this.btnThongTinNguoiDung);
             this.panelSubMenu_ChucNang.Controls.Add(this.btnXemThongTinSach);
             this.panelSubMenu_ChucNang.Controls.Add(this.btnDangKyDocTaiCho);
             this.panelSubMenu_ChucNang.Controls.Add(this.btnDKMuonSach);
@@ -138,7 +140,7 @@
             this.btnXemThongTinSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnXemThongTinSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnXemThongTinSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnXemThongTinSach.Location = new System.Drawing.Point(3, 72);
+            this.btnXemThongTinSach.Location = new System.Drawing.Point(3, 122);
             this.btnXemThongTinSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemThongTinSach.Name = "btnXemThongTinSach";
             this.btnXemThongTinSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -158,7 +160,7 @@
             this.btnDangKyDocTaiCho.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDangKyDocTaiCho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnDangKyDocTaiCho.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDangKyDocTaiCho.Location = new System.Drawing.Point(3, 122);
+            this.btnDangKyDocTaiCho.Location = new System.Drawing.Point(3, 172);
             this.btnDangKyDocTaiCho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDangKyDocTaiCho.Name = "btnDangKyDocTaiCho";
             this.btnDangKyDocTaiCho.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -178,7 +180,7 @@
             this.btnDKMuonSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDKMuonSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnDKMuonSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDKMuonSach.Location = new System.Drawing.Point(3, 172);
+            this.btnDKMuonSach.Location = new System.Drawing.Point(3, 222);
             this.btnDKMuonSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDKMuonSach.Name = "btnDKMuonSach";
             this.btnDKMuonSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -198,7 +200,7 @@
             this.btnDKTheMuon.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDKTheMuon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnDKTheMuon.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDKTheMuon.Location = new System.Drawing.Point(3, 222);
+            this.btnDKTheMuon.Location = new System.Drawing.Point(3, 272);
             this.btnDKTheMuon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDKTheMuon.Name = "btnDKTheMuon";
             this.btnDKTheMuon.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -218,7 +220,7 @@
             this.btnTTChoMuonSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnTTChoMuonSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnTTChoMuonSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTTChoMuonSach.Location = new System.Drawing.Point(3, 272);
+            this.btnTTChoMuonSach.Location = new System.Drawing.Point(3, 322);
             this.btnTTChoMuonSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTTChoMuonSach.Name = "btnTTChoMuonSach";
             this.btnTTChoMuonSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -238,7 +240,7 @@
             this.btnTTQuanLyTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnTTQuanLyTaiKhoan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnTTQuanLyTaiKhoan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTTQuanLyTaiKhoan.Location = new System.Drawing.Point(3, 322);
+            this.btnTTQuanLyTaiKhoan.Location = new System.Drawing.Point(3, 372);
             this.btnTTQuanLyTaiKhoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTTQuanLyTaiKhoan.Name = "btnTTQuanLyTaiKhoan";
             this.btnTTQuanLyTaiKhoan.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -258,7 +260,7 @@
             this.btnQuanLyDKSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnQuanLyDKSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnQuanLyDKSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnQuanLyDKSach.Location = new System.Drawing.Point(3, 372);
+            this.btnQuanLyDKSach.Location = new System.Drawing.Point(3, 422);
             this.btnQuanLyDKSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnQuanLyDKSach.Name = "btnQuanLyDKSach";
             this.btnQuanLyDKSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -278,7 +280,7 @@
             this.btnTTQuanLyTacGIa.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnTTQuanLyTacGIa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnTTQuanLyTacGIa.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTTQuanLyTacGIa.Location = new System.Drawing.Point(3, 422);
+            this.btnTTQuanLyTacGIa.Location = new System.Drawing.Point(3, 472);
             this.btnTTQuanLyTacGIa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTTQuanLyTacGIa.Name = "btnTTQuanLyTacGIa";
             this.btnTTQuanLyTacGIa.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -298,7 +300,7 @@
             this.btnTTQuanLySach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnTTQuanLySach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnTTQuanLySach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTTQuanLySach.Location = new System.Drawing.Point(3, 472);
+            this.btnTTQuanLySach.Location = new System.Drawing.Point(3, 522);
             this.btnTTQuanLySach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTTQuanLySach.Name = "btnTTQuanLySach";
             this.btnTTQuanLySach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -318,7 +320,7 @@
             this.btnTTQuanLyBanSaoSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnTTQuanLyBanSaoSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnTTQuanLyBanSaoSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTTQuanLyBanSaoSach.Location = new System.Drawing.Point(3, 522);
+            this.btnTTQuanLyBanSaoSach.Location = new System.Drawing.Point(3, 572);
             this.btnTTQuanLyBanSaoSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTTQuanLyBanSaoSach.Name = "btnTTQuanLyBanSaoSach";
             this.btnTTQuanLyBanSaoSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -338,7 +340,7 @@
             this.btnTTNhanTraSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnTTNhanTraSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnTTNhanTraSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTTNhanTraSach.Location = new System.Drawing.Point(3, 572);
+            this.btnTTNhanTraSach.Location = new System.Drawing.Point(3, 622);
             this.btnTTNhanTraSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTTNhanTraSach.Name = "btnTTNhanTraSach";
             this.btnTTNhanTraSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -358,7 +360,7 @@
             this.btnTTQuanLyPhieuDocTaiCho.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnTTQuanLyPhieuDocTaiCho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnTTQuanLyPhieuDocTaiCho.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTTQuanLyPhieuDocTaiCho.Location = new System.Drawing.Point(3, 622);
+            this.btnTTQuanLyPhieuDocTaiCho.Location = new System.Drawing.Point(3, 672);
             this.btnTTQuanLyPhieuDocTaiCho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTTQuanLyPhieuDocTaiCho.Name = "btnTTQuanLyPhieuDocTaiCho";
             this.btnTTQuanLyPhieuDocTaiCho.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -378,7 +380,7 @@
             this.btnThongKeTopSach.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnThongKeTopSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnThongKeTopSach.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnThongKeTopSach.Location = new System.Drawing.Point(3, 672);
+            this.btnThongKeTopSach.Location = new System.Drawing.Point(3, 722);
             this.btnThongKeTopSach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThongKeTopSach.Name = "btnThongKeTopSach";
             this.btnThongKeTopSach.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -560,6 +562,26 @@
             this.guna2DragControl2.TargetControl = this;
             this.guna2DragControl2.UseTransparentDrag = true;
             // 
+            // btnThongTinNguoiDung
+            // 
+            this.btnThongTinNguoiDung.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnThongTinNguoiDung.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThongTinNguoiDung.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThongTinNguoiDung.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThongTinNguoiDung.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThongTinNguoiDung.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(113)))), ((int)(((byte)(240)))));
+            this.btnThongTinNguoiDung.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnThongTinNguoiDung.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.btnThongTinNguoiDung.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnThongTinNguoiDung.Location = new System.Drawing.Point(3, 72);
+            this.btnThongTinNguoiDung.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThongTinNguoiDung.Name = "btnThongTinNguoiDung";
+            this.btnThongTinNguoiDung.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnThongTinNguoiDung.Size = new System.Drawing.Size(201, 46);
+            this.btnThongTinNguoiDung.TabIndex = 20;
+            this.btnThongTinNguoiDung.Text = "Profile người dùng";
+            this.btnThongTinNguoiDung.Click += new System.EventHandler(this.btnThongTinNguoiDung_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -616,5 +638,6 @@
         private Guna.UI2.WinForms.Guna2Button btnTTNhanTraSach;
         private Guna.UI2.WinForms.Guna2Button btnTTChoMuonSach;
         private Guna.UI2.WinForms.Guna2Button btnThongKeTopSach;
+        private Guna.UI2.WinForms.Guna2Button btnThongTinNguoiDung;
     }
 }

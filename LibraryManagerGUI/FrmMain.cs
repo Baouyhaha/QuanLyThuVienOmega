@@ -151,7 +151,7 @@ namespace LibraryManagerGUI
                     btnDangKyDocTaiCho.Visible = false;
                     btnDKMuonSach.Visible = false;
                     btnDKTheMuon.Visible = false;
-
+                   btnThongTinNguoiDung.Visible = false;
                     btnTTChoMuonSach.Visible = true;
                     btnTTNhanTraSach.Visible = true;
                     btnTTQuanLySach.Visible = true;
@@ -170,7 +170,7 @@ namespace LibraryManagerGUI
                     btnDangKyDocTaiCho.Visible = true;
                     btnDKMuonSach.Visible = true;
                     btnDKTheMuon.Visible = true;
-
+                    btnThongTinNguoiDung.Visible = true;
                     btnTTChoMuonSach.Visible = false;
                     btnTTNhanTraSach.Visible = false;
                     btnTTQuanLySach.Visible = false;
@@ -189,7 +189,7 @@ namespace LibraryManagerGUI
                     btnDangKyDocTaiCho.Visible = true;
                     btnDKMuonSach.Visible = false;
                     btnDKTheMuon.Visible = false;
-
+                    btnThongTinNguoiDung.Visible = false;
                     btnTTChoMuonSach.Visible = false;
                     btnTTNhanTraSach.Visible = false;
                     btnTTQuanLySach.Visible = false;
@@ -325,6 +325,11 @@ namespace LibraryManagerGUI
         private void btnQuanLyDKSach_Click(object sender, EventArgs e)
         {
             openChildForm(new FrmQuanLyDangKySach());
+        }
+
+        private void btnThongTinNguoiDung_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmProfileNguoiDung());
         }
     }
 }
