@@ -25,21 +25,22 @@ namespace LibraryManagerGUI
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            // Bật hộp thoại hỏi người dùng (Yes/No)
+            // 1. Bật hộp thoại hỏi người dùng xác nhận
             DialogResult xacNhan = MessageBox.Show("Bạn có chắc chắn muốn đăng ký tài khoản với các thông tin này không?",
                                                    "Xác nhận đăng ký",
                                                    MessageBoxButtons.YesNo,
                                                    MessageBoxIcon.Question);
 
-            // Nếu người dùng chọn No thì kết thúc hàm luôn, không làm gì cả
+            // Nếu người dùng chọn No thì dừng hàm luôn
             if (xacNhan == DialogResult.No)
             {
                 return;
             }
 
-            // Nếu chọn Yes thì bắt đầu chạy try-catch
+            // 2. Nếu chọn Yes, tiến hành đóng gói dữ liệu và gọi tầng BUS
             try
             {
+                // Đóng gói thông tin cho bảng taikhoan
                 TaiKhoanDTO tkMoi = new TaiKhoanDTO
                 {
                     TenTaiKhoan = txtTenTaiKhoan.Text.Trim(),
@@ -50,28 +51,41 @@ namespace LibraryManagerGUI
                     SoDienThoai = txtSDT.Text.Trim()
                 };
 
+                // Đóng gói thông tin đặc thù cho bảng nguoimuon
+                // LƯU Ý: Em cần đảm bảo các Control như dtpNgaySinh, txtDiaChi, cboLoaiKhach, txtMaDinhDanh đã được đặt tên đúng trong Designer
+                NguoiMuonDTO nmMoi = new NguoiMuonDTO
+                {
+                    NgaySinh = dtpNgaySinh.Value, // Lấy giá trị từ DateTimePicker
+                    DiaChi = txtDiaChi.Text.Trim(),
+                    LoaiKhach = cboLoaiKhach.Text, // ComboBox chọn: Sinh viên / Khách ngoài
+                    MaDinhDanh = txtMaDinhDanh.Text.Trim() // Nhập MSSV hoặc CCCD vào đây
+                };
+
                 string xacNhanMK = txtXacNhanMatKhau.Text.Trim();
 
-                taiKhoanBUS.DangKy(tkMoi, xacNhanMK);
+                // Gọi tầng BUS xử lý nghiệp vụ kiểm tra và lưu vào CSDL
+                bool ketQua = taiKhoanBUS.DangKy(tkMoi, nmMoi, xacNhanMK);
 
-                MessageBox.Show("Đăng ký thành công! Vui lòng liên hệ thủ thư để kích hoạt tài khoản.",
-                                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                if (ketQua)
+                {
+                    MessageBox.Show("Đăng ký thành công! Tài khoản của bạn đã được chuyển sang trạng thái chờ cấp thẻ.",
+                                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close(); // Đóng form đăng ký sau khi thành công
+                }
             }
             catch (Exception ex)
             {
-                // Bắt chính xác từng câu báo lỗi từ lớp BUS và in ra
-                MessageBox.Show(ex.Message, "Lỗi Nhập Liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Nhận chính xác thông báo lỗi từ tầng BUS hoặc lỗi chi tiết từ tầng DAO gửi lên và hiển thị
+                MessageBox.Show(ex.Message, "Lỗi Đăng Ký", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void txtTenTaiKhoan_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            // Cho phép phím điều khiển (như Backspace) và phím chữ, số.
-            // Nếu gõ ký tự đặc biệt (!@#$...) hoặc khoảng trắng thì chặn lại ngay lập tức.
+            // Chặn khoảng trắng và ký tự đặc biệt ngay khi gõ tên tài khoản
             if (!char.IsControl(e.KeyChar) && !char.IsLetterOrDigit(e.KeyChar))
             {
-                e.Handled = true; // Lệnh này giúp "hủy" phím vừa gõ
+                e.Handled = true;
                 MessageBox.Show("Tên tài khoản không được chứa khoảng trắng hoặc ký tự đặc biệt!",
                                 "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -84,14 +98,12 @@ namespace LibraryManagerGUI
             if (isMatKhauHidden)
             {
                 txtMatKhau.PasswordChar = '*'; // Ẩn chữ
-                                               // Thay hình bằng mắt nhắm (lấy từ Resources)
-                txtMatKhau.IconRight = Properties.Resources.close_eye;
+                txtMatKhau.IconRight = Properties.Resources.close_eye; // Mắt nhắm
             }
             else
             {
                 txtMatKhau.PasswordChar = '\0'; // Hiện chữ
-                                                // Thay hình bằng mắt mở
-                txtMatKhau.IconRight = Properties.Resources.show;
+                txtMatKhau.IconRight = Properties.Resources.show; // Mắt mở
             }
         }
 
@@ -99,15 +111,13 @@ namespace LibraryManagerGUI
         {
             isXacNhanMKHidden = !isXacNhanMKHidden; // Đảo ngược trạng thái
 
+            // ĐÃ SỬA: Gom cấu trúc ngoặc nhọn chuẩn chỉnh để không bị lỗi luôn hiện chữ như bản cũ
             if (isXacNhanMKHidden)
             {
                 txtXacNhanMatKhau.PasswordChar = '*';
                 txtXacNhanMatKhau.IconRight = Properties.Resources.close_eye;
             }
             else
-            {
-
-            }
             {
                 txtXacNhanMatKhau.PasswordChar = '\0';
                 txtXacNhanMatKhau.IconRight = Properties.Resources.show;

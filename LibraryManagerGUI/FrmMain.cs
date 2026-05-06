@@ -41,6 +41,7 @@ namespace LibraryManagerGUI
         bool sidebarExpand = true; // Ban đầu là mở rộng
 
         private Form activeForm = null; // Biến để lưu trữ Form đang hiển thị
+
         private void openChildForm(Form childForm)
         {
             // 1. Nếu đã có một Form đang mở, hãy đóng nó lại để giải phóng bộ nhớ
@@ -64,11 +65,9 @@ namespace LibraryManagerGUI
         private void timerMenuChucNang_Tick(object sender, EventArgs e)
         {
             int tocDoTruot = 15; // Em có thể chỉnh số này to lên để trượt nhanh hơn
-
             if (isMenuCollapsed) // TRƯỜNG HỢP: Đang đóng -> Cần MỞ RA
             {
                 panelSubMenu_ChucNang.Height += tocDoTruot;
-
                 // Nếu đã trượt tới vạch đích (chiều cao vừa đủ)
                 if (panelSubMenu_ChucNang.Height >= chieuCaoMucTieu)
                 {
@@ -80,10 +79,9 @@ namespace LibraryManagerGUI
             else // TRƯỜNG HỢP: Đang mở -> Cần ĐÓNG LẠI
             {
                 panelSubMenu_ChucNang.Height -= tocDoTruot;
-
                 // Nếu đã thu về 0
                 if (panelSubMenu_ChucNang.Height <= 66)
-                {
+                {   
                     panelSubMenu_ChucNang.Height = 66;
                     timerMenuChucNang.Stop();
                     isMenuCollapsed = true; // Cập nhật trạng thái là đã đóng
@@ -101,14 +99,6 @@ namespace LibraryManagerGUI
 
             // Khởi động Timer
             timerMenuChucNang.Start();
-        }
-        private void guna2Button2_Click(object sender, EventArgs e)
-        {
-            openChildForm(new FrmQuanLySach());
-        }
-        private void guna2Button4_Click(object sender, EventArgs e)
-        {
-            openChildForm(new FrmCapNhatThongTinThe());
         }
         private void timerSidebar_Tick(object sender, EventArgs e)
         {
@@ -139,6 +129,7 @@ namespace LibraryManagerGUI
         }
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized; // Luôn mở to hết màn hình khi chạy
             // Sử dụng biến currentRole đã được truyền vào từ Constructor ở bài trước
             switch (currentRole)
             {
@@ -151,8 +142,7 @@ namespace LibraryManagerGUI
                     btnDangKyDocTaiCho.Visible = false;
                     btnDKMuonSach.Visible = false;
                     btnDKTheMuon.Visible = false;
-                   btnThongTinNguoiDung.Visible = false;
-                    btnTTChoMuonSach.Visible = true;
+                    btnThongTinNguoiDung.Visible = false;
                     btnTTNhanTraSach.Visible = true;
                     btnTTQuanLySach.Visible = true;
                     btnQuanLyDKSach.Visible = true;
@@ -172,7 +162,6 @@ namespace LibraryManagerGUI
                     btnDKMuonSach.Visible = true;
                     btnDKTheMuon.Visible = true;
                     btnThongTinNguoiDung.Visible = true;
-                    btnTTChoMuonSach.Visible = false;
                     btnTTNhanTraSach.Visible = false;
                     btnTTQuanLySach.Visible = false;
                     btnQuanLyDKSach.Visible = false;
@@ -192,7 +181,6 @@ namespace LibraryManagerGUI
                     btnDKMuonSach.Visible = false;
                     btnDKTheMuon.Visible = false;
                     btnThongTinNguoiDung.Visible = false;
-                    btnTTChoMuonSach.Visible = false;
                     btnTTNhanTraSach.Visible = false;
                     btnTTQuanLySach.Visible = false;
                     btnQuanLyDKSach.Visible = false;
@@ -211,8 +199,7 @@ namespace LibraryManagerGUI
                     btnDangKyDocTaiCho.Visible = true;
                     btnDKMuonSach.Visible = false;
                     btnDKTheMuon.Visible = false;
-
-                    btnTTChoMuonSach.Visible=false;
+                    btnThongTinNguoiDung.Visible = false;
                     btnTTNhanTraSach.Visible = false;
                     btnTTQuanLySach.Visible = false;
                     btnQuanLyDKSach.Visible=false;
@@ -246,19 +233,22 @@ namespace LibraryManagerGUI
         }
         private void TinhChieuCaoVuaDu()
         {
-            chieuCaoMucTieu = 0; // Reset về 0 trước khi đếm
+            int chieuCaoBanDau = panelSubMenu_ChucNang.Height;
 
-            // Duyệt qua từng control (nút bấm) nằm trong panelSubMenu
-            foreach (Control ctrl in panelSubMenu_ChucNang.Controls)
+            panelSubMenu_ChucNang.Height = 2000;
+
+            panelSubMenu_ChucNang.PerformLayout();
+            int tongChieuCao = 0;
+            foreach (Control con in panelSubMenu_ChucNang.Controls)
             {
-                // QUAN TRỌNG: Chỉ cộng chiều cao của những nút đang được phân quyền cho phép hiện
-                if (ctrl.Visible == true)
+                if (con.Visible)
                 {
-                    chieuCaoMucTieu += ctrl.Height;
+                    tongChieuCao += con.Height;
                 }
             }
+            chieuCaoMucTieu = tongChieuCao + 10;
 
-            //chieuCaoMucTieu += 5; 
+            panelSubMenu_ChucNang.Height = chieuCaoBanDau;
         }
 
         private void btnXemThongTinSach_Click(object sender, EventArgs e)
@@ -279,11 +269,6 @@ namespace LibraryManagerGUI
         private void btnDangKyTheMuon_Click(object sender, EventArgs e)
         {
             openChildForm(new FrmDangKyTheMuon_NguoiDung());
-        }
-
-        private void btnTTChoMuonSach_Click(object sender, EventArgs e)
-        {
-            openChildForm(new FrmChoMuonSach());
         }
 
         private void btnTTNhanTraSach_Click(object sender, EventArgs e)
@@ -308,7 +293,7 @@ namespace LibraryManagerGUI
 
         private void btnTTQuanLyTacGIa_Click(object sender, EventArgs e)
         {
-            
+            openChildForm(new FrmQuanLyTacGia());
         }
 
         private void btnTTQuanLyBanSaoSach_Click(object sender, EventArgs e)

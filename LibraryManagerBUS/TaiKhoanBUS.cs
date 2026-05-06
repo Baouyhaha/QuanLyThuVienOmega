@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using LibraryManagerDAL;
 using LibraryManagerDAO;
 using LibraryManagerDTO;
 
@@ -13,6 +14,7 @@ namespace LibraryManagerBUS
     public class TaiKhoanBUS
     {
         private TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
+        private NguoiMuonDAL nguoiMuonDAL = new NguoiMuonDAL();
 
         public void DangKy(TaiKhoanDTO tk, string xacNhanMatKhau)
         {
@@ -90,6 +92,57 @@ namespace LibraryManagerBUS
         public bool DuyetHoacHuyThe(string maNM, int trangThai, int tienCoc)
         {
             return taiKhoanDAO.CapNhatTrangThaiThe(maNM, trangThai, tienCoc);
+        }
+
+        //code moi
+        public bool DangKy(TaiKhoanDTO tk, NguoiMuonDTO nm, string xacNhanMK)
+        {
+            // 1. Ràng buộc dữ liệu: Không được để trống các trường bắt buộc
+            if (string.IsNullOrEmpty(tk.TenTaiKhoan) || string.IsNullOrEmpty(tk.MatKhau) || string.IsNullOrEmpty(tk.Ten))
+            {
+                throw new Exception("Tên tài khoản, mật khẩu và họ tên không được để trống!");
+            }
+
+            if (string.IsNullOrEmpty(nm.LoaiKhach) || string.IsNullOrEmpty(nm.MaDinhDanh))
+            {
+                throw new Exception("Vui lòng chọn loại khách và nhập mã định danh (MSSV/CCCD)!");
+            }
+
+            // 2. Kiểm tra trùng khớp mật khẩu nhập lại
+            if (tk.MatKhau != xacNhanMK)
+            {
+                throw new Exception("Mật khẩu và xác nhận mật khẩu không trùng khớp!");
+            }
+
+            // 3. Kiểm tra độ an toàn mật khẩu (Ví dụ: tối thiểu 6 ký tự)
+            if (tk.MatKhau.Length < 6)
+            {
+                throw new Exception("Mật khẩu phải có độ dài từ 6 ký tự trở lên để đảm bảo bảo mật!");
+            }
+
+            // 4. Kiểm tra trùng tên tài khoản (Gọi DAO kiểm tra dưới Database)
+            // Đây chính là bước giải quyết tận gốc lỗi "giới hạn tài khoản" (trùng khóa chính) 
+            if (nguoiMuonDAL.KiemTraTrungTenTaiKhoan(tk.TenTaiKhoan))
+            {
+                throw new Exception("Tên tài khoản này đã tồn tại trong hệ thống! Vui lòng chọn tên đăng nhập khác.");
+            }
+
+            // 5. Tự động đồng bộ và thiết lập các thông số hệ thống
+            nm.TenTaiKhoan = tk.TenTaiKhoan; // Gắn khóa ngoại liên kết 2 bảng
+            nm.HoTen = tk.Ten;               // Đồng bộ Họ tên sang bảng người mượn
+            nm.Sdt = tk.SoDienThoai;         // Đồng bộ Số điện thoại
+            nm.Email = tk.Email;             // Đồng bộ Email
+
+            nm.SoTienDatCoc = 0;             // Đăng ký online mặc định tiền ký quỹ bằng 0
+            nm.TrangThai = 2;                // Đặt trạng thái mặc định bằng 1 (Chờ cấp thẻ)
+
+            // 6. Thuật toán tự động sinh Mã Người Mượn (Không bắt người dùng nhập)
+            // Định dạng: NM + Chuỗi thời gian hiện tại (NămThángNgàyGiờPhútGiây) 
+            // Đảm bảo tính duy nhất tuyệt đối và độ dài vừa vặn trong khoảng VARCHAR(20)
+            nm.MaNguoiMuon = "NM" + DateTime.Now.ToString("yyMMddHHmmss");
+
+            // 7. Sau khi tất cả điều kiện đã hợp lệ -> Đẩy xuống DAO để thực thi ghi vào DB
+            return nguoiMuonDAL.DangKyHethong(tk, nm);
         }
     }
 }

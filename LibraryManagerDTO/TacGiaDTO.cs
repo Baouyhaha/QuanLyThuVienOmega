@@ -8,7 +8,7 @@ namespace LibraryManagerDTO
 {
     public class TacGiaDTO
     {
-        public int maTacGia {  get; set; }
-        public string tenTacGia { get;set; }
+        public int MaTacGia {  get; set; }
+        public string TenTacGia { get;set; }
     }
 }

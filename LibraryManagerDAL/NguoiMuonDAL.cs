@@ -1,11 +1,12 @@
-﻿using LibraryManagerDAO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibraryManagerDAO;
+using LibraryManagerDTO;
 
 namespace LibraryManagerDAL
 {
@@ -69,6 +70,80 @@ namespace LibraryManagerDAL
 
             // Nếu có thẻ, trả về trạng thái của thẻ (0: Hợp lệ, 1: Hết hạn)
             return Convert.ToInt32(dt.Rows[0]["trangThai"]);
+        }
+        ///code moi
+        ///
+
+        // 1. Hàm kiểm tra trùng tên tài khoản để gọi trước khi đăng ký
+        public bool KiemTraTrungTenTaiKhoan(string tenTaiKhoan)
+        {
+            string sql = "SELECT COUNT(*) FROM taikhoan WHERE tenTaiKhoan = @TenTaiKhoan";
+            SqlParameter[] parameters = {
+                new SqlParameter("@TenTaiKhoan", SqlDbType.VarChar) { Value = tenTaiKhoan }
+            };
+
+            object result = DbHelper.executeScalar(sql, parameters);
+            if (result != null)
+            {
+                return Convert.ToInt32(result) > 0; // Trả về true nếu đã tồn tại
+            }
+            return false;
+        }
+        // 2. Hàm thực hiện chèn dữ liệu vào 2 bảng (Sử dụng cấu trúc bảng chuẩn của em)
+        public bool DangKyHethong(TaiKhoanDTO tk, NguoiMuonDTO nm)
+        {
+            using (SqlConnection conn = DbHelper.getConnection())
+            {
+                conn.Open();
+                using (SqlTransaction transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        // ---- THAO TÁC 1: Thêm vào bảng taikhoan ----
+                        string sqlTaiKhoan = @"INSERT INTO taikhoan (tenTaiKhoan, matKhau, ten, gioiTinh, email, soDienThoai) 
+                                               VALUES (@TenTaiKhoan, @MatKhau, @Ten, @GioiTinh, @Email, @SoDienThoai)";
+
+                        SqlCommand cmdTK = new SqlCommand(sqlTaiKhoan, conn, transaction);
+                        cmdTK.Parameters.AddWithValue("@TenTaiKhoan", tk.TenTaiKhoan);
+                        cmdTK.Parameters.AddWithValue("@MatKhau", tk.MatKhau);
+                        cmdTK.Parameters.AddWithValue("@Ten", tk.Ten);
+                        cmdTK.Parameters.AddWithValue("@GioiTinh", tk.GioiTinh);
+                        cmdTK.Parameters.AddWithValue("@Email", tk.Email);
+                        cmdTK.Parameters.AddWithValue("@SoDienThoai", tk.SoDienThoai);
+
+                        cmdTK.ExecuteNonQuery();
+
+                        // ---- THAO TÁC 2: Thêm vào bảng nguoimuon ----
+                        string sqlNguoiMuon = @"INSERT INTO nguoimuon (maNguoiMuon, tenTaiKhoan, hoTen, ngaySinh, sdt, email, diaChi, loaiKhach, maDinhDanh, soTienDatCoc, trangThai) 
+                                                VALUES (@MaNguoiMuon, @TenTaiKhoan, @HoTen, @NgaySinh, @Sdt, @Email, @DiaChi, @LoaiKhach, @MaDinhDanh, @SoTienDatCoc, @TrangThai)";
+
+                        SqlCommand cmdNM = new SqlCommand(sqlNguoiMuon, conn, transaction);
+                        cmdNM.Parameters.AddWithValue("@MaNguoiMuon", nm.MaNguoiMuon);
+                        cmdNM.Parameters.AddWithValue("@TenTaiKhoan", nm.TenTaiKhoan);
+                        cmdNM.Parameters.AddWithValue("@HoTen", nm.HoTen);
+                        cmdNM.Parameters.AddWithValue("@NgaySinh", nm.NgaySinh);
+                        cmdNM.Parameters.AddWithValue("@Sdt", nm.Sdt);
+                        cmdNM.Parameters.AddWithValue("@Email", nm.Email);
+                        cmdNM.Parameters.AddWithValue("@DiaChi", nm.DiaChi);
+                        cmdNM.Parameters.AddWithValue("@LoaiKhach", nm.LoaiKhach);
+                        cmdNM.Parameters.AddWithValue("@MaDinhDanh", nm.MaDinhDanh);
+                        cmdNM.Parameters.AddWithValue("@SoTienDatCoc", nm.SoTienDatCoc); // Mặc định truyền vào là 0
+                        cmdNM.Parameters.AddWithValue("@TrangThai", nm.TrangThai);       // Mặc định truyền vào là 1 theo yêu cầu
+
+                        cmdNM.ExecuteNonQuery();
+
+                        // Nếu cả 2 câu lệnh đều thành công, tiến hành Commit để lưu thật vào DB
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        // Có lỗi ở bất kỳ đâu sẽ lập tức hủy bỏ toàn bộ, không để lại dữ liệu rác
+                        transaction.Rollback();
+                        throw new Exception("Lỗi thực thi tại tầng DAO: " + ex.Message);
+                    }
+                }
+            }
         }
     }
 }
